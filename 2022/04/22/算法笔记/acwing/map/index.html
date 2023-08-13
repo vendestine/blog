@@ -7,8 +7,8 @@
 
 <head>
   <meta charset="UTF-8">
-  <link rel="apple-touch-icon" sizes="76x76" href="/img/fluid.png">
-  <link rel="icon" href="/img/fluid.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="/blog/img/fluid.png">
+  <link rel="icon" href="/blog/img/fluid.png">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
   
@@ -19,18 +19,18 @@
     <meta name="description" content="图论的常见算法">
 <meta property="og:type" content="article">
 <meta property="og:title" content="算法-图论">
-<meta property="og:url" content="https://vendestine.com/2022/04/22/%E7%AE%97%E6%B3%95%E7%AC%94%E8%AE%B0/acwing/map/index.html">
+<meta property="og:url" content="https://vendestine.github.io/blog/2022/04/22/%E7%AE%97%E6%B3%95%E7%AC%94%E8%AE%B0/acwing/map/index.html">
 <meta property="og:site_name" content="Blog">
 <meta property="og:description" content="图论的常见算法">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="https://vendestine.com/img/algorithm.jpg">
+<meta property="og:image" content="https://vendestine.github.io/blog/img/algorithm.jpg">
 <meta property="article:published_time" content="2022-04-22T14:32:54.000Z">
 <meta property="article:modified_time" content="2023-08-13T09:07:29.228Z">
 <meta property="article:author" content="Wenzhe Li">
 <meta property="article:tag" content="算法">
 <meta property="article:tag" content="图论">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://vendestine.com/img/algorithm.jpg">
+<meta name="twitter:image" content="https://vendestine.github.io/blog/img/algorithm.jpg">
   
   
   
@@ -58,12 +58,12 @@
 <link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
 
 
-<link  rel="stylesheet" href="/css/main.css" />
+<link  rel="stylesheet" href="/blog/css/main.css" />
 
 
-  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  <link id="highlight-css" rel="stylesheet" href="/blog/css/highlight.css" />
   
-    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+    <link id="highlight-css-dark" rel="stylesheet" href="/blog/css/highlight-dark.css" />
   
 
 
@@ -72,15 +72,15 @@
   <script id="fluid-configs">
     var Fluid = window.Fluid || {};
     Fluid.ctx = Object.assign({}, Fluid.ctx)
-    var CONFIG = {"hostname":"vendestine.com","root":"/","version":"1.9.5","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":"rsfCNwYEYG167BlEXzFi6nFM-9Nh9j0Va","app_key":"YgnhSGLdGVYg7L4mapy5ab5f","server_url":"https://rsfcnwye.lc-cn-e1-shared.com","path":"window.location.pathname","ignore_local":true}},"search_path":"/local-search.xml","include_content_in_search":true};
+    var CONFIG = {"hostname":"vendestine.github.io","root":"/blog/","version":"1.9.5","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":"rsfCNwYEYG167BlEXzFi6nFM-9Nh9j0Va","app_key":"YgnhSGLdGVYg7L4mapy5ab5f","server_url":"https://rsfcnwye.lc-cn-e1-shared.com","path":"window.location.pathname","ignore_local":true}},"search_path":"/blog/local-search.xml","include_content_in_search":true};
 
     if (CONFIG.web_analytics.follow_dnt) {
       var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
       Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
     }
   </script>
-  <script  src="/js/utils.js" ></script>
-  <script  src="/js/color-schema.js" ></script>
+  <script  src="/blog/js/utils.js" ></script>
+  <script  src="/blog/js/color-schema.js" ></script>
   
 
   
@@ -126,7 +126,7 @@
 <div class="header-inner" style="height: 70vh;">
   <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
   <div class="container">
-    <a class="navbar-brand" href="/">
+    <a class="navbar-brand" href="/blog/">
       <strong>Vendestine&#39;s Blog</strong>
     </a>
 
@@ -145,7 +145,7 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/">
+              <a class="nav-link" href="/blog/">
                 <i class="iconfont icon-home-fill"></i>
                 <span>Home</span>
               </a>
@@ -157,7 +157,7 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/archives/">
+              <a class="nav-link" href="/blog/archives/">
                 <i class="iconfont icon-archive-fill"></i>
                 <span>Archives</span>
               </a>
@@ -169,7 +169,7 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/categories/">
+              <a class="nav-link" href="/blog/categories/">
                 <i class="iconfont icon-category-fill"></i>
                 <span>Categories</span>
               </a>
@@ -181,7 +181,7 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/tags/">
+              <a class="nav-link" href="/blog/tags/">
                 <i class="iconfont icon-tags-fill"></i>
                 <span>Tags</span>
               </a>
@@ -193,7 +193,7 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/about/">
+              <a class="nav-link" href="/blog/about/">
                 <i class="iconfont icon-user-fill"></i>
                 <span>About</span>
               </a>
@@ -223,7 +223,7 @@
   
 
 <div id="banner" class="banner" parallax=true
-     style="background: url('/img/fox.png') no-repeat center center; background-size: cover;">
+     style="background: url('/blog/img/fox.png') no-repeat center center; background-size: cover;">
   <div class="full-bg-img">
     <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
       <div class="banner-text text-center fade-in-up">
@@ -362,7 +362,7 @@
     
       
       
-        <a href="/2022/03/19/%E7%AE%97%E6%B3%95%E7%AC%94%E8%AE%B0/acwing/binary-search/" title="算法-二分"
+        <a href="/blog/2022/03/19/%E7%AE%97%E6%B3%95%E7%AC%94%E8%AE%B0/acwing/binary-search/" title="算法-二分"
            class="list-group-item list-group-item-action
            ">
           <span class="category-post">算法-二分</span>
@@ -371,7 +371,7 @@
     
       
       
-        <a href="/2022/05/05/%E7%AE%97%E6%B3%95%E7%AC%94%E8%AE%B0/acwing/bit-discrete/" title="算法-位运算，离散化，区间合并"
+        <a href="/blog/2022/05/05/%E7%AE%97%E6%B3%95%E7%AC%94%E8%AE%B0/acwing/bit-discrete/" title="算法-位运算，离散化，区间合并"
            class="list-group-item list-group-item-action
            ">
           <span class="category-post">算法-位运算，离散化，区间合并</span>
@@ -380,7 +380,7 @@
     
       
       
-        <a href="/2022/03/27/%E7%AE%97%E6%B3%95%E7%AC%94%E8%AE%B0/acwing/prefix-difference/" title="算法-前缀和与差分"
+        <a href="/blog/2022/03/27/%E7%AE%97%E6%B3%95%E7%AC%94%E8%AE%B0/acwing/prefix-difference/" title="算法-前缀和与差分"
            class="list-group-item list-group-item-action
            ">
           <span class="category-post">算法-前缀和与差分</span>
@@ -389,7 +389,7 @@
     
       
       
-        <a href="/2022/05/10/%E7%AE%97%E6%B3%95%E7%AC%94%E8%AE%B0/acwing/dp-basic/" title="算法-动态规划"
+        <a href="/blog/2022/05/10/%E7%AE%97%E6%B3%95%E7%AC%94%E8%AE%B0/acwing/dp-basic/" title="算法-动态规划"
            class="list-group-item list-group-item-action
            ">
           <span class="category-post">算法-动态规划</span>
@@ -398,7 +398,7 @@
     
       
       
-        <a href="/2022/03/29/%E7%AE%97%E6%B3%95%E7%AC%94%E8%AE%B0/acwing/two-pointer/" title="算法-双指针算法"
+        <a href="/blog/2022/03/29/%E7%AE%97%E6%B3%95%E7%AC%94%E8%AE%B0/acwing/two-pointer/" title="算法-双指针算法"
            class="list-group-item list-group-item-action
            ">
           <span class="category-post">算法-双指针算法</span>
@@ -407,7 +407,7 @@
     
       
       
-        <a href="/2022/04/22/%E7%AE%97%E6%B3%95%E7%AC%94%E8%AE%B0/acwing/map/" title="算法-图论"
+        <a href="/blog/2022/04/22/%E7%AE%97%E6%B3%95%E7%AC%94%E8%AE%B0/acwing/map/" title="算法-图论"
            class="list-group-item list-group-item-action
            active">
           <span class="category-post">算法-图论</span>
@@ -416,7 +416,7 @@
     
       
       
-        <a href="/2022/03/16/%E7%AE%97%E6%B3%95%E7%AC%94%E8%AE%B0/acwing/quick-sort/" title="算法-快速排序+归并排序"
+        <a href="/blog/2022/03/16/%E7%AE%97%E6%B3%95%E7%AC%94%E8%AE%B0/acwing/quick-sort/" title="算法-快速排序+归并排序"
            class="list-group-item list-group-item-action
            ">
           <span class="category-post">算法-快速排序+归并排序</span>
@@ -425,7 +425,7 @@
     
       
       
-        <a href="/2022/04/20/%E7%AE%97%E6%B3%95%E7%AC%94%E8%AE%B0/acwing/bfs-dfs/" title="算法-搜索"
+        <a href="/blog/2022/04/20/%E7%AE%97%E6%B3%95%E7%AC%94%E8%AE%B0/acwing/bfs-dfs/" title="算法-搜索"
            class="list-group-item list-group-item-action
            ">
           <span class="category-post">算法-搜索</span>
@@ -434,7 +434,7 @@
     
       
       
-        <a href="/2022/04/15/%E7%AE%97%E6%B3%95%E7%AC%94%E8%AE%B0/acwing/trie-heap/" title="算法-数据结构：Trie树和堆"
+        <a href="/blog/2022/04/15/%E7%AE%97%E6%B3%95%E7%AC%94%E8%AE%B0/acwing/trie-heap/" title="算法-数据结构：Trie树和堆"
            class="list-group-item list-group-item-action
            ">
           <span class="category-post">算法-数据结构：Trie树和堆</span>
@@ -443,7 +443,7 @@
     
       
       
-        <a href="/2022/04/10/%E7%AE%97%E6%B3%95%E7%AC%94%E8%AE%B0/acwing/hash/" title="算法-数据结构：哈希表，并查集，KMP"
+        <a href="/blog/2022/04/10/%E7%AE%97%E6%B3%95%E7%AC%94%E8%AE%B0/acwing/hash/" title="算法-数据结构：哈希表，并查集，KMP"
            class="list-group-item list-group-item-action
            ">
           <span class="category-post">算法-数据结构：哈希表，并查集，KMP</span>
@@ -452,7 +452,7 @@
     
       
       
-        <a href="/2022/04/07/%E7%AE%97%E6%B3%95%E7%AC%94%E8%AE%B0/acwing/stack-queue/" title="算法-数据结构：栈与队列"
+        <a href="/blog/2022/04/07/%E7%AE%97%E6%B3%95%E7%AC%94%E8%AE%B0/acwing/stack-queue/" title="算法-数据结构：栈与队列"
            class="list-group-item list-group-item-action
            ">
           <span class="category-post">算法-数据结构：栈与队列</span>
@@ -461,7 +461,7 @@
     
       
       
-        <a href="/2022/04/02/%E7%AE%97%E6%B3%95%E7%AC%94%E8%AE%B0/acwing/list/" title="算法-数据结构：链表"
+        <a href="/blog/2022/04/02/%E7%AE%97%E6%B3%95%E7%AC%94%E8%AE%B0/acwing/list/" title="算法-数据结构：链表"
            class="list-group-item list-group-item-action
            ">
           <span class="category-post">算法-数据结构：链表</span>
@@ -470,7 +470,7 @@
     
       
       
-        <a href="/2022/03/25/%E7%AE%97%E6%B3%95%E7%AC%94%E8%AE%B0/acwing/big-integer/" title="算法-高精度运算"
+        <a href="/blog/2022/03/25/%E7%AE%97%E6%B3%95%E7%AC%94%E8%AE%B0/acwing/big-integer/" title="算法-高精度运算"
            class="list-group-item list-group-item-action
            ">
           <span class="category-post">算法-高精度运算</span>
@@ -507,7 +507,7 @@
     
       
       
-        <a href="/2023/01/10/%E7%AE%97%E6%B3%95%E7%AC%94%E8%AE%B0/leetcode/leetcode-1-100/" title="LeetCode题目合集"
+        <a href="/blog/2023/01/10/%E7%AE%97%E6%B3%95%E7%AC%94%E8%AE%B0/leetcode/leetcode-1-100/" title="LeetCode题目合集"
            class="list-group-item list-group-item-action
            ">
           <span class="category-post">LeetCode题目合集</span>
@@ -516,7 +516,7 @@
     
       
       
-        <a href="/2023/01/11/%E7%AE%97%E6%B3%95%E7%AC%94%E8%AE%B0/leetcode/binary-tree/" title="算法-二叉树"
+        <a href="/blog/2023/01/11/%E7%AE%97%E6%B3%95%E7%AC%94%E8%AE%B0/leetcode/binary-tree/" title="算法-二叉树"
            class="list-group-item list-group-item-action
            ">
           <span class="category-post">算法-二叉树</span>
@@ -553,7 +553,7 @@
     
       
       
-        <a href="/2023/02/04/%E7%AE%97%E6%B3%95%E7%AC%94%E8%AE%B0/%E4%B8%AA%E4%BA%BA%E6%80%BB%E7%BB%93/STL-application/" title="算法-数据结构：STL常用技巧"
+        <a href="/blog/2023/02/04/%E7%AE%97%E6%B3%95%E7%AC%94%E8%AE%B0/%E4%B8%AA%E4%BA%BA%E6%80%BB%E7%BB%93/STL-application/" title="算法-数据结构：STL常用技巧"
            class="list-group-item list-group-item-action
            ">
           <span class="category-post">算法-数据结构：STL常用技巧</span>
@@ -598,7 +598,7 @@
 <h2 id="树与图的深度优先遍历"><a href="#树与图的深度优先遍历" class="headerlink" title="树与图的深度优先遍历"></a>树与图的深度优先遍历</h2><p>首先我们要明确一个概念，那就是树是一种特殊的图，也就是无环连通图。<br>所以如果一个树有n个节点，那么对于任意两个节点之间有两条边，也就是2n - 2条边</p>
 <p>然后对于树我们一般用邻接表来存，邻接表其实就是多个单链表。</p>
 <p>关于节点，链表，邻接表，以及如何用邻接表表示树，这其中涉及到的概念很容易混淆，我们在这里进行详细的解读</p>
-<p><img src="/../img/algorithm_map/summary.jpg" srcset="/img/loading.gif" lazyload alt="完全解读"></p>
+<p><img src="/blog/../img/algorithm_map/summary.jpg" srcset="/blog/img/loading.gif" lazyload alt="完全解读"></p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><code class="hljs C++"><span class="hljs-comment">//为了方便快速转化，这里列出一些常见的操作</span><br><br><span class="hljs-comment">// 1. 地址，指针，下标 （这三个词基本可以等价）</span><br><span class="hljs-comment">// 2. 地址（唯一）可以指代节点，所以指针or下标可以直接指代节点</span><br><span class="hljs-comment">// 3. 常见操作一一对应</span><br><br><span class="hljs-comment">//动态</span><br>ListNode* i： 指针i，指向一个节点，简称 i的节点（不固定，因为指针会移动）<br>i-&gt;val: i的节点的val<br>i-&gt;next: i的节点的next指针<br>i = p: 指针i移动到指针p的位置<br>i-&gt;next = p: i的节点指向p的节点<br><br><span class="hljs-comment">//静态</span><br><span class="hljs-type">int</span> i: 节点下标i，指向一个节点，简称 i的节点（不固定，因为下标会变）<br>e[i]: i的节点的val<br>ne[i]: i的节点的next下标<br>i = p: 下标i变成下标p<br>ne[i] = p: i的节点指向p的节点<br></code></pre></td></tr></table></figure>
 
 <p><strong>Reference</strong><br><a target="_blank" rel="noopener" href="https://www.acwing.com/solution/content/117855/">[1]. 当前节点和邻接点的图示</a><br><a target="_blank" rel="noopener" href="https://www.acwing.com/solution/content/104791/">[2]. 邻接表存储细节的详解</a></p>
@@ -750,7 +750,7 @@
 <h4 id="参考代码-10"><a href="#参考代码-10" class="headerlink" title="参考代码"></a>参考代码</h4><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br></pre></td><td class="code"><pre><code class="hljs C++"><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;cstring&gt;</span></span><br><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;iostream&gt;</span></span><br><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;algorithm&gt;</span></span><br><br><span class="hljs-keyword">using</span> <span class="hljs-keyword">namespace</span> std;<br><br><span class="hljs-type">const</span> <span class="hljs-type">int</span> N = <span class="hljs-number">100010</span>, M = <span class="hljs-number">200010</span>, INF = <span class="hljs-number">0x3f3f3f3f</span>;<br><br><span class="hljs-type">int</span> n, m;       <span class="hljs-comment">// n是点数，m是边数</span><br><span class="hljs-type">int</span> p[N];       <span class="hljs-comment">// 并查集的父节点数组</span><br><br><span class="hljs-keyword">struct</span> <span class="hljs-title class_">Edge</span>     <span class="hljs-comment">// 存储边</span><br>&#123;<br>    <span class="hljs-type">int</span> a, b, w;<br><br>    <span class="hljs-type">bool</span> <span class="hljs-keyword">operator</span>&lt; (<span class="hljs-type">const</span> Edge &amp;W)<span class="hljs-type">const</span> <span class="hljs-comment">// 运算符重载</span><br>    &#123;<br>        <span class="hljs-keyword">return</span> w &lt; W.w;<br>    &#125;<br>&#125;edges[M];<br><br><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">find</span><span class="hljs-params">(<span class="hljs-type">int</span> x)</span>     <span class="hljs-comment">// 查询祖宗结点 + 路径压缩</span></span><br><span class="hljs-function"></span>&#123;<br>    <span class="hljs-keyword">if</span> (p[x] != x) p[x] = <span class="hljs-built_in">find</span>(p[x]);<br>    <span class="hljs-keyword">return</span> p[x];<br>&#125;<br><br><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">kruskal</span><span class="hljs-params">()</span></span><br><span class="hljs-function"></span>&#123;<br>    <span class="hljs-built_in">sort</span>(edges, edges + m);<br><br>    <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">1</span>; i &lt;= n; i ++ ) p[i] = i;    <span class="hljs-comment">// 初始化并查集</span><br><br>    <span class="hljs-type">int</span> res = <span class="hljs-number">0</span>, cnt = <span class="hljs-number">0</span>;<br>    <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">0</span>; i &lt; m; i ++ )<br>    &#123;<br>        <span class="hljs-type">int</span> a = edges[i].a, b = edges[i].b, w = edges[i].w;<br><br>        a = <span class="hljs-built_in">find</span>(a), b = <span class="hljs-built_in">find</span>(b);<br>        <span class="hljs-keyword">if</span> (a != b)     <span class="hljs-comment">// 如果两个连通块不连通，则将这两个连通块合并</span><br>        &#123;<br>            p[a] = b; <span class="hljs-comment">// 合并集合</span><br>            res += w;<br>            cnt ++ ; <span class="hljs-comment">// 记录边数</span><br>        &#125;<br>    &#125;<br><br>    <span class="hljs-keyword">if</span> (cnt &lt; n - <span class="hljs-number">1</span>) <span class="hljs-keyword">return</span> INF; <span class="hljs-comment">// 边数小于 n - 1，不存在最小生成树</span><br>    <span class="hljs-keyword">return</span> res;<br>&#125;<br><br><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span><br><span class="hljs-function"></span>&#123;<br>    <span class="hljs-built_in">scanf</span>(<span class="hljs-string">&quot;%d%d&quot;</span>, &amp;n, &amp;m);<br><br>    <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">0</span>; i &lt; m; i ++ ) <span class="hljs-comment">// 读入数据</span><br>    &#123;<br>        <span class="hljs-type">int</span> a, b, w;<br>        <span class="hljs-built_in">scanf</span>(<span class="hljs-string">&quot;%d%d%d&quot;</span>, &amp;a, &amp;b, &amp;w);<br>        edges[i] = &#123;a, b, w&#125;;<br>    &#125;<br><br>    <span class="hljs-type">int</span> t = <span class="hljs-built_in">kruskal</span>();<br><br>    <span class="hljs-keyword">if</span> (t == INF) <span class="hljs-built_in">puts</span>(<span class="hljs-string">&quot;impossible&quot;</span>);<br>    <span class="hljs-keyword">else</span> <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;%d\n&quot;</span>, t);<br><br>    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>&#125;<br></code></pre></td></tr></table></figure>
 
 <h4 id="Reference-10"><a href="#Reference-10" class="headerlink" title="Reference"></a>Reference</h4><p><a target="_blank" rel="noopener" href="https://www.acwing.com/activity/content/code/content/48773/">[1]. yxc</a><br><a target="_blank" rel="noopener" href="https://www.acwing.com/solution/content/77635/">[2]. 课上笔记详解</a><br><a target="_blank" rel="noopener" href="https://www.acwing.com/solution/content/76908/">[3]. Kruskal算法思想gif图解</a><br><a target="_blank" rel="noopener" href="https://www.acwing.com/solution/content/62319/">[4]. 朴素Prim算法+Kruskal算法</a><br><a target="_blank" rel="noopener" href="https://www.acwing.com/solution/content/42480/">[5]. Bug-Free</a></p>
-<link rel="stylesheet" href="/css/spoiler.css" type="text/css"><script src="/js/spoiler.js" type="text/javascript" async></script>
+<link rel="stylesheet" href="/blog/css/spoiler.css" type="text/css"><script src="/blog/js/spoiler.js" type="text/javascript" async></script>
                 
               </div>
             
@@ -768,12 +768,12 @@
     
       <span class="category-chain">
         
-  <a href="/categories/%E7%AE%97%E6%B3%95%E7%AC%94%E8%AE%B0/" class="category-chain-item">算法笔记</a>
+  <a href="/blog/categories/%E7%AE%97%E6%B3%95%E7%AC%94%E8%AE%B0/" class="category-chain-item">算法笔记</a>
   
   
     <span>></span>
     
-  <a href="/categories/%E7%AE%97%E6%B3%95%E7%AC%94%E8%AE%B0/AcWing/" class="category-chain-item">AcWing</a>
+  <a href="/blog/categories/%E7%AE%97%E6%B3%95%E7%AC%94%E8%AE%B0/AcWing/" class="category-chain-item">AcWing</a>
   
   
 
@@ -790,9 +790,9 @@
     <div class="post-meta">
       <i class="iconfont icon-tags"></i>
       
-        <a href="/tags/%E7%AE%97%E6%B3%95/" class="print-no-link">#算法</a>
+        <a href="/blog/tags/%E7%AE%97%E6%B3%95/" class="print-no-link">#算法</a>
       
-        <a href="/tags/%E5%9B%BE%E8%AE%BA/" class="print-no-link">#图论</a>
+        <a href="/blog/tags/%E5%9B%BE%E8%AE%BA/" class="print-no-link">#图论</a>
       
     </div>
   
@@ -805,7 +805,7 @@
   <div class="license-box my-3">
     <div class="license-title">
       <div>算法-图论</div>
-      <div>https://vendestine.com/2022/04/22/算法笔记/acwing/map/</div>
+      <div>https://vendestine.github.io/blog/2022/04/22/算法笔记/acwing/map/</div>
     </div>
     <div class="license-meta">
       
@@ -849,7 +849,7 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2022/05/05/%E7%AE%97%E6%B3%95%E7%AC%94%E8%AE%B0/acwing/bit-discrete/" title="算法-位运算，离散化，区间合并">
+                      <a href="/blog/2022/05/05/%E7%AE%97%E6%B3%95%E7%AC%94%E8%AE%B0/acwing/bit-discrete/" title="算法-位运算，离散化，区间合并">
                         <i class="iconfont icon-arrowleft"></i>
                         <span class="hidden-mobile">算法-位运算，离散化，区间合并</span>
                         <span class="visible-mobile">Previous</span>
@@ -859,7 +859,7 @@
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2022/04/20/%E7%AE%97%E6%B3%95%E7%AC%94%E8%AE%B0/acwing/bfs-dfs/" title="算法-搜索">
+                      <a href="/blog/2022/04/20/%E7%AE%97%E6%B3%95%E7%AC%94%E8%AE%B0/acwing/bfs-dfs/" title="算法-搜索">
                         <span class="hidden-mobile">算法-搜索</span>
                         <span class="visible-mobile">Next</span>
                         <i class="iconfont icon-arrowright"></i>
@@ -1045,8 +1045,8 @@
 
 <script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
 <script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
-<script  src="/js/events.js" ></script>
-<script  src="/js/plugins.js" ></script>
+<script  src="/blog/js/events.js" ></script>
+<script  src="/blog/js/plugins.js" ></script>
 
 
   <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
@@ -1068,7 +1068,7 @@
 
 
   
-    <script  src="/js/img-lazyload.js" ></script>
+    <script  src="/blog/js/img-lazyload.js" ></script>
   
 
 
@@ -1167,9 +1167,9 @@
 
   <script>Fluid.plugins.imageCaption();</script>
 
-  <script defer src="/js/leancloud.js" ></script>
+  <script defer src="/blog/js/leancloud.js" ></script>
 
-  <script  src="/js/local-search.js" ></script>
+  <script  src="/blog/js/local-search.js" ></script>
 
 
 
@@ -1177,7 +1177,7 @@
 
 <!-- 主题的启动项，将它保持在最底部 -->
 <!-- the boot of the theme, keep it at the bottom -->
-<script  src="/js/boot.js" ></script>
+<script  src="/blog/js/boot.js" ></script>
 
 
   
