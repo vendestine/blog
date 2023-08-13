@@ -7,8 +7,8 @@
 
 <head>
   <meta charset="UTF-8">
-  <link rel="apple-touch-icon" sizes="76x76" href="/blog/img/fluid.png">
-  <link rel="icon" href="/blog/img/fluid.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/fluid.png">
+  <link rel="icon" href="/img/fluid.png">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
   
@@ -19,17 +19,17 @@
     <meta name="description" content="转载 C++基础教程 from 黑马教育C++">
 <meta property="og:type" content="article">
 <meta property="og:title" content="C++ 基础入门">
-<meta property="og:url" content="https://vendestine.github.io/blog/2022/05/24/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/C++/c-basic-1/index.html">
+<meta property="og:url" content="https://vendestine.com/2022/05/24/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/C++/c-basic-1/index.html">
 <meta property="og:site_name" content="Blog">
 <meta property="og:description" content="转载 C++基础教程 from 黑马教育C++">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="https://vendestine.github.io/blog/img/C++.png">
+<meta property="og:image" content="https://vendestine.com/img/C++.png">
 <meta property="article:published_time" content="2022-05-24T21:56:01.000Z">
 <meta property="article:modified_time" content="2023-08-13T09:12:51.455Z">
 <meta property="article:author" content="Wenzhe Li">
 <meta property="article:tag" content="C++">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://vendestine.github.io/blog/img/C++.png">
+<meta name="twitter:image" content="https://vendestine.com/img/C++.png">
   
   
   
@@ -57,12 +57,12 @@
 <link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
 
 
-<link  rel="stylesheet" href="/blog/css/main.css" />
+<link  rel="stylesheet" href="/css/main.css" />
 
 
-  <link id="highlight-css" rel="stylesheet" href="/blog/css/highlight.css" />
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
   
-    <link id="highlight-css-dark" rel="stylesheet" href="/blog/css/highlight-dark.css" />
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
   
 
 
@@ -71,15 +71,15 @@
   <script id="fluid-configs">
     var Fluid = window.Fluid || {};
     Fluid.ctx = Object.assign({}, Fluid.ctx)
-    var CONFIG = {"hostname":"vendestine.github.io","root":"/blog/","version":"1.9.5","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":"rsfCNwYEYG167BlEXzFi6nFM-9Nh9j0Va","app_key":"YgnhSGLdGVYg7L4mapy5ab5f","server_url":"https://rsfcnwye.lc-cn-e1-shared.com","path":"window.location.pathname","ignore_local":true}},"search_path":"/blog/local-search.xml","include_content_in_search":true};
+    var CONFIG = {"hostname":"vendestine.com","root":"/","version":"1.9.5","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":"rsfCNwYEYG167BlEXzFi6nFM-9Nh9j0Va","app_key":"YgnhSGLdGVYg7L4mapy5ab5f","server_url":"https://rsfcnwye.lc-cn-e1-shared.com","path":"window.location.pathname","ignore_local":true}},"search_path":"/local-search.xml","include_content_in_search":true};
 
     if (CONFIG.web_analytics.follow_dnt) {
       var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
       Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
     }
   </script>
-  <script  src="/blog/js/utils.js" ></script>
-  <script  src="/blog/js/color-schema.js" ></script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
   
 
   
@@ -125,7 +125,7 @@
 <div class="header-inner" style="height: 70vh;">
   <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
   <div class="container">
-    <a class="navbar-brand" href="/blog/">
+    <a class="navbar-brand" href="/">
       <strong>Vendestine&#39;s Blog</strong>
     </a>
 
@@ -144,7 +144,7 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/blog/">
+              <a class="nav-link" href="/">
                 <i class="iconfont icon-home-fill"></i>
                 <span>Home</span>
               </a>
@@ -156,7 +156,7 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/blog/archives/">
+              <a class="nav-link" href="/archives/">
                 <i class="iconfont icon-archive-fill"></i>
                 <span>Archives</span>
               </a>
@@ -168,7 +168,7 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/blog/categories/">
+              <a class="nav-link" href="/categories/">
                 <i class="iconfont icon-category-fill"></i>
                 <span>Categories</span>
               </a>
@@ -180,7 +180,7 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/blog/tags/">
+              <a class="nav-link" href="/tags/">
                 <i class="iconfont icon-tags-fill"></i>
                 <span>Tags</span>
               </a>
@@ -192,7 +192,7 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/blog/about/">
+              <a class="nav-link" href="/about/">
                 <i class="iconfont icon-user-fill"></i>
                 <span>About</span>
               </a>
@@ -222,7 +222,7 @@
   
 
 <div id="banner" class="banner" parallax=true
-     style="background: url('/blog/img/fox.png') no-repeat center center; background-size: cover;">
+     style="background: url('/img/fox.png') no-repeat center center; background-size: cover;">
   <div class="full-bg-img">
     <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
       <div class="banner-text text-center fade-in-up">
@@ -361,7 +361,7 @@
     
       
       
-        <a href="/blog/2023/04/07/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/C++/c++-primer-p1/" title="C++ Primer Part1 - C++基础"
+        <a href="/2023/04/07/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/C++/c++-primer-p1/" title="C++ Primer Part1 - C++基础"
            class="list-group-item list-group-item-action
            ">
           <span class="category-post">C++ Primer Part1 - C++基础</span>
@@ -370,7 +370,7 @@
     
       
       
-        <a href="/blog/2022/05/24/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/C++/c-basic-1/" title="C++ 基础入门"
+        <a href="/2022/05/24/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/C++/c-basic-1/" title="C++ 基础入门"
            class="list-group-item list-group-item-action
            active">
           <span class="category-post">C++ 基础入门</span>
@@ -379,7 +379,7 @@
     
       
       
-        <a href="/blog/2022/07/02/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/C++/c-question/" title="C++ 常见问题汇总"
+        <a href="/2022/07/02/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/C++/c-question/" title="C++ 常见问题汇总"
            class="list-group-item list-group-item-action
            ">
           <span class="category-post">C++ 常见问题汇总</span>
@@ -388,7 +388,7 @@
     
       
       
-        <a href="/blog/2022/05/24/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/C++/c-basic-3/" title="C++ 提高编程"
+        <a href="/2022/05/24/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/C++/c-basic-3/" title="C++ 提高编程"
            class="list-group-item list-group-item-action
            ">
           <span class="category-post">C++ 提高编程</span>
@@ -397,7 +397,7 @@
     
       
       
-        <a href="/blog/2022/05/24/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/C++/c-basic-2/" title="C++ 核心编程"
+        <a href="/2022/05/24/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/C++/c-basic-2/" title="C++ 核心编程"
            class="list-group-item list-group-item-action
            ">
           <span class="category-post">C++ 核心编程</span>
@@ -434,7 +434,7 @@
     
       
       
-        <a href="/blog/2022/11/13/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/Python/django-note/" title="Python-Django开发笔记"
+        <a href="/2022/11/13/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/Python/django-note/" title="Python-Django开发笔记"
            class="list-group-item list-group-item-action
            ">
           <span class="category-post">Python-Django开发笔记</span>
@@ -443,7 +443,7 @@
     
       
       
-        <a href="/blog/2022/11/24/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/Python/flask-note/" title="Python-Flask开发笔记"
+        <a href="/2022/11/24/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/Python/flask-note/" title="Python-Flask开发笔记"
            class="list-group-item list-group-item-action
            ">
           <span class="category-post">Python-Flask开发笔记</span>
@@ -452,7 +452,7 @@
     
       
       
-        <a href="/blog/2022/07/20/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/Python/python-basic/" title="Python-基础语法笔记"
+        <a href="/2022/07/20/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/Python/python-basic/" title="Python-基础语法笔记"
            class="list-group-item list-group-item-action
            ">
           <span class="category-post">Python-基础语法笔记</span>
@@ -494,15 +494,15 @@
 <li>运行程序</li>
 </ul>
 <h4 id="1-1-1-创建项目"><a href="#1-1-1-创建项目" class="headerlink" title="1.1.1 创建项目"></a>1.1.1 创建项目</h4><p>​	Visual Studio是我们用来编写C++程序的主要工具，我们先将它打开</p>
-<p><img src="/blog/../img/c++_basic_1/1541383178746.png" srcset="/blog/img/loading.gif" lazyload alt="1541383178746"></p>
-<p><img src="/blog/../img/c++_basic_1/1541384366413.png" srcset="/blog/img/loading.gif" lazyload alt="1541384366413"></p>
+<p><img src="/../img/c++_basic_1/1541383178746.png" srcset="/img/loading.gif" lazyload alt="1541383178746"></p>
+<p><img src="/../img/c++_basic_1/1541384366413.png" srcset="/img/loading.gif" lazyload alt="1541384366413"></p>
 <h4 id="1-1-2-创建文件"><a href="#1-1-2-创建文件" class="headerlink" title="1.1.2 创建文件"></a>1.1.2 创建文件</h4><p>右键源文件，选择添加-&gt;新建项</p>
-<p><img src="/blog/../img/c++_basic_1/1541383817248.png" srcset="/blog/img/loading.gif" lazyload alt="1541383817248"></p>
+<p><img src="/../img/c++_basic_1/1541383817248.png" srcset="/img/loading.gif" lazyload alt="1541383817248"></p>
 <p>给C++文件起个名称，然后点击添加即可。</p>
-<p><img src="/blog/../img/c++_basic_1/1541384140042.png" srcset="/blog/img/loading.gif" lazyload alt="1541384140042"></p>
+<p><img src="/../img/c++_basic_1/1541384140042.png" srcset="/img/loading.gif" lazyload alt="1541384140042"></p>
 <h4 id="1-1-3-编写代码"><a href="#1-1-3-编写代码" class="headerlink" title="1.1.3 编写代码"></a>1.1.3 编写代码</h4><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-meta">#<span class="hljs-keyword">include</span><span class="hljs-string">&lt;iostream&gt;</span></span><br><span class="hljs-keyword">using</span> <span class="hljs-keyword">namespace</span> std;<br><br><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span> </span>&#123;<br><br>	cout &lt;&lt; <span class="hljs-string">&quot;Hello world&quot;</span> &lt;&lt; endl;<br><br>	<span class="hljs-built_in">system</span>(<span class="hljs-string">&quot;pause&quot;</span>);<br><br>	<span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>&#125;<br></code></pre></td></tr></table></figure>
 
-<h4 id="1-1-4-运行程序"><a href="#1-1-4-运行程序" class="headerlink" title="1.1.4 运行程序"></a>1.1.4 运行程序</h4><p><img src="/blog/../img/c++_basic_1/1541384818688.png" srcset="/blog/img/loading.gif" lazyload alt="1541384818688"></p>
+<h4 id="1-1-4-运行程序"><a href="#1-1-4-运行程序" class="headerlink" title="1.1.4 运行程序"></a>1.1.4 运行程序</h4><p><img src="/../img/c++_basic_1/1541384818688.png" srcset="/img/loading.gif" lazyload alt="1541384818688"></p>
 <h3 id="1-2-注释"><a href="#1-2-注释" class="headerlink" title="1.2 注释"></a>1.2 注释</h3><p><strong>作用</strong>：在代码中加一些说明和解释，方便自己或其他程序员程序员阅读代码</p>
 <p><strong>两种格式</strong></p>
 <ol>
@@ -1568,7 +1568,7 @@
 </ul>
 <ol>
 <li><p>单行格式if语句：<code>if(条件)&#123; 条件满足执行的语句 &#125;</code></p>
-<p><img src="/blog/../img/c++_basic_1/clip_image002.png" srcset="/blog/img/loading.gif" lazyload alt="img"></p>
+<p><img src="/../img/c++_basic_1/clip_image002.png" srcset="/img/loading.gif" lazyload alt="img"></p>
 <p>示例：</p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><code class="hljs C++"><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span> </span>&#123;<br><br>	<span class="hljs-comment">//选择结构-单行if语句</span><br>	<span class="hljs-comment">//输入一个分数，如果分数大于600分，视为考上一本大学，并在屏幕上打印</span><br><br>	<span class="hljs-type">int</span> score = <span class="hljs-number">0</span>;<br>	cout &lt;&lt; <span class="hljs-string">&quot;请输入一个分数：&quot;</span> &lt;&lt; endl;<br>	cin &gt;&gt; score;<br><br>	cout &lt;&lt; <span class="hljs-string">&quot;您输入的分数为： &quot;</span> &lt;&lt; score &lt;&lt; endl;<br><br>	<span class="hljs-comment">//if语句</span><br>	<span class="hljs-comment">//注意事项，在if判断语句后面，不要加分号</span><br>	<span class="hljs-keyword">if</span> (score &gt; <span class="hljs-number">600</span>)<br>	&#123;<br>		cout &lt;&lt; <span class="hljs-string">&quot;我考上了一本大学！！！&quot;</span> &lt;&lt; endl;<br>	&#125;<br><br>	<span class="hljs-built_in">system</span>(<span class="hljs-string">&quot;pause&quot;</span>);<br><br>	<span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>&#125;<br></code></pre></td></tr></table></figure>
 
@@ -1581,7 +1581,7 @@
 <ol start="2">
 <li>多行格式if语句：<code>if(条件)&#123; 条件满足执行的语句 &#125;else&#123; 条件不满足执行的语句 &#125;;</code></li>
 </ol>
-<p><img src="/blog/../img/c++_basic_1/clip_image002-1541662519170.png" srcset="/blog/img/loading.gif" lazyload alt="img"></p>
+<p><img src="/../img/c++_basic_1/clip_image002-1541662519170.png" srcset="/img/loading.gif" lazyload alt="img"></p>
 <p>​</p>
 <p>示例：</p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><code class="hljs C++"><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span> </span>&#123;<br><br>	<span class="hljs-type">int</span> score = <span class="hljs-number">0</span>;<br><br>	cout &lt;&lt; <span class="hljs-string">&quot;请输入考试分数：&quot;</span> &lt;&lt; endl;<br><br>	cin &gt;&gt; score;<br><br>	<span class="hljs-keyword">if</span> (score &gt; <span class="hljs-number">600</span>)<br>	&#123;<br>		cout &lt;&lt; <span class="hljs-string">&quot;我考上了一本大学&quot;</span> &lt;&lt; endl;<br>	&#125;<br>	<span class="hljs-keyword">else</span><br>	&#123;<br>		cout &lt;&lt; <span class="hljs-string">&quot;我未考上一本大学&quot;</span> &lt;&lt; endl;<br>	&#125;<br><br>	<span class="hljs-built_in">system</span>(<span class="hljs-string">&quot;pause&quot;</span>);<br><br>	<span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>&#125;<br></code></pre></td></tr></table></figure>
@@ -1599,7 +1599,7 @@
 <ol start="3">
 <li>多条件的if语句：<code>if(条件1)&#123; 条件1满足执行的语句 &#125;else if(条件2)&#123;条件2满足执行的语句&#125;... else&#123; 都不满足执行的语句&#125;</code></li>
 </ol>
-<p><img src="/blog/../img/c++_basic_1/clip_image002-1541662566808.png" srcset="/blog/img/loading.gif" lazyload alt="img"></p>
+<p><img src="/../img/c++_basic_1/clip_image002-1541662566808.png" srcset="/img/loading.gif" lazyload alt="img"></p>
 <p>​</p>
 <p>​</p>
 <p>​</p>
@@ -1624,7 +1624,7 @@
 
 
 <p><strong>练习案例：</strong> 三只小猪称体重</p>
-<p>有三只小猪ABC，请分别输入三只小猪的体重，并且判断哪只小猪最重？<img src="/blog/../img/c++_basic_1/%E4%B8%89%E5%8F%AA%E5%B0%8F%E7%8C%AA.jpg" srcset="/blog/img/loading.gif" lazyload alt="三只小猪"></p>
+<p>有三只小猪ABC，请分别输入三只小猪的体重，并且判断哪只小猪最重？<img src="/../img/c++_basic_1/%E4%B8%89%E5%8F%AA%E5%B0%8F%E7%8C%AA.jpg" srcset="/img/loading.gif" lazyload alt="三只小猪"></p>
 <h4 id="4-1-2-三目运算符"><a href="#4-1-2-三目运算符" class="headerlink" title="4.1.2 三目运算符"></a>4.1.2 三目运算符</h4><p><strong>作用：</strong> 通过三目运算符实现简单的判断</p>
 <p><strong>语法：</strong><code>表达式1 ? 表达式2 ：表达式3</code></p>
 <p><strong>解释：</strong></p>
@@ -1663,7 +1663,7 @@
 <h3 id="4-2-循环结构"><a href="#4-2-循环结构" class="headerlink" title="4.2 循环结构"></a>4.2 循环结构</h3><h4 id="4-2-1-while循环语句"><a href="#4-2-1-while循环语句" class="headerlink" title="4.2.1 while循环语句"></a>4.2.1 while循环语句</h4><p><strong>作用：</strong>满足循环条件，执行循环语句</p>
 <p><strong>语法：</strong><code> while(循环条件)&#123; 循环语句 &#125;</code></p>
 <p><strong>解释：</strong>&#x3D;&#x3D;只要循环条件的结果为真，就执行循环语句&#x3D;&#x3D;</p>
-<p><img src="/blog/../img/c++_basic_1/clip_image002-1541668640382.png" srcset="/blog/img/loading.gif" lazyload alt="img"></p>
+<p><img src="/../img/c++_basic_1/clip_image002-1541668640382.png" srcset="/img/loading.gif" lazyload alt="img"></p>
 <p><strong>示例：</strong></p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs C++"><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span> </span>&#123;<br><br>	<span class="hljs-type">int</span> num = <span class="hljs-number">0</span>;<br>	<span class="hljs-keyword">while</span> (num &lt; <span class="hljs-number">10</span>)<br>	&#123;<br>		cout &lt;&lt; <span class="hljs-string">&quot;num = &quot;</span> &lt;&lt; num &lt;&lt; endl;<br>		num++;<br>	&#125;<br>	<br>	<span class="hljs-built_in">system</span>(<span class="hljs-string">&quot;pause&quot;</span>);<br><br>	<span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>&#125;<br></code></pre></td></tr></table></figure>
 
@@ -1674,11 +1674,11 @@
 </blockquote>
 <p><strong>while循环练习案例：</strong>&#x3D;&#x3D;猜数字&#x3D;&#x3D;</p>
 <p><strong>案例描述：</strong>系统随机生成一个1到100之间的数字，玩家进行猜测，如果猜错，提示玩家数字过大或过小，如果猜对恭喜玩家胜利，并且退出游戏。</p>
-<p><img src="/blog/../img/c++_basic_1/%E7%8C%9C%E6%95%B0%E5%AD%97.jpg" srcset="/blog/img/loading.gif" lazyload alt="猜数字"></p>
+<p><img src="/../img/c++_basic_1/%E7%8C%9C%E6%95%B0%E5%AD%97.jpg" srcset="/img/loading.gif" lazyload alt="猜数字"></p>
 <h4 id="4-2-2-do…while循环语句"><a href="#4-2-2-do…while循环语句" class="headerlink" title="4.2.2 do…while循环语句"></a>4.2.2 do…while循环语句</h4><p><strong>作用：</strong> 满足循环条件，执行循环语句</p>
 <p><strong>语法：</strong> <code>do&#123; 循环语句 &#125; while(循环条件);</code></p>
 <p><strong>注意：</strong>与while的区别在于&#x3D;&#x3D;do…while会先执行一次循环语句&#x3D;&#x3D;，再判断循环条件</p>
-<p><img src="/blog/../img/c++_basic_1/clip_image002-1541671163478.png" srcset="/blog/img/loading.gif" lazyload alt="img"></p>
+<p><img src="/../img/c++_basic_1/clip_image002-1541671163478.png" srcset="/img/loading.gif" lazyload alt="img"></p>
 <p><strong>示例：</strong></p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><code class="hljs C++"><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span> </span>&#123;<br><br>	<span class="hljs-type">int</span> num = <span class="hljs-number">0</span>;<br><br>	<span class="hljs-keyword">do</span><br>	&#123;<br>		cout &lt;&lt; num &lt;&lt; endl;<br>		num++;<br><br>	&#125; <span class="hljs-keyword">while</span> (num &lt; <span class="hljs-number">10</span>);<br>	<br>	<br>	<span class="hljs-built_in">system</span>(<span class="hljs-string">&quot;pause&quot;</span>);<br><br>	<span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>&#125;<br></code></pre></td></tr></table></figure>
 
@@ -1703,7 +1703,7 @@
 
 
 <p><strong>详解：</strong></p>
-<p><img src="/blog/../img/c++_basic_1/1541673704101.png" srcset="/blog/img/loading.gif" lazyload alt="1541673704101"></p>
+<p><img src="/../img/c++_basic_1/1541673704101.png" srcset="/img/loading.gif" lazyload alt="1541673704101"></p>
 <blockquote>
 <p>注意：for循环中的表达式，要用分号进行分隔</p>
 </blockquote>
@@ -1712,10 +1712,10 @@
 </blockquote>
 <p><strong>练习案例：敲桌子</strong></p>
 <p>案例描述：从1开始数到数字100， 如果数字个位含有7，或者数字十位含有7，或者该数字是7的倍数，我们打印敲桌子，其余数字直接打印输出。</p>
-<p><img src="/blog/../img/c++_basic_1/timg.gif" srcset="/blog/img/loading.gif" lazyload alt="timg"></p>
+<p><img src="/../img/c++_basic_1/timg.gif" srcset="/img/loading.gif" lazyload alt="timg"></p>
 <h4 id="4-2-4-嵌套循环"><a href="#4-2-4-嵌套循环" class="headerlink" title="4.2.4 嵌套循环"></a>4.2.4 嵌套循环</h4><p><strong>作用：</strong> 在循环体中再嵌套一层循环，解决一些实际问题</p>
 <p>例如我们想在屏幕中打印如下图片，就需要利用嵌套循环</p>
-<p><img src="/blog/../img/c++_basic_1/1541676003486.png" srcset="/blog/img/loading.gif" lazyload alt="1541676003486"></p>
+<p><img src="/../img/c++_basic_1/1541676003486.png" srcset="/img/loading.gif" lazyload alt="1541676003486"></p>
 <p><strong>示例：</strong></p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><code class="hljs C++"><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span> </span>&#123;<br><br>	<span class="hljs-comment">//外层循环执行1次，内层循环执行1轮</span><br>	<span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">0</span>; i &lt; <span class="hljs-number">10</span>; i++)<br>	&#123;<br>		<span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> j = <span class="hljs-number">0</span>; j &lt; <span class="hljs-number">10</span>; j++)<br>		&#123;<br>			cout &lt;&lt; <span class="hljs-string">&quot;*&quot;</span> &lt;&lt; <span class="hljs-string">&quot; &quot;</span>;<br>		&#125;<br>		cout &lt;&lt; endl;<br>	&#125;<br><br>	<span class="hljs-built_in">system</span>(<span class="hljs-string">&quot;pause&quot;</span>);<br><br>	<span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>&#125;<br></code></pre></td></tr></table></figure>
 
@@ -1733,7 +1733,7 @@
 
 <p><strong>练习案例：</strong>乘法口诀表</p>
 <p>案例描述：利用嵌套循环，实现九九乘法表</p>
-<p><img src="/blog/../img/c++_basic_1/0006018857256120_b.jpg" srcset="/blog/img/loading.gif" lazyload alt="0006018857256120_b"></p>
+<p><img src="/../img/c++_basic_1/0006018857256120_b.jpg" srcset="/img/loading.gif" lazyload alt="0006018857256120_b"></p>
 <h3 id="4-3-跳转语句"><a href="#4-3-跳转语句" class="headerlink" title="4.3 跳转语句"></a>4.3 跳转语句</h3><h4 id="4-3-1-break语句"><a href="#4-3-1-break语句" class="headerlink" title="4.3.1 break语句"></a>4.3.1 break语句</h4><p><strong>作用:</strong> 用于跳出&#x3D;&#x3D;选择结构&#x3D;&#x3D;或者&#x3D;&#x3D;循环结构&#x3D;&#x3D;</p>
 <p>break使用的时机：</p>
 <ul>
@@ -1791,7 +1791,7 @@
 <h2 id="5-数组"><a href="#5-数组" class="headerlink" title="5 数组"></a>5 数组</h2><h3 id="5-1-概述"><a href="#5-1-概述" class="headerlink" title="5.1 概述"></a>5.1 概述</h3><p>所谓数组，就是一个集合，里面存放了相同类型的数据元素</p>
 <p><strong>特点1：</strong>数组中的每个&#x3D;&#x3D;数据元素都是相同的数据类型&#x3D;&#x3D;</p>
 <p><strong>特点2：</strong>数组是由&#x3D;&#x3D;连续的内存&#x3D;&#x3D;位置组成的</p>
-<p><img src="/blog/../img/c++_basic_1/1541748375356.png" srcset="/blog/img/loading.gif" lazyload alt="1541748375356"></p>
+<p><img src="/../img/c++_basic_1/1541748375356.png" srcset="/img/loading.gif" lazyload alt="1541748375356"></p>
 <h3 id="5-2-一维数组"><a href="#5-2-一维数组" class="headerlink" title="5.2 一维数组"></a>5.2 一维数组</h3><h4 id="5-2-1-一维数组定义方式"><a href="#5-2-1-一维数组定义方式" class="headerlink" title="5.2.1 一维数组定义方式"></a>5.2.1 一维数组定义方式</h4><p>一维数组定义的三种方式：</p>
 <ol>
 <li><code>数据类型  数组名[ 数组长度 ];</code></li>
@@ -1841,7 +1841,7 @@
 <li>对每一对相邻元素做同样的工作，执行完毕后，找到第一个最大值。</li>
 <li>重复以上的步骤，每次比较次数-1，直到不需要比较</li>
 </ol>
-<p><img src="/blog/../img/c++_basic_1/1541905327273.png" srcset="/blog/img/loading.gif" lazyload alt="1541905327273"></p>
+<p><img src="/../img/c++_basic_1/1541905327273.png" srcset="/img/loading.gif" lazyload alt="1541905327273"></p>
 <p><strong>示例：</strong> 将数组 { 4,2,8,0,5,7,1,3,9 } 进行升序排序</p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><code class="hljs C++"><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span> </span>&#123;<br><br>	<span class="hljs-type">int</span> arr[<span class="hljs-number">9</span>] = &#123; <span class="hljs-number">4</span>,<span class="hljs-number">2</span>,<span class="hljs-number">8</span>,<span class="hljs-number">0</span>,<span class="hljs-number">5</span>,<span class="hljs-number">7</span>,<span class="hljs-number">1</span>,<span class="hljs-number">3</span>,<span class="hljs-number">9</span> &#125;;<br><br>	<span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">0</span>; i &lt; <span class="hljs-number">9</span> - <span class="hljs-number">1</span>; i++)<br>	&#123;<br>		<span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> j = <span class="hljs-number">0</span>; j &lt; <span class="hljs-number">9</span> - <span class="hljs-number">1</span> - i; j++)<br>		&#123;<br>			<span class="hljs-keyword">if</span> (arr[j] &gt; arr[j + <span class="hljs-number">1</span>])<br>			&#123;<br>				<span class="hljs-type">int</span> temp = arr[j];<br>				arr[j] = arr[j + <span class="hljs-number">1</span>];<br>				arr[j + <span class="hljs-number">1</span>] = temp;<br>			&#125;<br>		&#125;<br>	&#125;<br><br>	<span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">0</span>; i &lt; <span class="hljs-number">9</span>; i++)<br>	&#123;<br>		cout &lt;&lt; arr[i] &lt;&lt; endl;<br>	&#125;<br>    <br>	<span class="hljs-built_in">system</span>(<span class="hljs-string">&quot;pause&quot;</span>);<br><br>	<span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>&#125;<br></code></pre></td></tr></table></figure>
 
@@ -1854,7 +1854,7 @@
 
 
 <h3 id="5-3-二维数组"><a href="#5-3-二维数组" class="headerlink" title="5.3 二维数组"></a>5.3 二维数组</h3><p>二维数组就是在一维数组上，多加一个维度。</p>
-<p><img src="/blog/../img/c++_basic_1/1541905559138.png" srcset="/blog/img/loading.gif" lazyload alt="1541905559138"></p>
+<p><img src="/../img/c++_basic_1/1541905559138.png" srcset="/img/loading.gif" lazyload alt="1541905559138"></p>
 <h4 id="5-3-1-二维数组定义方式"><a href="#5-3-1-二维数组定义方式" class="headerlink" title="5.3.1 二维数组定义方式"></a>5.3.1 二维数组定义方式</h4><p>二维数组定义的四种方式：</p>
 <ol>
 <li><code>数据类型  数组名[ 行数 ][ 列数 ];</code></li>
@@ -2279,7 +2279,7 @@
 <p><strong>示例：</strong></p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br></pre></td><td class="code"><pre><code class="hljs C++"><span class="hljs-comment">//英雄结构体</span><br><span class="hljs-keyword">struct</span> <span class="hljs-title class_">hero</span><br>&#123;<br>	string name;<br>	<span class="hljs-type">int</span> age;<br>	string sex;<br>&#125;;<br><span class="hljs-comment">//冒泡排序</span><br><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">bubbleSort</span><span class="hljs-params">(hero arr[] , <span class="hljs-type">int</span> len)</span></span><br><span class="hljs-function"></span>&#123;<br>	<span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">0</span>; i &lt; len - <span class="hljs-number">1</span>; i++)<br>	&#123;<br>		<span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> j = <span class="hljs-number">0</span>; j &lt; len - <span class="hljs-number">1</span> - i; j++)<br>		&#123;<br>			<span class="hljs-keyword">if</span> (arr[j].age &gt; arr[j + <span class="hljs-number">1</span>].age)<br>			&#123;<br>				hero temp = arr[j];<br>				arr[j] = arr[j + <span class="hljs-number">1</span>];<br>				arr[j + <span class="hljs-number">1</span>] = temp;<br>			&#125;<br>		&#125;<br>	&#125;<br>&#125;<br><span class="hljs-comment">//打印数组</span><br><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">printHeros</span><span class="hljs-params">(hero arr[], <span class="hljs-type">int</span> len)</span></span><br><span class="hljs-function"></span>&#123;<br>	<span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">0</span>; i &lt; len; i++)<br>	&#123;<br>		cout &lt;&lt; <span class="hljs-string">&quot;姓名： &quot;</span> &lt;&lt; arr[i].name &lt;&lt; <span class="hljs-string">&quot; 性别： &quot;</span> &lt;&lt; arr[i].sex &lt;&lt; <span class="hljs-string">&quot; 年龄： &quot;</span> &lt;&lt; arr[i].age &lt;&lt; endl;<br>	&#125;<br>&#125;<br><br><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span> </span>&#123;<br><br>	<span class="hljs-keyword">struct</span> <span class="hljs-title class_">hero</span> arr[<span class="hljs-number">5</span>] =<br>	&#123;<br>		&#123;<span class="hljs-string">&quot;刘备&quot;</span>,<span class="hljs-number">23</span>,<span class="hljs-string">&quot;男&quot;</span>&#125;,<br>		&#123;<span class="hljs-string">&quot;关羽&quot;</span>,<span class="hljs-number">22</span>,<span class="hljs-string">&quot;男&quot;</span>&#125;,<br>		&#123;<span class="hljs-string">&quot;张飞&quot;</span>,<span class="hljs-number">20</span>,<span class="hljs-string">&quot;男&quot;</span>&#125;,<br>		&#123;<span class="hljs-string">&quot;赵云&quot;</span>,<span class="hljs-number">21</span>,<span class="hljs-string">&quot;男&quot;</span>&#125;,<br>		&#123;<span class="hljs-string">&quot;貂蝉&quot;</span>,<span class="hljs-number">19</span>,<span class="hljs-string">&quot;女&quot;</span>&#125;,<br>	&#125;;<br><br>	<span class="hljs-type">int</span> len = <span class="hljs-built_in">sizeof</span>(arr) / <span class="hljs-built_in">sizeof</span>(hero); <span class="hljs-comment">//获取数组元素个数</span><br><br>	<span class="hljs-built_in">bubbleSort</span>(arr, len); <span class="hljs-comment">//排序</span><br><br>	<span class="hljs-built_in">printHeros</span>(arr, len); <span class="hljs-comment">//打印</span><br><br>	<span class="hljs-built_in">system</span>(<span class="hljs-string">&quot;pause&quot;</span>);<br><br>	<span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>&#125;<br></code></pre></td></tr></table></figure>
 
-<link rel="stylesheet" href="/blog/css/spoiler.css" type="text/css"><script src="/blog/js/spoiler.js" type="text/javascript" async></script>
+<link rel="stylesheet" href="/css/spoiler.css" type="text/css"><script src="/js/spoiler.js" type="text/javascript" async></script>
                 
               </div>
             
@@ -2297,12 +2297,12 @@
     
       <span class="category-chain">
         
-  <a href="/blog/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/" class="category-chain-item">编程语言</a>
+  <a href="/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/" class="category-chain-item">编程语言</a>
   
   
     <span>></span>
     
-  <a href="/blog/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/C/" class="category-chain-item">C++</a>
+  <a href="/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/C/" class="category-chain-item">C++</a>
   
   
 
@@ -2319,7 +2319,7 @@
     <div class="post-meta">
       <i class="iconfont icon-tags"></i>
       
-        <a href="/blog/tags/C/" class="print-no-link">#C++</a>
+        <a href="/tags/C/" class="print-no-link">#C++</a>
       
     </div>
   
@@ -2332,7 +2332,7 @@
   <div class="license-box my-3">
     <div class="license-title">
       <div>C++ 基础入门</div>
-      <div>https://vendestine.github.io/blog/2022/05/24/编程语言/C++/c-basic-1/</div>
+      <div>https://vendestine.com/2022/05/24/编程语言/C++/c-basic-1/</div>
     </div>
     <div class="license-meta">
       
@@ -2376,7 +2376,7 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/blog/2022/05/24/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/C++/c-basic-2/" title="C++ 核心编程">
+                      <a href="/2022/05/24/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/C++/c-basic-2/" title="C++ 核心编程">
                         <i class="iconfont icon-arrowleft"></i>
                         <span class="hidden-mobile">C++ 核心编程</span>
                         <span class="visible-mobile">Previous</span>
@@ -2386,7 +2386,7 @@
                   <article class="post-next col-6">
                     
                     
-                      <a href="/blog/2022/05/10/%E7%AE%97%E6%B3%95%E7%AC%94%E8%AE%B0/acwing/dp-basic/" title="算法-动态规划">
+                      <a href="/2022/05/10/%E7%AE%97%E6%B3%95%E7%AC%94%E8%AE%B0/acwing/dp-basic/" title="算法-动态规划">
                         <span class="hidden-mobile">算法-动态规划</span>
                         <span class="visible-mobile">Next</span>
                         <i class="iconfont icon-arrowright"></i>
@@ -2572,8 +2572,8 @@
 
 <script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
 <script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
-<script  src="/blog/js/events.js" ></script>
-<script  src="/blog/js/plugins.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
 
 
   <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
@@ -2595,7 +2595,7 @@
 
 
   
-    <script  src="/blog/js/img-lazyload.js" ></script>
+    <script  src="/js/img-lazyload.js" ></script>
   
 
 
@@ -2694,9 +2694,9 @@
 
   <script>Fluid.plugins.imageCaption();</script>
 
-  <script defer src="/blog/js/leancloud.js" ></script>
+  <script defer src="/js/leancloud.js" ></script>
 
-  <script  src="/blog/js/local-search.js" ></script>
+  <script  src="/js/local-search.js" ></script>
 
 
 
@@ -2704,7 +2704,7 @@
 
 <!-- 主题的启动项，将它保持在最底部 -->
 <!-- the boot of the theme, keep it at the bottom -->
-<script  src="/blog/js/boot.js" ></script>
+<script  src="/js/boot.js" ></script>
 
 
   
