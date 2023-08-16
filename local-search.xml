@@ -128,9 +128,9 @@
     
     <tags>
       
-      <tag>Linux</tag>
-      
       <tag>C++</tag>
+      
+      <tag>Linux</tag>
       
     </tags>
     
@@ -155,7 +155,32 @@
     
     <tags>
       
+      <tag>C++</tag>
+      
       <tag>Linux</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>C/C++ 开发环境配置</title>
+    <link href="/2023/02/21/%E6%8A%80%E6%9C%AF%E7%BB%8F%E9%AA%8C/c_environment_setting/"/>
+    <url>/2023/02/21/%E6%8A%80%E6%9C%AF%E7%BB%8F%E9%AA%8C/c_environment_setting/</url>
+    
+    <content type="html"><![CDATA[<h2 id="Windows：Visual-Studio-Code-C-C-环境配置"><a href="#Windows：Visual-Studio-Code-C-C-环境配置" class="headerlink" title="Windows：Visual Studio Code C&#x2F;C++ 环境配置"></a>Windows：Visual Studio Code C&#x2F;C++ 环境配置</h2><h3 id="1-配置MinGW编译器"><a href="#1-配置MinGW编译器" class="headerlink" title="1. 配置MinGW编译器"></a>1. 配置MinGW编译器</h3><p>找到最新版的 “x86_64-posix-seh”，下载<br><a href="https://sourceforge.net/projects/mingw-w64/files/">https://sourceforge.net/projects/mingw-w64/files/</a></p><p>直接解压到任意目录，建议解压到<code>C:\Program Files\</code></p><p>配置环境变量，<code>C:\Program Files\mingw64\bin</code> 复制到path里</p><p>终端里输入 <code>gcc --version</code> <code>g++ --version</code> <code>gdb --version</code> 验证是否配置成功</p><h3 id="2-vscode-配置-C-C-环境"><a href="#2-vscode-配置-C-C-环境" class="headerlink" title="2. vscode 配置 C&#x2F;C++ 环境"></a>2. vscode 配置 C&#x2F;C++ 环境</h3><p>安装插件 C&#x2F;C++，完成后重启vscode</p><p>配置三个文件</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs BASH">tasks.json (build instructions)<br>launch.json (debugger settings)<br>c_cpp_properties.json (compiler path and IntelliSense settings)<br></code></pre></td></tr></table></figure><p>新建工程文件夹，然后<code>ctrl + shift + p</code>, 输入<code>C/C++</code>，选择<code>Edit Configurations (UI)</code><br>配置以下部分<br>configuration name：win32 （默认识别）<br>compiler path：<code>C:\Program Files\mingw64\bin\gcc.exe</code><br>IntelliSense mode：windows-gcc-x64<br>配置完成后，.vscode目录下自动生成<code>c_cpp_properties.json</code>文件</p><p>工程目录下新建一个测试文件，然后右上角<code>run c/c++ file</code>, Choose <code>C/C++: g++.exe build and debug active file</code>,自动创建<code>tasks.json</code>文件</p><p>点击运行按钮旁边的设置按钮，Choose <code>C/C++: g++.exe build and debug active file</code>,自动创建<code>launch.json</code>文件</p><p><code>custom config</code>：修改<code>launch.json</code>文件，<code>&quot;externalConsole&quot;: true</code>，这样就能弹出窗口<br>快捷键 <code>F5 Run， ctrl + F5 Debug</code></p><p>Reference:<br><a href="https://code.visualstudio.com/docs/cpp/config-mingw">1. Using GCC with MinGW</a><br><a href="https://www.cnblogs.com/roger-yu/p/15348275.html">2. 10分钟搞定Visual Studio Code配置C&#x2F;C++开发环境</a><br><a href="https://juejin.cn/post/7054468187600977956">3. VsCode 配置 C&#x2F;C++ 开发环境</a></p><br><h2 id="Windows：Visual-Studio-2019-C-C-环境配置"><a href="#Windows：Visual-Studio-2019-C-C-环境配置" class="headerlink" title="Windows：Visual Studio 2019 C&#x2F;C++ 环境配置"></a>Windows：Visual Studio 2019 C&#x2F;C++ 环境配置</h2><h3 id="1-下载安装Visual-Studio"><a href="#1-下载安装Visual-Studio" class="headerlink" title="1. 下载安装Visual Studio"></a>1. 下载安装Visual Studio</h3><p>官网下载较新版本的visual studio，选择想要的版本，这里选择community版本<br>下载完成后，打开visual studio installer，选择你想要的workload，这里只选择desktop development with C++，之后想要安装其他的workload，可以在installer里修改<br>installer里还有几个选项，组件，语言，安装位置，可以在语言里安装自己想要的语言设置，然后安装位置里，可以查看或者更改位置。</p><h3 id="2-创建C-C-项目"><a href="#2-创建C-C-项目" class="headerlink" title="2. 创建C&#x2F;C++ 项目"></a>2. 创建C&#x2F;C++ 项目</h3><p><strong>单工程项目</strong><br>打开visual studio，选择新建-&gt;项目，然后选择empty project或者是console app<br>之后编辑 项目名称，位置，解决方案名称</p><p>创建好项目后，会生成一下目录<br>│  Project1.sln    &#x2F;&#x2F;解决方案<br>│<br>└─Project1    &#x2F;&#x2F;项目<br>        Project1.vcxproj    &#x2F;&#x2F;工程配置文件<br>        Project1.vcxproj.filters<br>        Project1.vcxproj.user</p><p>调试运行后会在目录里多一个debug文件夹，记录每个项目的调试信息</p><p>编译：可以重新生成解决方案（因为只有一个项目）；也可以右键项目重新生成</p><br><p><strong>多工程项目</strong><br>直接创建空白解决方案，然后右键解决方案添加项目（新项目或者已存在项目）<br>右键一个项目，设置启动项目（项目名称会加粗加黑），之后就可以运行调试了<br>编译： 右键项目，重新生成；（重新生成解决方案会重新编译该解决方案下所有的项目）</p><link rel="stylesheet" href="/css/spoiler.css" type="text/css"><script src="/js/spoiler.js" type="text/javascript" async></script>]]></content>
+    
+    
+    <categories>
+      
+      <category>技术经验</category>
+      
+    </categories>
+    
+    
+    <tags>
       
       <tag>C++</tag>
       
