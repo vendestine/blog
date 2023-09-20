@@ -25,7 +25,7 @@
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://vendestine.com/img/C++.png">
 <meta property="article:published_time" content="2023-02-21T22:58:01.000Z">
-<meta property="article:modified_time" content="2023-08-16T17:04:09.789Z">
+<meta property="article:modified_time" content="2023-09-20T05:22:29.880Z">
 <meta property="article:author" content="Wenzhe Li">
 <meta property="article:tag" content="C++">
 <meta name="twitter:card" content="summary_large_image">
@@ -251,7 +251,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          1.7k words
+          2.5k words
         
       </span>
     
@@ -262,7 +262,7 @@
         
         
         
-          15 mins
+          22 mins
         
       </span>
     
@@ -390,12 +390,22 @@
 
 <h2 id="Windows：Visual-Studio-2019-C-C-环境配置"><a href="#Windows：Visual-Studio-2019-C-C-环境配置" class="headerlink" title="Windows：Visual Studio 2019 C&#x2F;C++ 环境配置"></a>Windows：Visual Studio 2019 C&#x2F;C++ 环境配置</h2><h3 id="1-下载安装Visual-Studio"><a href="#1-下载安装Visual-Studio" class="headerlink" title="1. 下载安装Visual Studio"></a>1. 下载安装Visual Studio</h3><p>官网下载较新版本的visual studio，选择想要的版本，这里选择community版本<br>下载完成后，打开visual studio installer，选择你想要的workload，这里只选择desktop development with C++，之后想要安装其他的workload，可以在installer里修改<br>installer里还有几个选项，组件，语言，安装位置，可以在语言里安装自己想要的语言设置，然后安装位置里，可以查看或者更改位置。</p>
 <h3 id="2-创建C-C-项目"><a href="#2-创建C-C-项目" class="headerlink" title="2. 创建C&#x2F;C++ 项目"></a>2. 创建C&#x2F;C++ 项目</h3><p><strong>单工程项目</strong><br>打开visual studio，选择新建-&gt;项目，然后选择empty project或者是console app<br>之后编辑 项目名称，位置，解决方案名称</p>
-<p>创建好项目后，会生成一下目录<br>│  Project1.sln    &#x2F;&#x2F;解决方案<br>│<br>└─Project1    &#x2F;&#x2F;项目<br>        Project1.vcxproj    &#x2F;&#x2F;工程配置文件<br>        Project1.vcxproj.filters<br>        Project1.vcxproj.user</p>
+<p>创建好项目后，会生成一下目录<br>|__Project1.sln    &#x2F;&#x2F;解决方案<br>|<br>|__Project1    &#x2F;&#x2F;项目<br>&emsp;&emsp;|__Project1.vcxproj    &#x2F;&#x2F;工程配置文件<br>&emsp;&emsp;|__Project1.vcxproj.filters<br>&emsp;&emsp;|__Project1.vcxproj.user</p>
 <p>调试运行后会在目录里多一个debug文件夹，记录每个项目的调试信息</p>
-<p>编译：可以重新生成解决方案（因为只有一个项目）；也可以右键项目重新生成</p>
+<p>编译链接：可以（清理）重新生成解决方案（因为只有一个项目）；也可以右键项目重新生成</p>
 <br>
 
-<p><strong>多工程项目</strong><br>直接创建空白解决方案，然后右键解决方案添加项目（新项目或者已存在项目）<br>右键一个项目，设置启动项目（项目名称会加粗加黑），之后就可以运行调试了<br>编译： 右键项目，重新生成；（重新生成解决方案会重新编译该解决方案下所有的项目）</p>
+<p><strong>多工程项目</strong><br>直接创建空白解决方案，然后右键解决方案添加项目（新项目或者已存在项目）<br>右键一个项目，设置启动项目（项目名称会加粗加黑），之后就可以运行调试了<br>编译链接： 右键项目，（清理）重新生成；（重新生成解决方案会重新编译该解决方案下所有的项目）</p>
+<p>多项目工程的目录结构：<br>|__project.sln    &#x2F;&#x2F;解决方案<br>|<br>|__project1    &#x2F;&#x2F;项目1<br>&emsp;&emsp;|__project1.vcxproj    &#x2F;&#x2F;工程配置文件<br>&emsp;&emsp;|__project1.vcxproj.filters<br>&emsp;&emsp;|__project1.vcxproj.user<br>|__project2    &#x2F;&#x2F;项目2<br>&emsp;&emsp;|__project2.vcxproj    &#x2F;&#x2F;工程配置文件<br>&emsp;&emsp;|__project2.vcxproj.filters<br>&emsp;&emsp;|__project2.vcxproj.user<br>|__project3    &#x2F;&#x2F;项目3<br>&emsp;&emsp;|__project3.vcxproj    &#x2F;&#x2F;工程配置文件<br>&emsp;&emsp;|__project3.vcxproj.filters<br>&emsp;&emsp;|__project3.vcxproj.user</p>
+<h3 id="Visual-Studio-基本操作"><a href="#Visual-Studio-基本操作" class="headerlink" title="Visual Studio 基本操作"></a>Visual Studio 基本操作</h3><p><strong>运行程序</strong>：CTRL + F5</p>
+<p><strong>调试操作</strong>：一般用快捷键（也可直接调试menu操作）</p>
+<ol>
+<li>打断点：F9 或者 直接点击行最左边</li>
+<li>开始调试：F5   （黄色箭头指向的一行是还未运行的一行）<br>停止调试：shift + F5</li>
+<li>调试<br>逐语句： F11 进入函数继续执行<br>逐过程： F10 从上往下一行一行执行<br>跳出： shift + F11 从当前黄色箭头处，直接跳到下一个端点，或直接执行完程序</li>
+<li>调试窗口里打开 内存窗口和监视窗口 观察</li>
+</ol>
+<p><strong>错误</strong><br>编译错误：注意看错误的 源文件名字，代码行号，错误提示信息<br>链接错误：无法解析的外部符号，符号重定义<br>vs编译器: 栈内存地址初始化0xcccccccc 烫烫…   堆内存地址初始化0xcdcdcdcd 屯屯…</p>
 <link rel="stylesheet" href="/css/spoiler.css" type="text/css"><script src="/js/spoiler.js" type="text/javascript" async></script>
                 
               </div>
