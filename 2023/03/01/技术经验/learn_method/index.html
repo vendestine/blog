@@ -16,25 +16,23 @@
   <meta name="author" content="Wenzhe Li">
   <meta name="keywords" content="">
   
-    <meta name="description" content="以linux主机为开发环境">
+    <meta name="description" content="简短的论述一下CS各个部分的学习步骤">
 <meta property="og:type" content="article">
-<meta property="og:title" content="配置远程开发环境">
-<meta property="og:url" content="https://vendestine.com/2023/02/24/%E6%8A%80%E6%9C%AF%E7%BB%8F%E9%AA%8C/remote-vscode-config/index.html">
+<meta property="og:title" content="CS学习方法论">
+<meta property="og:url" content="https://vendestine.com/2023/03/01/%E6%8A%80%E6%9C%AF%E7%BB%8F%E9%AA%8C/learn_method/index.html">
 <meta property="og:site_name" content="Blog">
-<meta property="og:description" content="以linux主机为开发环境">
+<meta property="og:description" content="简短的论述一下CS各个部分的学习步骤">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="https://vendestine.com/img/linux.jpg">
-<meta property="article:published_time" content="2023-02-24T22:58:01.000Z">
-<meta property="article:modified_time" content="2023-11-04T02:49:50.669Z">
+<meta property="og:image" content="https://vendestine.com/img/learn.jpg">
+<meta property="article:published_time" content="2023-03-01T22:58:01.000Z">
+<meta property="article:modified_time" content="2023-11-04T05:38:17.791Z">
 <meta property="article:author" content="Wenzhe Li">
-<meta property="article:tag" content="Linux">
-<meta property="article:tag" content="C++">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://vendestine.com/img/linux.jpg">
+<meta name="twitter:image" content="https://vendestine.com/img/learn.jpg">
   
   
   
-  <title>配置远程开发环境 - Blog</title>
+  <title>CS学习方法论 - Blog</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -229,7 +227,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="配置远程开发环境"></span>
+            <span id="subtitle" data-typed-text="CS学习方法论"></span>
           
         </div>
 
@@ -240,8 +238,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2023-02-24 17:58" pubdate>
-          February 24, 2023 pm
+        <time datetime="2023-03-01 17:58" pubdate>
+          March 1, 2023 pm
         </time>
       </span>
     
@@ -252,7 +250,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          577 words
+          1.2k words
         
       </span>
     
@@ -263,7 +261,7 @@
         
         
         
-          5 mins
+          10 mins
         
       </span>
     
@@ -346,7 +344,7 @@
       
         <a href="/2023/03/01/%E6%8A%80%E6%9C%AF%E7%BB%8F%E9%AA%8C/learn_method/" title="CS学习方法论"
            class="list-group-item list-group-item-action
-           ">
+           active">
           <span class="category-post">CS学习方法论</span>
         </a>
       
@@ -355,7 +353,7 @@
       
         <a href="/2023/02/24/%E6%8A%80%E6%9C%AF%E7%BB%8F%E9%AA%8C/remote-vscode-config/" title="配置远程开发环境"
            class="list-group-item list-group-item-action
-           active">
+           ">
           <span class="category-post">配置远程开发环境</span>
         </a>
       
@@ -378,32 +376,73 @@
       <div class="container nopadding-x-md" id="board-ctn">
         <div id="board">
           <article class="post-content mx-auto">
-            <h1 id="seo-header">配置远程开发环境</h1>
+            <h1 id="seo-header">CS学习方法论</h1>
             
             
               <div class="markdown-body">
                 
                 <blockquote>
-<p>C&#x2F;C++项目的开发环境一般都是以linux为主，这里介绍主流的几种搭建方式</p>
+<p>学习计算机有很多年了，时常觉得体系混乱，总是存在学了反复学，不用一会就会忘，知识也总是无法深入，无法有效率地进步，这里借鉴算法学习成功的经验，总结了一套针对于计算机学科的学习方法</p>
 </blockquote>
-<h2 id="windows-vscode配置远程linux开发环境"><a href="#windows-vscode配置远程linux开发环境" class="headerlink" title="windows+vscode配置远程linux开发环境"></a>windows+vscode配置远程linux开发环境</h2><h3 id="windows-vscode-vmware-ubuntu"><a href="#windows-vscode-vmware-ubuntu" class="headerlink" title="windows + vscode + vmware + ubuntu"></a>windows + vscode + vmware + ubuntu</h3><ol>
-<li>本地主机windows上下载ubuntu和vmware（尽量稳定的新版本）</li>
-<li>VMware虚拟机安装Ubuntu（安装VMware Tools方便操作）</li>
-<li>配置SSH，windows里安装过git就有ssh，ubuntu里直接 <code>sudo apt install openssh-server</code></li>
-<li>本地配置vscode<ul>
-<li>安装插件Remote Development</li>
-<li>填写远程主机信息，Remote Explorer &gt; oepn SSH config file &gt; host (虚拟机主机名)，hostname (ip地址)，user（用户名） </li>
-<li>ubuntu查看ip地址（vmware设置net模式，这样ip地址就是固定的，桥接模式的话地址会随着局域网的环境变化）<br> <code>sudo apt install net-tools</code><br> <code>ifconfig</code></li>
-<li>vscode里安装远程主机里所需要的插件（code runner，C&#x2F;C++…）</li>
+<h3 id="算法类"><a href="#算法类" class="headerlink" title="算法类"></a>算法类</h3><ol>
+<li><strong>专题分类分点</strong>学习，每个点寻找<strong>适合的资源</strong>系统学习<ul>
+<li>分类 举例：二分，搜索，动态规划</li>
+<li>分点 举例：二分（二分查找，二分答案） 搜索（DFS，BFS）动态规划（线性dp，背包问题，LIS模型…）</li>
 </ul>
 </li>
-<li>配置免密登录<ul>
-<li>本机拿到SSH公钥，如果没有用<code>ssh-keygen -t rsa</code>生成</li>
-<li>linux系统里~&#x2F;.ssh目录下新建authorized_keys文件。然后将本机公钥copy过去</li>
+<li>每日一题 + 比赛题，<strong>根据漏洞，复习专题</strong>，然后<strong>补题</strong>（有漏洞的点，找题单练习）<ul>
+<li>每日一题：例如LeetCode每日一题，AtCoder，CodeForces</li>
+<li>比赛：例如各种平台的周赛，公司的笔试题</li>
+</ul>
+</li>
+<li><strong>表格</strong>记录总结，专注<strong>思维训练</strong><ul>
+<li>为什么需要记录：算法专题，知识点太多，不记录的话，无法形成自己的知识体系</li>
+<li>为什么不用文档：算法不同阶段有不同的体会，表格记录可以更专注<strong>思维训练</strong>，不会太抠细节</li>
 </ul>
 </li>
 </ol>
-<br>
+<h3 id="技术类"><a href="#技术类" class="headerlink" title="技术类"></a>技术类</h3><h4 id="工具类"><a href="#工具类" class="headerlink" title="工具类"></a>工具类</h4><blockquote>
+<p>例如 Docker（容器），SpringBoot，Flask，Nginx（框架）</p>
+</blockquote>
+<ol>
+<li>寻找入门教程 + 官方教程<ul>
+<li>目的是 <strong>最短时间内掌握</strong>这个技术的运用方法</li>
+<li>技术一般都是用在项目里，项目的开发才是主线，不可能在单个技术里花太多时间</li>
+</ul>
+</li>
+<li>深入学习，阅读更深入的教程和源码<ul>
+<li>没有项目的压力后，需要深入学习技术，这样之后的开发才可以更游刃有余</li>
+<li>这个时候要去读一些更深入的教程，然后去看一些<strong>源码的解析</strong></li>
+<li>为什么这个时候<strong>不分知识点</strong>：技术本身就是一个知识点，体量不大，直接整体学习即可</li>
+</ul>
+</li>
+<li>文档记录，方便查阅<ul>
+<li>工具类技术笔记主要方便以后查阅，不是注重思维训练（算法），也不是注重知识体系构建（语言，非工具类）</li>
+</ul>
+</li>
+</ol>
+<h4 id="非工具类"><a href="#非工具类" class="headerlink" title="非工具类"></a>非工具类</h4><blockquote>
+<p>例如 网络编程，爬虫，操作系统，数据库</p>
+</blockquote>
+<h3 id="语言类"><a href="#语言类" class="headerlink" title="语言类"></a>语言类</h3><ol>
+<li>寻找<strong>简洁入门</strong>教程学习（熟悉语言特性） + <strong>语法oj</strong>练习（熟练语法）<ul>
+<li>简洁教程：直接google xxx入门教程 or xxx简洁教程，前面几个里稍微筛选一下选择一个即可</li>
+<li>语法oj：这一步很重要，因为学习一门新语言，代码量必须要足够才能真正的熟悉语法，这里选择语法oj，可以最大程度的增加代码量，同时养成代码风格，可选平台：acwing，牛客，其他网站练习题</li>
+</ul>
+</li>
+<li>查阅<strong>经典权威</strong>资料，<strong>分知识点层层深入</strong>学习<ul>
+<li>为什么要找经典权威资料：语言不像技术，迭代很快，所以选择这一类经的起时间沉淀的资料，可以确保概念正确，然后同时也会更深入探讨一些特性和设计理念</li>
+<li>为什么要分知识点层层深入：语言的学习也是具有庞大的体系，权威经典资料都非常厚，这个时候不可能去线性硬啃书，这样大概率会放弃；同时分知识点学习，可以看多份资料层层学习知识点，这样会比较全面且深入</li>
+</ul>
+</li>
+<li><strong>文档 + 思维导图</strong> 记录总结，专注<strong>知识体系构建</strong><ul>
+<li><strong>入门教程</strong>的时候<strong>采取文档</strong>的形式，因为这个时候没有知识体系，文档记录会更直接</li>
+<li>入门教程之后，就<strong>挑选几份权威资料</strong>结合入门教程，构建思维导图的<strong>大框架</strong></li>
+<li>之后分知识点深入学习的时候，<strong>每深入学一个知识点，就开一个分支去记录</strong></li>
+<li>思维导图的内容最好<strong>用自己的话输出</strong></li>
+</ul>
+</li>
+</ol>
 <link rel="stylesheet" href="/css/spoiler.css" type="text/css"><script src="/js/spoiler.js" type="text/javascript" async></script>
                 
               </div>
@@ -434,15 +473,6 @@
     </div>
   
   
-    <div class="post-meta">
-      <i class="iconfont icon-tags"></i>
-      
-        <a href="/tags/Linux/" class="print-no-link">#Linux</a>
-      
-        <a href="/tags/C/" class="print-no-link">#C++</a>
-      
-    </div>
-  
 </div>
 
 
@@ -451,8 +481,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>配置远程开发环境</div>
-      <div>https://vendestine.com/2023/02/24/技术经验/remote-vscode-config/</div>
+      <div>CS学习方法论</div>
+      <div>https://vendestine.com/2023/03/01/技术经验/learn_method/</div>
     </div>
     <div class="license-meta">
       
@@ -464,7 +494,7 @@
       
         <div class="license-meta-item license-meta-date">
           <div>Posted on</div>
-          <div>February 24, 2023</div>
+          <div>March 1, 2023</div>
         </div>
       
       
@@ -496,9 +526,9 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2023/03/01/%E6%8A%80%E6%9C%AF%E7%BB%8F%E9%AA%8C/learn_method/" title="CS学习方法论">
+                      <a href="/2023/03/14/%E5%BA%95%E5%B1%82%E5%BC%80%E5%8F%91/linux%E4%B8%93%E6%A0%8F/web-server/" title="Linux-开发笔记">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">CS学习方法论</span>
+                        <span class="hidden-mobile">Linux-开发笔记</span>
                         <span class="visible-mobile">Previous</span>
                       </a>
                     
@@ -506,8 +536,8 @@
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2023/02/21/%E6%8A%80%E6%9C%AF%E7%BB%8F%E9%AA%8C/c_environment_setting/" title="C/C++ 开发环境配置">
-                        <span class="hidden-mobile">C/C++ 开发环境配置</span>
+                      <a href="/2023/02/24/%E6%8A%80%E6%9C%AF%E7%BB%8F%E9%AA%8C/remote-vscode-config/" title="配置远程开发环境">
+                        <span class="hidden-mobile">配置远程开发环境</span>
                         <span class="visible-mobile">Next</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
