@@ -4,6 +4,33 @@
   
   
   <entry>
+    <title>x86 AT&amp;T语法 汇编语言入门教程</title>
+    <link href="/2023/09/06/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/Assembly/x86_att_tutorial/"/>
+    <url>/2023/09/06/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/Assembly/x86_att_tutorial/</url>
+    
+    <content type="html"><![CDATA[<h3 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h3><p><a href="https://www.ruanyifeng.com/blog/2018/01/assembly-language-primer.html">1. 阮一峰 汇编语言入门教程 #大神博客，汇编语言整体基本了解</a><br><a href="https://luyuhuang.tech/2022/01/18/x86-assembly.html">2. x86 汇编的基础介绍 #外网教程翻译，信息很全面</a><br><a href="">3. linux汇编知识总结(GAS和NASM汇编) #基本语法+代码示例 </a><br><a href="http://1.117.24.237/2022/07/09/assembler-notes.html">4. 汇编笔记 #逻辑明确，配有很多文章链接</a><br><a href="https://blog.csdn.net/weixin_43083491/article/details/122022648">5. x86汇编语言基础(AT&amp;T语法) #补充</a><br><a href="https://www.xianwaizhiyin.net/?p=1015">6. X86汇编入门-语法 - 弦外之音 #补充</a></p><link rel="stylesheet" href="/css/spoiler.css" type="text/css"><script src="/js/spoiler.js" type="text/javascript" async></script>]]></content>
+    
+    
+    <categories>
+      
+      <category>编程语言</category>
+      
+      <category>Assembly</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>汇编</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>博客建站</title>
     <link href="/2023/07/04/%E9%A1%B9%E7%9B%AE%E7%BB%8F%E5%8E%86/%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/blog_tutorial/"/>
     <url>/2023/07/04/%E9%A1%B9%E7%9B%AE%E7%BB%8F%E5%8E%86/%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/blog_tutorial/</url>

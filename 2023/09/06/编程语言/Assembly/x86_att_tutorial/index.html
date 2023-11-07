@@ -16,25 +16,24 @@
   <meta name="author" content="Wenzhe Li">
   <meta name="keywords" content="">
   
-    <meta name="description" content="一些C&#x2F;C++ 问题的个人理解">
+    <meta name="description" content="汇编语言的入门教程 主要是x86 AT&amp;T语法">
 <meta property="og:type" content="article">
-<meta property="og:title" content="C++ 常见问题汇总">
-<meta property="og:url" content="https://vendestine.com/2022/07/02/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/C++/c-question/index.html">
+<meta property="og:title" content="x86 AT&amp;T语法 汇编语言入门教程">
+<meta property="og:url" content="https://vendestine.com/2023/09/06/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/Assembly/x86_att_tutorial/index.html">
 <meta property="og:site_name" content="Blog">
-<meta property="og:description" content="一些C&#x2F;C++ 问题的个人理解">
+<meta property="og:description" content="汇编语言的入门教程 主要是x86 AT&amp;T语法">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="https://vendestine.com/img/C++.png">
-<meta property="article:published_time" content="2022-07-02T07:58:34.000Z">
-<meta property="article:modified_time" content="2023-08-13T08:15:24.646Z">
+<meta property="og:image" content="https://vendestine.com/img/asm.jpg">
+<meta property="article:published_time" content="2023-09-06T23:49:16.000Z">
+<meta property="article:modified_time" content="2023-11-07T04:50:56.749Z">
 <meta property="article:author" content="Wenzhe Li">
-<meta property="article:tag" content="C++">
-<meta property="article:tag" content="面试">
+<meta property="article:tag" content="汇编">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://vendestine.com/img/C++.png">
+<meta name="twitter:image" content="https://vendestine.com/img/asm.jpg">
   
   
   
-  <title>C++ 常见问题汇总 - Blog</title>
+  <title>x86 AT&amp;T语法 汇编语言入门教程 - Blog</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -229,7 +228,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="C++ 常见问题汇总"></span>
+            <span id="subtitle" data-typed-text="x86 AT&amp;T语法 汇编语言入门教程"></span>
           
         </div>
 
@@ -240,8 +239,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2022-07-02 03:58" pubdate>
-          July 2, 2022 am
+        <time datetime="2023-09-06 19:49" pubdate>
+          September 6, 2023 pm
         </time>
       </span>
     
@@ -252,7 +251,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          1.1k words
+          164 words
         
       </span>
     
@@ -263,7 +262,7 @@
         
         
         
-          10 mins
+          2 mins
         
       </span>
     
@@ -342,17 +341,17 @@
     
     
     <div class="category-sub row nomargin-x">
-      <a class="category-subitem collapsed
+      <a class="category-subitem 
           list-group-item category-item-action col-10 col-md-11 col-xm-11" title="Assembly"
         id="heading-d75c45e11c8aeb13494dba59a388a164" role="tab" data-toggle="collapse" href="#collapse-d75c45e11c8aeb13494dba59a388a164"
-        aria-expanded="false"
+        aria-expanded="true"
       >
         Assembly
         <span class="list-group-count">(1)</span>
         <i class="iconfont icon-arrowright"></i>
       </a>
       
-      <div class="category-collapse collapse " id="collapse-d75c45e11c8aeb13494dba59a388a164"
+      <div class="category-collapse collapse show" id="collapse-d75c45e11c8aeb13494dba59a388a164"
            role="tabpanel" aria-labelledby="heading-d75c45e11c8aeb13494dba59a388a164">
         
         
@@ -364,7 +363,7 @@
       
         <a href="/2023/09/06/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/Assembly/x86_att_tutorial/" title="x86 AT&amp;T语法 汇编语言入门教程"
            class="list-group-item list-group-item-action
-           ">
+           active">
           <span class="category-post">x86 AT&amp;T语法 汇编语言入门教程</span>
         </a>
       
@@ -379,17 +378,17 @@
     
     
     <div class="category-sub row nomargin-x">
-      <a class="category-subitem 
+      <a class="category-subitem collapsed
           list-group-item category-item-action col-10 col-md-11 col-xm-11" title="C++"
         id="heading-f6f87c9fdcf8b3c3f07f93f1ee8712c9" role="tab" data-toggle="collapse" href="#collapse-f6f87c9fdcf8b3c3f07f93f1ee8712c9"
-        aria-expanded="true"
+        aria-expanded="false"
       >
         C++
         <span class="list-group-count">(5)</span>
         <i class="iconfont icon-arrowright"></i>
       </a>
       
-      <div class="category-collapse collapse show" id="collapse-f6f87c9fdcf8b3c3f07f93f1ee8712c9"
+      <div class="category-collapse collapse " id="collapse-f6f87c9fdcf8b3c3f07f93f1ee8712c9"
            role="tabpanel" aria-labelledby="heading-f6f87c9fdcf8b3c3f07f93f1ee8712c9">
         
         
@@ -419,7 +418,7 @@
       
         <a href="/2022/07/02/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/C++/c-question/" title="C++ 常见问题汇总"
            class="list-group-item list-group-item-action
-           active">
+           ">
           <span class="category-post">C++ 常见问题汇总</span>
         </a>
       
@@ -519,48 +518,12 @@
       <div class="container nopadding-x-md" id="board-ctn">
         <div id="board">
           <article class="post-content mx-auto">
-            <h1 id="seo-header">C++ 常见问题汇总</h1>
+            <h1 id="seo-header">x86 AT&amp;T语法 汇编语言入门教程</h1>
             
             
               <div class="markdown-body">
                 
-                <h2 id="1-在main执行之前和之后执行的代码可能是什么？"><a href="#1-在main执行之前和之后执行的代码可能是什么？" class="headerlink" title="1. 在main执行之前和之后执行的代码可能是什么？"></a>1. 在main执行之前和之后执行的代码可能是什么？</h2><p><strong>main之前可能会执行什么</strong>：</p>
-<p>首先一般认知来讲，main函数是程序的入口，这句话在开发的角度来讲是没有什么问题的，但是从操作系统的角度来看，它就不是很准确了。</p>
-<p>拿gcc编译器来说，_start函数才是真正的入口点，所以我们就从_start函数来分析这个问题<br>—start函数伪代码如下</p>
-<figure class="highlight lua"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><code class="hljs lua">　　　　__start:<br>　　　　 :<br>　　　　 init stack;<br>　　　　 init heap;<br>　　　　 <span class="hljs-built_in">open</span> <span class="hljs-built_in">stdin</span>;<br>　　　　 <span class="hljs-built_in">open</span> <span class="hljs-built_in">stdout</span>;<br>　　　　 <span class="hljs-built_in">open</span> <span class="hljs-built_in">stderr</span>;<br>　　　　 :<br>　　　　 push argv;<br>　　　　 push argc;<br>　　　　 call _main; (调用 main)<br>　　　　 :<br>　　　　 destory heap;<br>　　　　 <span class="hljs-built_in">close</span> <span class="hljs-built_in">stdin</span>;<br>　　　　 <span class="hljs-built_in">close</span> <span class="hljs-built_in">stdout</span>;<br>　　　　 <span class="hljs-built_in">close</span> <span class="hljs-built_in">stderr</span>;<br>　　　　 :<br>　　　　 call __exit;<br></code></pre></td></tr></table></figure>
-
-<p>所以看的出来在main函数之前是初始化系统的相关资源，如栈，堆，IO，异常，全局静态对象等等<br>初始化资源的话大致的顺序就是</p>
-<ol>
-<li>设置栈（初始化栈指针）</li>
-<li>初始化静态static变量和global全局变量，(.data段的内容) 如果对象是非内置类型，就会调用构造函数</li>
-<li>将未初始化部分的全局变量赋初值，(.bss段的内容)</li>
-<li>然后就将main函数的参数argc，argv和envp压入栈中</li>
-</ol>
-<p><strong>attribute</strong>((constructor))关键字放在函数前，会将该函数修饰成构造函数，所以在也在main之前</p>
-<br>
-
-<p><strong>main之后可能会执行什么</strong>：</p>
-<ul>
-<li>main函数执行完毕后，返回到入口函数，入口函数进行清理工作，包括全局变量的析构、堆销毁、关闭I&#x2F;O等，然后系统调用结束进程</li>
-</ul>
-<p>可以用 atexit 注册一个函数，或者给函数修饰__attribute__((destructor))，都可以在main函数后执行这个函数再结束进程。</p>
-<br>
-
-<p><strong>Reference:</strong><br><a target="_blank" rel="noopener" href="https://blog.51cto.com/u_15072903/3542475">[1]. c&#x2F;c++ main函数执行之前&#x2F;后</a><br><a target="_blank" rel="noopener" href="https://juejin.cn/post/6844904032004374541">[2]. 搞定技术面试-在 main函数之前发生了什么</a><br><a target="_blank" rel="noopener" href="https://www.techiedelight.com/zh/c-program-without-main-function/">[3]. 在不使用 main 函数的情况下编写 C&#x2F;C++ 程序</a><br><a target="_blank" rel="noopener" href="https://www.jianshu.com/p/ddfb284c1f7a">[4]. 深入理解BSS段与data段的区别</a></p>
-<br>
-
-<h2 id="结构体内存问题"><a href="#结构体内存问题" class="headerlink" title="结构体内存问题"></a>结构体内存问题</h2><p>它有内存对齐的现象</p>
-<ol>
-<li><p>为什么要内存对齐<br>字节对齐主要是为了提高内存的访问效率，操作系统在访问内存的时候，每次读取一定长度，如果没有对齐，访问一个变量可能会产生二次访问的问题。</p>
-</li>
-<li><p>内存对齐的原则<br>总结了一下公式：<br>公式1:前面的地址必须是后面的地址正数倍,不是就补齐<br>公式2:整个Struct的地址必须是最大字节的整数倍</p>
-</li>
-<li><p>可以手动设置对齐方式<br><code>#pragma pack(n)</code></p>
-</li>
-</ol>
-<p><strong>Reference</strong><br><a target="_blank" rel="noopener" href="https://www.zhihu.com/question/27862634">[1]. 如何理解 struct 的内存对齐？</a><br><a target="_blank" rel="noopener" href="https://blog.51cto.com/yang/4374041">[2]. 结构体字节对齐问题探究</a><br><a target="_blank" rel="noopener" href="https://cloud.tencent.com/developer/article/1703257">[3]. C语言 | 关于结构体内存对齐，看这篇就够了</a></p>
-<br>
-
+                <h3 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h3><p><a target="_blank" rel="noopener" href="https://www.ruanyifeng.com/blog/2018/01/assembly-language-primer.html">1. 阮一峰 汇编语言入门教程 #大神博客，汇编语言整体基本了解</a><br><a target="_blank" rel="noopener" href="https://luyuhuang.tech/2022/01/18/x86-assembly.html">2. x86 汇编的基础介绍 #外网教程翻译，信息很全面</a><br><a href="">3. linux汇编知识总结(GAS和NASM汇编) #基本语法+代码示例 </a><br><a target="_blank" rel="noopener" href="http://1.117.24.237/2022/07/09/assembler-notes.html">4. 汇编笔记 #逻辑明确，配有很多文章链接</a><br><a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_43083491/article/details/122022648">5. x86汇编语言基础(AT&amp;T语法) #补充</a><br><a target="_blank" rel="noopener" href="https://www.xianwaizhiyin.net/?p=1015">6. X86汇编入门-语法 - 弦外之音 #补充</a></p>
 <link rel="stylesheet" href="/css/spoiler.css" type="text/css"><script src="/js/spoiler.js" type="text/javascript" async></script>
                 
               </div>
@@ -584,7 +547,7 @@
   
     <span>></span>
     
-  <a href="/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/C/" class="category-chain-item">C++</a>
+  <a href="/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/Assembly/" class="category-chain-item">Assembly</a>
   
   
 
@@ -601,9 +564,7 @@
     <div class="post-meta">
       <i class="iconfont icon-tags"></i>
       
-        <a href="/tags/C/" class="print-no-link">#C++</a>
-      
-        <a href="/tags/%E9%9D%A2%E8%AF%95/" class="print-no-link">#面试</a>
+        <a href="/tags/%E6%B1%87%E7%BC%96/" class="print-no-link">#汇编</a>
       
     </div>
   
@@ -615,8 +576,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>C++ 常见问题汇总</div>
-      <div>https://vendestine.com/2022/07/02/编程语言/C++/c-question/</div>
+      <div>x86 AT&amp;T语法 汇编语言入门教程</div>
+      <div>https://vendestine.com/2023/09/06/编程语言/Assembly/x86_att_tutorial/</div>
     </div>
     <div class="license-meta">
       
@@ -628,7 +589,7 @@
       
         <div class="license-meta-item license-meta-date">
           <div>Posted on</div>
-          <div>July 2, 2022</div>
+          <div>September 6, 2023</div>
         </div>
       
       
@@ -660,18 +621,12 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2022/07/20/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/Python/python-basic/" title="Python-基础语法笔记">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">Python-基础语法笔记</span>
-                        <span class="visible-mobile">Previous</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2022/05/24/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/C++/c-basic-3/" title="C++ 提高编程">
-                        <span class="hidden-mobile">C++ 提高编程</span>
+                      <a href="/2023/07/04/%E9%A1%B9%E7%9B%AE%E7%BB%8F%E5%8E%86/%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/blog_tutorial/" title="博客建站">
+                        <span class="hidden-mobile">博客建站</span>
                         <span class="visible-mobile">Next</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
