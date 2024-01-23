@@ -25,7 +25,7 @@
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://vendestine.com/img/C++.png">
 <meta property="article:published_time" content="2022-05-25T03:56:09.000Z">
-<meta property="article:modified_time" content="2024-01-22T17:45:54.721Z">
+<meta property="article:modified_time" content="2024-01-23T17:20:31.477Z">
 <meta property="article:author" content="Wenzhe Li">
 <meta property="article:tag" content="C++">
 <meta name="twitter:card" content="summary_large_image">
@@ -251,7 +251,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          11k words
+          13k words
         
       </span>
     
@@ -262,7 +262,7 @@
         
         
         
-          89 mins
+          105 mins
         
       </span>
     
@@ -1379,6 +1379,175 @@
 <li><p>定义在类声明之中的成员函数将自动地成为内联函数</p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs C++"><span class="hljs-keyword">class</span> <span class="hljs-title class_">A</span><br>&#123;  <br><span class="hljs-keyword">public</span>:<br>    <span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">Foo</span><span class="hljs-params">(<span class="hljs-type">int</span> x, <span class="hljs-type">int</span> y)</span> </span>&#123; ... &#125;   <span class="hljs-comment">// 自动地成为内联函数  </span><br>&#125; <br></code></pre></td></tr></table></figure></li>
 </ol>
+
+    </div>
+</div></li>
+</ul>
+<h3 id="面向对象三特性"><a href="#面向对象三特性" class="headerlink" title="面向对象三特性"></a>面向对象三特性</h3><ul>
+<li><p>封装是什么？封装的意义和作用？</p>
+<div class='spoiler collapsed'>
+    <div class='spoiler-title'>
+        
+    </div>
+    <div class='spoiler-content'>
+        <p>封装是C++面向对象三大特性之一</p>
+<p>封装：把数据和操作数据的函数捆绑在一起<br>作用：</p>
+<ol>
+<li>避免受到外界的干扰和误用，从而确保了安全</li>
+<li>利于数据抽象（仅向用户暴露接口而把具体的实现细节隐藏起来的机制），将数据和函数加以权限控制</li>
+</ol>
+
+    </div>
+</div>
+</li>
+<li><p>类的设计中，成员变量设为私有的好处</p>
+<div class='spoiler collapsed'>
+    <div class='spoiler-title'>
+        
+    </div>
+    <div class='spoiler-content'>
+        <p>优点1：将所有成员属性设置为私有，可以自己控制读写权限<br>优点2：对于写权限，我们可以检测数据的有效性</p>
+
+    </div>
+</div>
+
+</li>
+<li><p>继承是什么？继承的意义和作用？</p>
+<div class='spoiler collapsed'>
+    <div class='spoiler-title'>
+        
+    </div>
+    <div class='spoiler-content'>
+        <p>继承：根据一个已有的类来定义一个新类，新建的类继承了已有的类的成员，同时可以有自己的成员；<br>这个已有的类称为基类（父类），新建的类称为派生类（子类）；继承则代表了 is a 关系</p>
+<p>继承的意义和作用：减少重复代码<br>语法：<code>class 子类 : 继承方式 父类</code></p>
+
+    </div>
+</div>
+
+
+</li>
+<li><p>继承方式有哪些，有什么不同？</p>
+<div class='spoiler collapsed'>
+    <div class='spoiler-title'>
+        
+    </div>
+    <div class='spoiler-content'>
+        <p>继承方式一共有三种：<br>公共继承 public     公共权限<br>保护继承 protected  保护权限<br>私有继承 private    私有权限</p>
+<p>在继承的时候，不同的继承方式，派生类的权限不同</p>
+<p><img src="/img/heima/l3/clip_image002.png" srcset="/img/loading.gif" lazyload></p>
+<table>
+<thead>
+<tr>
+<th>继承方式</th>
+<th>基类的public成员</th>
+<th>基类的protected成员</th>
+<th>基类的private成员</th>
+<th>继承引起的访问控制关系变化概括</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>public继承</td>
+<td>仍为public成员</td>
+<td>仍为protected成员</td>
+<td>不可见</td>
+<td>基类的非私有成员在子类的访问属性不变</td>
+</tr>
+<tr>
+<td>protected继承</td>
+<td>变为protected成员</td>
+<td>变为protected成员</td>
+<td>不可见</td>
+<td>基类的非私有成员都为子类的保护成员</td>
+</tr>
+<tr>
+<td>private继承</td>
+<td>变为private成员</td>
+<td>变为private成员</td>
+<td>不可见</td>
+<td>基类中的非私有成员都称为子类的私有成员</td>
+</tr>
+</tbody></table>
+
+    </div>
+</div>
+
+</li>
+<li><p>从父类继承过来的成员，哪些属于子类对象中？</p>
+<div class='spoiler collapsed'>
+    <div class='spoiler-title'>
+        
+    </div>
+    <div class='spoiler-content'>
+        <p>父类中的所有非静态成员都会被子类继承下去；父类中私有成员也是被子类继承下去了，只是由编译器给隐藏后访问不到；</p>
+
+    </div>
+</div>
+
+</li>
+<li><p>子类继承父类后，当创建子类对象，也会调用父类的构造函数，父类和子类的构造和析构顺序是谁先谁后？</p>
+<div class='spoiler collapsed'>
+    <div class='spoiler-title'>
+        
+    </div>
+    <div class='spoiler-content'>
+        <p>继承中 先调用父类构造函数，再调用子类构造函数，析构顺序与构造相反 （理解，现有父亲才能有儿子）</p>
+
+    </div>
+</div>
+
+</li>
+<li><p>当子类与父类出现同名的成员，如何通过子类对象，访问到子类或父类中同名的数据呢？</p>
+<div class='spoiler collapsed'>
+    <div class='spoiler-title'>
+        
+    </div>
+    <div class='spoiler-content'>
+        <p>访问子类同名成员 直接访问即可<br>访问父类同名成员 需要加作用域<br>当子类与父类拥有同名的成员函数，子类会隐藏父类中同名成员函数，加作用域可以访问到父类中同名函数   </p>
+<blockquote>
+<p>因为有些人会认为子类和父类函数虽然同名，但是参数不同，可以直接访问父类成员函数，实际上不能</p>
+</blockquote>
+
+    </div>
+</div>
+
+</li>
+<li><p>继承中同名的静态成员在子类对象上如何进行访问？</p>
+<div class='spoiler collapsed'>
+    <div class='spoiler-title'>
+        
+    </div>
+    <div class='spoiler-content'>
+        <p>同名静态成员处理方式和非静态处理方式一样，只不过有两种访问的方式（通过对象 和 通过类名）</p>
+
+    </div>
+</div>
+
+</li>
+<li><p>什么是多继承，多继承中如果父类有同名成员出现，子类对象如何访问？</p>
+<div class='spoiler collapsed'>
+    <div class='spoiler-title'>
+        
+    </div>
+    <div class='spoiler-content'>
+        <p>多继承：一个子类可以有多个父类，它继承了多个父类的特性<br>语法：<code>class 子类 ：继承方式 父类1 ， 继承方式 父类2...</code></p>
+<p>如果多个父类之间有同名成员，子类对象使用这些成员时要加作用域</p>
+
+    </div>
+</div>
+
+</li>
+<li><p>什么是菱形继承？菱形继承的问题是什么？解决方案？</p>
+<div class='spoiler collapsed'>
+    <div class='spoiler-title'>
+        
+    </div>
+    <div class='spoiler-content'>
+        <p>两个派生类继承同一个基类，又有某个类同时继承者两个派生类，这种继承被称为菱形继承，或者钻石继承；</p>
+<p>菱形继承问题：子类继承两份相同的数据，导致资源浪费以及毫无意义；<br>解决方案：利用虚继承</p>
+<blockquote>
+<p>利用虚继承后，SheepTuo的对象模型里有Animal类的m_Age，以及Sheep类的vbptr和Tuo类的vbptr,vbptr指向vbtable，vbtable里面记录了偏移量，最后找到Animal类的m_Age; 数据只有一份</p>
+</blockquote>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><code class="hljs C++"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Animal</span><br>&#123;<br><span class="hljs-keyword">public</span>:<br>	<span class="hljs-type">int</span> m_Age;<br>&#125;;<br><br><span class="hljs-comment">//继承前加virtual关键字后，变为虚继承</span><br><span class="hljs-comment">//此时公共的父类Animal称为虚基类</span><br><span class="hljs-keyword">class</span> <span class="hljs-title class_">Sheep</span> : <span class="hljs-keyword">virtual</span> <span class="hljs-keyword">public</span> Animal &#123;&#125;;<br><span class="hljs-keyword">class</span> <span class="hljs-title class_">Tuo</span>   : <span class="hljs-keyword">virtual</span> <span class="hljs-keyword">public</span> Animal &#123;&#125;;<br><span class="hljs-keyword">class</span> <span class="hljs-title class_">SheepTuo</span> : <span class="hljs-keyword">public</span> Sheep, <span class="hljs-keyword">public</span> Tuo &#123;&#125;;<br><br><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">test01</span><span class="hljs-params">()</span></span><br><span class="hljs-function"></span>&#123;<br>	SheepTuo st;<br>	st.Sheep::m_Age = <span class="hljs-number">100</span>;<br>	st.Tuo::m_Age = <span class="hljs-number">200</span>;<br><br>	cout &lt;&lt; <span class="hljs-string">&quot;st.Sheep::m_Age = &quot;</span> &lt;&lt; st.Sheep::m_Age &lt;&lt; endl;<br>	cout &lt;&lt; <span class="hljs-string">&quot;st.Tuo::m_Age = &quot;</span> &lt;&lt;  st.Tuo::m_Age &lt;&lt; endl;<br>	cout &lt;&lt; <span class="hljs-string">&quot;st.m_Age = &quot;</span> &lt;&lt; st.m_Age &lt;&lt; endl;<br>&#125;<br></code></pre></td></tr></table></figure>
 
     </div>
 </div></li>
