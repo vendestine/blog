@@ -25,7 +25,7 @@
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://vendestine.com/img/C++.png">
 <meta property="article:published_time" content="2022-05-25T03:56:09.000Z">
-<meta property="article:modified_time" content="2024-01-31T12:50:21.847Z">
+<meta property="article:modified_time" content="2024-02-04T18:08:33.072Z">
 <meta property="article:author" content="Wenzhe Li">
 <meta property="article:tag" content="C++">
 <meta name="twitter:card" content="summary_large_image">
@@ -251,7 +251,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          20k words
+          24k words
         
       </span>
     
@@ -262,7 +262,7 @@
         
         
         
-          165 mins
+          200 mins
         
       </span>
     
@@ -1619,14 +1619,10 @@
 </div></li>
 </ul>
 <h2 id="C-泛型编程"><a href="#C-泛型编程" class="headerlink" title="C++泛型编程"></a>C++泛型编程</h2><ul>
-<li>模板<ul>
 <li>函数模板</li>
 <li>类模板</li>
 </ul>
-</li>
-<li>STL</li>
-</ul>
-<h3 id="模板"><a href="#模板" class="headerlink" title="模板"></a>模板</h3><ul>
+<h3 id="函数模板"><a href="#函数模板" class="headerlink" title="函数模板"></a>函数模板</h3><ul>
 <li><p>什么是模板？</p>
 <div class='spoiler collapsed'>
     <div class='spoiler-title'>
@@ -1705,10 +1701,9 @@
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><code class="hljs C++"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Person</span><br>&#123;<br><span class="hljs-keyword">public</span>:<br>	<span class="hljs-built_in">Person</span>(string name, <span class="hljs-type">int</span> age)<br>	&#123;<br>		<span class="hljs-keyword">this</span>-&gt;m_Name = name;<br>		<span class="hljs-keyword">this</span>-&gt;m_Age = age;<br>	&#125;<br>	string m_Name;<br>	<span class="hljs-type">int</span> m_Age;<br>&#125;;<br><br><span class="hljs-comment">//普通函数模板</span><br><span class="hljs-function"><span class="hljs-keyword">template</span>&lt;<span class="hljs-keyword">class</span> T&gt;</span><br><span class="hljs-function"><span class="hljs-type">bool</span> <span class="hljs-title">myCompare</span><span class="hljs-params">(T&amp; a, T&amp; b)</span></span><br><span class="hljs-function"></span>&#123;<br>	<span class="hljs-keyword">if</span> (a == b)<br>	&#123;<br>		<span class="hljs-keyword">return</span> <span class="hljs-literal">true</span>;<br>	&#125;<br>	<span class="hljs-keyword">else</span><br>	&#123;<br>		<span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>;<br>	&#125;<br>&#125;<br><br><br><span class="hljs-comment">//具体化，显示具体化的原型和定意思以template&lt;&gt;开头，并通过名称来指出类型</span><br><span class="hljs-comment">//具体化优先于常规模板</span><br><span class="hljs-keyword">template</span>&lt;&gt; <span class="hljs-function"><span class="hljs-type">bool</span> <span class="hljs-title">myCompare</span><span class="hljs-params">(Person &amp;p1, Person &amp;p2)</span></span><br><span class="hljs-function"></span>&#123;<br>	<span class="hljs-keyword">if</span> ( p1.m_Name  == p2.m_Name &amp;&amp; p1.m_Age == p2.m_Age)<br>	&#123;<br>		<span class="hljs-keyword">return</span> <span class="hljs-literal">true</span>;<br>	&#125;<br>	<span class="hljs-keyword">else</span><br>	&#123;<br>		<span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>;<br>	&#125;<br>&#125;<br></code></pre></td></tr></table></figure>
 
     </div>
-</div>
-
-
-</li>
+</div></li>
+</ul>
+<h3 id="类模板"><a href="#类模板" class="headerlink" title="类模板"></a>类模板</h3><ul>
 <li><p>什么是类模板？</p>
 <div class='spoiler collapsed'>
     <div class='spoiler-title'>
@@ -1809,6 +1804,99 @@
     </div>
     <div class='spoiler-content'>
         <p>全局函数类内实现 - 直接在类内声明友元即可       &#x2F;&#x2F; 推荐这一种<br>全局函数类外实现 - 需要提前让编译器知道全局函数的存在</p>
+
+    </div>
+</div></li>
+</ul>
+<h2 id="C-STL"><a href="#C-STL" class="headerlink" title="C++ STL"></a>C++ STL</h2><ul>
+<li>STL概念</li>
+<li>常用容器<ul>
+<li>string</li>
+<li>vector</li>
+</ul>
+</li>
+<li>算法</li>
+<li>迭代器</li>
+</ul>
+<h3 id="STL概念"><a href="#STL概念" class="headerlink" title="STL概念"></a>STL概念</h3><ul>
+<li><p>什么是STL，STL的设计背景？</p>
+<div class='spoiler collapsed'>
+    <div class='spoiler-title'>
+        
+    </div>
+    <div class='spoiler-content'>
+        <p>STL：Standard Template Library，标准模板库；<br>设计背景：C++的面向对象和泛型编程思想，目的就是复用性的提升；为了建立数据结构和算法的一套标准,诞生了STL；</p>
+
+    </div>
+</div>
+</li>
+<li><p>STL大体有哪些内容，作用是什么？</p>
+<div class='spoiler collapsed'>
+    <div class='spoiler-title'>
+        
+    </div>
+    <div class='spoiler-content'>
+        <p>STL大体分为六大组件，分别是:容器、算法、迭代器、仿函数、适配器、空间配置器</p>
+<p>容器：各种数据结构，如vector、list、deque、set、map等,用来存放数据。<br>算法：各种常用的算法，如sort、find、copy、for_each等<br>迭代器：扮演了容器与算法之间的胶合剂。<br>仿函数：行为类似函数，可作为算法的某种策略。<br>适配器：一种用来修饰容器或者仿函数或迭代器接口的东西。<br>空间配置器：负责空间的配置与管理。</p>
+
+    </div>
+</div></li>
+</ul>
+<h3 id="容器"><a href="#容器" class="headerlink" title="容器"></a>容器</h3><ul>
+<li><p>string容器的基本操作？</p>
+<div class='spoiler collapsed'>
+    <div class='spoiler-title'>
+        
+    </div>
+    <div class='spoiler-content'>
+        <p>string是一个类，类内部封装了char*，以及很多函数；</p>
+<ul>
+<li><p>构造函数<br>string(); &#x2F;&#x2F;创建一个空的字符串 例如: string str;<br>string(const char* s); &#x2F;&#x2F;使用字符串s初始化<br>string(const string&amp; str); &#x2F;&#x2F;使用一个string对象初始化另一个string对象<br>string(int n, char c); &#x2F;&#x2F;使用n个字符c初始化</p>
+</li>
+<li><p>赋值<br>string&amp; operator&#x3D;(const char* s); &#x2F;&#x2F;char*类型字符串 赋值给当前的字符串<br>string&amp; operator&#x3D;(const string &amp;s); &#x2F;&#x2F;把字符串s赋给当前的字符串<br>string&amp; operator&#x3D;(char c); &#x2F;&#x2F;字符赋值给当前的字符串<br>string&amp; assign(const char *s); &#x2F;&#x2F;把字符串s赋给当前的字符串<br>string&amp; assign(const char *s, int n); &#x2F;&#x2F;把字符串s的前n个字符赋给当前的字符串<br>string&amp; assign(const string &amp;s); &#x2F;&#x2F;把字符串s赋给当前字符串<br>string&amp; assign(int n, char c); &#x2F;&#x2F;用n个字符c赋给当前字符串</p>
+</li>
+<li><p>字符串拼接<br>string&amp; operator+&#x3D;(const char* str); &#x2F;&#x2F;重载+&#x3D;操作符<br>string&amp; operator+&#x3D;(const char c); &#x2F;&#x2F;重载+&#x3D;操作符<br>string&amp; operator+&#x3D;(const string&amp; str); &#x2F;&#x2F;重载+&#x3D;操作符<br>string&amp; append(const char *s); &#x2F;&#x2F;把字符串s连接到当前字符串结尾<br>string&amp; append(const char *s, int n); &#x2F;&#x2F;把字符串s的前n个字符连接到当前字符串结尾<br>string&amp; append(const string &amp;s); &#x2F;&#x2F;同operator+&#x3D;(const string&amp; str)<br>string&amp; append(const string &amp;s, int pos, int n);&#x2F;&#x2F;字符串s中从pos开始的n个字符连接到字符串结尾</p>
+</li>
+<li><p>查找和替换<br>int find(const string&amp; str, int pos &#x3D; 0) const; &#x2F;&#x2F;查找str第一次出现位置,从pos开始查找<br>int find(const char* s, int pos &#x3D; 0) const; &#x2F;&#x2F;查找s第一次出现位置,从pos开始查找<br>int find(const char* s, int pos, int n) const; &#x2F;&#x2F;从pos位置查找s的前n个字符第一次位置<br>int find(const char c, int pos &#x3D; 0) const; &#x2F;&#x2F;查找字符c第一次出现位置<br>int rfind(const string&amp; str, int pos &#x3D; npos) const; &#x2F;&#x2F;查找str最后一次位置,从pos开始查找<br>int rfind(const char* s, int pos &#x3D; npos) const; &#x2F;&#x2F;查找s最后一次出现位置,从pos开始查找<br>int rfind(const char* s, int pos, int n) const; &#x2F;&#x2F;从pos查找s的前n个字符最后一次位置<br>int rfind(const char c, int pos &#x3D; 0) const; &#x2F;&#x2F;查找字符c最后一次出现位置<br>string&amp; replace(int pos, int n, const string&amp; str); &#x2F;&#x2F;替换从pos开始n个字符为字符串str<br>string&amp; replace(int pos, int n,const char* s); &#x2F;&#x2F;替换从pos开始的n个字符为字符串s</p>
+</li>
+<li><p>字符串比较<br>int compare(const string &amp;s) const; &#x2F;&#x2F;与字符串s比较<br>int compare(const char *s) const; &#x2F;&#x2F;与字符串s比较</p>
+</li>
+<li><p>字符存取<br>char&amp; operator[](int n); &#x2F;&#x2F;通过[]方式取字符<br>char&amp; at(int n); &#x2F;&#x2F;通过at方法获取字符</p>
+</li>
+<li><p>插入和删除<br>string&amp; insert(int pos, const char* s); &#x2F;&#x2F;插入字符串<br>string&amp; insert(int pos, const string&amp; str); &#x2F;&#x2F;插入字符串<br>string&amp; insert(int pos, int n, char c); &#x2F;&#x2F;在指定位置插入n个字符c<br>string&amp; erase(int pos, int n &#x3D; npos); &#x2F;&#x2F;删除从Pos开始的n个字符</p>
+</li>
+<li><p>子串<br>string substr(int pos &#x3D; 0, int n &#x3D; npos) const; &#x2F;&#x2F;返回由pos开始的n个字符组成的字符串</p>
+</li>
+</ul>
+
+    </div>
+</div>
+
+</li>
+<li><p>vector容器的基本操作？</p>
+<div class='spoiler collapsed'>
+    <div class='spoiler-title'>
+        
+    </div>
+    <div class='spoiler-content'>
+        <p>vector数据结构和数组非常相似，也称为单端数组；不同之处在于数组是静态空间，而vector可以动态扩展</p>
+<p>动态扩展：并不是在原空间之后续接新空间，而是找更大的内存空间，然后将原数据拷贝新空间，释放原空间</p>
+<ul>
+<li><p>构造函数<br>vector<T> v; &#x2F;&#x2F;采用模板实现类实现，默认构造函数<br>vector(v.begin(), v.end()); &#x2F;&#x2F;将v[begin(), end())区间中的元素拷贝给本身。<br>vector(n, elem); &#x2F;&#x2F;构造函数将n个elem拷贝给本身。<br>vector(const vector &amp;vec); &#x2F;&#x2F;拷贝构造函数。</p>
+</li>
+<li><p>赋值<br>vector&amp; operator&#x3D;(const vector &amp;vec);&#x2F;&#x2F;重载等号操作符<br>assign(beg, end); &#x2F;&#x2F;将[beg, end)区间中的数据拷贝赋值给本身。<br>assign(n, elem); &#x2F;&#x2F;将n个elem拷贝赋值给本身。</p>
+</li>
+<li><p>容量和大小<br>empty(); &#x2F;&#x2F;判断容器是否为空<br>capacity(); &#x2F;&#x2F;容器的容量<br>size(); &#x2F;&#x2F;返回容器中元素的个数<br>resize(int num); &#x2F;&#x2F;重新指定容器的长度为num，若容器变长，则以默认值填充新位置。如果容器变短，则末尾超出容器长度的元素被删除。<br>resize(int num, elem); &#x2F;&#x2F;重新指定容器的长度为num，若容器变长，则以elem值填充新位置。如果容器变短，则末尾超出容器长度的元素被删除</p>
+</li>
+<li><p>插入和删除<br>push_back(ele); &#x2F;&#x2F;尾部插入元素ele<br>pop_back(); &#x2F;&#x2F;删除最后一个元素<br>insert(const_iterator pos, ele); &#x2F;&#x2F;迭代器指向位置pos插入元素ele<br>insert(const_iterator pos, int count,ele);&#x2F;&#x2F;迭代器指向位置pos插入count个元素ele<br>erase(const_iterator pos); &#x2F;&#x2F;删除迭代器指向的元素<br>erase(const_iterator start, const_iterator end);&#x2F;&#x2F;删除迭代器从start到end之间的元素<br>clear(); &#x2F;&#x2F;删除容器中所有元素</p>
+</li>
+<li><p>数据存取<br>at(int idx); &#x2F;&#x2F;返回索引idx所指的数据<br>operator[]; &#x2F;&#x2F;返回索引idx所指的数据<br>front(); &#x2F;&#x2F;返回容器中第一个数据元素<br>back(); &#x2F;&#x2F;返回容器中最后一个数据元素</p>
+</li>
+<li><p>互换容器<br>swap(vec); &#x2F;&#x2F; 将vec与本身的元素互换<br>vector<int>(v).swap(v); &#x2F;&#x2F;匿名对象，收缩内存</p>
+</li>
+<li><p>预留空间<br>reserve(int len); &#x2F;&#x2F;容器预留len个元素长度，预留位置不初始化，元素不可访问。<br>&#x2F;&#x2F; 减少vector在动态扩展容量时的扩展次数</p>
+</li>
+</ul>
 
     </div>
 </div></li>
