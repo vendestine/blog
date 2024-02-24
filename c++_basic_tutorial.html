@@ -1,0 +1,2435 @@
+
+
+<!DOCTYPE html>
+<html lang="en" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/fluid.png">
+  <link rel="icon" href="/img/fluid.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="Wenzhe Li">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="C++快速入门时候的笔记">
+<meta property="og:type" content="article">
+<meta property="og:title" content="C++快速入门笔记">
+<meta property="og:url" content="https://vendestine.com/c++_basic_tutorial">
+<meta property="og:site_name" content="Blog">
+<meta property="og:description" content="C++快速入门时候的笔记">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://vendestine.com/img/C++.png">
+<meta property="article:published_time" content="2022-05-25T03:56:09.000Z">
+<meta property="article:modified_time" content="2024-02-04T18:08:33.072Z">
+<meta property="article:author" content="Wenzhe Li">
+<meta property="article:tag" content="C++">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://vendestine.com/img/C++.png">
+  
+  
+  
+  <title>C++快速入门笔记 - Blog</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"vendestine.com","root":"/","version":"1.9.5","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":"rsfCNwYEYG167BlEXzFi6nFM-9Nh9j0Va","app_key":"YgnhSGLdGVYg7L4mapy5ab5f","server_url":"https://rsfcnwye.lc-cn-e1-shared.com","path":"window.location.pathname","ignore_local":true}},"search_path":"/local-search.xml","include_content_in_search":true};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+  
+
+  
+    <!-- Google tag (gtag.js) -->
+    <script async>
+      if (!Fluid.ctx.dnt) {
+        Fluid.utils.createScript("https://www.googletagmanager.com/gtag/js?id=", function() {
+          window.dataLayer = window.dataLayer || [];
+          function gtag() {
+            dataLayer.push(arguments);
+          }
+          gtag('js', new Date());
+          gtag('config', '');
+        });
+      }
+    </script>
+  
+
+  
+
+  
+
+  
+
+  
+    
+  
+
+
+
+  
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>Vendestine&#39;s Blog</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                <span>Home</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" target="_self" href="javascript:;" role="button"
+                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <i class="iconfont icon-note"></i>
+                <span>tutorial</span>
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                
+                  
+                  
+                  
+                  <a class="dropdown-item" href="/c-cpp">
+                    
+                    <span>C/C++</span>
+                  </a>
+                
+                  
+                  
+                  
+                  <a class="dropdown-item" href="/linux">
+                    
+                    <span>Linux</span>
+                  </a>
+                
+                  
+                  
+                  
+                  <a class="dropdown-item" href="/qt">
+                    
+                    <span>QT</span>
+                  </a>
+                
+                  
+                  
+                  
+                  <a class="dropdown-item" href="/algorithm">
+                    
+                    <span>Algorithm</span>
+                  </a>
+                
+              </div>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>Archives</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                <span>Categories</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>Tags</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                <span>About</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/fox.png') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="C++快速入门笔记"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2022-05-25 11:56" pubdate>
+          May 25, 2022 am
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          24k words
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          200 mins
+        
+      </span>
+    
+
+    
+    
+      
+        <span id="leancloud-page-views-container" class="post-meta" style="display: none">
+          <i class="iconfont icon-eye" aria-hidden="true"></i>
+          <span id="leancloud-page-views"></span> views
+        </span>
+        
+      
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar category-bar" style="margin-right: -1rem">
+    
+
+
+
+
+
+<div class="category-list">
+  
+  
+    
+    
+    
+    <div class="category row nomargin-x">
+      <a class="category-item 
+          list-group-item category-item-action col-10 col-md-11 col-xm-11" title="编程语言"
+        id="heading-3bf8a523aea21a3a0f6c53b0f43429bb" role="tab" data-toggle="collapse" href="#collapse-3bf8a523aea21a3a0f6c53b0f43429bb"
+        aria-expanded="true"
+      >
+        编程语言
+        <span class="list-group-count">(7)</span>
+        <i class="iconfont icon-arrowright"></i>
+      </a>
+      
+      <div class="category-collapse collapse show" id="collapse-3bf8a523aea21a3a0f6c53b0f43429bb"
+           role="tabpanel" aria-labelledby="heading-3bf8a523aea21a3a0f6c53b0f43429bb">
+        
+        
+          
+          
+  <div class="category-post-list">
+    
+    
+  </div>
+
+          
+  
+    
+    
+    
+    <div class="category-sub row nomargin-x">
+      <a class="category-subitem collapsed
+          list-group-item category-item-action col-10 col-md-11 col-xm-11" title="Assembly"
+        id="heading-d75c45e11c8aeb13494dba59a388a164" role="tab" data-toggle="collapse" href="#collapse-d75c45e11c8aeb13494dba59a388a164"
+        aria-expanded="false"
+      >
+        Assembly
+        <span class="list-group-count">(1)</span>
+        <i class="iconfont icon-arrowright"></i>
+      </a>
+      
+      <div class="category-collapse collapse " id="collapse-d75c45e11c8aeb13494dba59a388a164"
+           role="tabpanel" aria-labelledby="heading-d75c45e11c8aeb13494dba59a388a164">
+        
+        
+          
+  <div class="category-post-list">
+    
+    
+      
+      
+        <a href="/x86_att_tutorial" title="x86 AT&amp;T语法 汇编语言入门教程"
+           class="list-group-item list-group-item-action
+           ">
+          <span class="category-post">x86 AT&amp;T语法 汇编语言入门教程</span>
+        </a>
+      
+    
+  </div>
+
+        
+      </div>
+    </div>
+  
+    
+    
+    
+    <div class="category-sub row nomargin-x">
+      <a class="category-subitem 
+          list-group-item category-item-action col-10 col-md-11 col-xm-11" title="C++"
+        id="heading-f6f87c9fdcf8b3c3f07f93f1ee8712c9" role="tab" data-toggle="collapse" href="#collapse-f6f87c9fdcf8b3c3f07f93f1ee8712c9"
+        aria-expanded="true"
+      >
+        C++
+        <span class="list-group-count">(3)</span>
+        <i class="iconfont icon-arrowright"></i>
+      </a>
+      
+      <div class="category-collapse collapse show" id="collapse-f6f87c9fdcf8b3c3f07f93f1ee8712c9"
+           role="tabpanel" aria-labelledby="heading-f6f87c9fdcf8b3c3f07f93f1ee8712c9">
+        
+        
+          
+  <div class="category-post-list">
+    
+    
+      
+      
+        <a href="/c++-primer-p1" title="C++ Primer Part1 - C++基础"
+           class="list-group-item list-group-item-action
+           ">
+          <span class="category-post">C++ Primer Part1 - C++基础</span>
+        </a>
+      
+    
+      
+      
+        <a href="/c++_heima_note" title="C++入门教程（转载）"
+           class="list-group-item list-group-item-action
+           ">
+          <span class="category-post">C++入门教程（转载）</span>
+        </a>
+      
+    
+      
+      
+        <a href="/c++_basic_tutorial" title="C++快速入门笔记"
+           class="list-group-item list-group-item-action
+           active">
+          <span class="category-post">C++快速入门笔记</span>
+        </a>
+      
+    
+  </div>
+
+        
+      </div>
+    </div>
+  
+    
+    
+    
+    <div class="category-sub row nomargin-x">
+      <a class="category-subitem collapsed
+          list-group-item category-item-action col-10 col-md-11 col-xm-11" title="Python"
+        id="heading-a7f5f35426b927411fc9231b56382173" role="tab" data-toggle="collapse" href="#collapse-a7f5f35426b927411fc9231b56382173"
+        aria-expanded="false"
+      >
+        Python
+        <span class="list-group-count">(3)</span>
+        <i class="iconfont icon-arrowright"></i>
+      </a>
+      
+      <div class="category-collapse collapse " id="collapse-a7f5f35426b927411fc9231b56382173"
+           role="tabpanel" aria-labelledby="heading-a7f5f35426b927411fc9231b56382173">
+        
+        
+          
+  <div class="category-post-list">
+    
+    
+      
+      
+        <a href="/django-note" title="Python-Django开发笔记"
+           class="list-group-item list-group-item-action
+           ">
+          <span class="category-post">Python-Django开发笔记</span>
+        </a>
+      
+    
+      
+      
+        <a href="/flask-note" title="Python-Flask开发笔记"
+           class="list-group-item list-group-item-action
+           ">
+          <span class="category-post">Python-Flask开发笔记</span>
+        </a>
+      
+    
+      
+      
+        <a href="/python-basic" title="Python-基础语法笔记"
+           class="list-group-item list-group-item-action
+           ">
+          <span class="category-post">Python-基础语法笔记</span>
+        </a>
+      
+    
+  </div>
+
+        
+      </div>
+    </div>
+  
+        
+      </div>
+    </div>
+  
+</div>
+
+
+  </aside>
+
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <h1 id="seo-header">C++快速入门笔记</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <h2 id="入门参考资料"><a href="#入门参考资料" class="headerlink" title="入门参考资料"></a>入门参考资料</h2><p><a target="_blank" rel="noopener" href="https://www.runoob.com/cplusplus/cpp-tutorial.html">1. runoob C++教程</a><br><a href="/2022/05/24/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/C++/c++_heima_note">2. C++黑马教程转载</a></p>
+<blockquote>
+<p>分模块记录，每个模块会以问题的形式，检验是否掌握，内容都来自于入门资料<br>黑马的教程 case比较多，细节会稍微多一些；</p>
+</blockquote>
+<h2 id="C-基础"><a href="#C-基础" class="headerlink" title="C++基础"></a>C++基础</h2><ul>
+<li>变量（数据类型，变量类型，作用域，左值右值）</li>
+<li>常量</li>
+<li>运算符</li>
+<li>语句（判断，循环）</li>
+<li>函数</li>
+<li>修饰符类型，存储类</li>
+<li>数组，字符串</li>
+<li>指针，引用</li>
+<li>输入输出流</li>
+<li>struct结构</li>
+</ul>
+<h3 id="变量"><a href="#变量" class="headerlink" title="变量"></a>变量</h3><ul>
+<li><p>变量是什么？变量名是什么？</p>
+<div class='spoiler collapsed'>
+    <div class='spoiler-title'>
+        
+    </div>
+    <div class='spoiler-content'>
+        <p>变量是一块<code>内存空间</code>；变量名就是这块内存空间的label</p>
+
+    </div>
+</div>
+</li>
+<li><p>数据类型的意义？C++提供了哪些内置的数据类型？</p>
+<div class='spoiler collapsed'>
+    <div class='spoiler-title'>
+        
+    </div>
+    <div class='spoiler-content'>
+        <p>内存空间用来存储数据，数据有很多种，所以将数据划分为多种<code>数据类型</code>；<br>C++提供了<code>7种基本内置数据类型</code></p>
+<table>
+<thead>
+<tr>
+<th>类型</th>
+<th>关键字</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>布尔型</td>
+<td>bool</td>
+</tr>
+<tr>
+<td>字符型</td>
+<td>char</td>
+</tr>
+<tr>
+<td>整型</td>
+<td>int</td>
+</tr>
+<tr>
+<td>浮点型</td>
+<td>float</td>
+</tr>
+<tr>
+<td>双浮点型</td>
+<td>double</td>
+</tr>
+<tr>
+<td>无类型</td>
+<td>void</td>
+</tr>
+<tr>
+<td>宽字符型</td>
+<td>wchar_t</td>
+</tr>
+</tbody></table>
+
+    </div>
+</div>
+</li>
+<li><p>变量类型是什么？变量定义？变量声明？变量初始化？</p>
+<div class='spoiler collapsed'>
+    <div class='spoiler-title'>
+        
+    </div>
+    <div class='spoiler-content'>
+        <p>变量类型是变量（内存空间）存储的<code>数据类型</code>，所以变量类型和数据类型可以等价；<br>变量定义：type variable_list;<br>变量初始化：type variable_name &#x3D; value;<br>变量声明：extern type variable_list; 只在编译链接的时候有意义，因为变量不能重定义，而其他文件又用到该文件的变量，需要声明变量；<br>变量定义只能一次，变量声明可以多次；</p>
+
+    </div>
+</div>
+</li>
+<li><p>什么是左值，什么是右值？</p>
+<div class='spoiler collapsed'>
+    <div class='spoiler-title'>
+        
+    </div>
+    <div class='spoiler-content'>
+        <p>左值（lvalue）：表示内存空间的表达式，可以出现在赋值运算符的左右两侧<br>右值（rvalue）：表示内存空间里的值的表达式，只能出现在赋值运算的右侧</p>
+
+    </div>
+</div>
+</li>
+<li><p>什么是作用域，局部变量？全局变量？</p>
+<div class='spoiler collapsed'>
+    <div class='spoiler-title'>
+        
+    </div>
+    <div class='spoiler-content'>
+        <p>作用域是程序的一块区域；<br>局部变量：函数或代码块内定义的变量；<br>全局变量：函数外部声明的变量</p>
+
+    </div>
+</div>
+</li>
+<li><p>变量，变量类型，数据，数据类型，内存空间 关系？</p>
+<div class='spoiler collapsed'>
+    <div class='spoiler-title'>
+        
+    </div>
+    <div class='spoiler-content'>
+        <p>变量定义会开辟一块内存空间，所以变量 &#x3D; 内存空间；<br>变量（内存空间）需要存储数据；<br>数据有不同的类型，不同的数据类型有不同的值；变量是数据的容器；所以变量有不同的变量类型，不同的变量类型存储不同的值；</p>
+
+    </div>
+</div></li>
+</ul>
+<h3 id="常量"><a href="#常量" class="headerlink" title="常量"></a>常量</h3><ul>
+<li><p>什么是常量？</p>
+<div class='spoiler collapsed'>
+    <div class='spoiler-title'>
+        
+    </div>
+    <div class='spoiler-content'>
+        <p>常量是固定值，又叫做 <code>字面量</code> 常量就像是常规的变量，常量的值在定义后不能进行修改</p>
+
+    </div>
+</div>
+</li>
+<li><p>常见的有哪些常量？</p>
+<div class='spoiler collapsed'>
+    <div class='spoiler-title'>
+        
+    </div>
+    <div class='spoiler-content'>
+        <p>整数常量，浮点常量，布尔常量，字符常量，字符串常量</p>
+
+    </div>
+</div>
+
+</li>
+<li><p>如何定义常量？</p>
+<div class='spoiler collapsed'>
+    <div class='spoiler-title'>
+        
+    </div>
+    <div class='spoiler-content'>
+        <ol>
+<li>宏定义 #define </li>
+<li>const关键字修饰</li>
+</ol>
+
+    </div>
+</div></li>
+</ul>
+<h3 id="运算符"><a href="#运算符" class="headerlink" title="运算符"></a>运算符</h3><ul>
+<li><p>运算符有哪些？每种举一个例子</p>
+<div class='spoiler collapsed'>
+    <div class='spoiler-title'>
+        
+    </div>
+    <div class='spoiler-content'>
+        <p>算术运算符：+ - * &#x2F; …<br>关系运算符：&gt; &lt; …<br>逻辑运算符：&amp;&amp; || ！<br>位运算符：&amp; | ^ ~ &lt;&lt; &gt;&gt;<br>赋值运算符: &#x3D; +&#x3D; -&#x3D; …<br>杂项运算符: sizeof , . -&gt; condition ? x: y …</p>
+
+    </div>
+</div>
+
+</li>
+<li><p>什么是一元运算符，什么是二元运算符？</p>
+<div class='spoiler collapsed'>
+    <div class='spoiler-title'>
+        
+    </div>
+    <div class='spoiler-content'>
+        <p>一元运算符只有一个操作数，二元运算符有两个运算符</p>
+
+    </div>
+</div>
+</li>
+<li><p>C++中的运算符优先级是什么样的？</p>
+<div class='spoiler collapsed'>
+    <div class='spoiler-title'>
+        
+    </div>
+    <div class='spoiler-content'>
+        <p>很难全部记住，但是可以着重记住几个常用的点</p>
+<ol>
+<li>后缀 和 一元 最高；条件 赋值 逗号 最低</li>
+<li>位运算 比 加减乘除 低</li>
+<li>不确定就加（），（）优先级最高</li>
+</ol>
+
+    </div>
+</div></li>
+</ul>
+<h3 id="语句"><a href="#语句" class="headerlink" title="语句"></a>语句</h3><ul>
+<li><p>什么是循环语句，有哪些类型?</p>
+<div class='spoiler collapsed'>
+    <div class='spoiler-title'>
+        
+    </div>
+    <div class='spoiler-content'>
+        <p>循环语句：多次执行一个语句组<br>类型：while循环，for循环，do while 循环，嵌套循环</p>
+
+    </div>
+</div>
+
+</li>
+<li><p>什么是循环控制语句，有哪些类型?</p>
+<div class='spoiler collapsed'>
+    <div class='spoiler-title'>
+        
+    </div>
+    <div class='spoiler-content'>
+        <p>循环控制语句，更改正常的循环流程<br>类型：break，continue，goto</p>
+
+    </div>
+</div>
+
+</li>
+<li><p>什么是判断语句，有哪些类型?</p>
+<div class='spoiler collapsed'>
+    <div class='spoiler-title'>
+        
+    </div>
+    <div class='spoiler-content'>
+        <p>判断语句：指定条件，条件为true时执行语句，（false时可选执行语句）<br>类型：if；if else; 嵌套if；switch；嵌套switch</p>
+
+    </div>
+</div>
+
+</li>
+<li><p>条件运算符 和 if else的关系?</p>
+<div class='spoiler collapsed'>
+    <div class='spoiler-title'>
+        
+    </div>
+    <div class='spoiler-content'>
+        <p>条件运算符可以代替 if else语句</p>
+
+    </div>
+</div></li>
+</ul>
+<h3 id="函数"><a href="#函数" class="headerlink" title="函数"></a>函数</h3><ul>
+<li><p>如何定义一个函数？</p>
+<div class='spoiler collapsed'>
+    <div class='spoiler-title'>
+        
+    </div>
+    <div class='spoiler-content'>
+        <p>return_type function_name( parameter list )<br>{<br>   body of the function<br>}</p>
+<p>函数定义需要有返回类型，函数名称，参数，函数主体</p>
+
+    </div>
+</div>
+</li>
+<li><p>什么是函数声明，意义？</p>
+<div class='spoiler collapsed'>
+    <div class='spoiler-title'>
+        
+    </div>
+    <div class='spoiler-content'>
+        <p>函数声明同样也是为了满足编译要求<br>不同文件：当一个文件调用函数（定义于另一个文件），需要函数声明，这样才可以编译；<br>同一文件：对于早期的编译器，同一文件中，程序调用之后才定义的函数，需要先在头部函数声明，满足编译要求；</p>
+
+    </div>
+</div>
+
+</li>
+<li><p>调用函数的过程？</p>
+<div class='spoiler collapsed'>
+    <div class='spoiler-title'>
+        
+    </div>
+    <div class='spoiler-content'>
+        <p>程序调用函数时，控制权会交给被调用的函数，函数执行完任务后，控制权会交还给主程序；具体可以在汇编学习里的calling convention进一步了解</p>
+
+    </div>
+</div>
+</li>
+<li><p>函数参数是什么?</p>
+<div class='spoiler collapsed'>
+    <div class='spoiler-title'>
+        
+    </div>
+    <div class='spoiler-content'>
+        <p>调用函数的时候，有时会传递一些参数，调用的时候 这些参数称为 实际参数（实参）；<br>函数内部，函数要使用这些参数，必须声明一些变量接收参数，这些变量称为形式参数（形参）；</p>
+
+    </div>
+</div>
+</li>
+<li><p>什么是传参，有哪几种方式</p>
+<div class='spoiler collapsed'>
+    <div class='spoiler-title'>
+        
+    </div>
+    <div class='spoiler-content'>
+        <p>传参就是 将实际参数 传递给 形式参数（实参 -&gt; 形参）<br>传递的方式有三种</p>
+<ol>
+<li>传值（传值调用）：实参的值复制给形参，不影响实参</li>
+<li>传地址值（指针调用）：实参的地址值复制给形参，影响实参</li>
+<li>传引用（引用调用）：实参被引用传递，形参是实参的引用，影响实参</li>
+</ol>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs text">C++里上面两者统称为值传递（passed by value），函数被传值调用（called by value）;<br>最后被称为引用传递（passed by reference），函数被引用调用（called by reference）<br>形参的类型决定了形参和实参交互的方式，形参是引用类型是引用传递，否则就是值传递<br></code></pre></td></tr></table></figure>
+
+    </div>
+</div>
+</li>
+<li><p>lambda函数的意义，用法？</p>
+<div class='spoiler collapsed'>
+    <div class='spoiler-title'>
+        
+    </div>
+    <div class='spoiler-content'>
+        <p>C++11的新特性，lambda函数是匿名函数，也叫lambda表达式<br>形式：<br><a href="parameters">capture</a>-&gt;return-type{body}<br>其中capture里捕获当前作用域的变量<br>常见用法：<br>[&amp;] 所有外部变量隐式地以引用的方式捕获<br>[&#x3D;] 外部变量隐式地以传值的方式捕获 </p>
+
+    </div>
+</div></li>
+</ul>
+<h3 id="修饰符类，存储类，枚举类"><a href="#修饰符类，存储类，枚举类" class="headerlink" title="修饰符类，存储类，枚举类"></a>修饰符类，存储类，枚举类</h3><ul>
+<li><p>有哪些修饰符（修饰符类的值）</p>
+<div class='spoiler collapsed'>
+    <div class='spoiler-title'>
+        
+    </div>
+    <div class='spoiler-content'>
+        <p>signed，unsigned，long，short</p>
+
+    </div>
+</div>
+</li>
+<li><p>有哪些类型限定符（修饰符类的值）</p>
+<div class='spoiler collapsed'>
+    <div class='spoiler-title'>
+        
+    </div>
+    <div class='spoiler-content'>
+        <p>const：限定的对象不能改变<br>volatile：限定的变量的值可以改变<br>restrict：C99特性</p>
+
+    </div>
+</div>
+
+</li>
+<li><p>有哪些存储类（存储类的值）</p>
+<div class='spoiler collapsed'>
+    <div class='spoiler-title'>
+        
+    </div>
+    <div class='spoiler-content'>
+        <p>auto：局部变量的数据类型，C++11后称为关键字<br>register：定义变量存储在寄存器中<br>static：static修饰的局部变量在程序的生命周期内不销毁；static修饰的全局变量，作用域限制在声明的文件内<br>extern：在另一个文件中，声明全局变量或函数<br>mutable：适用于类的对象</p>
+
+    </div>
+</div>
+</li>
+<li><p>什么是枚举类，如何定义</p>
+<div class='spoiler collapsed'>
+    <div class='spoiler-title'>
+        
+    </div>
+    <div class='spoiler-content'>
+        <p>枚举类是一种特殊的数据类型<br><code>enum enum-name { list of names } var-list; </code><br>enum-name是枚举类的名称，list of names是该枚举类的值</p>
+<figure class="highlight processing"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs processing">eg:<br><span class="hljs-keyword">enum</span> <span class="hljs-type">color</span> &#123; <span class="hljs-built_in">red</span>, <span class="hljs-built_in">green</span>, <span class="hljs-built_in">blue</span> &#125; c;<br>c = <span class="hljs-built_in">blue</span>;<br></code></pre></td></tr></table></figure>
+    </div>
+</div></li>
+</ul>
+<h3 id="数组，字符串"><a href="#数组，字符串" class="headerlink" title="数组，字符串"></a>数组，字符串</h3><ul>
+<li><p>数组是什么？如何声明，初始化？</p>
+<div class='spoiler collapsed'>
+    <div class='spoiler-title'>
+        
+    </div>
+    <div class='spoiler-content'>
+        <p>数组是一种基本的数据结构，存储<code>相同类型元素的顺序集合</code><br>C++拥有 数组 数据结构</p>
+<p>声明数组：<code>type arrayName [ arraySize ];</code>，注意arraysize必须是大于0的常量，type是数组里元素的数据类型<br>初始化数组：<code>type arrayName [ arraySize ] = {xxx, xxx, xxx};</code></p>
+
+    </div>
+</div>
+
+</li>
+<li><p>什么是多维数组，如何声明，初始化？</p>
+<div class='spoiler collapsed'>
+    <div class='spoiler-title'>
+        
+    </div>
+    <div class='spoiler-content'>
+        <p>多维数组，就是数组嵌套数组<br>声明：<code>type name[size1][size2]...[sizeN];</code></p>
+
+    </div>
+</div>
+
+</li>
+<li><p>数组名的实际意义？</p>
+<div class='spoiler collapsed'>
+    <div class='spoiler-title'>
+        
+    </div>
+    <div class='spoiler-content'>
+        <p>数组名实际是数组首元素的地址（指针，指向数组首元素）<br>a[i] &#x3D; *(a + i)</p>
+
+    </div>
+</div>
+
+</li>
+<li><p>如何传递数组给函数？函数如何返回数组</p>
+<div class='spoiler collapsed'>
+    <div class='spoiler-title'>
+        
+    </div>
+    <div class='spoiler-content'>
+        <p>数组不能作为参数，所以只能传数组地址（指针，指向数组）<br>如果要传递一维数组，函数声明的时候形参有三种写法，但是编译器都是理解为接收一个指针</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs css">（int *<span class="hljs-selector-tag">a</span>), (int <span class="hljs-selector-tag">a</span><span class="hljs-selector-attr">[]</span>), (int <span class="hljs-selector-tag">a</span><span class="hljs-selector-attr">[size]</span>)<br></code></pre></td></tr></table></figure>
+
+<p>数组也不能作为返回值，所以只能返回数组地址（指针，指向数组）<br>如果要返回一维数组，函数声明的时候，return type得是指针类型</p>
+
+    </div>
+</div>
+
+</li>
+<li><p>字符串如何表示？</p>
+<div class='spoiler collapsed'>
+    <div class='spoiler-title'>
+        
+    </div>
+    <div class='spoiler-content'>
+        <p>字符串在C++里两种表示方式</p>
+<ol>
+<li>C风格字符串，本质是字符数组，末尾是null字符</li>
+<li>string类，C++标准库提供</li>
+</ol>
+
+    </div>
+</div></li>
+</ul>
+<h3 id="指针，引用"><a href="#指针，引用" class="headerlink" title="指针，引用"></a>指针，引用</h3><ul>
+<li><p>什么是指针？</p>
+<div class='spoiler collapsed'>
+    <div class='spoiler-title'>
+        
+    </div>
+    <div class='spoiler-content'>
+        <p>这个问题很考验理解<br>三个方面理解</p>
+<ol>
+<li>指针是变量，存储地址值</li>
+<li>指针也是数据类型，值是地址值</li>
+<li>指针也是地址，指向内存空间的值（内容）</li>
+</ol>
+
+    </div>
+</div>
+</li>
+<li><p>指针基本运用</p>
+<div class='spoiler collapsed'>
+    <div class='spoiler-title'>
+        
+    </div>
+    <div class='spoiler-content'>
+        <p>指针可以间接访问变量 *<br>指针可以用来传递数组等数据结构，传递给函数，函数返回<br>指针可以进行四种算术运算 ++ – + -</p>
+
+    </div>
+</div>
+</li>
+<li><p>引用是什么？</p>
+<div class='spoiler collapsed'>
+    <div class='spoiler-title'>
+        
+    </div>
+    <div class='spoiler-content'>
+        <p>引用不是变量，引用只是变量的别名（变量的另一个变量名，另一个label）</p>
+
+    </div>
+</div>
+</li>
+<li><p>引用的定义？</p>
+<div class='spoiler collapsed'>
+    <div class='spoiler-title'>
+        
+    </div>
+    <div class='spoiler-content'>
+        <p>引用必须在创建的时候初始化，绑定到一个变量上，一旦绑定不能绑定其他的变量</p>
+
+    </div>
+</div>
+
+</li>
+<li><p>引用作为参数？引用作为返回值？</p>
+<div class='spoiler collapsed'>
+    <div class='spoiler-title'>
+        
+    </div>
+    <div class='spoiler-content'>
+        <p>引用可以作为参数，函数定义的时候，形参要声明引用<br>引用可以作为返回值，函数定义的时候，返回类型是引用类型</p>
+
+    </div>
+</div></li>
+</ul>
+<h3 id="输入输出流"><a href="#输入输出流" class="headerlink" title="输入输出流"></a>输入输出流</h3><ul>
+<li>C++标准库有哪些IO库？<div class='spoiler collapsed'>
+    <div class='spoiler-title'>
+        
+    </div>
+    <div class='spoiler-content'>
+        <p>iostream: cin, cout, cerr, clog，分别对用标准输入流，标准输出流，非缓冲标准错误流，缓冲标准错误流<br>iomanop: setw，setprecision，控制位数和精度<br>fstream: 文件输入输出流</p>
+
+    </div>
+</div></li>
+</ul>
+<h3 id="struct-结构体"><a href="#struct-结构体" class="headerlink" title="struct 结构体"></a>struct 结构体</h3><ul>
+<li><p>什么是struct，设计的意义是什么？</p>
+<div class='spoiler collapsed'>
+    <div class='spoiler-title'>
+        
+    </div>
+    <div class='spoiler-content'>
+        <p>struct是用户自定义的数据类型;<br>因为数组只能存储相同数据类型的元素，而struct允许存储不同数据类型的元素</p>
+
+    </div>
+</div>
+</li>
+<li><p>如何定义struct</p>
+<div class='spoiler collapsed'>
+    <div class='spoiler-title'>
+        
+    </div>
+    <div class='spoiler-content'>
+        <p>两种方式</p>
+<ol>
+<li>直接定义<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-keyword">struct</span> <span class="hljs-title class_">Books</span>&#123;<br>    <span class="hljs-type">char</span> title[<span class="hljs-number">50</span>];<br>    <span class="hljs-type">char</span> author[<span class="hljs-number">50</span>];<br>    <span class="hljs-type">char</span> subject[<span class="hljs-number">100</span>];<br>    <span class="hljs-type">int</span> book_id;<br>&#125;book; <br><br>定义<span class="hljs-keyword">struct</span>类型的变量是 必须 <span class="hljs-keyword">struct</span> <span class="hljs-title class_">Books</span> book1;<br><br><span class="hljs-number">2.</span> 为创建的类型取一个别名<br><span class="hljs-keyword">typedef</span> <span class="hljs-keyword">struct</span><br>&#123;<br>   <span class="hljs-type">char</span>  title[<span class="hljs-number">50</span>];<br>   <span class="hljs-type">char</span>  author[<span class="hljs-number">50</span>];<br>   <span class="hljs-type">char</span>  subject[<span class="hljs-number">100</span>];<br>   <span class="hljs-type">int</span>   book_id;<br>&#125;Books;<br><br>定义<span class="hljs-keyword">struct</span>类型的变量是 Books book1;<br></code></pre></td></tr></table></figure></li>
+</ol>
+
+    </div>
+</div>
+
+</li>
+<li><p>如何访问结构体成员</p>
+<div class='spoiler collapsed'>
+    <div class='spoiler-title'>
+        
+    </div>
+    <div class='spoiler-content'>
+        <p>两种方式</p>
+<ol>
+<li>定义struct类的变量，成员运算符(.)访问</li>
+<li>定义指针，指向struct类变量，箭头运算符(-&gt;)访问</li>
+</ol>
+
+    </div>
+</div>
+</li>
+<li><p>结构体作为函数参数</p>
+<div class='spoiler collapsed'>
+    <div class='spoiler-title'>
+        
+    </div>
+    <div class='spoiler-content'>
+        <p>结构体作为函数参数，和其他类型的变量一样<br>可以传struct变量，或者传指针指向struct变量</p>
+
+    </div>
+</div></li>
+</ul>
+<h2 id="C-面向对象"><a href="#C-面向对象" class="headerlink" title="C++面向对象"></a>C++面向对象</h2><ul>
+<li>类和对象<ul>
+<li>成员</li>
+<li>构造函数</li>
+<li>析构函数</li>
+<li>拷贝构造函数</li>
+<li>静态成员</li>
+<li>友元</li>
+<li>内联</li>
+<li>对象模型和this指针</li>
+</ul>
+</li>
+<li>面向对象三特性<ul>
+<li>封装</li>
+<li>继承</li>
+<li>多态</li>
+</ul>
+</li>
+</ul>
+<h3 id="类和对象"><a href="#类和对象" class="headerlink" title="类和对象"></a>类和对象</h3><ul>
+<li><p>类是什么？对象是什么？</p>
+<div class='spoiler collapsed'>
+    <div class='spoiler-title'>
+        
+    </div>
+    <div class='spoiler-content'>
+        <p>两种方式理解</p>
+<ol>
+<li><p>类的角度<br>类是<code>用户自定义的数据类型</code>，它封装了数据和函数（成员）。有了类之后，类似<code>声明基本类型的变量</code>一样，我们也可以声明<code>类的变量（类的对象)</code><br>类的定义：定义一个类，就是定义一个数据类型的蓝图（也可以说定义 对象的蓝图），它定义了类的对象具有的成员（属性：类的对象包括了什么；行为：可以在这个对象上执行哪些操作），<code>通过类创建出对象</code></p>
+</li>
+<li><p>对象的角度<br>对象的定义：C++中万物都是对象（所有的变量，我们都可以说是对象）<code>对象具有属性和行为</code><br>具有相同性质的对象，我们就抽象为<code>类</code> eg: 1 2 3 4 5 都是整数，我们抽象出一个int类，同理 猫，狗，鸟，鱼都是动物，我们抽象出一个animal类</p>
+</li>
+</ol>
+
+    </div>
+</div>
+
+</li>
+<li><p>类的成员是什么？</p>
+<div class='spoiler collapsed'>
+    <div class='spoiler-title'>
+        
+    </div>
+    <div class='spoiler-content'>
+        <p>类中具有数据和函数，它们都是成员；<br>类中的数据称为成员变量（属性），函数称为成员函数（行为）</p>
+
+    </div>
+</div>
+
+</li>
+<li><p>类有哪些访问修饰符，对应的作用是什么</p>
+<div class='spoiler collapsed'>
+    <div class='spoiler-title'>
+        
+    </div>
+    <div class='spoiler-content'>
+        <p>类有三种访问修饰符：<br>public 公共权限<br>protected 保护权限<br>private 私有权限</p>
+<p>作用：<br>public     类内可以访问  类外可以访问<br>protected  类内可以访问  类外不可以访问<br>private    类内可以访问  类外不可以访问</p>
+<p>在继承的时候，这三种权限也会有不同的继承方式</p>
+<table>
+<thead>
+<tr>
+<th>继承方式</th>
+<th>基类的public成员</th>
+<th>基类的protected成员</th>
+<th>基类的private成员</th>
+<th>继承引起的访问控制关系变化概括</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>public继承</td>
+<td>仍为public成员</td>
+<td>仍为protected成员</td>
+<td>不可见</td>
+<td>基类的非私有成员在子类的访问属性不变</td>
+</tr>
+<tr>
+<td>protected继承</td>
+<td>变为protected成员</td>
+<td>变为protected成员</td>
+<td>不可见</td>
+<td>基类的非私有成员都为子类的保护成员</td>
+</tr>
+<tr>
+<td>private继承</td>
+<td>变为private成员</td>
+<td>变为private成员</td>
+<td>不可见</td>
+<td>基类中的非私有成员都称为子类的私有成员</td>
+</tr>
+</tbody></table>
+
+    </div>
+</div>
+</li>
+<li><p>类的构造函数是什么？析构函数是什么？</p>
+<div class='spoiler collapsed'>
+    <div class='spoiler-title'>
+        
+    </div>
+    <div class='spoiler-content'>
+        <blockquote>
+<p>背景：面向对象概念来源于生活，生活中对象一般需要<code>初始化和清理</code>，如果一个对象没有初始化，使用后果未知；如果一个对象使用完没有及时清理，会造成一定安全问题<br>C++利用构造函数 解决对象初始化的问题；析构函数解决对象清理的问题</p>
+</blockquote>
+<p>构造函数是一种<code>特殊的成员函数</code>，它会在每次创建对象时执行；作用：为某些成员变量设置初始值<br>析构函数是一种<code>特殊的成员函数</code>，它会在每次销毁对象时执行；作用：对象销毁前，释放资源</p>
+<p>C++构造函数语法：类名(){}    可以有参数<br>C++析构函数语法：~类名(){}   不可以有参数</p>
+
+    </div>
+</div>
+
+</li>
+<li><p>构造函数分类，调用方式？</p>
+<div class='spoiler collapsed'>
+    <div class='spoiler-title'>
+        
+    </div>
+    <div class='spoiler-content'>
+        <blockquote>
+<p>构造函数可以有参数，所以可以发生函数重载，我们可以分类 有参构造和无参构造<br>其中有参构造里有一种特殊的构造函数 <code>拷贝构造函数</code>；作用：将传入对象身上的所有属性，拷贝到新对象上</p>
+</blockquote>
+<p>构造函数的调用方式<br>无参构造函数调用 直接 class object<br>有参构造函数调用 分为以下三类：</p>
+<ol>
+<li>括号法   （最常用）</li>
+<li>显示法    (利用匿名对象)</li>
+<li>隐式法    (编译器转化)</li>
+</ol>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><code class="hljs C++"><span class="hljs-comment">//无参（默认）构造函数</span><br><span class="hljs-built_in">Person</span>() &#123;<br>    cout &lt;&lt; <span class="hljs-string">&quot;无参构造函数!&quot;</span> &lt;&lt; endl;<br>&#125;<br><span class="hljs-comment">//有参构造函数</span><br><span class="hljs-built_in">Person</span>(<span class="hljs-type">int</span> a) &#123;<br>    age = a;<br>    cout &lt;&lt; <span class="hljs-string">&quot;有参构造函数!&quot;</span> &lt;&lt; endl;<br>&#125;<br><span class="hljs-comment">//拷贝构造函数</span><br><span class="hljs-built_in">Person</span>(<span class="hljs-type">const</span> Person&amp; p) &#123;<br>    age = p.age;<br>    cout &lt;&lt; <span class="hljs-string">&quot;拷贝构造函数!&quot;</span> &lt;&lt; endl;<br>&#125;<br><span class="hljs-comment">//析构函数</span><br>~<span class="hljs-built_in">Person</span>() &#123;<br>    cout &lt;&lt; <span class="hljs-string">&quot;析构函数!&quot;</span> &lt;&lt; endl;<br>&#125;<br><br><br><span class="hljs-comment">// 构造函数调用</span><br><br><span class="hljs-comment">// 1. 括号法</span><br>Person p1;      <span class="hljs-comment">// 无参构造函数调用</span><br><span class="hljs-function">Person <span class="hljs-title">p2</span><span class="hljs-params">(<span class="hljs-number">10</span>)</span>   <span class="hljs-comment">// 有参构造函数调用</span></span><br><span class="hljs-function">Person <span class="hljs-title">p3</span><span class="hljs-params">(p2)</span>   <span class="hljs-comment">// 拷贝构造函数调用</span></span><br><span class="hljs-function"></span><br><span class="hljs-function"><span class="hljs-comment">// 2. 显示法</span></span><br><span class="hljs-function">Person p1</span>;                <span class="hljs-comment">// 无参构造函数调用</span><br>Person p2 = <span class="hljs-built_in">Person</span>(<span class="hljs-number">10</span>);   <span class="hljs-comment">// 有参构造函数调用</span><br>Person p3 = <span class="hljs-built_in">Person</span>(p2);   <span class="hljs-comment">// 拷贝构造函数调用</span><br><br><span class="hljs-comment">// 3. 隐式转化法</span><br>Person p1;                <span class="hljs-comment">// 无参构造函数调用</span><br>Person p2 = <span class="hljs-number">10</span>;           <span class="hljs-comment">// 转化 Person p2 = Person(10) 有参构造函数调用</span><br>Person p3 = p2;           <span class="hljs-comment">// 转化 Person p3 = Person(p2); 拷贝构造函数调用</span><br><br><span class="hljs-comment">// 注意1: Person p1();  不是构造函数调用，这是一个函数声明 </span><br><span class="hljs-comment">// 注意2: Person(10) 单独写就是匿名对象  当前行结束之后，马上析构</span><br><span class="hljs-comment">// 注意3: Person(p1) &lt;==&gt; Person p1; 不是构造函数调用，是对象声明</span><br><br></code></pre></td></tr></table></figure>
+    </div>
+</div>
+
+</li>
+<li><p>什么是拷贝构造函数，拷贝构造函数什么时候会调用?</p>
+<div class='spoiler collapsed'>
+    <div class='spoiler-title'>
+        
+    </div>
+    <div class='spoiler-content'>
+        <p>拷贝构造函数是一种<code>特殊的构造函数</code>，它在创建对象时，是使用同一类中<code>之前创建的对象来初始化新创建的对象</code></p>
+<p>拷贝函数调用时机</p>
+<ol>
+<li>使用一个已有对象来初始化一个新对象</li>
+<li>复制对象，把它作为参数传递给函数</li>
+<li>复制对象，并从函数返回这个对象</li>
+</ol>
+<p>注意调用拷贝构造函数，赋值的区别<br>Person p2 &#x3D; p1;    &#x2F;&#x2F; 隐式转化法，调用拷贝构造函数</p>
+<p>Person p2;<br>p2 &#x3D; p1; &#x2F;&#x2F;不是调用拷贝构造函数，赋值操作</p>
+
+    </div>
+</div>
+
+</li>
+<li><p>类声明的时候，编译器会默认提供哪些函数？构造函数的调用规则，可以简单讲一下吗？</p>
+<div class='spoiler collapsed'>
+    <div class='spoiler-title'>
+        
+    </div>
+    <div class='spoiler-content'>
+        <p>默认情况下，c++编译器至少给一个类添加3个函数</p>
+<p>1．默认构造函数       (无参，空实现)<br>2．默认析构函数       (无参，空实现)<br>3．默认拷贝构造函数    (值拷贝)</p>
+<p>构造函数调用规则：<br>首先明确三种构造函数；<code>无参构造 有参构造 拷贝构造</code></p>
+<p>如果用户定义有参构造函数，c++不再提供默认无参构造，但是会提供默认拷贝构造<br>如果用户定义拷贝构造函数，c++不会再提供其他构造函数</p>
+<p>总结：如果用户定义某种构造函数，编译器就只会提供它之后的构造函数，前面的构造函数不再提供</p>
+
+    </div>
+</div>
+
+</li>
+<li><p>C++中的初始化列表怎么操作？</p>
+<div class='spoiler collapsed'>
+    <div class='spoiler-title'>
+        
+    </div>
+    <div class='spoiler-content'>
+        <p>初始化列表用于构造函数中，用来初始化属性</p>
+<p>语法格式：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs C++"><span class="hljs-comment">//传统方式初始化</span><br><span class="hljs-built_in">Person</span>(<span class="hljs-type">int</span> a, <span class="hljs-type">int</span> b, <span class="hljs-type">int</span> c) &#123;<br>    m_A = a;<br>    m_B = b;<br>    m_C = c;<br>&#125;<br><br><span class="hljs-comment">//初始化列表方式初始化</span><br><span class="hljs-built_in">Person</span>(<span class="hljs-type">int</span> a, <span class="hljs-type">int</span> b, <span class="hljs-type">int</span> c) :<span class="hljs-built_in">m_A</span>(a), <span class="hljs-built_in">m_B</span>(b), <span class="hljs-built_in">m_C</span>(c) &#123;&#125;<br></code></pre></td></tr></table></figure>
+    </div>
+</div>
+
+</li>
+<li><p>对象成员是什么？有对象成员的类 创建对象时的 构造顺序以及析构顺序？</p>
+<div class='spoiler collapsed'>
+    <div class='spoiler-title'>
+        
+    </div>
+    <div class='spoiler-content'>
+        <p>类中成员是其他类对象时，我们称该成员为<code>对象成员</code></p>
+<p>构造的顺序 ：先调用对象成员的构造，再调用本类构造<br>析构顺序：与构造顺序相反</p>
+
+    </div>
+</div>
+
+</li>
+<li><p>静态成员是什么？</p>
+<div class='spoiler collapsed'>
+    <div class='spoiler-title'>
+        
+    </div>
+    <div class='spoiler-content'>
+        <p>静态成员：在成员变量和成员函数前加上关键字static，称为静态成员</p>
+<p><code>静态成员变量</code> 性质</p>
+<ol>
+<li>所有对象共享同一份数据 （这意味着无论创建多少个类的对象，静态成员都只有一个副本）</li>
+<li>在编译阶段分配内存      (静态成员存储在全局区)</li>
+<li>类内声明，类外初始化   （静态成员变量在类中仅仅是声明，没有定义，所以要在类的外面定义，实际上是给静态成员变量分配内存。如果不加定义就会报错，初始化是赋一个初始值，而定义是分配内存）</li>
+</ol>
+<br>
+
+<p><code>静态成员函数</code> 性质<br>普通成员函数有 this 指针，可以访问类中的任意成员；而静态成员函数没有 this 指针，只能访问静态成员</p>
+<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><code class="hljs awk">class Person <br>&#123;<br>public:<br>    static int m_A;     <span class="hljs-regexp">//</span>静态成员变量 类内声明<br><br>    static void <span class="hljs-keyword">func</span>()  <span class="hljs-regexp">//</span>静态成员函数<br>	&#123;<br>		m_A = <span class="hljs-number">100</span>;<br>	&#125;<br>&#125;<br><br>int Person::m_A = <span class="hljs-number">10</span>;  <span class="hljs-regexp">//</span>静态成员变量 类外初始化<br><br><br><span class="hljs-regexp">//</span>静态成员 两种访问方式<br><br><span class="hljs-regexp">//</span> <span class="hljs-number">1</span>. 通过对象<br>Person p1;<br>p1.m_A = <span class="hljs-number">100</span>;        <span class="hljs-regexp">//</span>访问静态成员变量<br>p1.<span class="hljs-keyword">func</span>();           <span class="hljs-regexp">//</span>访问静态成员函数<br><br><br><span class="hljs-regexp">//</span> <span class="hljs-number">2</span>. 通过类名 + 范围解析运算符 :: <br>Person::m_A          <span class="hljs-regexp">//</span>访问静态成员变量<br>Person::<span class="hljs-keyword">func</span>();      <span class="hljs-regexp">//</span>访问静态成员函数<br></code></pre></td></tr></table></figure>
+    </div>
+</div>
+
+</li>
+<li><p>成员变量和成员函数如何存储，空对象占内存吗？</p>
+<div class='spoiler collapsed'>
+    <div class='spoiler-title'>
+        
+    </div>
+    <div class='spoiler-content'>
+        <p>只有非静态成员变量占对象空间（属于类的对象上）；其余 成员函数（非静态，静态）和静态成员变量都不占对象空间；</p>
+<p>空对象比较特殊，它占一个字节<br>原因：编译器会给每个空对象分配一个字节，为了区分空对象占内存的位置，每个空对象也有独一无二的内存地址；</p>
+
+    </div>
+</div>
+
+</li>
+<li><p>C++类中 this指针 有什么作用？它的用法？</p>
+<div class='spoiler collapsed'>
+    <div class='spoiler-title'>
+        
+    </div>
+    <div class='spoiler-content'>
+        <blockquote>
+<p>首先我们要明确为什么要有this指针<br>成员函数只会有一份实例，所有对象会共用这个函数，那么函数内部如何区分是哪个对象调用自己<br>答案就是 用this指针 this指针指向调用对象 （也就是说 this指针存储了调用对象的地址：当一个对象的成员函数被调用时，编译器会隐式地传递该对象的地址作为 this 指针）</p>
+</blockquote>
+<p>this指针的用途</p>
+<ol>
+<li>解决形参和成员变量的命名冲突</li>
+<li>返回对象本身，用于链式编程</li>
+</ol>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><code class="hljs C++"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Person</span><br>&#123;<br><span class="hljs-keyword">public</span>:<br><br>	<span class="hljs-built_in">Person</span>(<span class="hljs-type">int</span> age)<br>	&#123;<br>		<span class="hljs-comment">// 1. 当形参和成员变量同名时，可用this指针来区分</span><br>		<span class="hljs-keyword">this</span>-&gt;age = age;<br>	&#125;<br><br>    <span class="hljs-comment">// 确保返回对象引用，而不是直接返回对象，直接返回对象是值拷贝，相当于创建了另一个副本，无法进行链式编程</span><br>	<span class="hljs-function">Person&amp; <span class="hljs-title">PersonAddPerson</span><span class="hljs-params">(Person p)</span></span><br><span class="hljs-function">	</span>&#123;<br>		<span class="hljs-keyword">this</span>-&gt;age += p.age;<br>		<span class="hljs-comment">// 2. *this 返回对象本身</span><br>		<span class="hljs-keyword">return</span> *<span class="hljs-keyword">this</span>;<br>	&#125;<br><br>	<span class="hljs-type">int</span> age;<br>&#125;;<br><br><span class="hljs-function">Person <span class="hljs-title">p1</span><span class="hljs-params">(<span class="hljs-number">10</span>)</span></span>;<br><span class="hljs-function">Person <span class="hljs-title">p2</span><span class="hljs-params">(<span class="hljs-number">10</span>)</span></span>;<br>p2.<span class="hljs-built_in">PersonAddPerson</span>(p1).<span class="hljs-built_in">PersonAddPerson</span>(p1).<span class="hljs-built_in">PersonAddPerson</span>(p1);     <span class="hljs-comment">//链式编程思想 同一个对象多次操作</span><br></code></pre></td></tr></table></figure>
+    </div>
+</div>
+
+</li>
+<li><p>空指针可以访问成员函数吗？</p>
+<div class='spoiler collapsed'>
+    <div class='spoiler-title'>
+        
+    </div>
+    <div class='spoiler-content'>
+        <p>空指针可以访问成员函数；但是如果成员函数内部访问了成员，空指针就无法访问该成员函数</p>
+<p>原因：任何对类成员的直接访问都被看作是 隐式引用了this指针，eg:当isbn类使用bookNo时，它隐式引用了this指针，就像我们书写了this-&gt;bookNo一样，所以空指针访问该函数会报错！</p>
+
+    </div>
+</div>
+
+</li>
+<li><p>什么是友元，友元有哪些用法？</p>
+<div class='spoiler collapsed'>
+    <div class='spoiler-title'>
+        
+    </div>
+    <div class='spoiler-content'>
+        <p>友元：程序里有些私有属性想让类外特殊的一些函数或者类进行访问，就需要用到友元的技术；<br>作用：让一个函数或者类 访问另一个类中私有成员</p>
+<p>友元有三种实现</p>
+<ol>
+<li>全局函数做友元</li>
+<li>类做友元</li>
+<li>成员函数做友元</li>
+</ol>
+<p>&#x2F;&#x2F; 全局函数做友元</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><code class="hljs C++"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Building</span><br>&#123;<br>	<span class="hljs-comment">//告诉编译器 goodGay全局函数 是 Building类的好朋友，可以访问类中的私有内容</span><br>	<span class="hljs-function"><span class="hljs-keyword">friend</span> <span class="hljs-type">void</span> <span class="hljs-title">goodGay</span><span class="hljs-params">(Building * building)</span></span>;<br><br><span class="hljs-keyword">public</span>:<br>	string m_SittingRoom; <span class="hljs-comment">//客厅</span><br><span class="hljs-keyword">private</span>:<br>	string m_BedRoom; <span class="hljs-comment">//卧室</span><br>&#125;;<br><br><br><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">goodGay</span><span class="hljs-params">(Building * building)</span></span><br><span class="hljs-function"></span>&#123;<br>	cout &lt;&lt; <span class="hljs-string">&quot;好基友正在访问： &quot;</span> &lt;&lt; building-&gt;m_SittingRoom &lt;&lt; endl;<br>	cout &lt;&lt; <span class="hljs-string">&quot;好基友正在访问： &quot;</span> &lt;&lt; building-&gt;m_BedRoom &lt;&lt; endl;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+
+<p>&#x2F;&#x2F; 类做友元</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><code class="hljs C++"><span class="hljs-keyword">class</span> <span class="hljs-title class_">goodGay</span><br>&#123;<br><span class="hljs-keyword">public</span>:<br>	<span class="hljs-built_in">goodGay</span>() <br>    &#123;<br>        building = <span class="hljs-keyword">new</span> Building;<br>    &#125;;<br>	<span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">visit</span><span class="hljs-params">()</span></span>;<br><br><span class="hljs-keyword">private</span>:<br>	Building *building;<br>&#125;;<br><br><br><span class="hljs-keyword">class</span> <span class="hljs-title class_">Building</span><br>&#123;<br>	<span class="hljs-comment">//告诉编译器 goodGay类是Building类的好朋友，可以访问到Building类中私有内容</span><br>	<span class="hljs-keyword">friend</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">goodGay</span>;<br><br><span class="hljs-keyword">public</span>:<br>	string m_SittingRoom; <span class="hljs-comment">//客厅</span><br><span class="hljs-keyword">private</span>:<br>	string m_BedRoom;<span class="hljs-comment">//卧室</span><br>&#125;;<br><br><br><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">goodGay::visit</span><span class="hljs-params">()</span></span><br><span class="hljs-function"></span>&#123;<br>	cout &lt;&lt; <span class="hljs-string">&quot;好基友正在访问&quot;</span> &lt;&lt; building-&gt;m_SittingRoom &lt;&lt; endl;<br>	cout &lt;&lt; <span class="hljs-string">&quot;好基友正在访问&quot;</span> &lt;&lt; building-&gt;m_BedRoom &lt;&lt; endl;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><code class="hljs C++"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Building</span><br>&#123;<br>	<span class="hljs-comment">//告诉编译器  goodGay类中的visit成员函数 是Building好朋友，可以访问私有内容</span><br>	<span class="hljs-function"><span class="hljs-keyword">friend</span> <span class="hljs-type">void</span> <span class="hljs-title">goodGay::visit</span><span class="hljs-params">()</span></span>;<br><br><span class="hljs-keyword">public</span>:<br>	string m_SittingRoom; <span class="hljs-comment">//客厅</span><br><span class="hljs-keyword">private</span>:<br>	string m_BedRoom;<span class="hljs-comment">//卧室</span><br>&#125;;<br><br><span class="hljs-keyword">class</span> <span class="hljs-title class_">goodGay</span><br>&#123;<br><span class="hljs-keyword">public</span>:<br><br>	<span class="hljs-built_in">goodGay</span>()<br>    &#123;<br>        building = <span class="hljs-keyword">new</span> Building;<br>    &#125;;<br>	<span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">visit</span><span class="hljs-params">()</span></span>; <span class="hljs-comment">//只让visit函数作为Building的好朋友，可以发访问Building中私有内容</span><br>	<span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">visit2</span><span class="hljs-params">()</span></span>; <br><br><span class="hljs-keyword">private</span>:<br>	Building *building;<br>&#125;;<br><br><br><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">goodGay::visit</span><span class="hljs-params">()</span></span><br><span class="hljs-function"></span>&#123;<br>	cout &lt;&lt; <span class="hljs-string">&quot;好基友正在访问&quot;</span> &lt;&lt; building-&gt;m_SittingRoom &lt;&lt; endl;<br>	cout &lt;&lt; <span class="hljs-string">&quot;好基友正在访问&quot;</span> &lt;&lt; building-&gt;m_BedRoom &lt;&lt; endl;<br>&#125;<br><br><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">goodGay::visit2</span><span class="hljs-params">()</span></span><br><span class="hljs-function"></span>&#123;<br>	cout &lt;&lt; <span class="hljs-string">&quot;好基友正在访问&quot;</span> &lt;&lt; building-&gt;m_SittingRoom &lt;&lt; endl;<br>	cout &lt;&lt; <span class="hljs-string">&quot;好基友正在访问&quot;</span> &lt;&lt; building-&gt;m_BedRoom &lt;&lt; endl;   <span class="hljs-comment">// 访问失败</span><br>&#125;<br></code></pre></td></tr></table></figure>
+
+    </div>
+</div>
+
+</li>
+<li><p>什么是指向类的指针？</p>
+<div class='spoiler collapsed'>
+    <div class='spoiler-title'>
+        
+    </div>
+    <div class='spoiler-content'>
+        <p>指向类的指针 我一般称呼为 类的指针</p>
+<p>常用术语：<br>假设有一个类a<br>a类的指针xxx，存储a类对象xxx的地址 或者说 指向a类对象xxx</p>
+
+    </div>
+</div>
+
+</li>
+<li><p>内联函数是什么，用法？</p>
+<div class='spoiler collapsed'>
+    <div class='spoiler-title'>
+        
+    </div>
+    <div class='spoiler-content'>
+        <p>C++ 内联函数是通常与类一起使用。如果一个函数是内联的，那么在编译时，编译器会把该函数的代码副本放置在每个调用该函数的地方；</p>
+<ol>
+<li><p>关键字 inline 必须与函数定义体放在一起才能使函数成为内联，仅将 inline 放在函数声明前面不起任何作用；</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs C++"><span class="hljs-comment">// 不是内联函数</span><br><span class="hljs-function"><span class="hljs-keyword">inline</span> <span class="hljs-type">void</span> <span class="hljs-title">Foo</span><span class="hljs-params">(<span class="hljs-type">int</span> x, <span class="hljs-type">int</span> y)</span></span>;   <span class="hljs-comment">// inline 仅与函数声明放在一起   </span><br><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">Foo</span><span class="hljs-params">(<span class="hljs-type">int</span> x, <span class="hljs-type">int</span> y)</span></span><br><span class="hljs-function"></span>&#123;<br>    <span class="hljs-comment">//...</span><br>&#125;<br><br><br><span class="hljs-comment">// 内联函数</span><br><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">Foo</span><span class="hljs-params">(<span class="hljs-type">int</span> x, <span class="hljs-type">int</span> y)</span></span>;   <br><span class="hljs-function"><span class="hljs-keyword">inline</span> <span class="hljs-type">void</span> <span class="hljs-title">Foo</span><span class="hljs-params">(<span class="hljs-type">int</span> x, <span class="hljs-type">int</span> y)</span>   <span class="hljs-comment">// inline 与函数定义体放在一起</span></span><br><span class="hljs-function"></span>&#123;<br>    <span class="hljs-comment">//...</span><br>&#125;<br></code></pre></td></tr></table></figure>
+
+</li>
+<li><p>定义在类声明之中的成员函数将自动地成为内联函数</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs C++"><span class="hljs-keyword">class</span> <span class="hljs-title class_">A</span><br>&#123;  <br><span class="hljs-keyword">public</span>:<br>    <span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">Foo</span><span class="hljs-params">(<span class="hljs-type">int</span> x, <span class="hljs-type">int</span> y)</span> </span>&#123; ... &#125;   <span class="hljs-comment">// 自动地成为内联函数  </span><br>&#125; <br></code></pre></td></tr></table></figure></li>
+</ol>
+
+    </div>
+</div></li>
+</ul>
+<h3 id="面向对象三特性"><a href="#面向对象三特性" class="headerlink" title="面向对象三特性"></a>面向对象三特性</h3><ul>
+<li><p>封装是什么？封装的意义和作用？</p>
+<div class='spoiler collapsed'>
+    <div class='spoiler-title'>
+        
+    </div>
+    <div class='spoiler-content'>
+        <p>封装是C++面向对象三大特性之一</p>
+<p>封装：把数据和操作数据的函数捆绑在一起<br>作用：</p>
+<ol>
+<li>避免受到外界的干扰和误用，从而确保了安全</li>
+<li>利于数据抽象（仅向用户暴露接口而把具体的实现细节隐藏起来的机制），将数据和函数加以权限控制</li>
+</ol>
+
+    </div>
+</div>
+</li>
+<li><p>类的设计中，成员变量设为私有的好处</p>
+<div class='spoiler collapsed'>
+    <div class='spoiler-title'>
+        
+    </div>
+    <div class='spoiler-content'>
+        <p>优点1：将所有成员属性设置为私有，可以自己控制读写权限<br>优点2：对于写权限，我们可以检测数据的有效性</p>
+
+    </div>
+</div>
+
+</li>
+<li><p>继承是什么？继承的意义和作用？</p>
+<div class='spoiler collapsed'>
+    <div class='spoiler-title'>
+        
+    </div>
+    <div class='spoiler-content'>
+        <p>继承：根据一个已有的类来定义一个新类，新建的类继承了已有的类的成员，同时可以有自己的成员；<br>这个已有的类称为基类（父类），新建的类称为派生类（子类）；继承则代表了 is a 关系</p>
+<p>继承的意义和作用：减少重复代码<br>语法：<code>class 子类 : 继承方式 父类</code></p>
+
+    </div>
+</div>
+
+
+</li>
+<li><p>继承方式有哪些，有什么不同？</p>
+<div class='spoiler collapsed'>
+    <div class='spoiler-title'>
+        
+    </div>
+    <div class='spoiler-content'>
+        <p>继承方式一共有三种：<br>公共继承 public     公共权限<br>保护继承 protected  保护权限<br>私有继承 private    私有权限</p>
+<p>在继承的时候，不同的继承方式，派生类的权限不同</p>
+<p><img src="/img/heima/l3/clip_image002.png" srcset="/img/loading.gif" lazyload></p>
+<table>
+<thead>
+<tr>
+<th>继承方式</th>
+<th>基类的public成员</th>
+<th>基类的protected成员</th>
+<th>基类的private成员</th>
+<th>继承引起的访问控制关系变化概括</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>public继承</td>
+<td>仍为public成员</td>
+<td>仍为protected成员</td>
+<td>不可见</td>
+<td>基类的非私有成员在子类的访问属性不变</td>
+</tr>
+<tr>
+<td>protected继承</td>
+<td>变为protected成员</td>
+<td>变为protected成员</td>
+<td>不可见</td>
+<td>基类的非私有成员都为子类的保护成员</td>
+</tr>
+<tr>
+<td>private继承</td>
+<td>变为private成员</td>
+<td>变为private成员</td>
+<td>不可见</td>
+<td>基类中的非私有成员都称为子类的私有成员</td>
+</tr>
+</tbody></table>
+
+    </div>
+</div>
+
+</li>
+<li><p>从父类继承过来的成员，哪些属于子类对象中？</p>
+<div class='spoiler collapsed'>
+    <div class='spoiler-title'>
+        
+    </div>
+    <div class='spoiler-content'>
+        <p>父类中的所有非静态成员都会被子类继承下去；父类中私有成员也是被子类继承下去了，只是由编译器给隐藏后访问不到；</p>
+
+    </div>
+</div>
+
+</li>
+<li><p>子类继承父类后，当创建子类对象，也会调用父类的构造函数，父类和子类的构造和析构顺序是谁先谁后？</p>
+<div class='spoiler collapsed'>
+    <div class='spoiler-title'>
+        
+    </div>
+    <div class='spoiler-content'>
+        <p>继承中 先调用父类构造函数，再调用子类构造函数，析构顺序与构造相反 （理解，现有父亲才能有儿子）</p>
+
+    </div>
+</div>
+
+</li>
+<li><p>当子类与父类出现同名的成员，如何通过子类对象，访问到子类或父类中同名的数据呢？</p>
+<div class='spoiler collapsed'>
+    <div class='spoiler-title'>
+        
+    </div>
+    <div class='spoiler-content'>
+        <p>访问子类同名成员 直接访问即可<br>访问父类同名成员 需要加作用域<br>当子类与父类拥有同名的成员函数，子类会隐藏父类中同名成员函数，加作用域可以访问到父类中同名函数   </p>
+<blockquote>
+<p>因为有些人会认为子类和父类函数虽然同名，但是参数不同，可以直接访问父类成员函数，实际上不能</p>
+</blockquote>
+
+    </div>
+</div>
+
+</li>
+<li><p>继承中同名的静态成员在子类对象上如何进行访问？</p>
+<div class='spoiler collapsed'>
+    <div class='spoiler-title'>
+        
+    </div>
+    <div class='spoiler-content'>
+        <p>同名静态成员处理方式和非静态处理方式一样，只不过有两种访问的方式（通过对象 和 通过类名）</p>
+
+    </div>
+</div>
+
+</li>
+<li><p>什么是多继承，多继承中如果父类有同名成员出现，子类对象如何访问？</p>
+<div class='spoiler collapsed'>
+    <div class='spoiler-title'>
+        
+    </div>
+    <div class='spoiler-content'>
+        <p>多继承：一个子类可以有多个父类，它继承了多个父类的特性<br>语法：<code>class 子类 ：继承方式 父类1 ， 继承方式 父类2...</code></p>
+<p>如果多个父类之间有同名成员，子类对象使用这些成员时要加作用域</p>
+
+    </div>
+</div>
+
+</li>
+<li><p>什么是菱形继承？菱形继承的问题是什么？解决方案？</p>
+<div class='spoiler collapsed'>
+    <div class='spoiler-title'>
+        
+    </div>
+    <div class='spoiler-content'>
+        <p>两个派生类继承同一个基类，又有某个类同时继承者两个派生类，这种继承被称为菱形继承，或者钻石继承；</p>
+<p>菱形继承问题：子类继承两份相同的数据，导致资源浪费以及毫无意义；<br>解决方案：利用虚继承</p>
+<blockquote>
+<p>利用虚继承后，SheepTuo的对象模型里有Animal类的m_Age，以及Sheep类的vbptr和Tuo类的vbptr,vbptr指向vbtable，vbtable里面记录了偏移量，最后找到Animal类的m_Age; 数据只有一份</p>
+</blockquote>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><code class="hljs C++"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Animal</span><br>&#123;<br><span class="hljs-keyword">public</span>:<br>	<span class="hljs-type">int</span> m_Age;<br>&#125;;<br><br><span class="hljs-comment">//继承前加virtual关键字后，变为虚继承</span><br><span class="hljs-comment">//此时公共的父类Animal称为虚基类</span><br><span class="hljs-keyword">class</span> <span class="hljs-title class_">Sheep</span> : <span class="hljs-keyword">virtual</span> <span class="hljs-keyword">public</span> Animal &#123;&#125;;<br><span class="hljs-keyword">class</span> <span class="hljs-title class_">Tuo</span>   : <span class="hljs-keyword">virtual</span> <span class="hljs-keyword">public</span> Animal &#123;&#125;;<br><span class="hljs-keyword">class</span> <span class="hljs-title class_">SheepTuo</span> : <span class="hljs-keyword">public</span> Sheep, <span class="hljs-keyword">public</span> Tuo &#123;&#125;;<br><br><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">test01</span><span class="hljs-params">()</span></span><br><span class="hljs-function"></span>&#123;<br>	SheepTuo st;<br>	st.Sheep::m_Age = <span class="hljs-number">100</span>;<br>	st.Tuo::m_Age = <span class="hljs-number">200</span>;<br><br>	cout &lt;&lt; <span class="hljs-string">&quot;st.Sheep::m_Age = &quot;</span> &lt;&lt; st.Sheep::m_Age &lt;&lt; endl;<br>	cout &lt;&lt; <span class="hljs-string">&quot;st.Tuo::m_Age = &quot;</span> &lt;&lt;  st.Tuo::m_Age &lt;&lt; endl;<br>	cout &lt;&lt; <span class="hljs-string">&quot;st.m_Age = &quot;</span> &lt;&lt; st.m_Age &lt;&lt; endl;<br>&#125;<br></code></pre></td></tr></table></figure>
+    </div>
+</div>
+
+</li>
+<li><p>什么是多态，使用条件？如何运用多态？</p>
+<div class='spoiler collapsed'>
+    <div class='spoiler-title'>
+        
+    </div>
+    <div class='spoiler-content'>
+        <p>多态也是 面向对象特性之一；<br>多态分为两类<br>静态多态: 函数重载 和 运算符重载属于静态多态，复用函数名<br>动态多态: 派生类和虚函数实现运行时多态；多态意味着调用成员函数时，会根据调用对象的类型来执行不同的函数；</p>
+<p>静态多态和动态多态区别：<br>静态多态的函数地址早绑定 - 编译阶段确定函数地址<br>动态多态的函数地址晚绑定 - 运行阶段确定函数地址</p>
+<p>多态使用条件：有继承关系，子类重写父类中的虚函数<br>运用方式：父类指针或引用指向子类对象</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br></pre></td><td class="code"><pre><code class="hljs C++"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Animal</span><br>&#123;<br><span class="hljs-keyword">public</span>:<br>	<span class="hljs-comment">//Speak函数就是虚函数</span><br>	<span class="hljs-comment">//函数前面加上virtual关键字，变成虚函数，那么编译器在编译的时候就不能确定函数调用了。</span><br>	<span class="hljs-function"><span class="hljs-keyword">virtual</span> <span class="hljs-type">void</span> <span class="hljs-title">speak</span><span class="hljs-params">()</span></span><br><span class="hljs-function">	</span>&#123;<br>		cout &lt;&lt; <span class="hljs-string">&quot;动物在说话&quot;</span> &lt;&lt; endl;<br>	&#125;<br>&#125;;<br><br><span class="hljs-keyword">class</span> <span class="hljs-title class_">Cat</span> :<span class="hljs-keyword">public</span> Animal<br>&#123;<br><span class="hljs-keyword">public</span>:<br>	<span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">speak</span><span class="hljs-params">()</span></span><br><span class="hljs-function">	</span>&#123;<br>		cout &lt;&lt; <span class="hljs-string">&quot;小猫在说话&quot;</span> &lt;&lt; endl;<br>	&#125;<br>&#125;;<br><br><span class="hljs-keyword">class</span> <span class="hljs-title class_">Dog</span> :<span class="hljs-keyword">public</span> Animal<br>&#123;<br><span class="hljs-keyword">public</span>:<br><br>	<span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">speak</span><span class="hljs-params">()</span></span><br><span class="hljs-function">	</span>&#123;<br>		cout &lt;&lt; <span class="hljs-string">&quot;小狗在说话&quot;</span> &lt;&lt; endl;<br>	&#125;<br><br>&#125;;<br><br><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">DoSpeak</span><span class="hljs-params">(Animal &amp; animal)</span></span><br><span class="hljs-function"></span>&#123;<br>	animal.<span class="hljs-built_in">speak</span>();<br>&#125;<br><br><br><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">test01</span><span class="hljs-params">()</span></span><br><span class="hljs-function"></span>&#123;<br>	Cat cat;<br>	<span class="hljs-built_in">DoSpeak</span>(cat);<br><br><br>	Dog dog;<br>	<span class="hljs-built_in">DoSpeak</span>(dog);<br>&#125;<br></code></pre></td></tr></table></figure>
+    </div>
+</div>
+
+</li>
+<li><p>多态的对象模型？</p>
+<div class='spoiler collapsed'>
+    <div class='spoiler-title'>
+        
+    </div>
+    <div class='spoiler-content'>
+        <p>多态场景里，父类会有一个虚函数指针vfptr，然后指向一个虚函数表vftable，表内记录了虚函数的地址；<br>子类会继承父类的虚函数指针和虚函数表，但是子类重写父类的虚函数时，子类中的虚函数表 内部 会覆盖成子类的虚函数地址<br><img src="/img/c++_quick_tutorial/duotai.png" srcset="/img/loading.gif" lazyload></p>
+
+    </div>
+</div>
+
+</li>
+<li><p>什么是纯虚函数和抽象类？</p>
+<div class='spoiler collapsed'>
+    <div class='spoiler-title'>
+        
+    </div>
+    <div class='spoiler-content'>
+        <p>在多态中，通常父类中虚函数的实现是毫无意义的，主要都是调用子类重写的内容，因此可以将虚函数改为<code>纯虚函数</code>；<br>纯虚函数语法：<code>virtual 返回值类型 函数名 （参数列表）= 0;</code></p>
+<p>当类中有了纯虚函数，这个类也称为<code>抽象类</code></p>
+<p>抽象类特点：</p>
+<ol>
+<li>无法实例化对象</li>
+<li>子类必须重写抽象类中的纯虚函数，否则子类也属于抽象类</li>
+</ol>
+
+    </div>
+</div>
+
+
+</li>
+<li><p>什么是虚析构，纯虚析构？如何使用，为什么使用它们？</p>
+<div class='spoiler collapsed'>
+    <div class='spoiler-title'>
+        
+    </div>
+    <div class='spoiler-content'>
+        <p>问题背景：</p>
+<blockquote>
+<p>多态使用时，父类指针在释放时无法调用到子类的析构代码；<br>如果子类中有属性开辟到堆区，那么父类指针delete时无法调用子类的析构代码，会导致内存泄漏；</p>
+</blockquote>
+<p>解决方式：将父类中的析构函数改为虚析构或者纯虚析构</p>
+<p>虚析构语法：<code>virtual ~类名(){}</code><br>纯虚析构语法：</p>
+<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs awk"><span class="hljs-regexp">//</span> 类内 <br>virtual ~类名() = <span class="hljs-number">0</span>; <br><span class="hljs-regexp">//</span> 类外 <br>类名::~类名()&#123;&#125;`<br></code></pre></td></tr></table></figure>
+
+<p>作用：虚析构或纯虚析构 通过父类指针释放子类对象</p>
+<p>虚析构和纯虚析构共性：都需要有具体的函数实现<br>虚析构和纯虚析构区别：如果是纯虚析构，该类属于抽象类，无法实例化对象</p>
+<p>注意：如果子类中没有堆区数据，可以不写为虚析构或纯虚析构</p>
+
+    </div>
+</div></li>
+</ul>
+<h2 id="C-泛型编程"><a href="#C-泛型编程" class="headerlink" title="C++泛型编程"></a>C++泛型编程</h2><ul>
+<li>函数模板</li>
+<li>类模板</li>
+</ul>
+<h3 id="函数模板"><a href="#函数模板" class="headerlink" title="函数模板"></a>函数模板</h3><ul>
+<li><p>什么是模板？</p>
+<div class='spoiler collapsed'>
+    <div class='spoiler-title'>
+        
+    </div>
+    <div class='spoiler-content'>
+        <p>模板是泛型类或泛型函数的 蓝图；<br>模板是一种框架，针对不同的数据类型（泛型），实现相同的功能（函数模板，类模板）</p>
+
+    </div>
+</div>
+
+</li>
+<li><p>什么是函数模板？</p>
+<div class='spoiler collapsed'>
+    <div class='spoiler-title'>
+        
+    </div>
+    <div class='spoiler-content'>
+        <p>函数模板：建立一个通用函数，其函数返回值类型和形参类型可以不具体制定，用一个虚拟的类型来代表<br>语法：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-keyword">template</span>&lt;<span class="hljs-keyword">typename</span> T&gt;<br>函数声明或定义<br></code></pre></td></tr></table></figure>
+    </div>
+</div>
+</li>
+<li><p>函数模板的使用方式和注意事项？</p>
+<div class='spoiler collapsed'>
+    <div class='spoiler-title'>
+        
+    </div>
+    <div class='spoiler-content'>
+        <p>函数模板定义好之后，我们需要调用函数模板，有两种方式</p>
+<ol>
+<li>自动类型推导</li>
+<li>显示指定类型</li>
+</ol>
+<p>注意：使用模板时必须<code>确定出通用数据类型T</code>，并且能够<code>推导出一致的类型</code></p>
+<figure class="highlight angelscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><code class="hljs angelscript"><span class="hljs-comment">// 交换 函数模板</span><br>template&lt;<span class="hljs-keyword">class</span> <span class="hljs-symbol">T</span>&gt;<br><span class="hljs-symbol">void</span> <span class="hljs-symbol">mySwap</span>(<span class="hljs-symbol">T</span>&amp; <span class="hljs-symbol">a, <span class="hljs-symbol">T</span></span>&amp; <span class="hljs-symbol">b</span>)<br>&#123;<br>	T temp = a;<br>	a = b;<br>	b = temp;<br>&#125;<br><br><br><span class="hljs-built_in">void</span> test01()<br>&#123;<br>	<span class="hljs-built_in">int</span> a = <span class="hljs-number">10</span>;<br>	<span class="hljs-built_in">int</span> b = <span class="hljs-number">20</span>;<br>	char c = <span class="hljs-string">&#x27;c&#x27;</span>;<br><br>	<span class="hljs-comment">//1. 自动类型推导</span><br>	mySwap(a, b);<br><br>	<span class="hljs-comment">//2. 显示指定类型</span><br>	mySwap&lt;<span class="hljs-built_in">int</span>&gt;(a, b);<br><br>	mySwap(a, c); <span class="hljs-comment">// 错误，不能推导不出一致的T类型 </span><br>&#125;<br><br><br><br><span class="hljs-comment">// 函数模板</span><br>template&lt;<span class="hljs-keyword">class</span> <span class="hljs-symbol">T</span>&gt;<br><span class="hljs-symbol">void</span> <span class="hljs-symbol">func</span>()<br>&#123;<br>	cout &lt;&lt; <span class="hljs-string">&quot;func 调用&quot;</span> &lt;&lt; endl;<br>&#125;<br><br><span class="hljs-built_in">void</span> test02()<br>&#123;<br>	<span class="hljs-comment">//func(); //错误，不能确定出T的类型</span><br>	func&lt;<span class="hljs-built_in">int</span>&gt;(); <span class="hljs-comment">//利用显示指定类型的方式，给T一个类型，才可以使用该模板</span><br>&#125;<br></code></pre></td></tr></table></figure>
+    </div>
+</div>
+
+</li>
+<li><p>普通函数与函数模板的区别?</p>
+<div class='spoiler collapsed'>
+    <div class='spoiler-title'>
+        
+    </div>
+    <div class='spoiler-content'>
+        <p>类型转换区别：</p>
+<ol>
+<li>普通函数调用时可以发生隐式类型转换</li>
+<li>函数模板调用时，如果利用自动类型推导，不会发生隐式类型转换</li>
+<li>函数模板调用时，如果利用显示指定类型，可以发生隐式类型转换</li>
+</ol>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><code class="hljs C++"><span class="hljs-comment">//普通函数</span><br><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">myAdd01</span><span class="hljs-params">(<span class="hljs-type">int</span> a, <span class="hljs-type">int</span> b)</span></span><br><span class="hljs-function"></span>&#123;<br>	<span class="hljs-keyword">return</span> a + b;<br>&#125;<br><br><span class="hljs-comment">//函数模板</span><br><span class="hljs-function"><span class="hljs-keyword">template</span>&lt;<span class="hljs-keyword">class</span> T&gt;</span><br><span class="hljs-function">T <span class="hljs-title">myAdd02</span><span class="hljs-params">(T a, T b)</span>  </span><br><span class="hljs-function"></span>&#123;<br>	<span class="hljs-keyword">return</span> a + b;<br>&#125;<br><br><span class="hljs-comment">//使用函数模板时，如果用自动类型推导，不会发生隐式类型转换</span><br><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">test01</span><span class="hljs-params">()</span></span><br><span class="hljs-function"></span>&#123;<br>	<span class="hljs-type">int</span> a = <span class="hljs-number">10</span>;<br>	<span class="hljs-type">int</span> b = <span class="hljs-number">20</span>;<br>	<span class="hljs-type">char</span> c = <span class="hljs-string">&#x27;c&#x27;</span>;<br>	<br>	cout &lt;&lt; <span class="hljs-built_in">myAdd01</span>(a, c) &lt;&lt; endl; <span class="hljs-comment">//正确，将char类型的&#x27;c&#x27;隐式转换为int类型  &#x27;c&#x27; 对应 ASCII码 99</span><br>	<span class="hljs-comment">//myAdd02(a, c); // 报错，使用自动类型推导时，不会发生隐式类型转换</span><br>	<span class="hljs-built_in">myAdd02</span>&lt;<span class="hljs-type">int</span>&gt;(a, c); <span class="hljs-comment">//正确，如果用显示指定类型，可以发生隐式类型转换</span><br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p>调用规则区别：</p>
+<ol>
+<li>如果函数模板和普通函数都可以实现，优先调用普通函数</li>
+<li>可以通过空模板参数列表来强制调用函数模板</li>
+<li>函数模板也可以发生重载</li>
+<li>如果函数模板可以产生更好的匹配,优先调用函数模板</li>
+</ol>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><code class="hljs C++"><span class="hljs-comment">//普通函数</span><br><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">myPrint</span><span class="hljs-params">(<span class="hljs-type">int</span> a, <span class="hljs-type">int</span> b)</span></span><br><span class="hljs-function"></span>&#123;<br>	cout &lt;&lt; <span class="hljs-string">&quot;调用的普通函数&quot;</span> &lt;&lt; endl;<br>&#125;<br><br><br><span class="hljs-comment">//函数模板</span><br><span class="hljs-function"><span class="hljs-keyword">template</span>&lt;<span class="hljs-keyword">typename</span> T&gt;</span><br><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">myPrint</span><span class="hljs-params">(T a, T b)</span> </span><br><span class="hljs-function"></span>&#123; <br>	cout &lt;&lt; <span class="hljs-string">&quot;调用的模板&quot;</span> &lt;&lt; endl;<br>&#125;<br><br><span class="hljs-function"><span class="hljs-keyword">template</span>&lt;<span class="hljs-keyword">typename</span> T&gt;</span><br><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">myPrint</span><span class="hljs-params">(T a, T b, T c)</span> </span><br><span class="hljs-function"></span>&#123; <br>	cout &lt;&lt; <span class="hljs-string">&quot;调用重载的模板&quot;</span> &lt;&lt; endl; <br>&#125;<br><br><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">test01</span><span class="hljs-params">()</span></span><br><span class="hljs-function"></span>&#123;<br>	<span class="hljs-comment">//1、如果函数模板和普通函数都可以实现，优先调用普通函数</span><br>	<span class="hljs-comment">// 注意 如果告诉编译器  普通函数是有的，但只是声明没有实现，或者不在当前文件内实现，就会报错找不到</span><br>	<span class="hljs-type">int</span> a = <span class="hljs-number">10</span>;<br>	<span class="hljs-type">int</span> b = <span class="hljs-number">20</span>;<br>	<span class="hljs-built_in">myPrint</span>(a, b); <span class="hljs-comment">//调用普通函数</span><br><br>	<span class="hljs-comment">//2、可以通过空模板参数列表来强制调用函数模板</span><br>	myPrint&lt;&gt;(a, b); <span class="hljs-comment">//调用函数模板</span><br><br>	<span class="hljs-comment">//3、函数模板也可以发生重载</span><br>	<span class="hljs-type">int</span> c = <span class="hljs-number">30</span>;<br>	<span class="hljs-built_in">myPrint</span>(a, b, c); <span class="hljs-comment">//调用重载的函数模板</span><br><br>	<span class="hljs-comment">//4、 如果函数模板可以产生更好的匹配,优先调用函数模板</span><br>	<span class="hljs-type">char</span> c1 = <span class="hljs-string">&#x27;a&#x27;</span>;<br>	<span class="hljs-type">char</span> c2 = <span class="hljs-string">&#x27;b&#x27;</span>;<br>	<span class="hljs-built_in">myPrint</span>(c1, c2); <span class="hljs-comment">//调用函数模板</span><br>&#125;<br></code></pre></td></tr></table></figure>
+
+    </div>
+</div>
+
+</li>
+<li><p>模板的通用性无法运用于<code>非内置数据类型</code>，如何解决？</p>
+<div class='spoiler collapsed'>
+    <div class='spoiler-title'>
+        
+    </div>
+    <div class='spoiler-content'>
+        <p>模板的通用性并不是万能的，无法作用域自定义数据类型</p>
+<p>解决方案：具体化模板<br>作用：解决自定义类型的通用化<br>语法：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><code class="hljs C++"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Person</span><br>&#123;<br><span class="hljs-keyword">public</span>:<br>	<span class="hljs-built_in">Person</span>(string name, <span class="hljs-type">int</span> age)<br>	&#123;<br>		<span class="hljs-keyword">this</span>-&gt;m_Name = name;<br>		<span class="hljs-keyword">this</span>-&gt;m_Age = age;<br>	&#125;<br>	string m_Name;<br>	<span class="hljs-type">int</span> m_Age;<br>&#125;;<br><br><span class="hljs-comment">//普通函数模板</span><br><span class="hljs-function"><span class="hljs-keyword">template</span>&lt;<span class="hljs-keyword">class</span> T&gt;</span><br><span class="hljs-function"><span class="hljs-type">bool</span> <span class="hljs-title">myCompare</span><span class="hljs-params">(T&amp; a, T&amp; b)</span></span><br><span class="hljs-function"></span>&#123;<br>	<span class="hljs-keyword">if</span> (a == b)<br>	&#123;<br>		<span class="hljs-keyword">return</span> <span class="hljs-literal">true</span>;<br>	&#125;<br>	<span class="hljs-keyword">else</span><br>	&#123;<br>		<span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>;<br>	&#125;<br>&#125;<br><br><br><span class="hljs-comment">//具体化，显示具体化的原型和定意思以template&lt;&gt;开头，并通过名称来指出类型</span><br><span class="hljs-comment">//具体化优先于常规模板</span><br><span class="hljs-keyword">template</span>&lt;&gt; <span class="hljs-function"><span class="hljs-type">bool</span> <span class="hljs-title">myCompare</span><span class="hljs-params">(Person &amp;p1, Person &amp;p2)</span></span><br><span class="hljs-function"></span>&#123;<br>	<span class="hljs-keyword">if</span> ( p1.m_Name  == p2.m_Name &amp;&amp; p1.m_Age == p2.m_Age)<br>	&#123;<br>		<span class="hljs-keyword">return</span> <span class="hljs-literal">true</span>;<br>	&#125;<br>	<span class="hljs-keyword">else</span><br>	&#123;<br>		<span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>;<br>	&#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+    </div>
+</div></li>
+</ul>
+<h3 id="类模板"><a href="#类模板" class="headerlink" title="类模板"></a>类模板</h3><ul>
+<li><p>什么是类模板？</p>
+<div class='spoiler collapsed'>
+    <div class='spoiler-title'>
+        
+    </div>
+    <div class='spoiler-content'>
+        <p>类模板：建立一个通用类，类中的成员 数据类型可以不具体制定，用一个虚拟的类型来代表；<br>语法：</p>
+<figure class="highlight arduino"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><code class="hljs arduino"><span class="hljs-keyword">template</span>&lt;<span class="hljs-keyword">class</span> <span class="hljs-title class_">T</span>&gt;<br>类<br><br><br><br><span class="hljs-comment">//类模板</span><br><span class="hljs-keyword">template</span>&lt;<span class="hljs-keyword">class</span> <span class="hljs-title class_">NameType</span>, <span class="hljs-keyword">class</span> <span class="hljs-title class_">AgeType</span>&gt; <br><span class="hljs-keyword">class</span> <span class="hljs-title class_">Person</span><br>&#123;<br><span class="hljs-keyword">public</span>:<br>	<span class="hljs-built_in">Person</span>(NameType name, AgeType age)<br>	&#123;<br>		<span class="hljs-keyword">this</span>-&gt;mName = name;<br>		<span class="hljs-keyword">this</span>-&gt;mAge = age;<br>	&#125;<br>	<span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">showPerson</span><span class="hljs-params">()</span></span><br><span class="hljs-function">	</span>&#123;<br>		cout &lt;&lt; <span class="hljs-string">&quot;name: &quot;</span> &lt;&lt; <span class="hljs-keyword">this</span>-&gt;mName &lt;&lt; <span class="hljs-string">&quot; age: &quot;</span> &lt;&lt; <span class="hljs-keyword">this</span>-&gt;mAge &lt;&lt; endl;<br>	&#125;<br><span class="hljs-keyword">public</span>:<br>	NameType mName;<br>	AgeType mAge;<br>&#125;;<br><br><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">test01</span><span class="hljs-params">()</span></span><br><span class="hljs-function"></span>&#123;<br>	<span class="hljs-comment">// 指定NameType 为string类型，AgeType 为 int类型</span><br>	Person&lt;string, <span class="hljs-type">int</span>&gt;<span class="hljs-built_in">P1</span>(<span class="hljs-string">&quot;孙悟空&quot;</span>, <span class="hljs-number">999</span>);<br>	P1.<span class="hljs-built_in">showPerson</span>();<br>&#125;<br></code></pre></td></tr></table></figure>
+
+    </div>
+</div>
+
+</li>
+<li><p>类模板与函数模板区别?</p>
+<div class='spoiler collapsed'>
+    <div class='spoiler-title'>
+        
+    </div>
+    <div class='spoiler-content'>
+        <ol>
+<li>类模板使用<strong>只能用显示指定类型方式</strong></li>
+<li>类模板中的模板参数列表可以有<strong>默认参数</strong></li>
+</ol>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><code class="hljs C++"><span class="hljs-comment">//类模板</span><br><span class="hljs-keyword">template</span>&lt;<span class="hljs-keyword">class</span> <span class="hljs-title class_">NameType</span>, <span class="hljs-keyword">class</span> <span class="hljs-title class_">AgeType</span> = <span class="hljs-type">int</span>&gt; <span class="hljs-comment">// 模板参数列表指定默认参数</span><br><span class="hljs-keyword">class</span> Person<br>&#123;<br><span class="hljs-keyword">public</span>:<br>	<span class="hljs-built_in">Person</span>(NameType name, AgeType age)<br>	&#123;<br>		<span class="hljs-keyword">this</span>-&gt;mName = name;<br>		<span class="hljs-keyword">this</span>-&gt;mAge = age;<br>	&#125;<br>	<span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">showPerson</span><span class="hljs-params">()</span></span><br><span class="hljs-function">	</span>&#123;<br>		cout &lt;&lt; <span class="hljs-string">&quot;name: &quot;</span> &lt;&lt; <span class="hljs-keyword">this</span>-&gt;mName &lt;&lt; <span class="hljs-string">&quot; age: &quot;</span> &lt;&lt; <span class="hljs-keyword">this</span>-&gt;mAge &lt;&lt; endl;<br>	&#125;<br><span class="hljs-keyword">public</span>:<br>	NameType mName;<br>	AgeType mAge;<br>&#125;;<br><br><span class="hljs-comment">//1. 类模板使用只能用显示指定类型方式</span><br><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">test01</span><span class="hljs-params">()</span></span><br><span class="hljs-function"></span>&#123;<br>	<span class="hljs-comment">// Person p(&quot;孙悟空&quot;, 1000); // 错误 类模板使用时候，不可以用自动类型推导</span><br>	Person &lt;string ,<span class="hljs-type">int</span>&gt;<span class="hljs-built_in">p</span>(<span class="hljs-string">&quot;孙悟空&quot;</span>, <span class="hljs-number">1000</span>); <span class="hljs-comment">//必须使用显示指定类型的方式，使用类模板</span><br>	p.<span class="hljs-built_in">showPerson</span>();<br>&#125;<br><br><span class="hljs-comment">//2. 类模板在模板参数列表中可以有默认参数</span><br><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">test02</span><span class="hljs-params">()</span></span><br><span class="hljs-function"></span>&#123;<br>	Person &lt;string&gt; <span class="hljs-built_in">p</span>(<span class="hljs-string">&quot;猪八戒&quot;</span>, <span class="hljs-number">999</span>); <span class="hljs-comment">//类模板中的模板参数列表 可以指定默认参数</span><br>	p.<span class="hljs-built_in">showPerson</span>();<br>&#125;<br><br><br></code></pre></td></tr></table></figure>
+
+    </div>
+</div>
+
+</li>
+<li><p>类模板中成员函数创建时机？</p>
+<div class='spoiler collapsed'>
+    <div class='spoiler-title'>
+        
+    </div>
+    <div class='spoiler-content'>
+        <p>普通类中的成员函数一开始就可以创建 （定义后就创建）<br>类模板中的成员函数在调用时才创建   （调用时创建）</p>
+<p>这里的一开始和调用，<strong>不是指编译阶段和运行阶段</strong>；<br>visual studio里的<code>生成 其实就是 编译</code></p>
+
+    </div>
+</div>
+
+
+</li>
+<li><p>类模板的对象，如何向函数传参？</p>
+<div class='spoiler collapsed'>
+    <div class='spoiler-title'>
+        
+    </div>
+    <div class='spoiler-content'>
+        <p>三种传入方式：</p>
+<ol>
+<li>指定传入的类型 — <strong>直接显示对象的数据类型</strong></li>
+<li>参数模板化 — 将<strong>对象中的参数变为模板</strong>进行传递</li>
+<li>类模板化 — 将这个<strong>对象类型模板化</strong>进行传递</li>
+</ol>
+<p>推荐使用第一种，指定传入类型：直接显示对象的数据类型</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><code class="hljs C++"><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">printPerson1</span><span class="hljs-params">(Person&lt;string, <span class="hljs-type">int</span>&gt; &amp;p)</span>  <span class="hljs-comment">//1. 指定传入的类型</span></span><br><span class="hljs-function"></span>&#123;<br>	p.<span class="hljs-built_in">showPerson</span>();<br>&#125;<br><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">test01</span><span class="hljs-params">()</span></span><br><span class="hljs-function"></span>&#123;<br>	Person &lt;string, <span class="hljs-type">int</span> &gt;<span class="hljs-built_in">p</span>(<span class="hljs-string">&quot;孙悟空&quot;</span>, <span class="hljs-number">100</span>);<br>	<span class="hljs-built_in">printPerson1</span>(p);<br>&#125;<br><br><br><span class="hljs-keyword">template</span> &lt;<span class="hljs-keyword">class</span> <span class="hljs-title class_">T1</span>, <span class="hljs-keyword">class</span> <span class="hljs-title class_">T2</span>&gt;<br><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">printPerson2</span><span class="hljs-params">(Person&lt;T1, T2&gt;&amp;p)</span>    <span class="hljs-comment">//2. 参数模板化</span></span><br><span class="hljs-function"></span>&#123;<br>	p.<span class="hljs-built_in">showPerson</span>();<br>	cout &lt;&lt; <span class="hljs-string">&quot;T1的类型为： &quot;</span> &lt;&lt; <span class="hljs-built_in">typeid</span>(T1).<span class="hljs-built_in">name</span>() &lt;&lt; endl;<br>	cout &lt;&lt; <span class="hljs-string">&quot;T2的类型为： &quot;</span> &lt;&lt; <span class="hljs-built_in">typeid</span>(T2).<span class="hljs-built_in">name</span>() &lt;&lt; endl;<br>&#125;<br><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">test02</span><span class="hljs-params">()</span></span><br><span class="hljs-function"></span>&#123;<br>	Person &lt;string, <span class="hljs-type">int</span> &gt;<span class="hljs-built_in">p</span>(<span class="hljs-string">&quot;猪八戒&quot;</span>, <span class="hljs-number">90</span>);<br>	<span class="hljs-built_in">printPerson2</span>(p);<br>&#125;<br><br><span class="hljs-function"><span class="hljs-keyword">template</span>&lt;<span class="hljs-keyword">class</span> T&gt;</span><br><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">printPerson3</span><span class="hljs-params">(T &amp; p)</span>          <span class="hljs-comment">//3. 类模板化</span></span><br><span class="hljs-function"></span>&#123;<br>	cout &lt;&lt; <span class="hljs-string">&quot;T的类型为： &quot;</span> &lt;&lt; <span class="hljs-built_in">typeid</span>(T).<span class="hljs-built_in">name</span>() &lt;&lt; endl;<br>	p.<span class="hljs-built_in">showPerson</span>();<br><br>&#125;<br><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">test03</span><span class="hljs-params">()</span></span><br><span class="hljs-function"></span>&#123;<br>	Person &lt;string, <span class="hljs-type">int</span> &gt;<span class="hljs-built_in">p</span>(<span class="hljs-string">&quot;唐僧&quot;</span>, <span class="hljs-number">30</span>);<br>	<span class="hljs-built_in">printPerson3</span>(p);<br>&#125;<br></code></pre></td></tr></table></figure>
+    </div>
+</div>
+
+</li>
+<li><p>类模板在继承的时候有什么注意事项？</p>
+<div class='spoiler collapsed'>
+    <div class='spoiler-title'>
+        
+    </div>
+    <div class='spoiler-content'>
+        <p>如果父类是类模板，子类需要指定出父类中T的数据类型；<br>如果想灵活指定出父类中T的类型，子类也需变为类模板；</p>
+<p>例子：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><code class="hljs C++"><span class="hljs-keyword">template</span>&lt;<span class="hljs-keyword">class</span> <span class="hljs-title class_">T</span>&gt;<br><span class="hljs-keyword">class</span> <span class="hljs-title class_">Base</span><br>&#123;<br>	T m;<br>&#125;;<br><br><span class="hljs-comment">//class Son:public Base  //错误，c++编译需要给子类分配内存，必须知道父类中T的类型才可以向下继承</span><br><span class="hljs-keyword">class</span> <span class="hljs-title class_">Son</span> :<span class="hljs-keyword">public</span> Base&lt;<span class="hljs-type">int</span>&gt; <span class="hljs-comment">//必须指定出父类中T的数据类型</span><br>&#123;<br>&#125;;<br><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">test01</span><span class="hljs-params">()</span></span><br><span class="hljs-function"></span>&#123;<br>	Son c;<br>&#125;<br><br><span class="hljs-comment">//类模板继承类模板 ,可以用T2指定父类中的T类型</span><br><span class="hljs-keyword">template</span>&lt;<span class="hljs-keyword">class</span> <span class="hljs-title class_">T1</span>, <span class="hljs-keyword">class</span> <span class="hljs-title class_">T2</span>&gt;<br><span class="hljs-keyword">class</span> <span class="hljs-title class_">Son2</span> :<span class="hljs-keyword">public</span> Base&lt;T2&gt;    <span class="hljs-comment">// T2是char</span><br>&#123;<br><span class="hljs-keyword">public</span>:<br>	<span class="hljs-built_in">Son2</span>()<br>	&#123;<br>		cout &lt;&lt; <span class="hljs-built_in">typeid</span>(T1).<span class="hljs-built_in">name</span>() &lt;&lt; endl;<br>		cout &lt;&lt; <span class="hljs-built_in">typeid</span>(T2).<span class="hljs-built_in">name</span>() &lt;&lt; endl;<br>	&#125;<br>&#125;;<br><br><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">test02</span><span class="hljs-params">()</span></span><br><span class="hljs-function"></span>&#123;<br>	Son2&lt;<span class="hljs-type">int</span>, <span class="hljs-type">char</span>&gt; child1;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+    </div>
+</div>
+
+
+</li>
+<li><p>类模板成员函数分文件编写产生的问题以及解决方式？</p>
+<div class='spoiler collapsed'>
+    <div class='spoiler-title'>
+        
+    </div>
+    <div class='spoiler-content'>
+        <p>类模板中成员函数创建时机是在调用阶段，导致分文件编写时链接不到；</p>
+<p>解决方案：</p>
+<ol>
+<li>将声明和实现写到同一个文件中，并更改后缀名为.hpp，hpp是约定的名称，并不是强制</li>
+<li>直接包含.cpp源文件 （不推荐）</li>
+</ol>
+
+    </div>
+</div>
+
+</li>
+<li><p>类模板如何使用友元？</p>
+<div class='spoiler collapsed'>
+    <div class='spoiler-title'>
+        
+    </div>
+    <div class='spoiler-content'>
+        <p>全局函数类内实现 - 直接在类内声明友元即可       &#x2F;&#x2F; 推荐这一种<br>全局函数类外实现 - 需要提前让编译器知道全局函数的存在</p>
+
+    </div>
+</div></li>
+</ul>
+<h2 id="C-STL"><a href="#C-STL" class="headerlink" title="C++ STL"></a>C++ STL</h2><ul>
+<li>STL概念</li>
+<li>常用容器<ul>
+<li>string</li>
+<li>vector</li>
+</ul>
+</li>
+<li>算法</li>
+<li>迭代器</li>
+</ul>
+<h3 id="STL概念"><a href="#STL概念" class="headerlink" title="STL概念"></a>STL概念</h3><ul>
+<li><p>什么是STL，STL的设计背景？</p>
+<div class='spoiler collapsed'>
+    <div class='spoiler-title'>
+        
+    </div>
+    <div class='spoiler-content'>
+        <p>STL：Standard Template Library，标准模板库；<br>设计背景：C++的面向对象和泛型编程思想，目的就是复用性的提升；为了建立数据结构和算法的一套标准,诞生了STL；</p>
+
+    </div>
+</div>
+</li>
+<li><p>STL大体有哪些内容，作用是什么？</p>
+<div class='spoiler collapsed'>
+    <div class='spoiler-title'>
+        
+    </div>
+    <div class='spoiler-content'>
+        <p>STL大体分为六大组件，分别是:容器、算法、迭代器、仿函数、适配器、空间配置器</p>
+<p>容器：各种数据结构，如vector、list、deque、set、map等,用来存放数据。<br>算法：各种常用的算法，如sort、find、copy、for_each等<br>迭代器：扮演了容器与算法之间的胶合剂。<br>仿函数：行为类似函数，可作为算法的某种策略。<br>适配器：一种用来修饰容器或者仿函数或迭代器接口的东西。<br>空间配置器：负责空间的配置与管理。</p>
+
+    </div>
+</div></li>
+</ul>
+<h3 id="容器"><a href="#容器" class="headerlink" title="容器"></a>容器</h3><ul>
+<li><p>string容器的基本操作？</p>
+<div class='spoiler collapsed'>
+    <div class='spoiler-title'>
+        
+    </div>
+    <div class='spoiler-content'>
+        <p>string是一个类，类内部封装了char*，以及很多函数；</p>
+<ul>
+<li><p>构造函数<br>string(); &#x2F;&#x2F;创建一个空的字符串 例如: string str;<br>string(const char* s); &#x2F;&#x2F;使用字符串s初始化<br>string(const string&amp; str); &#x2F;&#x2F;使用一个string对象初始化另一个string对象<br>string(int n, char c); &#x2F;&#x2F;使用n个字符c初始化</p>
+</li>
+<li><p>赋值<br>string&amp; operator&#x3D;(const char* s); &#x2F;&#x2F;char*类型字符串 赋值给当前的字符串<br>string&amp; operator&#x3D;(const string &amp;s); &#x2F;&#x2F;把字符串s赋给当前的字符串<br>string&amp; operator&#x3D;(char c); &#x2F;&#x2F;字符赋值给当前的字符串<br>string&amp; assign(const char *s); &#x2F;&#x2F;把字符串s赋给当前的字符串<br>string&amp; assign(const char *s, int n); &#x2F;&#x2F;把字符串s的前n个字符赋给当前的字符串<br>string&amp; assign(const string &amp;s); &#x2F;&#x2F;把字符串s赋给当前字符串<br>string&amp; assign(int n, char c); &#x2F;&#x2F;用n个字符c赋给当前字符串</p>
+</li>
+<li><p>字符串拼接<br>string&amp; operator+&#x3D;(const char* str); &#x2F;&#x2F;重载+&#x3D;操作符<br>string&amp; operator+&#x3D;(const char c); &#x2F;&#x2F;重载+&#x3D;操作符<br>string&amp; operator+&#x3D;(const string&amp; str); &#x2F;&#x2F;重载+&#x3D;操作符<br>string&amp; append(const char *s); &#x2F;&#x2F;把字符串s连接到当前字符串结尾<br>string&amp; append(const char *s, int n); &#x2F;&#x2F;把字符串s的前n个字符连接到当前字符串结尾<br>string&amp; append(const string &amp;s); &#x2F;&#x2F;同operator+&#x3D;(const string&amp; str)<br>string&amp; append(const string &amp;s, int pos, int n);&#x2F;&#x2F;字符串s中从pos开始的n个字符连接到字符串结尾</p>
+</li>
+<li><p>查找和替换<br>int find(const string&amp; str, int pos &#x3D; 0) const; &#x2F;&#x2F;查找str第一次出现位置,从pos开始查找<br>int find(const char* s, int pos &#x3D; 0) const; &#x2F;&#x2F;查找s第一次出现位置,从pos开始查找<br>int find(const char* s, int pos, int n) const; &#x2F;&#x2F;从pos位置查找s的前n个字符第一次位置<br>int find(const char c, int pos &#x3D; 0) const; &#x2F;&#x2F;查找字符c第一次出现位置<br>int rfind(const string&amp; str, int pos &#x3D; npos) const; &#x2F;&#x2F;查找str最后一次位置,从pos开始查找<br>int rfind(const char* s, int pos &#x3D; npos) const; &#x2F;&#x2F;查找s最后一次出现位置,从pos开始查找<br>int rfind(const char* s, int pos, int n) const; &#x2F;&#x2F;从pos查找s的前n个字符最后一次位置<br>int rfind(const char c, int pos &#x3D; 0) const; &#x2F;&#x2F;查找字符c最后一次出现位置<br>string&amp; replace(int pos, int n, const string&amp; str); &#x2F;&#x2F;替换从pos开始n个字符为字符串str<br>string&amp; replace(int pos, int n,const char* s); &#x2F;&#x2F;替换从pos开始的n个字符为字符串s</p>
+</li>
+<li><p>字符串比较<br>int compare(const string &amp;s) const; &#x2F;&#x2F;与字符串s比较<br>int compare(const char *s) const; &#x2F;&#x2F;与字符串s比较</p>
+</li>
+<li><p>字符存取<br>char&amp; operator[](int n); &#x2F;&#x2F;通过[]方式取字符<br>char&amp; at(int n); &#x2F;&#x2F;通过at方法获取字符</p>
+</li>
+<li><p>插入和删除<br>string&amp; insert(int pos, const char* s); &#x2F;&#x2F;插入字符串<br>string&amp; insert(int pos, const string&amp; str); &#x2F;&#x2F;插入字符串<br>string&amp; insert(int pos, int n, char c); &#x2F;&#x2F;在指定位置插入n个字符c<br>string&amp; erase(int pos, int n &#x3D; npos); &#x2F;&#x2F;删除从Pos开始的n个字符</p>
+</li>
+<li><p>子串<br>string substr(int pos &#x3D; 0, int n &#x3D; npos) const; &#x2F;&#x2F;返回由pos开始的n个字符组成的字符串</p>
+</li>
+</ul>
+
+    </div>
+</div>
+
+</li>
+<li><p>vector容器的基本操作？</p>
+<div class='spoiler collapsed'>
+    <div class='spoiler-title'>
+        
+    </div>
+    <div class='spoiler-content'>
+        <p>vector数据结构和数组非常相似，也称为单端数组；不同之处在于数组是静态空间，而vector可以动态扩展</p>
+<p>动态扩展：并不是在原空间之后续接新空间，而是找更大的内存空间，然后将原数据拷贝新空间，释放原空间</p>
+<ul>
+<li><p>构造函数<br>vector<T> v; &#x2F;&#x2F;采用模板实现类实现，默认构造函数<br>vector(v.begin(), v.end()); &#x2F;&#x2F;将v[begin(), end())区间中的元素拷贝给本身。<br>vector(n, elem); &#x2F;&#x2F;构造函数将n个elem拷贝给本身。<br>vector(const vector &amp;vec); &#x2F;&#x2F;拷贝构造函数。</p>
+</li>
+<li><p>赋值<br>vector&amp; operator&#x3D;(const vector &amp;vec);&#x2F;&#x2F;重载等号操作符<br>assign(beg, end); &#x2F;&#x2F;将[beg, end)区间中的数据拷贝赋值给本身。<br>assign(n, elem); &#x2F;&#x2F;将n个elem拷贝赋值给本身。</p>
+</li>
+<li><p>容量和大小<br>empty(); &#x2F;&#x2F;判断容器是否为空<br>capacity(); &#x2F;&#x2F;容器的容量<br>size(); &#x2F;&#x2F;返回容器中元素的个数<br>resize(int num); &#x2F;&#x2F;重新指定容器的长度为num，若容器变长，则以默认值填充新位置。如果容器变短，则末尾超出容器长度的元素被删除。<br>resize(int num, elem); &#x2F;&#x2F;重新指定容器的长度为num，若容器变长，则以elem值填充新位置。如果容器变短，则末尾超出容器长度的元素被删除</p>
+</li>
+<li><p>插入和删除<br>push_back(ele); &#x2F;&#x2F;尾部插入元素ele<br>pop_back(); &#x2F;&#x2F;删除最后一个元素<br>insert(const_iterator pos, ele); &#x2F;&#x2F;迭代器指向位置pos插入元素ele<br>insert(const_iterator pos, int count,ele);&#x2F;&#x2F;迭代器指向位置pos插入count个元素ele<br>erase(const_iterator pos); &#x2F;&#x2F;删除迭代器指向的元素<br>erase(const_iterator start, const_iterator end);&#x2F;&#x2F;删除迭代器从start到end之间的元素<br>clear(); &#x2F;&#x2F;删除容器中所有元素</p>
+</li>
+<li><p>数据存取<br>at(int idx); &#x2F;&#x2F;返回索引idx所指的数据<br>operator[]; &#x2F;&#x2F;返回索引idx所指的数据<br>front(); &#x2F;&#x2F;返回容器中第一个数据元素<br>back(); &#x2F;&#x2F;返回容器中最后一个数据元素</p>
+</li>
+<li><p>互换容器<br>swap(vec); &#x2F;&#x2F; 将vec与本身的元素互换<br>vector<int>(v).swap(v); &#x2F;&#x2F;匿名对象，收缩内存</p>
+</li>
+<li><p>预留空间<br>reserve(int len); &#x2F;&#x2F;容器预留len个元素长度，预留位置不初始化，元素不可访问。<br>&#x2F;&#x2F; 减少vector在动态扩展容量时的扩展次数</p>
+</li>
+</ul>
+
+    </div>
+</div></li>
+</ul>
+<link rel="stylesheet" href="/css/spoiler.css" type="text/css"><script src="/js/spoiler.js" type="text/javascript" async></script>
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/" class="category-chain-item">编程语言</a>
+  
+  
+    <span>></span>
+    
+  <a href="/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/C/" class="category-chain-item">C++</a>
+  
+  
+
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/C/" class="print-no-link">#C++</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>C++快速入门笔记</div>
+      <div>https://vendestine.com/c++_basic_tutorial</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>Author</div>
+          <div>Wenzhe Li</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>Posted on</div>
+          <div>May 25, 2022</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>Licensed under</div>
+          <div>
+            
+              
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - Attribution">
+                    <i class="iconfont icon-by"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/python-basic" title="Python-基础语法笔记">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">Python-基础语法笔记</span>
+                        <span class="visible-mobile">Previous</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/c++_heima_note" title="C++入门教程（转载）">
+                        <span class="hidden-mobile">C++入门教程（转载）</span>
+                        <span class="visible-mobile">Next</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+  
+  
+    <article id="comments" lazyload>
+      
+  <div id="valine"></div>
+  <script type="text/javascript">
+    Fluid.utils.loadComments('#valine', function() {
+      Fluid.utils.createScript('https://lib.baomitu.com/valine/1.5.1/Valine.min.js', function() {
+        var options = Object.assign(
+          {"appId":"IjvyDUC4CWIE5z0piBf1Dqia-9Nh9j0Va","appKey":"KQ2019uci92UXL6srhLsiY9K","path":"window.location.pathname","placeholder":null,"avatar":"retro","meta":["nick","mail","link"],"requiredFields":[],"pageSize":10,"lang":"zh-CN","highlight":false,"recordIP":false,"serverURLs":"","emojiCDN":null,"emojiMaps":null,"enableQQ":false},
+          {
+            el: "#valine",
+            path: window.location.pathname
+          }
+        )
+        new Valine(options);
+        Fluid.utils.waitElementVisible('#valine .vcontent', () => {
+          var imgSelector = '#valine .vcontent img:not(.vemoji)';
+          Fluid.plugins.imageCaption(imgSelector);
+          Fluid.plugins.fancyBox(imgSelector);
+        })
+      });
+    });
+  </script>
+  <noscript>Please enable JavaScript to view the comments</noscript>
+
+
+    </article>
+  
+
+
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>Table of Contents</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+  
+  
+
+
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">Search</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">Keyword</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+  
+  
+    <div class="statistics">
+  
+  
+
+  
+    
+      <span id="leancloud-site-pv-container" style="display: none">
+        Views: 
+        <span id="leancloud-site-pv"></span>
+        
+      </span>
+    
+    
+      <span id="leancloud-site-uv-container" style="display: none">
+        Visitors: 
+        <span id="leancloud-site-uv"></span>
+        
+      </span>
+    
+    
+
+  
+</div>
+
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.20.1/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/4.3.1/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  
+      <script>
+        if (!window.MathJax) {
+          window.MathJax = {
+            tex    : {
+              inlineMath: { '[+]': [['$', '$']] }
+            },
+            loader : {
+              load: ['ui/lazy']
+            },
+            options: {
+              renderActions: {
+                insertedScript: [200, () => {
+                  document.querySelectorAll('mjx-container').forEach(node => {
+                    let target = node.parentNode;
+                    if (target.nodeName.toLowerCase() === 'li') {
+                      target.parentNode.classList.add('has-jax');
+                    }
+                  });
+                }, '', false]
+              }
+            }
+          };
+        } else {
+          MathJax.startup.document.state(0);
+          MathJax.texReset();
+          MathJax.typeset();
+          MathJax.typesetPromise();
+        }
+
+        Fluid.events.registerRefreshCallback(function() {
+          if ('MathJax' in window && MathJax.startup.document && typeof MathJax.startup.document.state === 'function') {
+            MathJax.startup.document.state(0);
+            MathJax.texReset();
+            MathJax.typeset();
+            MathJax.typesetPromise();
+          }
+        });
+      </script>
+    
+
+  <script  src="https://lib.baomitu.com/mathjax/3.2.2/es5/tex-mml-chtml.js" ></script>
+
+  <script defer src="/js/leancloud.js" ></script>
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">Blog works best with JavaScript enabled</div>
+  </noscript>
+</body>
+</html>
