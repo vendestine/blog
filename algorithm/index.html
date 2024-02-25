@@ -16,13 +16,15 @@
   <meta name="author" content="Wenzhe Li">
   <meta name="keywords" content="">
   
-    <meta property="og:type" content="website">
+    <meta name="description" content="算法专栏 分模块学习 配合github仓库使用  基础算法双指针前缀和，后缀和，差分二分，三分位运算  搜索DFSBFS回溯  数据结构栈队列链表二叉树哈希表堆单调栈单调队列树字典树Trie并查集   动态规划背包dp线性dp区间dp数位dp状压dp树形dp  图论图基础和存储图的遍历最短路最小生成树二分图拓扑排序  数学  其他">
+<meta property="og:type" content="website">
 <meta property="og:title" content="算法 专栏">
 <meta property="og:url" content="https://vendestine.com/algorithm/">
 <meta property="og:site_name" content="Blog">
+<meta property="og:description" content="算法专栏 分模块学习 配合github仓库使用  基础算法双指针前缀和，后缀和，差分二分，三分位运算  搜索DFSBFS回溯  数据结构栈队列链表二叉树哈希表堆单调栈单调队列树字典树Trie并查集   动态规划背包dp线性dp区间dp数位dp状压dp树形dp  图论图基础和存储图的遍历最短路最小生成树二分图拓扑排序  数学  其他">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2024-02-24T15:06:37.618Z">
-<meta property="article:modified_time" content="2024-02-24T15:06:37.618Z">
+<meta property="article:published_time" content="2024-02-25T11:45:37.201Z">
+<meta property="article:modified_time" content="2024-02-25T11:45:37.201Z">
 <meta property="article:author" content="Wenzhe Li">
 <meta name="twitter:card" content="summary_large_image">
   
@@ -33,6 +35,12 @@
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
 
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
 
 
 
@@ -293,11 +301,61 @@
                 
 
 <article class="page-content">
-  <link rel="stylesheet" href="/css/spoiler.css" type="text/css"><script src="/js/spoiler.js" type="text/javascript" async></script>
+  <div class="markdown-body">
+
+<blockquote>
+<p>算法专栏 分模块学习 配合<a target="_blank" rel="noopener" href="https://github.com/vendestine/Algorithm_Template">github仓库</a>使用</p>
+</blockquote>
+<h2 id="基础算法"><a href="#基础算法" class="headerlink" title="基础算法"></a>基础算法</h2><h3 id="双指针"><a href="#双指针" class="headerlink" title="双指针"></a>双指针</h3><h3 id="前缀和，后缀和，差分"><a href="#前缀和，后缀和，差分" class="headerlink" title="前缀和，后缀和，差分"></a>前缀和，后缀和，差分</h3><h3 id="二分，三分"><a href="#二分，三分" class="headerlink" title="二分，三分"></a>二分，三分</h3><h3 id="位运算"><a href="#位运算" class="headerlink" title="位运算"></a>位运算</h3><br>
+
+<h2 id="搜索"><a href="#搜索" class="headerlink" title="搜索"></a>搜索</h2><h3 id="DFS"><a href="#DFS" class="headerlink" title="DFS"></a>DFS</h3><h3 id="BFS"><a href="#BFS" class="headerlink" title="BFS"></a>BFS</h3><h3 id="回溯"><a href="#回溯" class="headerlink" title="回溯"></a>回溯</h3><br>
+
+<h2 id="数据结构"><a href="#数据结构" class="headerlink" title="数据结构"></a>数据结构</h2><h3 id="栈"><a href="#栈" class="headerlink" title="栈"></a>栈</h3><h3 id="队列"><a href="#队列" class="headerlink" title="队列"></a>队列</h3><h3 id="链表"><a href="#链表" class="headerlink" title="链表"></a>链表</h3><h3 id="二叉树"><a href="#二叉树" class="headerlink" title="二叉树"></a>二叉树</h3><h3 id="哈希表"><a href="#哈希表" class="headerlink" title="哈希表"></a>哈希表</h3><h3 id="堆"><a href="#堆" class="headerlink" title="堆"></a>堆</h3><h3 id="单调栈"><a href="#单调栈" class="headerlink" title="单调栈"></a>单调栈</h3><h3 id="单调队列"><a href="#单调队列" class="headerlink" title="单调队列"></a>单调队列</h3><h3 id="树"><a href="#树" class="headerlink" title="树"></a>树</h3><h3 id="字典树Trie"><a href="#字典树Trie" class="headerlink" title="字典树Trie"></a>字典树Trie</h3><h3 id="并查集"><a href="#并查集" class="headerlink" title="并查集"></a>并查集</h3><br>
+
+
+<h2 id="动态规划"><a href="#动态规划" class="headerlink" title="动态规划"></a>动态规划</h2><h3 id="背包dp"><a href="#背包dp" class="headerlink" title="背包dp"></a>背包dp</h3><h3 id="线性dp"><a href="#线性dp" class="headerlink" title="线性dp"></a>线性dp</h3><h3 id="区间dp"><a href="#区间dp" class="headerlink" title="区间dp"></a>区间dp</h3><h3 id="数位dp"><a href="#数位dp" class="headerlink" title="数位dp"></a>数位dp</h3><h3 id="状压dp"><a href="#状压dp" class="headerlink" title="状压dp"></a>状压dp</h3><h3 id="树形dp"><a href="#树形dp" class="headerlink" title="树形dp"></a>树形dp</h3><br>
+
+<h2 id="图论"><a href="#图论" class="headerlink" title="图论"></a>图论</h2><h3 id="图基础和存储"><a href="#图基础和存储" class="headerlink" title="图基础和存储"></a>图基础和存储</h3><h3 id="图的遍历"><a href="#图的遍历" class="headerlink" title="图的遍历"></a>图的遍历</h3><h3 id="最短路"><a href="#最短路" class="headerlink" title="最短路"></a>最短路</h3><h3 id="最小生成树"><a href="#最小生成树" class="headerlink" title="最小生成树"></a>最小生成树</h3><h3 id="二分图"><a href="#二分图" class="headerlink" title="二分图"></a>二分图</h3><h3 id="拓扑排序"><a href="#拓扑排序" class="headerlink" title="拓扑排序"></a>拓扑排序</h3><br>
+
+<h2 id="数学"><a href="#数学" class="headerlink" title="数学"></a>数学</h2><br>
+
+<h2 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h2></div><link rel="stylesheet" href="/css/spoiler.css" type="text/css"><script src="/js/spoiler.js" type="text/javascript" async></script>
 
   
 
 </article>
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+  
+  
+
+
+
+
+
 
 
 
@@ -424,6 +482,102 @@
 
 
 
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/4.3.1/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  
+      <script>
+        if (!window.MathJax) {
+          window.MathJax = {
+            tex    : {
+              inlineMath: { '[+]': [['$', '$']] }
+            },
+            loader : {
+              load: ['ui/lazy']
+            },
+            options: {
+              renderActions: {
+                insertedScript: [200, () => {
+                  document.querySelectorAll('mjx-container').forEach(node => {
+                    let target = node.parentNode;
+                    if (target.nodeName.toLowerCase() === 'li') {
+                      target.parentNode.classList.add('has-jax');
+                    }
+                  });
+                }, '', false]
+              }
+            }
+          };
+        } else {
+          MathJax.startup.document.state(0);
+          MathJax.texReset();
+          MathJax.typeset();
+          MathJax.typesetPromise();
+        }
+
+        Fluid.events.registerRefreshCallback(function() {
+          if ('MathJax' in window && MathJax.startup.document && typeof MathJax.startup.document.state === 'function') {
+            MathJax.startup.document.state(0);
+            MathJax.texReset();
+            MathJax.typeset();
+            MathJax.typesetPromise();
+          }
+        });
+      </script>
+    
+
+  <script  src="https://lib.baomitu.com/mathjax/3.2.2/es5/tex-mml-chtml.js" ></script>
 
   <script defer src="/js/leancloud.js" ></script>
 
