@@ -4,7 +4,49 @@
   
   
   <entry>
-    <title>x86 AT&amp;T语法 汇编语言入门教程</title>
+    <title>docker入门教程</title>
+    <link href="/docker-basic-tutorial1.html"/>
+    <url>/docker-basic-tutorial1.html</url>
+    
+    <content type="html"><![CDATA[<link rel="stylesheet" href="/css/spoiler.css" type="text/css"><script src="/js/spoiler.js" type="text/javascript" async></script>]]></content>
+    
+    
+    <categories>
+      
+      <category>组件框架</category>
+      
+      <category>docker</category>
+      
+    </categories>
+    
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>Go入门教程</title>
+    <link href="/go-basic-tutorial.html"/>
+    <url>/go-basic-tutorial.html</url>
+    
+    <content type="html"><![CDATA[<link rel="stylesheet" href="/css/spoiler.css" type="text/css"><script src="/js/spoiler.js" type="text/javascript" async></script>]]></content>
+    
+    
+    <categories>
+      
+      <category>编程语言</category>
+      
+      <category>Go</category>
+      
+    </categories>
+    
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>x86 AT&amp;T语法 汇编语言入门笔记</title>
     <link href="/x86_att_tutorial.html"/>
     <url>/x86_att_tutorial.html</url>
     
@@ -40,7 +82,7 @@
     
     <categories>
       
-      <category>项目经历</category>
+      <category>项目</category>
       
       <category>个人博客</category>
       
@@ -61,9 +103,9 @@
     
     <categories>
       
-      <category>算法笔记</category>
+      <category>算法</category>
       
-      <category>个人总结</category>
+      <category>Experience</category>
       
     </categories>
     
@@ -73,33 +115,6 @@
       <tag>算法</tag>
       
       <tag>笔试</tag>
-      
-    </tags>
-    
-  </entry>
-  
-  
-  
-  <entry>
-    <title>操作系统--内存管理</title>
-    <link href="/os-learn-memory.html"/>
-    <url>/os-learn-memory.html</url>
-    
-    <content type="html"><![CDATA[<blockquote><p>操作系统的学习一直困惑我许久，因为其庞大的体量以及晦涩的概念。曾经试过系统性地阅读一些书籍，例如csapp，现代操作系统，操作系统导论等等著作，也有尝试一些相关的视频和文章，但都感觉不够成体系。<br>究其原因，大概是阅读不同的材料知识错综交杂，而且各自的lab的要求和实现都相差很大，无法形成自己的知识体系<br>所以这里想局限于操作系统内存管理这一部分，主动搭建自己的体系，而不是被动的看一本书就重新构建体系。<br>拒绝空谈理论，不谈实现，对于内存管理这一块，实现非常的重要，这里将采用大量的code来丰富自己的未来的个人操作系统实现<br>操作系统概念和设计繁杂，不可能面面俱到，所以这里只是理清基本脉络，并且提供一些重要部分的细节</p></blockquote><h2 id="虚拟内存"><a href="#虚拟内存" class="headerlink" title="虚拟内存"></a>虚拟内存</h2><h3 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h3><p>最早期的操作系统只是一组函数(库)，占据了内存中的一小部分，剩下了大量的空闲内存。用户想要运行程序，就是将程序加载到空闲内存中然后执行程序里的指令。<br>早期，用户排队使用机器，进程也是排队执行。<br>后期，由于机器昂贵，人们开始更有效地共享机器。<br>    - 多进程  多个进程在给定时间运行，比如说一个进程在进行IO操作时，操作系统会切换这些进程，增加CPU的利用率<br>    - 多用户  多用户在使用机器，机器应该交替的执行不同用户的任务，确保每一个用户的任务可以即时响应<br>所以分时系统诞生了</p><ol><li>一种实现时分共享最简单的方法：让一个进程单独占用所有内存运行一段时间，停止后就将进程信息保存到磁盘，然后从磁盘里加载其他进程的信息，再运行一段时间。<ul><li>缺点1：浪费了大量的空闲内存</li><li>缺点2：效率太低，因为进程信息在内存和磁盘之间的swap比较慢</li></ul></li><li>进程信息放在内存中，这样有效利用了内存空间，并且切换的效率大大提高<ul><li>新的问题：多个进程在内存中，不同进程不希望受到其他进程的影响</li></ul></li></ol><h3 id="地址空间"><a href="#地址空间" class="headerlink" title="地址空间"></a>地址空间</h3><p>如果直接访问物理地址，相同的地址永远都是指向相同的物理内存位置，如果两个进程的指令使用了相同的地址，就会互相造成影响<br>所以我们需要把进程所使用的地址<strong>隔离</strong>开来，操作系统给每一个进程提供一个物理内存抽象：地址空间（也可以叫虚拟地址空间），其中地址空间里的地址是虚拟地址。<br>一个进程的地址空间包运行程序所有的内存状态。<br>我们将地址空间分为多个段<br>    - text段：code，指令<br>    - stack段：函数调用信息<br>    - heap段：动态分配的内存</p><h3 id="虚拟化内存"><a href="#虚拟化内存" class="headerlink" title="虚拟化内存"></a>虚拟化内存</h3><p>以上的操作系统为进程提供地址空间的机制，叫做操作系统在<strong>虚拟化内存</strong><br>虚拟化内存应该需要做到以下三点：</p><ol><li>透明（transparency）<br>进程不应该感知到内存被虚拟化了，它只关系自己的逻辑地址（虚拟地址），至于虚拟地址最终怎么转换成物理地址，对进程来说是透明的，操作系统会完成这个工作</li><li>效率（effiency）<br>虚拟化需要同时保持高效，在时间上（不会使程序变慢），空间上（不需要太多额外的内存来支持虚拟化）</li><li>保护（protection）<br>也就是我们最注重的进程直接的隔离，每个进程需要在独立的环境中进行，避免受到其他进程的影响</li></ol><h2 id="地址转换"><a href="#地址转换" class="headerlink" title="地址转换"></a>地址转换</h2><blockquote><p>地址转换的方式</p><ol><li>base + bound （基址 + 界限）</li><li>分段</li><li>分页</li><li>分页 + 分段</li></ol></blockquote><p>虚拟化内存的一大优势就是透明性，虚拟地址 –&gt; 物理地址 的转换 对进程来说是透明<br>那么如何做到地址转换呢，这里需要操作系统 + 硬件 支持</p><p>操作系统支持：<br>    - 内存管理：分配内存，回收内存<br>    - 基址界限管理：上下文切换时正确设置基址寄存器和界限寄存器<br>    - 异常处理：异常发生时执行相关代码</p><p>硬件支持：<br>进程持有的虚拟地址会通过 CPU 芯片中的内存管理单元（MMU）的映射关系，来转换变成物理地址，然后再通过物理地址访问内存<br>内存管理单元一定会包含 基址寄存器 + 界限寄存器</p><h3 id="base-bound"><a href="#base-bound" class="headerlink" title="base + bound"></a>base + bound</h3><blockquote><p>base 指的是基址，bound 指的是界限</p></blockquote><p>具体来说，我们需要两个寄存器，基址寄存器和界限寄存器，进程创建的时候，会将起始物理地址存放在基址寄存器里，执行的时候将程序里的每一条指令做<br>物理地址 &#x3D; 虚拟地址 + base 转换，这样就可以访问物理地址，</p><p>其中如果进程需要访问超过这个界限或者为负数的<strong>虚拟地址</strong>，CPU 将触发异常，进程最终可能被终止。<br>界限寄存器的用处在于，它确保了进程产生的所有地址都在进程的地址“界限”中</p><p>对于PC机，这里给出更详细的流程解释：</p><ol><li>创建进程的时候，操作系统找出一块空闲物理内存，将起始地址放入它的PCB中</li><li>进程执行的时候，基址寄存器从它的PCB中拿到物理基址</li><li>然后开始执行进程中的指令，对于每一个指令，我们将逻辑地址与基址相加，重定位到物理地址，同时通过界限寄存器的值去判断是否异常</li><li>如果进行上下文切换，上一个进程将基址写回它的PCB里，基址寄存器就从新的进程的PCB中拿到基地址，然后执行进程</li></ol><p>修改程序中的地址 叫做 重定位</p><ol><li><p>编译时重定位</p><ul><li>编译时重定位的程序只能放在内存固定位置</li><li>效率高，因为在编译阶段直接将进程中的所有地址转换了</li><li>但无法确保编译时候的空闲地址，运行的时候还是空闲，需要预留内存空间，所以只能用于嵌入式系统（烧录过后程序不做更改）</li></ul></li><li><p>载入时重定位</p><ul><li>比起编译时重定位更灵活，可以确保找到空闲内存</li><li>但是效率比编译时重定位低，因为需要逐条指令计算</li><li>载入的时候重定位一旦载入内存就不能动了，如果利用了swap技术，重新载入后的实际基地址和之前的保存基地址不同，会地址错误</li></ul></li><li><p>动态重定位<br>也就是我们上述之前讨论的基址界限方法，它是在执行进程的时候才进行重定位，所以swap后，还是可以在执行进程的时候找到正确的基地址</p></li></ol><blockquote><p>base bound最主要的缺陷是它将整个虚拟内存映射物理内存上，那么栈和堆之间的空间没有被进程使用，却依然占用了实际的物理内存。如果虚拟内存非常大，这样会造成巨大的浪费。所以由此我们引申出了新的地址转换方法：分段</p></blockquote><h3 id="分段"><a href="#分段" class="headerlink" title="分段"></a>分段</h3><blockquote><p>上面说到base bound的最大缺陷是将整个地址空间放入物理内存，栈和堆之间的空间实际未使用，造成了极大的内存浪费<br>所以这里我们将程序的地址空间分段放入物理内存<br>分段的机制使得操作系统能够将不同的段放到不同的物理内存区域，从而避免了虚拟地址空间中的未使用部分占用物理内存</p></blockquote><p>因为引入了分段机制，所以虚拟地址的构成略有变化，现在的虚拟地址由段号 + 段内偏移量构成。</p><p>分段机制下的地址转换：<br>首先虚拟地址分割成两部分，段号 + 段内偏移量<br>然后根据段号在段表内找到相应的段表项，段表内的entry：base，bound，保护位</p><blockquote><p>为什么段表项里没有存储段号呢?<br>因为每个段表项的长度相同，所以段号可以是隐含的，不占存储空间，可以直接通过一个指针M存储段表的首地址<br>k号段对应的段表项的地址为M + k * 段表项长度</p></blockquote><p>然后段内偏移量和bound进行比较，如果在bound内，就将基址 + 偏移量 &#x3D; 物理地址<br>所以其实分段还是基于base + bound的思想，只是将整个地址空间分段存入物理内存</p><blockquote><p>保护位的作用<br>表示程序是否能读写该执行该段，如果是只读段，可以被多个进程共享，而不用担心破坏隔离</p></blockquote><p>优点：</p><ol><li>由于分段机制不是将整个虚拟地址空间放入内存，而是将使用的地址空间分段放入内存，所以避免了内存的浪费（分段消除了内部碎片）</li><li>base bound是整个地址空间用一套逻辑地址，而分段后，用户可以独立考虑每个分段，每个分段具有自己的逻辑地址（段内偏移量），符合用户观点。</li><li></li></ol><p>缺点：<br>虽然分段机制在base bound的方法上做了优化，但还是有一些缺陷</p><ol><li>外部内存碎片，因为段的大小不同，然后段需要放入连续的物理内存中，所以在经过一些操作后，物理内存就会很快充满许多空闲空间的小洞，剩余的空闲内存会很难分配给新的较大的段，活扩大已有的段，这种问题又叫做外部碎片<blockquote><p>在不引入分页的情况下，解决方式有两种</p><ol><li>紧凑物理内存（commpact）：简单的来说就是重新安排原有的段，让段之间更紧凑，从而得到足够大的连续空闲内存<br>但效率很低，因为拷贝段是内存密集型的，一般会占用大量CPU时间</li><li>空闲列表管理算法：从算法角度，让段分配到物理内存的时候，尽可能地利用物理内存，但很遗憾还是无法完全消除外部碎片</li></ol></blockquote></li><li>分段还是不足以支持更一般化的稀疏地址空间，例如，一个很大但是稀疏的堆，都在一个逻辑段中，整个堆仍然必须完整地加载到内存中。（如果是粗粒度的分段，代码段和栈段段都是密集的所以不会有内部碎片，但是堆段可能是稀疏的，所以这个时候整个堆段放入内存中，最终还是造成了堆段中的内部碎片）</li><li>内存交换效率低，如果内存满了，我们需要进行swap，这个时候如果交换的是一个占很大空间的段，速度会很慢（磁盘访问速度比内存慢很多，每一个swap，都需要把一大段连续的内存数据写到磁盘上）</li></ol><h3 id="空闲空间管理"><a href="#空闲空间管理" class="headerlink" title="空闲空间管理"></a>空闲空间管理</h3><p>上述操作系统用分段的方式虚拟化内存，以及用户级的内存分配（malloc和free），空闲空间都是由大小不同的单元购成。会容易出现外部碎片（external fragmentation）<br>这里我们探讨用户级的内存分配 malloc 和 free，该库管理的空间被称为堆（heap）<br>堆上管理空间空间的数据结构通常称为空闲列表（free list）<br>因为内存一旦被分配给用户，就不可以被重定位到其他位置，所以不可能进行compaction操作来减少碎片，那么就只能通过一些算法来尽可能地消除外部碎片。</p><p>空闲列表的使用：<br>首先空闲列表只有一个节点，它是堆的大小，用户申请内存后，会进行分割操作:找到一块可以满足请求的空闲空间，将其分割，第一块返回给用户，第二块留在空闲列表<br>如果free后，一些空闲节点可以合并，那么coalesce它们。<br>注意进行malloc分配的时候，实际分配的空间需要包括一个头块（附带size信息）<br>如果堆中的内存空间耗尽，回进行系统调用，让堆增长。</p><p>这里最值得探讨的问题，就是找到一块满足请求的空闲内存，可以有很多种算法</p><ol><li>best fit: 找到最接近请求大小的一块，这样可以避免空间浪费，查找的时候会付出较高的性能代价</li><li>worst fit：找到最大的空闲块，这样不会像best fit那样可能剩下很多极小的外部碎片，研究表明效果很差</li><li>first fit：找到第一个足够大的块，首次匹配即便有速度优势<br>后续还有很多优秀的算法，尽可能的减少外部碎片，但是归根结底无法完全解决掉外部碎片。<br>所以对于操作系统分段的方式虚拟化内存，我们提出了分页，将内存分成固定大小的单元。也就是我们后面即将要提到的分页机制</li></ol><p>对于用户内存分配（堆），一般采取分段的方式，因为申请的内存一般较小。如果感兴趣，可以尝试CSAPP的malloc lab，实现一个自己的malloc和free</p><h3 id="分页"><a href="#分页" class="headerlink" title="分页"></a>分页</h3><p>为了解决上述的一些问题，我们引入了分页。</p><h2 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h2><p><a href="https://s3.us-east-2.amazonaws.com/artificium.us/files/How+Op+Sys+Work+-+Desnoyer+F2020.pdf">[1]. How Operating Systems Work Fall 2020 edition</a><br><a href="https://pages.cs.wisc.edu/~remzi/OSTEP/">[2]. Operating Systems: Three Easy Pieces</a><br><a href="https://www.icourse163.org/course/HIT-1002531008#/info">[3]. 哈工大 操作系统课程</a><br><a href="https://www.bilibili.com/video/BV13b4y1Q7YD?p=6&spm_id_from=pageDriver&vd_source=cb02f779bd17a3aad9801e0c4464dfc9">[4]. 操作系统原理</a><br><a href="https://xiaolincoding.com/os/3_memory/vmem.html#%E8%99%9A%E6%8B%9F%E5%86%85%E5%AD%98">[5]. 小林coding 图解系统</a><br><a href="https://github.com/StevenBaby/onix">[5]. 操作系统实现</a></p><link rel="stylesheet" href="/css/spoiler.css" type="text/css"><script src="/js/spoiler.js" type="text/javascript" async></script>]]></content>
-    
-    
-    <categories>
-      
-      <category>底层开发</category>
-      
-      <category>操作系统</category>
-      
-    </categories>
-    
-    
-    <tags>
-      
-      <tag>操作系统</tag>
       
     </tags>
     
@@ -119,7 +134,7 @@
       
       <category>编程语言</category>
       
-      <category>C++</category>
+      <category>C-C++</category>
       
     </categories>
     
@@ -137,54 +152,6 @@
   
   
   <entry>
-    <title>Linux-开发笔记</title>
-    <link href="/web-server.html"/>
-    <url>/web-server.html</url>
-    
-    <content type="html"><![CDATA[<h2 id="Linux系统编程入门"><a href="#Linux系统编程入门" class="headerlink" title="Linux系统编程入门"></a>Linux系统编程入门</h2><h3 id="Linux开发环境搭建"><a href="#Linux开发环境搭建" class="headerlink" title="Linux开发环境搭建"></a>Linux开发环境搭建</h3><hr><ol><li>VMware虚拟机安装Ubuntu22.04</li></ol><ul><li>安装VMware Tools方便操作</li></ul><ol start="2"><li>Xshell，Xftp 远程连接</li></ol><ul><li><p>这里我们用SSH连接，所以远程系统里需要配置SSH<br><code>sudo apt install openssh-server</code></p></li><li><p>查看ip地址<br><code>sudo apt install net-tools</code><br><code>ifconfig</code></p></li><li><p>然后配置Xshell， xftp远程SSH连接</p></li></ul><ol start="3"><li>远程编辑器VScode配置</li></ol><ul><li>安装插件 Remote Development</li><li>远程资源管理器 选择 SSH Targets 然后config 修改 host（随意取），hostname， user信息</li></ul><ol start="4"><li>配置免密登录</li></ol><ul><li><p>本机拿到SSH公钥，如果没有以下语句生成<br><code>ssh-keygen -t rsa</code> 生成密钥</p></li><li><p>linux系统里.ssh目录下新建authorized_keys文件。然后将本机公钥copy过去</p></li></ul><br><h3 id="GCC"><a href="#GCC" class="headerlink" title="GCC"></a>GCC</h3><hr><ul><li><p>GCC 原名GNU C语言编译器（GNU C Compiler)，现在是GCC (GNU Compiler Collection, GNU编译器套件)，GNU 编译器套件包括 C、C++、Objective-C、Java、Ada 和 Go 语言，也包括了这些语言的库（如 libstdc++，libgcj等）</p></li><li><p>安装 建议直接安装buildtools来安装gcc g++ &#x2F;&#x2F;版本 &gt; 4.8.5 （支持C++11）</p></li><li><p>查看版本 <code>gcc/g++ --version/-v</code></p></li><li><p>GCC工作流程<br>源代码（.h .c .cpp) -&gt;|预处理器| -&gt;预处理后的源代码（.i) -&gt; |编译器| -&gt; 汇编代码（.s) -&gt; |汇编器| -&gt; 目标代码（.o) -&gt; |链接器| -&gt; 可执行程序(.exe .out)</p></li></ul><blockquote><p>其实就是经过四个步骤 预处理-&gt;编译-&gt;汇编-&gt;链接</p></blockquote><p><img src="https://img-blog.csdnimg.cn/img_convert/e434346cdb4c3435bd26e3c5d238f8b6.png"></p><ul><li>gcc编译参数</li></ul><p><img src="https://img-blog.csdnimg.cn/img_convert/71ce618aa109d28548ed3fa7e34b82ab.png"><br><img src="https://img-blog.csdnimg.cn/img_convert/ee8bb16ab9231e1c8072437fe94f926c.png"></p><blockquote><p>常用的是 -c 汇编后停止   -g 支持调试</p></blockquote><ul><li>gcc无法链接，g++是编译+链接，其中编译实际是调用了gcc</li></ul><br><h3 id="静态库"><a href="#静态库" class="headerlink" title="静态库"></a>静态库</h3><hr><blockquote><p>库文件是计算机上的一类文件，可以简单的把库文件看成一种代码仓库，它提供给使用者一些可以直接拿来用的变量、函数或类<br>库是特殊的一种程序，编写库的程序和编写一般的程序区别不大，只是库不能单独运行。</p></blockquote><ol><li><p>库文件有两种，静态库和动态库（共享库），区别是：静态库在程序的链接阶段被复制到了程序中；动态库在链接阶段没有被复制到程序中，而是程序在运行时由系统动态加载到内存中供程序调用。</p></li><li><p>库的好处：1.代码保密 2.方便部署和分发</p></li></ol><ul><li><p>静态库的命名规则<br>Linux: libxxx.a   &#x2F;&#x2F;xxx是库饿名字 lib和a是固定的前缀和后缀<br>windows：libxxx.lib</p></li><li><p>静态库的制作</p><ol><li>gcc 得到 .o文件</li><li>ar rcs libxxx.a xxx.o xxx.o   &#x2F;&#x2F;r 插入备存文件  c 建立备存文件  s索引</li></ol></li></ul><br><ul><li>静态库的使用<br>一般工程项目我们结构如下<br>–include<br>  –head.h<br>–lib<br>  –libxxx.a<br>–main<br>–src<br>  –add.c<br>  –sub.c<br>  –…<br>  –…</li></ul><p>然后这里示例一下如何制作和使用静态库</p><ol><li><p>src目录下 gcc -c 生成.o文件<br><code>gcc -c xxx.c xxx.c -I ../include/</code> </p></li><li><p>生成静态库<br><code>ar rcs libxxxx.a xxx.o xxx.o</code></p></li><li><p>移动库到lib文件夹<br><code>mv libxxx.a ../lib/</code></p></li><li><p>编译main.c<br>&#96;&#96;gcc main.c -o app -I ..&#x2F;include -L .&#x2F;lib&#x2F; -l xxx(库的名字）&#96;</p></li></ol><br><h3 id="动态库"><a href="#动态库" class="headerlink" title="动态库"></a>动态库</h3><hr><ol><li>动态库的制作和使用</li></ol><ul><li>命名规则：Linux : libxxx.so， Windows : libxxx.dll</li><li>动态库的制作<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash">gcc -c –fpic/-fPIC a.c b.c // 得到和位置无关的代码<br>gcc -shared a.o b.o -o libcalc.so // 得到动态库  <br></code></pre></td></tr></table></figure><br></li></ul><ol start="2"><li>动态库的工作原理</li></ol><ul><li>GCC 进行链接时，会把静态库中代码打包到可执行程序中，<strong>动态库的代码不会被打包到可执行程序中。</strong></li><li>程序启动之后，<strong>动态库会被动态加载到内存中</strong>，通过 <strong>ldd</strong> （list dynamic dependencies）命令检查动态库依赖关系</li></ul><br><ol start="3"><li>动态库加载失败的可能原因</li></ol><ul><li><strong>动态库没有加载到内存中</strong>，程序运行时，找不到动态库</li><li>没有找到动态库，说明没有获取到动态库的绝对路径，此时就需要系统的<strong>动态载入器来获取该绝对路径</strong></li><li>对于elf格式的可执行程序，是由ld-linux.so(动态载入器，是专门用来负责定位、加载程序所需要的所有动态库文件)来完成的，<br>它先后搜索elf文件的 DT_RPATH段 ——&gt; 环境变量<br>LD_LIBRARY_PATH ——&gt; &#x2F;etc&#x2F;ld.so.cache文件列表 ——&gt; &#x2F;lib&#x2F;，&#x2F;usr&#x2F;lib目录找到库文件后将其载入内存</li></ul><br><ol start="4"><li>解决方案  <ol><li>添加动态库的绝对路径到LD_LIBRARY_PATH环境变量里<ol><li><code>export LD_LIBRARY_PATH = $LD_LIBRARY_PATH: 动态库的绝对路径   //缺点是只有当前终端有效</code></li><li><code>.bashrc中加入上面的信息， 然后source .bashrc 生效     //用户级别的环境变量配置</code></li><li><code>/etc/profile加入上面的信息， 然后source /etc/profile生效    //系统界别的环境变量配置</code></li></ol></li><li>修改 &#x2F;etc&#x2F;ld.so.cache 文件<ul><li>vim &#x2F;etc&#x2F;ld.so.conf 然后插入动态库的绝对路径</li><li>sudo ldconfig 更新</li></ul></li><li>&#x2F;lib&#x2F;, &#x2F;usr&#x2F;lib 中加入动态库文件    &#x2F;&#x2F;不推荐，这是系统的库文件所在</li></ol></li></ol><br><ol start="5"><li>静态库VS动态库<blockquote><p>静态库、动态库区别来自链接阶段如何处理，链接成可执行程序。分别称为静态链接方式和动态链接方式</p></blockquote></li></ol><p><img src="https://img-blog.csdnimg.cn/img_convert/0a467e0a47a49a069a21742c0610625a.png"><br><img src="https://img-blog.csdnimg.cn/img_convert/87db61592bfdeee2607887ff91f66cd8.png"></p><ul><li><p>静态库</p><ul><li>优点：<ol><li>静态库被打包到应用程序中加载速度快，</li><li>发布程序无需提供静态库，移植方便</li></ol></li><li>缺点：<ol><li>消耗系统资源，浪费内存</li><li>更新、部署、发布麻烦</li></ol></li></ul></li><li><p>动态库</p><ul><li>优点：<ol><li>可以实现进程间资源共享（共享库）</li><li>更新、部署、发布简单</li><li>可以控制何时加载动态库</li></ol></li><li>缺点：<ol><li>加载速度比静态库慢</li><li>发布程序时需要提供依赖的动态库</li></ol></li></ul></li></ul><br><h3 id="Makefile"><a href="#Makefile" class="headerlink" title="Makefile"></a>Makefile</h3><hr><ol><li>什么是Makefile</li></ol><ul><li>Makefile可以自动化编译整个工程，Makefile 文件就像一个 Shell 脚本一样，也可以执行操作系统的命令</li><li>make 是一个命令工具，是一个解释 Makefile 文件中指令的命令工具</li></ul><br><ol start="2"><li>Makefile文件命名和规则</li></ol><ul><li>makefile 或者 Makefile（我比较喜欢后者）</li><li>Makefile规则<figure class="highlight jboss-cli"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs jboss-cli">目标 <span class="hljs-string">...</span>: 依赖 <span class="hljs-string">...</span>    <span class="hljs-string">//</span>目标：最终生成文件   依赖：生成目标的所需文件<br>    命令（Shell 命令）    <span class="hljs-string">//</span>命令前必须tab缩进<br><span class="hljs-string">...</span><br></code></pre></td></tr></table></figure></li></ul><br><ol start="3"><li>工作原理</li></ol><ul><li>命令在执行之前，需要先检查规则中的依赖是否存在<ul><li>如果存在，执行命令</li><li>如果不存在，向下检查其它的规则，检查有没有一个规则是用来生成这个依赖的，如果找到了，则执行该规则中的命令</li></ul></li><li>检测更新，在执行规则中的命令时，会比较目标和依赖文件的时间<ul><li>如果依赖的时间比目标的时间晚，需要重新生成目标</li><li>如果依赖的时间比目标的时间早，目标不需要更新，对应规则中的命令不需要被执行</li></ul></li></ul><br><ol start="4"><li>变量</li></ol><ul><li>自定义变量<br>  变量名&#x3D; 变量值<br>  var&#x3D;hello</li><li>预定义变量<br>  AR : 归档维护程序的名称，默认值为 ar<br>  CC : C 编译器的名称，默认值为 cc<br>  CXX : C++ 编译器的名称，默认值为 g++<br>  $@ : 目标的完整名称<br>  $&lt; : 第一个依赖文件的名称<br>  $^ : 所有的依赖文件</li><li>获取变量的值<br>  $(变量名)</li></ul><br><ol start="5"><li>模式匹配<br>%: 通配符，匹配一个字符串</li></ol><br><ol start="6"><li>函数</li></ol><figure class="highlight llvm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs llvm">$(wildcard PATTERN...)  //获取指定文件列表，pattern指定文件格式 如果有多个目录，一般使用空格间隔<br><span class="hljs-symbol"></span><br><span class="hljs-symbol">eg:</span> $(wildcard *.<span class="hljs-keyword">c</span> ./<span class="hljs-keyword">sub</span>/*.<span class="hljs-keyword">c</span>)<br>返回值格式: a.<span class="hljs-keyword">c</span> b.<span class="hljs-keyword">c</span> <span class="hljs-keyword">c</span>.<span class="hljs-keyword">c</span> d.<span class="hljs-keyword">c</span> e.<span class="hljs-keyword">c</span> f.<span class="hljs-keyword">c</span><br></code></pre></td></tr></table></figure><figure class="highlight reasonml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs reasonml"><span class="hljs-constructor">$(<span class="hljs-params">patsubst</span> &lt;<span class="hljs-params">pattern</span>&gt;,&lt;<span class="hljs-params">replacement</span>&gt;,&lt;<span class="hljs-params">text</span>&gt;)</span>  <span class="hljs-comment">//替换字符串 查找&lt;text&gt;中的单词(单词以“空格”、“Tab”或“回车”“换行”分隔)是否符合</span><br>                                            <span class="hljs-comment">// 模式&lt;pattern&gt;，如果匹配的话，则以&lt;replacement&gt;替换。</span><br><br>eg: <span class="hljs-constructor">$(<span class="hljs-params">patsubst</span> %.<span class="hljs-params">c</span>, %.<span class="hljs-params">o</span>, <span class="hljs-params">x</span>.<span class="hljs-params">c</span> <span class="hljs-params">bar</span>.<span class="hljs-params">c</span>)</span><br>返回值格式: x.o bar.o<br></code></pre></td></tr></table></figure><br><ol start="7"><li>clean<figure class="highlight makefile"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs makefile"><span class="hljs-meta"><span class="hljs-keyword">.PHONY</span>:clean</span><br><span class="hljs-section">clean:</span><br>    rm *.o -f<br></code></pre></td></tr></table></figure></li></ol><ul><li><p>可以用来清除中间文件，比如我们有a.c,b.c,main.c先生成a.o,b.o,mian.o,再链接生成app，这个时候a.o,b.o,main.o就没有用了，我们可以在Makefile文件末尾添加上述代码执行rm指令用来删除中间文件。但是不是添加了这三行代码就可以删除，需要在shell中执行make clean来调用clean指令。</p></li><li><p>.PHONY:clean这一行的代码的作用是生成clean伪目标，不写这一行代码的话会生成名为clean的文件，如果已经有了clean文件(就会检测更新）因为没有依赖会被当成最新的，不会更新。make clean的话就不会实现我们想要的功能。添加了本行代码的话，即使目录里有clean文件，也可以make clean实现clean功能。</p></li></ul><br><ol start="8"><li>实战Makefile写法优化<figure class="highlight makefile"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br></pre></td><td class="code"><pre><code class="hljs makefile"><span class="hljs-comment">#原始版本</span><br><span class="hljs-section">app:sub.c add.c mult.c div.c main.c</span><br>gcc sub.c add.c mult.c div.c main.c -o app<br><br><span class="hljs-comment">#分离编译 避免每次编译所有源文件</span><br><span class="hljs-section">app:sub.o add.o mult.o div.o main.o</span><br>gcc sub.o add.o mult.o div.o main.o -o app<br><br><span class="hljs-section">sub.o:sub.c</span><br>gcc -c sub.c -o sub.o<br><br><span class="hljs-section">add.o:add.c</span><br>gcc -c add.c -o add.o<br><br><span class="hljs-section">mult.o:mult.c</span><br>gcc -c mult.c -o mult.o<br><br><span class="hljs-section">div.o:div.c</span><br>gcc -c div.c -o div.o<br><br><span class="hljs-section">main.o:main.c</span><br>gcc -c main.c -o main.o<br><br><br><span class="hljs-comment">#变量名优化</span><br>src=sub.o add.o mult.o div.o main.o<br>target=app<br><span class="hljs-variable">$(target)</span>:<span class="hljs-variable">$(src)</span><br><span class="hljs-variable">$(CC)</span> <span class="hljs-variable">$(src)</span> -o <span class="hljs-variable">$(target)</span><br><br><span class="hljs-section">sub.o:sub.c</span><br>gcc -c sub.c -o sub.o<br><br><span class="hljs-section">add.o:add.c</span><br>gcc -c add.c -o add.o<br><br><span class="hljs-section">mult.o:mult.c</span><br>gcc -c mult.c -o mult.o<br><br><span class="hljs-section">div.o:div.c</span><br>gcc -c div.c -o div.o<br><br><span class="hljs-section">main.o:main.c</span><br>gcc -c main.c -o main.o<br><br><span class="hljs-comment">#模式匹配优化</span><br>src=sub.o add.o mult.o div.o main.o<br>target=app<br><span class="hljs-variable">$(target)</span>:<span class="hljs-variable">$(src)</span><br><span class="hljs-variable">$(CC)</span> <span class="hljs-variable">$(src)</span> -o <span class="hljs-variable">$(target)</span><br><br><span class="hljs-section">%.o:%.c</span><br><span class="hljs-variable">$(CC)</span> -c <span class="hljs-variable">$&lt;</span> -o <span class="hljs-variable">$@</span><br><br><span class="hljs-comment">#函数优化</span><br><span class="hljs-comment"># add.c sub.c main.c mult.c div.c</span><br>src=<span class="hljs-variable">$(<span class="hljs-built_in">wildcard</span> ./*.c)</span><br>objs=<span class="hljs-variable">$(<span class="hljs-built_in">patsubst</span> %.c, %.o, <span class="hljs-variable">$(src)</span>)</span><br>target=app<br><span class="hljs-variable">$(target)</span>:<span class="hljs-variable">$(objs)</span><br><span class="hljs-variable">$(CC)</span> <span class="hljs-variable">$(objs)</span> -o <span class="hljs-variable">$(target)</span><br><br><span class="hljs-section">%.o:%.c</span><br><span class="hljs-variable">$(CC)</span> -c <span class="hljs-variable">$&lt;</span> -o <span class="hljs-variable">$@</span><br><br><span class="hljs-meta"><span class="hljs-keyword">.PHONY</span>:clean</span><br><span class="hljs-section">clean:</span><br>rm <span class="hljs-variable">$(objs)</span> -f<br></code></pre></td></tr></table></figure></li></ol><p>Reference<br><a href="https://blog.csdn.net/qq_42518941/article/details/121738390">[1]. Day2-动态库、Makefile</a><br><a href="https://blog.csdn.net/weixin_44387095/article/details/124530708">[2]. Linux编程 Makefile常用知识点总结（项目管理）</a></p><br><h3 id="GDB"><a href="#GDB" class="headerlink" title="GDB"></a>GDB</h3><ol><li>什么是GDB</li></ol><ul><li><p>GDB 是由 GNU 软件系统社区提供的调试工具，同 GCC 配套组成了一套完整的开发环境，GDB 是 Linux 和许多类 Unix 系统中的标准开发环境。</p></li><li><p>一般来说，GDB 主要帮助你完成下面四个方面的功能：</p><ul><li>启动程序，可以按照自定义的要求随心所欲的运行程序</li><li>可让被调试的程序在所指定的调置的断点处停住（断点可以是条件表达式）</li><li>当程序被停住时，可以检查此时程序中所发生的事</li><li>可以改变程序，将一个 BUG 产生的影响修正从而测试其他 BUG</li></ul></li></ul><ol start="2"><li>开启调试</li></ol><p><code>gcc -g -Wall program.c -o program</code></p><p><code>-g</code> 选项的作用是在可执行文件中加入源代码的信息，比如可执行文件中第几条机<br>器指令对应源代码的第几行，但并不是把整个源文件嵌入到可执行文件中，所以在调<br>试时必须保证 gdb 能找到源文件</p><p>另外，<code>-Wall</code>在尽量不影响程序行为的情况下选项打开所有<br>warning，也可以发现许多问题，避免一些不必要的 BUG。</p><ol start="3"><li>GDB常用命令</li></ol><p><img src="https://img-blog.csdnimg.cn/img_convert/35426e2f72b31f10e810eecdc29a8b49.png"><br><img src="https://img-blog.csdnimg.cn/img_convert/59d49be3906117e8529f0ad272f152c9.png"><br><img src="https://img-blog.csdnimg.cn/img_convert/550b79d5736b1c90ed2c49426323c18d.png"></p><br><p>Reference<br><a href="https://blog.csdn.net/qq_42518941/article/details/121759315">[1]. Day3-GDB、I&#x2F;O库函数、虚拟内存、文件描述符</a><br><a href="https://blog.csdn.net/weixin_44387095/article/details/124551100?spm=1001.2014.3001.5502">[2]. linux GDB调试工具常用知识点总结（如何debug你的代码）</a></p><br><h2 id="Linux多进程开发"><a href="#Linux多进程开发" class="headerlink" title="Linux多进程开发"></a>Linux多进程开发</h2><h3 id=""><a href="#" class="headerlink" title=""></a></h3><link rel="stylesheet" href="/css/spoiler.css" type="text/css"><script src="/js/spoiler.js" type="text/javascript" async></script>]]></content>
-    
-    
-    <categories>
-      
-      <category>底层开发</category>
-      
-      <category>Linux专栏</category>
-      
-    </categories>
-    
-    
-    <tags>
-      
-      <tag>C++</tag>
-      
-      <tag>Linux</tag>
-      
-    </tags>
-    
-  </entry>
-  
-  
-  
-  <entry>
-    <title>CS学习方法论</title>
-    <link href="/learn_method.html"/>
-    <url>/learn_method.html</url>
-    
-    <content type="html"><![CDATA[<blockquote><p>学习计算机有很多年了，时常觉得体系混乱，总是存在学了反复学，不用一会就会忘，知识也总是无法深入，无法有效率地进步，这里借鉴算法学习成功的经验，总结了一套针对于计算机学科的学习方法</p></blockquote><h3 id="算法类-（已验证）"><a href="#算法类-（已验证）" class="headerlink" title="算法类 （已验证）"></a>算法类 （已验证）</h3><ol><li><strong>专题分类分点</strong>学习，每个点寻找<strong>适合的资源</strong>系统学习<ul><li>分类 举例：二分，搜索，动态规划</li><li>分点 举例：二分（二分查找，二分答案） 搜索（DFS，BFS）动态规划（线性dp，背包问题，LIS模型…）</li></ul></li><li>每日一题 + 比赛题，<strong>根据漏洞，复习专题</strong>，然后<strong>补题</strong>（有漏洞的点，找题单练习）<ul><li>每日一题：例如LeetCode每日一题，AtCoder，CodeForces</li><li>比赛：例如各种平台的周赛，公司的笔试题</li></ul></li><li><strong>表格</strong>记录总结，专注<strong>思维训练</strong><ul><li>为什么需要记录：算法专题，知识点太多，不记录的话，无法形成自己的知识体系</li><li>为什么不用文档：算法不同阶段有不同的体会，表格记录可以更专注<strong>思维训练</strong>，不会太抠细节</li></ul></li></ol><h3 id="语言类-（已验证）"><a href="#语言类-（已验证）" class="headerlink" title="语言类 （已验证）"></a>语言类 （已验证）</h3><ol><li>寻找<strong>简洁入门</strong>教程学习（熟悉语言特性） + <strong>语法oj</strong>练习（熟练语法）<ul><li>简洁教程：直接google xxx入门教程 or xxx简洁教程，前面几个里稍微筛选一下选择一个即可</li><li>语法oj：这一步很重要，因为学习一门新语言，代码量必须要足够才能真正的熟悉语法，这里选择语法oj，可以最大程度的增加代码量，同时养成代码风格，可选平台：acwing，牛客，其他网站练习题</li></ul></li><li>查阅<strong>经典权威</strong>资料，<strong>分知识点层层深入</strong>学习<ul><li>为什么要找经典权威资料：语言不像技术，迭代很快，所以选择这一类经的起时间沉淀的资料，可以确保概念正确，然后同时也会更深入探讨一些特性和设计理念</li><li>为什么要分知识点层层深入：语言的学习也是具有庞大的体系，权威经典资料都非常厚，这个时候不可能去线性硬啃书，这样大概率会放弃；同时分知识点学习，可以看多份资料层层学习知识点，这样会比较全面且深入</li></ul></li><li><strong>文档 + 思维导图</strong> 记录总结，专注<strong>知识体系构建</strong><ul><li><strong>入门教程</strong>的时候<strong>采取文档</strong>的形式，因为这个时候没有知识体系，文档记录会更直接</li><li>入门教程之后，就<strong>挑选几份权威资料</strong>结合入门教程，构建<strong>思维导图的大框架</strong></li><li>之后分知识点深入学习的时候，<strong>每深入学一个知识点，就开一个分支去记录</strong></li><li>思维导图的内容最好<strong>用自己的话输出</strong></li></ul></li></ol><h3 id="技术类-（待验证）"><a href="#技术类-（待验证）" class="headerlink" title="技术类 （待验证）"></a>技术类 （待验证）</h3><h4 id="工具类"><a href="#工具类" class="headerlink" title="工具类"></a>工具类</h4><blockquote><p>例如 Docker（容器），SpringBoot，Flask，Nginx（框架），Git(代码管理工具)</p></blockquote><ol><li>寻找入门教程 + 官方教程<ul><li>目的是 <strong>最短时间内掌握</strong>这个技术的运用方法</li><li>技术一般都是用在项目里，项目的开发才是主线，不可能在单个技术里花太多时间</li></ul></li><li>深入学习，阅读更深入的教程和源码<ul><li>没有项目的压力后，需要深入学习技术，这样之后的开发才可以更游刃有余</li><li>这个时候要去读一些更深入的教程，然后去看一些<strong>源码的解析</strong></li><li>为什么这个时候<strong>不分知识点</strong>：技术本身就是一个知识点，体量不大，直接整体学习即可</li></ul></li><li>文档记录，方便查阅<ul><li>工具类技术笔记主要方便以后查阅，不是注重思维训练（算法），也不是注重知识体系构建（语言，非工具类）</li></ul></li></ol><h4 id="非工具类"><a href="#非工具类" class="headerlink" title="非工具类"></a>非工具类</h4><blockquote><p>例如 网络编程，爬虫，操作系统，数据库，信息安全</p></blockquote><ol><li>根据情况选择最初资料<ul><li>如果是基础学科：例如操作系统，数据库，网络编程直接选择一本经典的书或者课程学习，然后文档记录一下</li><li>如果是非基础学科：例如爬虫，小程序开发，搜索一下简单的教程先了解一下大概即可</li></ul></li><li>查各种资料，<strong>分知识点层层深入</strong>学习<ul><li>思维导图记录，构建知识体系</li><li>期间结合项目实战</li></ul></li></ol><h3 id="项目类-（待验证）"><a href="#项目类-（待验证）" class="headerlink" title="项目类 （待验证）"></a>项目类 （待验证）</h3><blockquote><p>项目类的学习是最难的，因为其中的知识壁垒比其他类要更多<br>为什么要做项目：</p><ol><li>需求驱动 </li><li>兴趣驱动，通过实践深入掌握一些技术</li></ol></blockquote><h4 id="教学项目"><a href="#教学项目" class="headerlink" title="教学项目"></a>教学项目</h4><blockquote><p>有详细的视频或者文档教程，并且剖析比较完全深刻</p></blockquote><ol><li>了解项目架构，确定需要用到的语言，技术</li><li>根据对应类的方法，完成第一步即可</li><li>线性跟进，记录项目文档</li></ol><h4 id="开源项目"><a href="#开源项目" class="headerlink" title="开源项目"></a>开源项目</h4><blockquote><p>只有官方文档和少量博客解析</p></blockquote><p>reference<br><a href="https://chunhui01.github.io/2020/03/20/%E5%A6%82%E4%BD%95%E5%AD%A6%E4%B9%A0%E4%B8%80%E4%B8%AA%E5%BC%80%E6%BA%90%E9%A1%B9%E7%9B%AE/">1. 如何学习一个开源项目</a><br><a href="https://time.geekbang.org/column/article/186778">2. 如何高效地学习开源项目</a><br><a href="https://www.cnblogs.com/makemylife/p/16537648.html">3. 程序员如何学习开源项目</a><br><a href="https://oschina.gitee.io/opensource-guide/">4. 开源指北</a><br><a href="https://www.youtube.com/watch?v=eqFBsMez4KY">5. 手把手带你读懂一个 Java 开源项目，学习通用套路【程序员鱼皮】</a></p><link rel="stylesheet" href="/css/spoiler.css" type="text/css"><script src="/js/spoiler.js" type="text/javascript" async></script>]]></content>
-    
-    
-    <categories>
-      
-      <category>技术经验</category>
-      
-    </categories>
-    
-    
-  </entry>
-  
-  
-  
-  <entry>
     <title>配置远程开发环境</title>
     <link href="/remote-vscode-config.html"/>
     <url>/remote-vscode-config.html</url>
@@ -194,7 +161,9 @@
     
     <categories>
       
-      <category>技术经验</category>
+      <category>编程语言</category>
+      
+      <category>C-C++</category>
       
     </categories>
     
@@ -221,7 +190,9 @@
     
     <categories>
       
-      <category>技术经验</category>
+      <category>编程语言</category>
+      
+      <category>C-C++</category>
       
     </categories>
     
@@ -230,6 +201,8 @@
       
       <tag>C++</tag>
       
+      <tag>Windows</tag>
+      
     </tags>
     
   </entry>
@@ -237,7 +210,7 @@
   
   
   <entry>
-    <title>算法-数据结构：STL常用技巧</title>
+    <title>STL在算法中的常用技巧</title>
     <link href="/STL-application.html"/>
     <url>/STL-application.html</url>
     
@@ -246,38 +219,9 @@
     
     <categories>
       
-      <category>算法笔记</category>
+      <category>算法</category>
       
-      <category>个人总结</category>
-      
-    </categories>
-    
-    
-    <tags>
-      
-      <tag>算法</tag>
-      
-      <tag>数据结构</tag>
-      
-    </tags>
-    
-  </entry>
-  
-  
-  
-  <entry>
-    <title>算法-二叉树</title>
-    <link href="/binary-tree.html"/>
-    <url>/binary-tree.html</url>
-    
-    <content type="html"><![CDATA[<h2 id="二叉树的基本概念"><a href="#二叉树的基本概念" class="headerlink" title="二叉树的基本概念"></a>二叉树的基本概念</h2><p>二叉树是一种特殊的树，对于每一个节点它只最多只能有左右儿子两个子节点，没有子节点的节点是叶节点</p><p>特殊的二叉树：</p><ol><li>满二叉树(Full Binary Tree)：树中除了叶子节点，每个节点都有两个子节点</li><li>完全二叉树(Complete Binary Tree)：在满足满二叉树的性质后，最后一层的叶子节点均需在最左边</li><li>完美二叉树(Perfect Binary Tree)：满足完全二叉树性质，树的叶子节点均在最后一层（也就是形成了一个完美的三角形）</li></ol><p><img src="https://study.com/cimages/multimages/16/0e0646ba-30e5-40d9-b45c-a138f038f05b_full_complete_perfect.png" alt="三种树的例子"></p><p>还有一种特殊的二叉树，就做二叉搜索树（BST），它满足</p><ol><li>若任意节点的左子树不空，则左子树上所有节点的值均小于它的根节点的值；</li><li>若任意节点的右子树不空，则右子树上所有节点的值均大于它的根节点的值；</li><li>任意节点的左、右子树也分别为二叉查找树；</li></ol><p>其中BST的中序遍历是一个升序序列</p><h2 id="递归，DFS，回溯，动态规划-区别探讨"><a href="#递归，DFS，回溯，动态规划-区别探讨" class="headerlink" title="递归，DFS，回溯，动态规划 区别探讨"></a>递归，DFS，回溯，动态规划 区别探讨</h2><blockquote><p>为什么放在这里探讨，因为二叉树具有天然的递归性质：一个二叉树里包含一个根节点，左子树和右子树。所以二叉树的题目很多都可以用递归的写法实现，所以在这里把这些算法分析一遍</p></blockquote><h3 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h3><p>递归：recursion，就是在运行的过程中调用自己，它是一种<strong>写法</strong>，递归策略只需少量的程序就可描述出解题过程所需要的多次重复计算，大大地减少了程序的代码量</p><p>DFS：深度优先搜索，是一种用于遍历或搜索树或图的<strong>算法</strong>。这个算法会尽可能深地搜索树的分支。当节点v的所在边都己被探寻过，搜索将回溯到发现节点v的那条边的起始节点。这一过程一直进行到已发现从源节点可达的所有节点为止。如果还存在未被发现的节点，则选择其中一个作为源节点并重复以上过程，整个进程反复进行直到所有节点都被访问为止。</p><p>回溯法：回溯法（探索与回溯法）是一种选优搜索法，又称为试探法，按选优条件向前搜索，以达到目标。但当探索到某一步时，发现原先选择并不优或达不到目标，就退回一步重新选择，这种走不通就退回再走的技术为回溯法，而满足回溯条件的某个状态的点称为“回溯点”。</p><p>动态规划：动态规划背后的基本思想非常简单。大致上，若要解一个给定问题，我们需要解其不同部分（即子问题），再根据子问题的解以得出原问题的解。<br>通常许多子问题非常相似，为此动态规划法试图仅仅解决每个子问题一次，从而减少计算量：一旦某个给定子问题的解已经算出，则将其记忆化存储，以便下次需要同一个子问题解之时直接查表。这种做法在重复子问题的数目关于输入的规模呈指数增长时特别有用。</p><h3 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h3><p>看完了定义之后，我们首先知道递归只是一种写法，其实DFS，回溯我们都可以通过递归的方式实现。而动态规划，其实也可以用递归实现，不过中间要加上记忆化，避免状态的重复计算，一般这种DP我们也叫做top-down DP</p><p>递归的核心就是从顶（大问题，未知）层层往下直到达到底（小问题，已知），然后再层层向上返回答案，最后得到顶部的解。所以它其实就是层层进入，然后层层回溯，隐式的维护了一个栈（递归函数用到了系统栈）</p><p>DFS，回溯其实这两者基本等价，本质都是穷举所有的解，首先一路走到底，找到一个解，然后回溯到发生分支的地方，继续走到底，直到得到所有的解。</p><p>这两者可能唯一的区别，就是DFS处理显示树，而回溯法处理隐式树，但是其实我们可以很轻易地将题目中暗含的隐式树转换成显示树，所以这两者的区别几乎可以忽略不记</p><p>那么为什么DFS和回溯，一般用递归来实现呢，如果你画了一棵搜索树，就可以很直观的发现，对于单个分支，我们求解其实就是递归往下，然后到底回溯，所以很方便用递归实现</p><p>动态规划，它其实就是确保每个状态（点）我们只计算一次，所以可以有两种实现方式。</p><ol><li>自下向上：其实就是递推，自然可以确保每个状态只计算一次</li><li>自顶向下：其实就是DFS的时候，第一次路过一个点的时候，就把计算的结果存下来，这样也可以保证每个状态只计算一次</li></ol><p>所以我们很容易发现，自下向上只选择了一条路径，所以自然只能得到一个解，然后自顶向下，我们虽然计算了每个状态，但是如果要计算多条路径，最后时间复杂度还是指数级别，但是如果计算一条路径，那就是状态计算后的时间复杂度了</p><p>那么，显然动态规划它需要确保最后只选择一条路径，也就是每一层我们要在计算完所有状态后，选择一个状态，一般来说选择的状态就是最优状态。<br>所以我们说动态规划解决的问题，必须要有最优子结构，通俗的来讲，就是一层有多个状态的时候，计算完后它存在一个最优状态，如果当前层只有一个状态，它自己就是最优状态，所以自然满足最优子结构</p><h3 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h3><p>上面说了这么多，我们来探讨一下，怎么选择上述的算法，以下是个人经验</p><ol><li>求所有的解，或者枚举所有的路径，那肯定只能DFS</li><li>非所有解的问题，首先尝试建立递推公式，如果可以构建出来，我们就可以递归写法。</li><li>如果是最优解问题，虽然递归写法也可以，但是我们可以动态规划来做，本质还是找递推公式（状态转移方程），只是构建的思路会比较多样复杂</li></ol><h3 id="Reference："><a href="#Reference：" class="headerlink" title="Reference："></a>Reference：</h3><p><a href="https://www.zhihu.com/question/266403334">[1]. DFS 、动态规划、回溯法、递归之间的关系是什么？</a><br><a href="https://houbb.github.io/2020/01/23/data-struct-learn-07-base-backtracking">[2]. 五大基本算法之回溯算法 backtracking</a><br><a href="https://houbb.github.io/2020/01/23/data-struct-learn-07-base-dp">[3]. 五大基本算法之动态规划算法 DP dynamic programming</a><br><a href="https://sexywp.com/whats-the-difference-between-backtracking-n-dfs.htm">[4]. “回溯法”和“深度优先搜索”有什么区别？</a><br><a href="https://blog.csdn.net/zijikanwa/article/details/88542440">[5]. 递推和递归的关系与区别</a></p><h2 id="二叉树的遍历"><a href="#二叉树的遍历" class="headerlink" title="二叉树的遍历"></a>二叉树的遍历</h2><h3 id="递归写法"><a href="#递归写法" class="headerlink" title="递归写法"></a>递归写法</h3><p>二叉树的遍历常见的有三种，前序遍历，中序遍历，后序遍历。<br>以先序遍历为例<br>就是思考递推式，我们假设有一个函数f的作用是按照先序方式遍历一棵树<br>所以我们很容易得到递推式 f(整棵树) &#x3D; 遍历根节点，f(左子树),f(右子树)</p><p>可以写出递推式，我们就可以用递归的写法，注意递归的边界</p><h3 id="DFS角度理解"><a href="#DFS角度理解" class="headerlink" title="DFS角度理解"></a>DFS角度理解</h3><p>所有树的问题，都可以通过DFS的方式搜索到所有的节点，所以很显然我们可以用DFS完成遍历，那么对于前序，中序，后序，我们只需要考虑什么时候访问节点即可</p><p>DFS搜索 树的所有节点的模板</p><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs C++"><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">dfs</span> <span class="hljs-params">(node* cur)</span> </span>&#123;<br>    <span class="hljs-keyword">if</span> (!cur) <span class="hljs-keyword">return</span>;  <span class="hljs-comment">//递归边界</span><br><br>    <span class="hljs-built_in">dfs</span>(cur-&gt;left);  <span class="hljs-comment">//分支1 进入左子节点</span><br>    <span class="hljs-built_in">dfs</span>(cur-&gt;right); <span class="hljs-comment">//分支2 进入右子节点</span><br>&#125;<br></code></pre></td></tr></table></figure><p>所以之后我们只需要考虑，对于不同的遍历顺序，把访问语句加到哪里即可</p><p>对于前序遍历,那就是对于每一个子树，我们都要保证中左右的遍历顺序，所以就是搜索的顺序，访问语句放在最前面，画搜索树图的话，就是到一个节点，就打印<br>对于中序遍历，那就是对于每一个子树，我们都要左中右的遍历顺序，所以我们将访问语句放在dfs右子节点之前，画搜索树图的话，就是从左子节点回溯后打印<br>对于后序遍历，那就是对于每一个子树，我们都要左右中的遍历顺序，所以我们将访问语句放在dfs左右子节点之后，画搜索树图的话，就是从右子节点回溯后打印</p><p>以上就是二叉树遍历的本质，它的递归写法其实就是DFS，然后为了不同的遍历方式，将访问的语句放在不同的部分。<strong>所以我们搜索的顺序在不同的遍历方式里是没有改变的，改变的只是访问语句的位置</strong></p><h2 id="二叉树专题题目"><a href="#二叉树专题题目" class="headerlink" title="二叉树专题题目"></a>二叉树专题题目</h2><h3 id="LeetCode题单"><a href="#LeetCode题单" class="headerlink" title="LeetCode题单"></a>LeetCode题单</h3><p><a href="https://leetcode.cn/problemset/all/?topicSlugs=binary-tree&page=1">题单</a></p><h3 id="AcWing题单"><a href="#AcWing题单" class="headerlink" title="AcWing题单"></a>AcWing题单</h3><p><a href="https://www.acwing.com/problem/search/1/?csrfmiddlewaretoken=cEIQx9CcpWUSN5yhlFvR5oHfy6oi9lyERfpi505LRxN5KYe8o9zUZEP3Sr9bli6u&search_content=%E4%BA%8C%E5%8F%89%E6%A0%91">题单</a></p><h3 id="剑指Offer"><a href="#剑指Offer" class="headerlink" title="剑指Offer"></a>剑指Offer</h3><p><a href="https://leetcode.cn/problemset/all/?page=1&listId=xb9nqhhg&topicSlugs=binary-tree">题单</a></p><h3 id="已打卡题目"><a href="#已打卡题目" class="headerlink" title="已打卡题目"></a>已打卡题目</h3><p><a href="https://www.acwing.com/activity/content/problem/content/2447/">LeetCode 94. 二叉树的中序遍历</a><br><a href="https://www.acwing.com/activity/content/problem/content/2448/">LeetCode 95. 不同的二叉搜索树 II</a><br><a href="https://www.acwing.com/activity/content/problem/content/2449/">LeetCode 96. 不同的二叉搜索树 </a><br><a href="https://www.acwing.com/activity/content/problem/content/2451/">LeetCode 98. 验证二叉搜索树</a><br><a href="https://www.acwing.com/activity/content/problem/content/2452/">LeetCode 99. 恢复二叉搜索树</a><br><a href="https://www.acwing.com/activity/content/problem/content/2453/">LeetCode 100. 相同的树</a><br><a href="https://www.acwing.com/activity/content/problem/content/2454/">LeetCode 101. 对称二叉树</a><br><a href="https://www.acwing.com/activity/content/problem/content/2455/">LeetCode 102. 二叉树的层序遍历</a><br><a href="https://www.acwing.com/activity/content/problem/content/2456/">LeetCode 103. 二叉树的锯齿形层次遍历</a><br><a href="https://www.acwing.com/activity/content/problem/content/2457/">LeetCode 104. 二叉树的最大深度</a><br><a href="https://www.acwing.com/activity/content/problem/content/2458/">LeetCode 105. 从前序与中序遍历序列构造二叉树</a><br><a href="https://www.acwing.com/activity/content/problem/content/2459/">LeetCode 106. 从中序与后序遍历序列构造二叉树</a><br><a href="https://www.acwing.com/activity/content/problem/content/2460/">LeetCode 107. 二叉树的层次遍历 II</a><br><a href="https://www.acwing.com/activity/content/problem/content/2461/">LeetCode 108. 将有序数组转换为二叉搜索树</a><br><a href="https://www.acwing.com/activity/content/problem/content/2462/">LeetCode 109. 有序链表转换二叉搜索树</a><br><a href="https://www.acwing.com/activity/content/problem/content/2463/">LeetCode 110. 平衡二叉树</a><br><a href="https://www.acwing.com/activity/content/problem/content/2473/">LeetCode 111. 二叉树的最小深度</a><br><a href="https://www.acwing.com/activity/content/problem/content/2474/">LeetCode 112. 路径总和</a><br><a href="https://www.acwing.com/activity/content/problem/content/2475/">LeetCode 113. 路径总和 II</a><br><a href="https://www.acwing.com/activity/content/problem/content/2476/">LeetCode 114. 二叉树展开为链表</a><br><a href="https://www.acwing.com/activity/content/problem/content/2478/">LeetCode 116. 填充每个节点的下一个右侧节点指针</a><br><a href="https://www.acwing.com/activity/content/problem/content/2479/">LeetCode 117. 填充每个节点的下一个右侧节点指针 II</a><br><a href="https://www.acwing.com/activity/content/problem/content/2486/">LeetCode 124. 二叉树中的最大路径和</a><br><a href="https://www.acwing.com/activity/content/problem/content/2491/">LeetCode 129. 求根到叶子节点数字之和</a><br><a href="https://www.acwing.com/activity/content/problem/content/2514/">LeetCode 144. 二叉树的前序遍历</a><br><a href="https://www.acwing.com/activity/content/problem/content/2515/">LeetCode 145. 二叉树的后序遍历</a><br><a href="https://www.acwing.com/activity/content/problem/content/2567/">LeetCode 199. 二叉树的右视图</a><br><a href="https://www.acwing.com/activity/content/problem/content/2603/">LeetCode 222. 完全二叉树的节点个数</a><br><a href="https://www.acwing.com/activity/content/problem/content/2607/">LeetCode 226. 翻转二叉树</a></p><link rel="stylesheet" href="/css/spoiler.css" type="text/css"><script src="/js/spoiler.js" type="text/javascript" async></script>]]></content>
-    
-    
-    <categories>
-      
-      <category>算法笔记</category>
-      
-      <category>LeetCode</category>
+      <category>Experience</category>
       
     </categories>
     
@@ -286,7 +230,7 @@
       
       <tag>算法</tag>
       
-      <tag>二叉树</tag>
+      <tag>STL</tag>
       
     </tags>
     
@@ -295,7 +239,7 @@
   
   
   <entry>
-    <title>LeetCode题目合集</title>
+    <title>LeetCode快速刷题</title>
     <link href="/leetcode-1-100.html"/>
     <url>/leetcode-1-100.html</url>
     
@@ -304,7 +248,7 @@
     
     <categories>
       
-      <category>算法笔记</category>
+      <category>算法</category>
       
       <category>LeetCode</category>
       
@@ -412,7 +356,7 @@
       
       <category>编程语言</category>
       
-      <category>C++</category>
+      <category>C-C++</category>
       
     </categories>
     
@@ -421,6 +365,8 @@
       
       <tag>C++</tag>
       
+      <tag>C</tag>
+      
     </tags>
     
   </entry>
@@ -428,7 +374,7 @@
   
   
   <entry>
-    <title>C++入门教程（转载）</title>
+    <title>转载-C++黑马教程</title>
     <link href="/c++_heima_note.html"/>
     <url>/c++_heima_note.html</url>
     
@@ -439,7 +385,7 @@
       
       <category>编程语言</category>
       
-      <category>C++</category>
+      <category>C-C++</category>
       
     </categories>
     
@@ -448,6 +394,8 @@
       
       <tag>C++</tag>
       
+      <tag>C</tag>
+      
     </tags>
     
   </entry>
@@ -455,7 +403,7 @@
   
   
   <entry>
-    <title>算法-动态规划</title>
+    <title>acwing算法笔记-动态规划</title>
     <link href="/dp-basic.html"/>
     <url>/dp-basic.html</url>
     
@@ -464,7 +412,7 @@
     
     <categories>
       
-      <category>算法笔记</category>
+      <category>算法</category>
       
       <category>AcWing</category>
       
@@ -484,7 +432,7 @@
   
   
   <entry>
-    <title>算法-位运算，离散化，区间合并</title>
+    <title>acwing算法笔记-位运算，离散化，区间合并</title>
     <link href="/bit-discrete.html"/>
     <url>/bit-discrete.html</url>
     
@@ -493,7 +441,7 @@
     
     <categories>
       
-      <category>算法笔记</category>
+      <category>算法</category>
       
       <category>AcWing</category>
       
@@ -517,7 +465,7 @@
   
   
   <entry>
-    <title>算法-图论</title>
+    <title>acwing算法笔记-图论</title>
     <link href="/map.html"/>
     <url>/map.html</url>
     
@@ -526,7 +474,7 @@
     
     <categories>
       
-      <category>算法笔记</category>
+      <category>算法</category>
       
       <category>AcWing</category>
       
@@ -546,7 +494,7 @@
   
   
   <entry>
-    <title>算法-搜索</title>
+    <title>acwing算法笔记-搜索</title>
     <link href="/bfs-dfs.html"/>
     <url>/bfs-dfs.html</url>
     
@@ -555,7 +503,7 @@
     
     <categories>
       
-      <category>算法笔记</category>
+      <category>算法</category>
       
       <category>AcWing</category>
       
@@ -575,7 +523,7 @@
   
   
   <entry>
-    <title>算法-数据结构：Trie树和堆</title>
+    <title>acwing算法笔记-数据结构：Trie树和堆</title>
     <link href="/trie-heap.html"/>
     <url>/trie-heap.html</url>
     
@@ -584,7 +532,7 @@
     
     <categories>
       
-      <category>算法笔记</category>
+      <category>算法</category>
       
       <category>AcWing</category>
       
@@ -604,7 +552,7 @@
   
   
   <entry>
-    <title>算法-数据结构：哈希表，并查集，KMP</title>
+    <title>acwing算法笔记-数据结构：哈希表，并查集，KMP</title>
     <link href="/hash.html"/>
     <url>/hash.html</url>
     
@@ -613,7 +561,7 @@
     
     <categories>
       
-      <category>算法笔记</category>
+      <category>算法</category>
       
       <category>AcWing</category>
       
@@ -633,7 +581,7 @@
   
   
   <entry>
-    <title>算法-数据结构：栈与队列</title>
+    <title>acwing算法笔记-数据结构：栈与队列</title>
     <link href="/stack-queue.html"/>
     <url>/stack-queue.html</url>
     
@@ -642,7 +590,7 @@
     
     <categories>
       
-      <category>算法笔记</category>
+      <category>算法</category>
       
       <category>AcWing</category>
       
@@ -662,7 +610,7 @@
   
   
   <entry>
-    <title>算法-数据结构：链表</title>
+    <title>acwing算法笔记-数据结构：链表</title>
     <link href="/list.html"/>
     <url>/list.html</url>
     
@@ -671,7 +619,7 @@
     
     <categories>
       
-      <category>算法笔记</category>
+      <category>算法</category>
       
       <category>AcWing</category>
       
@@ -691,7 +639,7 @@
   
   
   <entry>
-    <title>算法-双指针算法</title>
+    <title>acwing算法笔记-双指针</title>
     <link href="/two-pointer.html"/>
     <url>/two-pointer.html</url>
     
@@ -700,7 +648,7 @@
     
     <categories>
       
-      <category>算法笔记</category>
+      <category>算法</category>
       
       <category>AcWing</category>
       
@@ -720,7 +668,7 @@
   
   
   <entry>
-    <title>算法-前缀和与差分</title>
+    <title>acwing算法笔记-前缀和与差分</title>
     <link href="/prefix-difference.html"/>
     <url>/prefix-difference.html</url>
     
@@ -729,7 +677,7 @@
     
     <categories>
       
-      <category>算法笔记</category>
+      <category>算法</category>
       
       <category>AcWing</category>
       
@@ -749,7 +697,7 @@
   
   
   <entry>
-    <title>算法-高精度运算</title>
+    <title>acwing算法笔记-高精度运算</title>
     <link href="/big-integer.html"/>
     <url>/big-integer.html</url>
     
@@ -758,7 +706,7 @@
     
     <categories>
       
-      <category>算法笔记</category>
+      <category>算法</category>
       
       <category>AcWing</category>
       
@@ -778,7 +726,7 @@
   
   
   <entry>
-    <title>算法-二分</title>
+    <title>acwing算法笔记-二分</title>
     <link href="/binary-search.html"/>
     <url>/binary-search.html</url>
     
@@ -787,7 +735,7 @@
     
     <categories>
       
-      <category>算法笔记</category>
+      <category>算法</category>
       
       <category>AcWing</category>
       
@@ -807,7 +755,7 @@
   
   
   <entry>
-    <title>算法-快速排序+归并排序</title>
+    <title>acwing算法笔记-快速排序+归并排序</title>
     <link href="/quick-sort.html"/>
     <url>/quick-sort.html</url>
     
@@ -816,7 +764,7 @@
     
     <categories>
       
-      <category>算法笔记</category>
+      <category>算法</category>
       
       <category>AcWing</category>
       
