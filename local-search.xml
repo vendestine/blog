@@ -4,6 +4,77 @@
   
   
   <entry>
+    <title>项目开发文档：通讯录管理系统</title>
+    <link href="/heima-telephone-system.html"/>
+    <url>/heima-telephone-system.html</url>
+    
+    <content type="html"><![CDATA[<h2 id="项目要求"><a href="#项目要求" class="headerlink" title="项目要求"></a>项目要求</h2><p>设计一个通讯录管理系统<br>交互界面：命令行终端 提供 系统界面 （显示界面，退出界面）<br>基本功能：增加联系人，查找联系人，修改联系人，删除联系人<br>附加功能：清空联系人，显示联系人</p><h2 id="项目配置"><a href="#项目配置" class="headerlink" title="项目配置"></a>项目配置</h2><p>开发环境：windows + VS2019<br>语言：C&#x2F;C++ 其实基本纯C语法</p><h2 id="开发流程"><a href="#开发流程" class="headerlink" title="开发流程"></a>开发流程</h2><ol><li>首先构建项目，这里采取VS2019开发，所以我们可以创建一个C-C++项目的解决方案，然后里面创建项目：通讯录管理系统；然后由于此项目只是熟悉基本语法和操作，所以直接写在main.cpp一个文件里</li><li>设计一个xxxx系统，我们需要先考虑 用户交互界面；这里使用命令行终端 提供 系统界面；</li><li>我们需要在程序的开始默认显示界面，然后用户可以退出界面；</li><li>所以先实现 显示界面 退出界面；显示界面需要在程序打开后一直显示，所以写一个死循环一直显示界面，然后菜单呈现不同的功能，根据不同的功能做出不同的操作，很明显这里可以用switch流程结构</li><li>系统里 我们需要 通讯录对象 还有联系人对象；通讯录对象里有很多信息，是一个复合类型，我们封装成结构体，联系人对象也有很多信息，我们也封装成结构体；</li><li>技巧: 当我们需要创建的对象包含很多信息的时候，为了方便后续传参操作，我们将其封装成类或者结构体，这里暂时纯C所以封装成结构体；</li><li>然后就开始实现 基本功能，对于每个功能我们直接封装成一个函数；例如 addPerson(), deletePerson();</li><li>注意我们调用这些功能后，需要改变通讯录对象，所以我们可以把通讯录对象设置成全局变量，或者传参的时候，选择传入通讯录对象的地址，这样就可以改变通讯录对象；函数千万不要传通讯录对象，这样是不会改变实参的；</li><li>查找，修改，删除 其实都复用了一段逻辑，那就是联系人是否存在，所以我们将这段逻辑 也封装成 一个函数；方便复用；</li><li>最后注意在很多功能里，我们接收用户输入，输入的时候一定要验证来保证程序的健壮性，否则就会造成很多错误；</li></ol><h2 id="版本1"><a href="#版本1" class="headerlink" title="版本1"></a>版本1</h2><p>原官方版本：</p><p>要点：</p><ol><li>用到了很多windows的system call，例如system(“pause”) 按任意键继续；system(“cls”) 清屏；</li><li>运用switch结构 实现 系统内部的功能架构；</li><li>函数命名小驼峰，类和结构体命名大驼峰，较为规范</li></ol><p>bug：</p><ol><li><p>源文件 在其他平台上打开乱码<br>原因：Visual studio默认不是UTF-8编码<br>解决方案：对于每个file重新另存为，然后编码保存为UTF-8格式<br>相关帖子：</p><ul><li><a href="https://learn.microsoft.com/en-us/answers/questions/252568/visual-studio-2019-and-txt-encoding-for-editor-(ho">Visual studio 2019 and txt encoding for editor (how to change it?)</a> </li><li><a href="https://itniels.com/2021/01/04/saving-files-with-different-encoding-in-visual-studio-2019/">Saving files with different encoding in Visual Studio 2019</a></li></ul></li><li><p>while和cin混合使用，导致死循环bug<br>原因：使用cin时，如果输入的对象类型 与 变量类型 不匹配时，会发生错误，然后将fallbit置为1，之后就不会等待用户输入了，变量将会保留原有值不变，造成死循环；一般发生在int类变量中，因为容易发生不匹配的情况<br>解决方案：当发生错误时，清空cin里的标志位，然后清空输入缓存区；对于非string类型的变量，需要加强输入检测；<br>相关帖子：</p><ul><li><a href="https://blog.csdn.net/u010632547/article/details/105687659">cin和while配合使用时，可能出现的死循环</a></li><li><a href="https://blog.csdn.net/Fdog_/article/details/107476550">C++的cin输入错误导致死循环</a></li><li><a href="https://www.youranshare.com/blog/sid/65.html">【C++】 cin错误导致的while()死循</a></li><li><a href="https://www.zhihu.com/question/34786138/answer/1420417638">C++ while中cin输入非数字就会一直循环运行？</a></li><li><a href="https://idealclover.top/archives/338/">C++ cin 清理缓冲区</a></li></ul></li></ol><link rel="stylesheet" href="/css/spoiler.css" type="text/css"><script src="/js/spoiler.js" type="text/javascript" async></script>]]></content>
+    
+    
+    <categories>
+      
+      <category>项目</category>
+      
+      <category>通讯录管理系统</category>
+      
+    </categories>
+    
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>项目开发文档：通讯录管理系统</title>
+    <link href="/heima-employee-system.html"/>
+    <url>/heima-employee-system.html</url>
+    
+    <content type="html"><![CDATA[<link rel="stylesheet" href="/css/spoiler.css" type="text/css"><script src="/js/spoiler.js" type="text/javascript" async></script>]]></content>
+    
+    
+    <categories>
+      
+      <category>项目</category>
+      
+      <category>职工理系统</category>
+      
+    </categories>
+    
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>C++黑马教程阶段2 学习笔记</title>
+    <link href="/c++-heima-note-level2.html"/>
+    <url>/c++-heima-note-level2.html</url>
+    
+    <content type="html"><![CDATA[<blockquote><p>该文章为 学习C++黑马教程阶段2后的 原创笔记<br><a href="/c++_heima_note">教程跳转</a></p></blockquote><h3 id="1-内存分区"><a href="#1-内存分区" class="headerlink" title="1. 内存分区"></a>1. 内存分区</h3><ol><li>主要就是明白内存的一个大致分布 先了解用户区的一些内存分区： 代码区，全局区，栈区，堆区</li><li>然后每个区最基本的认识：<ul><li>代码区：存储二进制代码</li><li>全局区：存储全局变量，静态变量，常量</li><li>栈区：函数是存储在栈区，函数执行完后，函数内部的数据由编译器自动释放</li><li>堆区：用户可以手动分配资源在堆区，所以也要用户手动释放</li></ul></li></ol><h3 id="2-引用-（C-特性，C不支持）"><a href="#2-引用-（C-特性，C不支持）" class="headerlink" title="2. 引用 （C++特性，C不支持）"></a>2. 引用 （C++特性，C不支持）</h3><ol><li><p>首先明白引用 其实就是 变量（一块内存）的别名，所以引用必须初始化，绑定已有对象（如果没有已有对象，又哪来的别名呢）</p></li><li><p>引用绑定后就不允许更改了</p></li><li><p>函数传参的时候，之前为了让实参改变，传入的是对象地址，然后函数参数里 用指针接收，函数内部还需要解引用操作，获取对象的值；<br>C++ 使用引用封装了这个指针传递的操作；可以直接达到影响实参的效果；传参是直接传入对象本身，然后函数参数 用引用接收，写法更加方便；</p></li><li><p>引用的本质 就是 指针常量； 出现引用后编译器自动转化 int &amp;a  &#x3D;&gt; int * const a   a &#x3D;&gt; *a ; 指针常量指向不可改变，所以这也是为什么引用初始化后不可更改的原因;</p></li><li><p>const引用的必要性，有的时候函数参数是引用，但是我们不想改变实参，可以用const修饰引用，不影响实参；</p></li></ol><h3 id="3-C-C-函数部分区别"><a href="#3-C-C-函数部分区别" class="headerlink" title="3. C C++ 函数部分区别"></a>3. C C++ 函数部分区别</h3><p>C++函数还支持 默认参数，占位参数<br>C&#x2F;C++ 都支持函数重载；</p><h3 id="4-类和对象"><a href="#4-类和对象" class="headerlink" title="4. 类和对象"></a>4. 类和对象</h3><ol><li><p>C++里引入了类，虽然C里没有类，但是C里其实也有类的理念，比如int类变量，double类变量；<br>类其实就是为对象服务的，比如说我们想要一个a类对象，那我们就设计一个a类，然后用a类实例出一个a类对象；<br>在之前的通讯录项目，也是这么做的；我们需要通讯录对象，联系人对象；这些对象包含很多信息，封装成一个结构体；C++里我们直接封装成类就行了；</p></li><li><p>类里面的东西都是成员  所以有成员变量（属性），成员函数（行为）；</p></li><li><p>类有三种访问权限，分别是public，private，protected；一般来说我们会将成员变量 设为 private权限，防止外界读写，同时方便自己写的时候设置写入检测；</p></li><li><p>struct 默认权限为公共，class 默认权限为私有 了解即可</p></li><li><p>类中会自动创建构造函数和析构函数，这些都封装在类里，方便初始化和销毁；</p></li><li><p>构造函数，主要关注拷贝构造函数 以及 常用的调用方式，括号法和显示法</p><p> 拷贝构造函数：我们需要知道什么时候调用了拷贝构造函数，函数直接返回对象，传入对象，包括用对象初始化对象的时候，就调用了拷贝构造函数；<br> 拷贝构造函数 相当于 创建了原对象的副本（赋值拷贝） 相当于新建了一块内存 （存储了和原对象相同的内容）；</p><p> 构造函数 分为 无参，有参，拷贝；编译器至少需要无参构造和拷贝构造两个构造函数，所以会 自动提供 默认无参构造函数（空实现）以及 默认拷贝构造函数；<br> 然后如果定义有参，编译器就只自动提供拷贝构造函数，如果定义拷贝构造函数，编译器就不提供其他的构造函数了；<br> 无参构造 有参构造 拷贝构造， 如果用户定义某种构造函数，编译器就只会提供它之后的构造函数，前面的构造函数不再提供；而当类内部没有无参构造，和拷贝构造的时候，就会出错！</p></li><li><p>深拷贝，浅拷贝问题  我们知道浅拷贝是简单的赋值拷贝，所以对于地址，它也是直接赋值拷贝，那么如果类中有成员变量是指针的话（存储地址），经过拷贝后，就会导致多个对象里的指针指向同一块内存；<br>然后之后析构的时候，就会导致堆区的内存重复释放，报错；</p><p>解决办法：深拷贝，也就是新对象在拷贝原对象的指针变量的时候，重新在堆开辟一块内存，然后让新对象的指针指向新开辟的内存，这样销毁变量的时候，就不会导致重复销毁的问题了；<br>ps：我们在设计类的时候，需要考虑内存分区；例如我们想要一个身高对象，这是一个int类对象，如果存储在栈区，那我们直接定义 int类对象就行，但如果存储在堆区，我们只能拿到int类对象的地址，所以定义一个int类指针；C++中 万物即对象 所以可以 变量 对象 两词可以互换</p></li><li><p>静态成员</p><ul><li>静态成员变量 就是 所有变量共享同一个副本，然后它是存储在全局区，它在类内部仅仅是声明，而声明是不分配内存的，所以我们需要在类外部定义它，以来分配静态成员变量的内存；</li><li>静态成员函数，只需要了解一点，那就是静态成员函数没有this指针，所以静态成员函数里无法访问普通成员，只能访问静态成员；</li><li>调用方面 静态成员变量和函数 都可以 通过对象和类名：：访问；</li></ul></li><li><p>对象模型，this指针</p><ul><li><p>只有非静态成员变量占对象空间（属于类的对象上）；其余 成员函数（非静态，静态）和静态成员变量都不占对象空间；因为静态成员分配在全局区；</p></li><li><p>空对象比较特殊，它占一个字节 原因：编译器会给每个空对象分配一个字节，区分空对象占内存的位置</p></li><li><p>首先我们要明确为什么要有this指针<br>成员函数只会有一份实例，所有对象会共用这个函数，那么函数内部如何区分是哪个对象调用自己<br>答案就是用this指针 this指针指向调用对象 （也就是说 this指针存储了调用对象的地址：当一个对象的成员函数被调用时，编译器会隐式地传递该对象的地址作为 this 指针）</p><p>this指针的用途：解决形参和成员变量的命名冲突；返回对象本身，用于链式编程</p></li></ul></li><li><p>空指针的访问<br>空指针可以访问成员函数；但是如果成员函数内部访问了成员，空指针就无法访问该成员函数<br>原因：任何对类成员的直接访问都被看作是 隐式引用了this指针，eg:当isbn类使用bookNo时，它隐式引用了this指针，就像我们书写了this-&gt;bookNo一样，所以空指针访问该函数会报错！<br>如果没有访问成员，例如函数里只有一句输出 hello world，那空指针访问完全没有问题；</p></li><li><p>友元<br>友元作用 就是让一个函数或者类访问另一个类中私有成员；全局函数，类，成员函数都可以作友元；<br>具体用法和细节，就项目时知道怎么用就行；</p></li><li><p>内联函数<br>注意几点即可</p><ul><li>内联函数作用就是 在编译阶段 直接该函数的代码副本放置在每个调用该函数的地方；</li><li>内联必须放在函数定义上，而不是声明上；</li><li>定义在类之中的成员函数将自动地成为内联函数 （一般成员函数我们采取类内声明，类外定义）</li></ul></li><li><p>重载运算符<br>自定义类型的对象 运算符没法处理新对象，我们自己重载运算符封装一下功能；系统内置类型的对象，运算符已经封装好了功能，我们也可以重载但没有必要；<br>具体用法和细节，也是项目里知道怎么用就行；</p></li></ol><h3 id="5-继承"><a href="#5-继承" class="headerlink" title="5. 继承"></a>5. 继承</h3><ol><li>C++中的继承语法 class 子类 : 继承方式 父类;    另一种叫法：父类叫基类，子类叫派生类；</li><li>继承方式，三种继承方式 public protected private  区别主要就是子类非私有成员的访问权限；<br>如果是public继承，访问权限不变；如果是protected继承，访问权限变为protected；如果是private继承，访问权限变为private；</li><li>菱形继承会导致，子类继承多份相同的数据，利用虚继承解决这个问题；如果B类虚继承A类，那么B类里只会存在一个vbptr，它指向vbtable，利用偏移量找到A类对象的内存；</li></ol><h3 id="6-多态"><a href="#6-多态" class="headerlink" title="6. 多态"></a>6. 多态</h3><ol><li>多态的意义就是说 假如一个类 派生出了 很多子类；如果此时 用一个父类指针 指向了 子类对象；那么这个父类对象在调用函数时，会根据接受对象类型的不同，执行不同子类里的函数；<br>所以多态使用的场景很明显 我们需要有一个父类指针或引用 指向 子类对象<br>使用条件：继承关系，子类重写父类中的虚函数</li><li>函数重写 只发生在 继承的场景里；函数重写意味着 子类重写父类中的函数，然后 返回值，名字，参数列表完全一致；而函数重载只需要不同函数的函数名相同；</li><li>多态中，父类里的虚函数的实现无意义，我们只关心子类中重写的函数，所以我们可以将父类中的虚函数声明成纯虚函数；<br>语法：virtual 返回值类型 函数名 （参数列表）&#x3D; 0;<br>有纯虚函数的类，就是抽象类，抽象类顾名思义无法实例化对象，然后子类必须重新纯虚函数，否则也会成为抽象类；</li><li>虚析构 主要是解决 多态时delete父类指针，无法析构子类对象的场景；所以利用虚析构，就可以在delete父类指针时，也调用子类的析构代码；<br>纯虚析构，就是可以直接让该类成为抽象类；<br>所以虚析构和纯虚析构，主要就是解决子类堆区数据的释放问题；因为子类不在堆区的数据会被自动释放掉；</li><li>多态的使用思想；<br>不用多态：我们需要个计算器对象，它需要有加减乘除功能；我们可以定义一个计算器类，然后里面定义加减乘除四个函数；<br>用多态：将功能分类 然后拆分成 不能的类；例如一个计算器，我们可以先定义一个抽象计算器类，然后再利用多态，定义加法计算器类，减法计算器类，乘法计算器类，除法计算器类；<br>多态的好处显而易见：降低耦合性，方便后期维护扩展；</li></ol><h3 id="7-文件操作"><a href="#7-文件操作" class="headerlink" title="7. 文件操作"></a>7. 文件操作</h3><ol><li>为什么需要文件操作，我们程序里的数据在程序结束后就会销毁，为了可持续化保存，我们将程序里的数据存储在文件里；</li><li>C++文件操作功能，主要用fstream库即可</li><li>非二进制读写<ul><li>写：#include <fstream> fstream fout; fout.open(“file path”, param); fout &lt;&lt; “data”; fout.close();</li><li>读：#include <fstream> fstream fin; fin.open(“file path”, param); loop read; fin.close();</li></ul></li><li>二进制读写，就是利用read，write函数；然后open的时候param要加上ios::binary</li><li>也可以不写open函数，直接在创建流对象的时候，调用构造函数；例如fstream fout(“file path”, param)</li></ol><link rel="stylesheet" href="/css/spoiler.css" type="text/css"><script src="/js/spoiler.js" type="text/javascript" async></script>]]></content>
+    
+    
+    <categories>
+      
+      <category>编程语言</category>
+      
+      <category>C-C++</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>C</tag>
+      
+      <tag>C++</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>C++黑马教程阶段1 学习笔记</title>
     <link href="/c++-heima-note-level1.html"/>
     <url>/c++-heima-note-level1.html</url>
