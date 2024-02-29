@@ -16,16 +16,16 @@
   <meta name="author" content="Wenzhe Li">
   <meta name="keywords" content="">
   
-    <meta name="description" content="个人开发记录，主要涉及项目的一些问题和要点">
+    <meta name="description" content="C&#x2F;C++基础练手项目，个人开发记录项目的一些问题和要点">
 <meta property="og:type" content="article">
 <meta property="og:title" content="项目开发文档：通讯录管理系统">
 <meta property="og:url" content="https://vendestine.com/heima-telephone-system">
 <meta property="og:site_name" content="Blog">
-<meta property="og:description" content="个人开发记录，主要涉及项目的一些问题和要点">
+<meta property="og:description" content="C&#x2F;C++基础练手项目，个人开发记录项目的一些问题和要点">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://vendestine.com/img/hexo.png">
 <meta property="article:published_time" content="2024-07-04T09:58:01.000Z">
-<meta property="article:modified_time" content="2024-02-26T11:59:47.190Z">
+<meta property="article:modified_time" content="2024-02-29T17:26:04.387Z">
 <meta property="article:author" content="Wenzhe Li">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image" content="https://vendestine.com/img/hexo.png">
@@ -376,33 +376,6 @@
         
         
           
-          
-  <div class="category-post-list">
-    
-    
-  </div>
-
-          
-  
-    
-    
-    
-    <div class="category-sub row nomargin-x">
-      <a class="category-subitem collapsed
-          list-group-item category-item-action col-10 col-md-11 col-xm-11" title="个人博客"
-        id="heading-9cfd28a41ea3ebc9060caef8d71248d6" role="tab" data-toggle="collapse" href="#collapse-9cfd28a41ea3ebc9060caef8d71248d6"
-        aria-expanded="false"
-      >
-        个人博客
-        <span class="list-group-count">(1)</span>
-        <i class="iconfont icon-arrowright"></i>
-      </a>
-      
-      <div class="category-collapse collapse " id="collapse-9cfd28a41ea3ebc9060caef8d71248d6"
-           role="tabpanel" aria-labelledby="heading-9cfd28a41ea3ebc9060caef8d71248d6">
-        
-        
-          
   <div class="category-post-list">
     
     
@@ -415,70 +388,14 @@
         </a>
       
     
-  </div>
-
-        
-      </div>
-    </div>
-  
-    
-    
-    
-    <div class="category-sub row nomargin-x">
-      <a class="category-subitem collapsed
-          list-group-item category-item-action col-10 col-md-11 col-xm-11" title="职工理系统"
-        id="heading-57a92aecf10f69671e30ab8c7f06fefd" role="tab" data-toggle="collapse" href="#collapse-57a92aecf10f69671e30ab8c7f06fefd"
-        aria-expanded="false"
-      >
-        职工理系统
-        <span class="list-group-count">(1)</span>
-        <i class="iconfont icon-arrowright"></i>
-      </a>
-      
-      <div class="category-collapse collapse " id="collapse-57a92aecf10f69671e30ab8c7f06fefd"
-           role="tabpanel" aria-labelledby="heading-57a92aecf10f69671e30ab8c7f06fefd">
-        
-        
-          
-  <div class="category-post-list">
-    
-    
       
       
-        <a href="/heima-employee-system" title="项目开发文档：通讯录管理系统"
+        <a href="/heima-employee-system" title="项目开发文档：职工管理系统"
            class="list-group-item list-group-item-action
            ">
-          <span class="category-post">项目开发文档：通讯录管理系统</span>
+          <span class="category-post">项目开发文档：职工管理系统</span>
         </a>
       
-    
-  </div>
-
-        
-      </div>
-    </div>
-  
-    
-    
-    
-    <div class="category-sub row nomargin-x">
-      <a class="category-subitem 
-          list-group-item category-item-action col-10 col-md-11 col-xm-11" title="通讯录管理系统"
-        id="heading-b71cb281a68a7f26a1ead19b9f775d77" role="tab" data-toggle="collapse" href="#collapse-b71cb281a68a7f26a1ead19b9f775d77"
-        aria-expanded="true"
-      >
-        通讯录管理系统
-        <span class="list-group-count">(1)</span>
-        <i class="iconfont icon-arrowright"></i>
-      </a>
-      
-      <div class="category-collapse collapse show" id="collapse-b71cb281a68a7f26a1ead19b9f775d77"
-           role="tabpanel" aria-labelledby="heading-b71cb281a68a7f26a1ead19b9f775d77">
-        
-        
-          
-  <div class="category-post-list">
-    
     
       
       
@@ -491,10 +408,6 @@
     
   </div>
 
-        
-      </div>
-    </div>
-  
         
       </div>
     </div>
@@ -530,8 +443,7 @@
 <li>查找，修改，删除 其实都复用了一段逻辑，那就是联系人是否存在，所以我们将这段逻辑 也封装成 一个函数；方便复用；</li>
 <li>最后注意在很多功能里，我们接收用户输入，输入的时候一定要验证来保证程序的健壮性，否则就会造成很多错误；</li>
 </ol>
-<h2 id="版本1"><a href="#版本1" class="headerlink" title="版本1"></a>版本1</h2><p>原官方版本：</p>
-<p>要点：</p>
+<h2 id="版本1"><a href="#版本1" class="headerlink" title="版本1"></a>版本1</h2><p>官方版本：</p>
 <ol>
 <li>用到了很多windows的system call，例如system(“pause”) 按任意键继续；system(“cls”) 清屏；</li>
 <li>运用switch结构 实现 系统内部的功能架构；</li>
@@ -539,13 +451,13 @@
 </ol>
 <p>bug：</p>
 <ol>
-<li><p>源文件 在其他平台上打开乱码<br>原因：Visual studio默认不是UTF-8编码<br>解决方案：对于每个file重新另存为，然后编码保存为UTF-8格式<br>相关帖子：</p>
+<li><p>源文件 在其他平台上打开乱码 <strong>[已解决]</strong><br>原因：Visual studio默认不是UTF-8编码<br>解决方案：对于每个file重新另存为，然后编码保存为UTF-8格式<br>相关帖子：</p>
 <ul>
 <li><a target="_blank" rel="noopener" href="https://learn.microsoft.com/en-us/answers/questions/252568/visual-studio-2019-and-txt-encoding-for-editor-(ho">Visual studio 2019 and txt encoding for editor (how to change it?)</a> </li>
 <li><a target="_blank" rel="noopener" href="https://itniels.com/2021/01/04/saving-files-with-different-encoding-in-visual-studio-2019/">Saving files with different encoding in Visual Studio 2019</a></li>
 </ul>
 </li>
-<li><p>while和cin混合使用，导致死循环bug<br>原因：使用cin时，如果输入的对象类型 与 变量类型 不匹配时，会发生错误，然后将fallbit置为1，之后就不会等待用户输入了，变量将会保留原有值不变，造成死循环；一般发生在int类变量中，因为容易发生不匹配的情况<br>解决方案：当发生错误时，清空cin里的标志位，然后清空输入缓存区；对于非string类型的变量，需要加强输入检测；<br>相关帖子：</p>
+<li><p>while和cin混合使用，导致死循环bug <strong>[已解决]</strong><br>原因：使用cin时，如果输入的对象类型 与 变量类型 不匹配时，会发生错误，然后将fallbit置为1，之后就不会等待用户输入了，变量将会保留原有值不变，造成死循环；一般发生在int类变量中，因为容易发生不匹配的情况<br>解决方案：当发生错误时，清空cin里的标志位，然后清空输入缓存区；对于非string类型的变量，需要加强输入检测；<br>相关帖子：</p>
 <ul>
 <li><a target="_blank" rel="noopener" href="https://blog.csdn.net/u010632547/article/details/105687659">cin和while配合使用时，可能出现的死循环</a></li>
 <li><a target="_blank" rel="noopener" href="https://blog.csdn.net/Fdog_/article/details/107476550">C++的cin输入错误导致死循环</a></li>
@@ -575,13 +487,6 @@
         
   <a href="/categories/%E9%A1%B9%E7%9B%AE/" class="category-chain-item">项目</a>
   
-  
-    <span>></span>
-    
-  <a href="/categories/%E9%A1%B9%E7%9B%AE/%E9%80%9A%E8%AE%AF%E5%BD%95%E7%AE%A1%E7%90%86%E7%B3%BB%E7%BB%9F/" class="category-chain-item">通讯录管理系统</a>
-  
-  
-
   
 
       </span>
@@ -649,8 +554,8 @@
                   <article class="post-next col-6">
                     
                     
-                      <a href="/heima-employee-system" title="项目开发文档：通讯录管理系统">
-                        <span class="hidden-mobile">项目开发文档：通讯录管理系统</span>
+                      <a href="/heima-employee-system" title="项目开发文档：职工管理系统">
+                        <span class="hidden-mobile">项目开发文档：职工管理系统</span>
                         <span class="visible-mobile">Next</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
