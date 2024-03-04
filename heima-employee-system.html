@@ -25,7 +25,7 @@
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://vendestine.com/img/hexo.png">
 <meta property="article:published_time" content="2024-07-04T09:58:01.000Z">
-<meta property="article:modified_time" content="2024-02-29T17:28:37.771Z">
+<meta property="article:modified_time" content="2024-02-29T17:53:37.990Z">
 <meta property="article:author" content="Wenzhe Li">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image" content="https://vendestine.com/img/hexo.png">
@@ -298,7 +298,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          1.5k words
+          1.7k words
         
       </span>
     
@@ -309,7 +309,7 @@
         
         
         
-          13 mins
+          14 mins
         
       </span>
     
@@ -367,7 +367,7 @@
         aria-expanded="true"
       >
         项目
-        <span class="list-group-count">(3)</span>
+        <span class="list-group-count">(4)</span>
         <i class="iconfont icon-arrowright"></i>
       </a>
       
@@ -385,6 +385,15 @@
            class="list-group-item list-group-item-action
            ">
           <span class="category-post">博客建站</span>
+        </a>
+      
+    
+      
+      
+        <a href="/heima-speech-system" title="项目开发文档：演讲比赛管理系统"
+           class="list-group-item list-group-item-action
+           ">
+          <span class="category-post">项目开发文档：演讲比赛管理系统</span>
         </a>
       
     
@@ -441,12 +450,14 @@
 <li>现在考虑一下，系统初始化，我们将初始化所需要的工作，都放入系统的构造函数里，也就是WorkManager类的构造函数里，<br>构造函数就是用来做初始化工作的；所以初始化工作有哪些；我们首先需要读数据库来初始化当前的数组，这里就是要读取文件的内容，三种情况讨论，文件不存在（直接不合法）文件存在但是为空（直接都初始化空），文件存在且有数据，这个时候我们需要把数据都读出来，C++直接利用fstream就可以；</li>
 <li>有读就有写，当我们职工信息有变化的时候，要同步到文件里，这里定义为save()函数，然后在之后会导致信息变化的函数里加入save函数</li>
 <li>剩下的就是比较简单的功能实现了，注意查改删操作，都需要用到是否存在逻辑，所以可以封装成isExist()函数，方便复用；<br>然后改和删会发生变化，所以需要在操作成功后进行同步操作；</li>
+<li>开发的时候采取分离编译，声明写在头文件，实现写在源文件，然后我们保证源文件里只引入头文件即可，源文件需要的其他头文件，都通通放入之前的头文件里；类也是一样，头文件定义类，但是成员只是声明，之后源文件 通过作用域 外部实现；</li>
 </ol>
 <h2 id="版本1"><a href="#版本1" class="headerlink" title="版本1"></a>版本1</h2><p>官方代码：</p>
 <ol>
 <li>采取面向对象的方式，进行系统设计，不再是直接裸露的全局函数实现功能；</li>
 <li>利用指针数组 解决了 数组不能存储不同数据类型的缺陷</li>
 <li>文件作为简单的数据库，然后利用构造函数 初始化 文件的读取操作；同时封装了save函数，用来系统信息变化后的文件同步</li>
+<li>命名方式我不太喜欢，函数都改为小驼峰形式；</li>
 </ol>
 <p>bug:</p>
 <ol>
@@ -535,18 +546,12 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/heima-telephone-system" title="项目开发文档：通讯录管理系统">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">项目开发文档：通讯录管理系统</span>
-                        <span class="visible-mobile">Previous</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/c++-heima-note-level1" title="C++黑马教程阶段1 学习笔记">
-                        <span class="hidden-mobile">C++黑马教程阶段1 学习笔记</span>
+                      <a href="/heima-telephone-system" title="项目开发文档：通讯录管理系统">
+                        <span class="hidden-mobile">项目开发文档：通讯录管理系统</span>
                         <span class="visible-mobile">Next</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
