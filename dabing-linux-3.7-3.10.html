@@ -16,16 +16,16 @@
   <meta name="author" content="Wenzhe Li">
   <meta name="keywords" content="">
   
-    <meta name="description" content="涉及到 线程，多线程，线程同步，生产者消费模型，线程池实现">
+    <meta name="description" content="包含 线程，多线程，线程同步，生产者消费模型，线程池实现">
 <meta property="og:type" content="article">
 <meta property="og:title" content="大丙Linux教程 3.7 - 3.10 学习笔记">
 <meta property="og:url" content="https://vendestine.com/dabing-linux-3.7-3.10">
 <meta property="og:site_name" content="Blog">
-<meta property="og:description" content="涉及到 线程，多线程，线程同步，生产者消费模型，线程池实现">
+<meta property="og:description" content="包含 线程，多线程，线程同步，生产者消费模型，线程池实现">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://vendestine.com/img/C++.png">
 <meta property="article:published_time" content="2024-05-25T03:56:09.000Z">
-<meta property="article:modified_time" content="2024-03-07T19:33:59.268Z">
+<meta property="article:modified_time" content="2024-03-12T17:02:48.279Z">
 <meta property="article:author" content="Wenzhe Li">
 <meta property="article:tag" content="C">
 <meta property="article:tag" content="C++">
@@ -301,7 +301,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          4.1k words
+          5.1k words
         
       </span>
     
@@ -312,7 +312,7 @@
         
         
         
-          35 mins
+          43 mins
         
       </span>
     
@@ -757,6 +757,30 @@
 <li>pthread_cond_signal是唤醒至少一个，而不是一个；</li>
 <li>用条件变量和锁实现 生产者消费者模型 的代码里，为什么条件用while而不是if；<br>假设多个消费者先依次抢到锁，然后都阻塞在cond_wait上；这个时候因为条件阻塞，解锁；<br>然后生产者抢到锁，开始生产，唤醒阻塞的消费者线程；<br>唤醒的消费者线程中，其中一个消费者线程 抢到了锁，然后加锁继续向下执行，消费资源，导致队列再次为空，然后解锁；<br>之后 唤醒的消费者线程里 又有一个消费者线程抢到了锁，然后加锁向下执行，此时已经为空了，继续消费，报错；<br>解决方案: 需要将if 该成 while；此时如果又有一个消费者线程抢到锁，它不会直接向下执行，而是会进行条件判断，然后发现满足条件，继续阻塞！</li>
 <li>几个要点：1. 条件阻塞的线程 需要等待 其他线程对其进行唤醒；<br>     2. 可以有很多线程条件阻塞，这些线程被唤醒后，只能有一个抢到锁，加锁继续向下执行；<br>     3. 线程条件阻塞的时候，发现已经加锁，那么就解锁；</li>
+</ul>
+<h3 id="信号量"><a href="#信号量" class="headerlink" title="信号量"></a>信号量</h3><ul>
+<li>信号量 也是 用来阻塞线程的，如果要保证线程同步，还是要配合互斥锁使用；</li>
+<li>sem_wait是阻塞函数，如果资源数&gt;0，线程不会阻塞，线程占用一个资源，资源数-1；资源数&#x3D;0时，线程阻塞；<br>简单描述：给指定信号量取出一个资源；</li>
+<li>sem_post，资源数+1，其实就类似于条件变量的唤醒函数；<br>简单描述：给指定信号量加一个资源；</li>
+<li>信号量初始化，提供一个简单的技巧介绍，<strong>看最多有几个线程同时工作</strong>；<br>比如我们有个最大为5的任务队列，然后一开始队列为空；我们就可以初始化生产者信号量资源是5，因为现在为空，最多五个生产者同时工作；<br>然后初始化消费者信号量资源是0，因为现在为空，没有办法消费，最多0个消费者同时工作；<br>为什么说最多呢，因为资源也可以是一个线程多次消耗掉的，我们信号量初始化一般关注最多多少个线程工作；</li>
+<li>生产者消费者模型用信号量实现的细节：<ul>
+<li>生产者：生产者开始工作，<strong>生产者信号量</strong>取出一个资源（sem_wait），工作完后现在任务队列不为空了，通知消费者消费，<strong>消费者信号</strong>量加一个资源（sem_post）；</li>
+<li>消费者：消费者一开始阻塞，被唤醒后开始消费，<strong>消费者信号量</strong>取出一个资源（sem_wait)，工作完后任务队列没有达到上限，通知生产者生产，<strong>生产者信号量</strong>加一个资源（sem_post）；</li>
+</ul>
+</li>
+<li>信号量初始化的时候资源数总和如果为1，那么最多只有一个线程工作，不存在同步问题；因为我们资源数默认是按最大的同时工作数申请，<strong>其实只要小于等于最大的同时工作数，初始化资源都是合法的</strong>；<br>如果总资源数&gt;1，就要做线程同步了，因为此时最多有多个线程一起工作；</li>
+<li>为了避免死锁，一定要保证互斥夹紧原则，互斥锁操作要放在信号量操作里面；</li>
+</ul>
+<h3 id="线程池"><a href="#线程池" class="headerlink" title="线程池"></a>线程池</h3><blockquote>
+<p>线程池使用背景：一般情况下，我们在使用线程时，创建线程，不使用就销毁线程；在高并发场景下，多个线程占用很短的时间执行任务，线程频繁创建，销毁，大大降低系统效率；<br>为了避免频繁创建销毁，我们可以复用线程，也就是使用线程池；</p>
+</blockquote>
+<ul>
+<li>线程池 三部分组成，包含生产者消费者模型里的 消费者线程和任务队列；生产者线程是线程池的使用者；<ol>
+<li>任务队列：存储任务，支持任务添加，删除（其实就是生产者消费者模型里的任务队列）；线程池的使用者就是生产者线程；</li>
+<li>工作线程：读取任务队列里的任务，然后执行任务（其实就是生产者消费者模型里的消费者线程）</li>
+<li>管理者线程：对任务队列里的任务数量进行周期性的检测，并进行调整；（相当于HR）</li>
+</ol>
+</li>
 </ul>
 <link rel="stylesheet" href="/css/spoiler.css" type="text/css"><script src="/js/spoiler.js" type="text/javascript" async></script>
                 

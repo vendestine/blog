@@ -16,25 +16,23 @@
   <meta name="author" content="Wenzhe Li">
   <meta name="keywords" content="">
   
-    <meta name="description" content="涉及 C++的语法基础">
+    <meta name="description" content="-----------">
 <meta property="og:type" content="article">
-<meta property="og:title" content="C++黑马教程阶段1 学习笔记">
-<meta property="og:url" content="https://vendestine.com/c++-heima-note-level1">
+<meta property="og:title" content="项目开发文档：TCP服务器实现">
+<meta property="og:url" content="https://vendestine.com/tcp-server">
 <meta property="og:site_name" content="Blog">
-<meta property="og:description" content="涉及 C++的语法基础">
+<meta property="og:description" content="-----------">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://vendestine.com/img/C++.png">
-<meta property="article:published_time" content="2024-05-25T03:56:09.000Z">
-<meta property="article:modified_time" content="2024-03-12T16:51:05.892Z">
+<meta property="article:published_time" content="2024-07-04T09:58:01.000Z">
+<meta property="article:modified_time" content="2024-03-12T17:16:27.171Z">
 <meta property="article:author" content="Wenzhe Li">
-<meta property="article:tag" content="C">
-<meta property="article:tag" content="C++">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image" content="https://vendestine.com/img/C++.png">
   
   
   
-  <title>C++黑马教程阶段1 学习笔记 - Blog</title>
+  <title>项目开发文档：TCP服务器实现 - Blog</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -277,7 +275,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="C++黑马教程阶段1 学习笔记"></span>
+            <span id="subtitle" data-typed-text="项目开发文档：TCP服务器实现"></span>
           
         </div>
 
@@ -288,8 +286,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2024-05-25 11:56" pubdate>
-          May 25, 2024 am
+        <time datetime="2024-07-04 17:58" pubdate>
+          July 4, 2024 pm
         </time>
       </span>
     
@@ -300,7 +298,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          1.3k words
+          0 words
         
       </span>
     
@@ -311,7 +309,7 @@
         
         
         
-          11 mins
+          1 mins
         
       </span>
     
@@ -364,44 +362,17 @@
     
     <div class="category row nomargin-x">
       <a class="category-item 
-          list-group-item category-item-action col-10 col-md-11 col-xm-11" title="编程语言"
-        id="heading-3bf8a523aea21a3a0f6c53b0f43429bb" role="tab" data-toggle="collapse" href="#collapse-3bf8a523aea21a3a0f6c53b0f43429bb"
+          list-group-item category-item-action col-10 col-md-11 col-xm-11" title="项目"
+        id="heading-31ecc0e65b4cd3e6b12577382bb56d6a" role="tab" data-toggle="collapse" href="#collapse-31ecc0e65b4cd3e6b12577382bb56d6a"
         aria-expanded="true"
       >
-        编程语言
-        <span class="list-group-count">(15)</span>
+        项目
+        <span class="list-group-count">(6)</span>
         <i class="iconfont icon-arrowright"></i>
       </a>
       
-      <div class="category-collapse collapse show" id="collapse-3bf8a523aea21a3a0f6c53b0f43429bb"
-           role="tabpanel" aria-labelledby="heading-3bf8a523aea21a3a0f6c53b0f43429bb">
-        
-        
-          
-          
-  <div class="category-post-list">
-    
-    
-  </div>
-
-          
-  
-    
-    
-    
-    <div class="category-sub row nomargin-x">
-      <a class="category-subitem collapsed
-          list-group-item category-item-action col-10 col-md-11 col-xm-11" title="Assembly"
-        id="heading-d75c45e11c8aeb13494dba59a388a164" role="tab" data-toggle="collapse" href="#collapse-d75c45e11c8aeb13494dba59a388a164"
-        aria-expanded="false"
-      >
-        Assembly
-        <span class="list-group-count">(1)</span>
-        <i class="iconfont icon-arrowright"></i>
-      </a>
-      
-      <div class="category-collapse collapse " id="collapse-d75c45e11c8aeb13494dba59a388a164"
-           role="tabpanel" aria-labelledby="heading-d75c45e11c8aeb13494dba59a388a164">
+      <div class="category-collapse collapse show" id="collapse-31ecc0e65b4cd3e6b12577382bb56d6a"
+           role="tabpanel" aria-labelledby="heading-31ecc0e65b4cd3e6b12577382bb56d6a">
         
         
           
@@ -410,229 +381,60 @@
     
       
       
-        <a href="/x86_att_tutorial" title="x86 AT&amp;T语法 汇编语言入门笔记"
+        <a href="/blog_tutorial" title="博客建站"
            class="list-group-item list-group-item-action
            ">
-          <span class="category-post">x86 AT&amp;T语法 汇编语言入门笔记</span>
-        </a>
-      
-    
-  </div>
-
-        
-      </div>
-    </div>
-  
-    
-    
-    
-    <div class="category-sub row nomargin-x">
-      <a class="category-subitem 
-          list-group-item category-item-action col-10 col-md-11 col-xm-11" title="C-C++"
-        id="heading-ea652620973dedce39320998113820e3" role="tab" data-toggle="collapse" href="#collapse-ea652620973dedce39320998113820e3"
-        aria-expanded="true"
-      >
-        C-C++
-        <span class="list-group-count">(10)</span>
-        <i class="iconfont icon-arrowright"></i>
-      </a>
-      
-      <div class="category-collapse collapse show" id="collapse-ea652620973dedce39320998113820e3"
-           role="tabpanel" aria-labelledby="heading-ea652620973dedce39320998113820e3">
-        
-        
-          
-  <div class="category-post-list">
-    
-    
-      
-      
-        <a href="/c++-primer-p1" title="C++ Primer Part1 - C++基础"
-           class="list-group-item list-group-item-action
-           ">
-          <span class="category-post">C++ Primer Part1 - C++基础</span>
+          <span class="category-post">博客建站</span>
         </a>
       
     
       
       
-        <a href="/c++_basic_tutorial" title="C++快速入门笔记"
-           class="list-group-item list-group-item-action
-           ">
-          <span class="category-post">C++快速入门笔记</span>
-        </a>
-      
-    
-      
-      
-        <a href="/c++-heima-note-level1" title="C++黑马教程阶段1 学习笔记"
+        <a href="/tcp-server" title="项目开发文档：TCP服务器实现"
            class="list-group-item list-group-item-action
            active">
-          <span class="category-post">C++黑马教程阶段1 学习笔记</span>
+          <span class="category-post">项目开发文档：TCP服务器实现</span>
         </a>
       
     
       
       
-        <a href="/c++-heima-note-level2" title="C++黑马教程阶段2 学习笔记"
+        <a href="/heima-speech-system" title="项目开发文档：演讲比赛管理系统"
            class="list-group-item list-group-item-action
            ">
-          <span class="category-post">C++黑马教程阶段2 学习笔记</span>
+          <span class="category-post">项目开发文档：演讲比赛管理系统</span>
         </a>
       
     
       
       
-        <a href="/c++-heima-note-level3" title="C++黑马教程阶段3 学习笔记"
+        <a href="/threadpool" title="项目开发文档：线程池实现"
            class="list-group-item list-group-item-action
            ">
-          <span class="category-post">C++黑马教程阶段3 学习笔记</span>
+          <span class="category-post">项目开发文档：线程池实现</span>
         </a>
       
     
       
       
-        <a href="/c_environment_setting" title="C/C++ 开发环境配置"
+        <a href="/heima-employee-system" title="项目开发文档：职工管理系统"
            class="list-group-item list-group-item-action
            ">
-          <span class="category-post">C/C++ 开发环境配置</span>
+          <span class="category-post">项目开发文档：职工管理系统</span>
         </a>
       
     
       
       
-        <a href="/dabing-linux-3.7-3.10" title="大丙Linux教程 3.7 - 3.10 学习笔记"
+        <a href="/heima-telephone-system" title="项目开发文档：通讯录管理系统"
            class="list-group-item list-group-item-action
            ">
-          <span class="category-post">大丙Linux教程 3.7 - 3.10 学习笔记</span>
-        </a>
-      
-    
-      
-      
-        <a href="/dabing-linux-4.1" title="大丙Linux教程 网络基础 学习笔记"
-           class="list-group-item list-group-item-action
-           ">
-          <span class="category-post">大丙Linux教程 网络基础 学习笔记</span>
-        </a>
-      
-    
-      
-      
-        <a href="/c++_heima_note" title="转载-C++黑马教程"
-           class="list-group-item list-group-item-action
-           ">
-          <span class="category-post">转载-C++黑马教程</span>
-        </a>
-      
-    
-      
-      
-        <a href="/remote-vscode-config" title="配置远程开发环境"
-           class="list-group-item list-group-item-action
-           ">
-          <span class="category-post">配置远程开发环境</span>
+          <span class="category-post">项目开发文档：通讯录管理系统</span>
         </a>
       
     
   </div>
 
-        
-      </div>
-    </div>
-  
-    
-    
-    
-    <div class="category-sub row nomargin-x">
-      <a class="category-subitem collapsed
-          list-group-item category-item-action col-10 col-md-11 col-xm-11" title="Go"
-        id="heading-5f075ae3e1f9d0382bb8c4632991f96f" role="tab" data-toggle="collapse" href="#collapse-5f075ae3e1f9d0382bb8c4632991f96f"
-        aria-expanded="false"
-      >
-        Go
-        <span class="list-group-count">(1)</span>
-        <i class="iconfont icon-arrowright"></i>
-      </a>
-      
-      <div class="category-collapse collapse " id="collapse-5f075ae3e1f9d0382bb8c4632991f96f"
-           role="tabpanel" aria-labelledby="heading-5f075ae3e1f9d0382bb8c4632991f96f">
-        
-        
-          
-  <div class="category-post-list">
-    
-    
-      
-      
-        <a href="/go-basic-tutorial" title="Go入门教程"
-           class="list-group-item list-group-item-action
-           ">
-          <span class="category-post">Go入门教程</span>
-        </a>
-      
-    
-  </div>
-
-        
-      </div>
-    </div>
-  
-    
-    
-    
-    <div class="category-sub row nomargin-x">
-      <a class="category-subitem collapsed
-          list-group-item category-item-action col-10 col-md-11 col-xm-11" title="Python"
-        id="heading-a7f5f35426b927411fc9231b56382173" role="tab" data-toggle="collapse" href="#collapse-a7f5f35426b927411fc9231b56382173"
-        aria-expanded="false"
-      >
-        Python
-        <span class="list-group-count">(3)</span>
-        <i class="iconfont icon-arrowright"></i>
-      </a>
-      
-      <div class="category-collapse collapse " id="collapse-a7f5f35426b927411fc9231b56382173"
-           role="tabpanel" aria-labelledby="heading-a7f5f35426b927411fc9231b56382173">
-        
-        
-          
-  <div class="category-post-list">
-    
-    
-      
-      
-        <a href="/django-note" title="Python-Django开发笔记"
-           class="list-group-item list-group-item-action
-           ">
-          <span class="category-post">Python-Django开发笔记</span>
-        </a>
-      
-    
-      
-      
-        <a href="/flask-note" title="Python-Flask开发笔记"
-           class="list-group-item list-group-item-action
-           ">
-          <span class="category-post">Python-Flask开发笔记</span>
-        </a>
-      
-    
-      
-      
-        <a href="/python-basic" title="Python-基础语法笔记"
-           class="list-group-item list-group-item-action
-           ">
-          <span class="category-post">Python-基础语法笔记</span>
-        </a>
-      
-    
-  </div>
-
-        
-      </div>
-    </div>
-  
         
       </div>
     </div>
@@ -649,64 +451,12 @@
       <div class="container nopadding-x-md" id="board-ctn">
         <div id="board">
           <article class="post-content mx-auto">
-            <h1 id="seo-header">C++黑马教程阶段1 学习笔记</h1>
+            <h1 id="seo-header">项目开发文档：TCP服务器实现</h1>
             
             
               <div class="markdown-body">
                 
-                <blockquote>
-<p>该文章为 学习C++黑马教程阶段1后的 原创笔记<br><a href="/c++_heima_note">教程跳转</a></p>
-</blockquote>
-<h3 id="1-变量，常量"><a href="#1-变量，常量" class="headerlink" title="1. 变量，常量"></a>1. 变量，常量</h3><p><strong>变量</strong> 实际上 就是一块内存空间；而变量名 就是 这块内存空间的名字；我们需要访问到变量的内容（也就是变量值）</p>
-<p><strong>常量</strong> 实际上 就是不可更改的变量； 关于常量，我们需要清楚C++中常用的两种定义常量的方式</p>
-<ol>
-<li>宏定义 #define 常量名 常量值</li>
-<li>const修饰  const 数据类型 常量名 &#x3D; 常量值</li>
-</ol>
-<p>我们一般会把常量名大写，方便更好的区分变量和常量</p>
-<h3 id="2-switch流程结构"><a href="#2-switch流程结构" class="headerlink" title="2. switch流程结构"></a>2. switch流程结构</h3><p>关于switch流程结构，我们很容易忽略它的写法，这里默写一遍</p>
-<figure class="highlight mel"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs mel"><span class="hljs-keyword">switch</span> (<span class="hljs-keyword">expression</span>) &#123;<br>    <span class="hljs-keyword">case</span> result1: <br>        ...<br>        <span class="hljs-keyword">break</span>;<br>    <span class="hljs-keyword">case</span> result2:<br>        ...<br>        <span class="hljs-keyword">break</span><br>    <span class="hljs-keyword">default</span>:<br>        ...<br>        <span class="hljs-keyword">break</span>;<br>&#125;<br></code></pre></td></tr></table></figure>
-
-<p>这里需要注意几个要点：</p>
-<ol>
-<li>expression只能是整形变量 或者 字符型变量</li>
-<li>case里遇到break就会退出流程；case里如果没有break，流程不会退出，还是会继续向下执行</li>
-<li>default中的语句 只有 当上面的所有case都匹配失败时才会执行</li>
-<li>break和default都是可选的，并不是一定要写</li>
-</ol>
-<h3 id="3-数组"><a href="#3-数组" class="headerlink" title="3. 数组"></a>3. 数组</h3><ol>
-<li>数组 就是 一段连续的内存 里面存储着相同数据类型的变量；</li>
-<li>数组名 是 数组首元素地址（我个人习惯性地把数组首元素地址 说成 数组地址）注意数组名是地址常量，而不是变量</li>
-<li>可以用利用sizeof 统计出数组的大小 sizeof(array_name)</li>
-</ol>
-<h3 id="4-函数"><a href="#4-函数" class="headerlink" title="4. 函数"></a>4. 函数</h3><ol>
-<li>函数作用，主要是封装代码，方便复用</li>
-<li>函数调用的时候，我们需要关注实参（也就是知道 需要传入什么），函数定义的时候，我们需要关注形参（也就是知道 用什么类型的变量接收传入的内容）；<br>我们可以模拟一段常用表达：定义函数xxxx，参数的话，它需要传入一个整数，int xxx 接收，还需要一个地址，所以 void * 接收；</li>
-<li>函数声明可以多次，但是定义只有一次，我们在份文件编写程序的时候，经常在头文件里声明函数，然后源文件里定义函数（也叫做实现函数）</li>
-</ol>
-<h3 id="5-指针"><a href="#5-指针" class="headerlink" title="5. 指针"></a>5. 指针</h3><ol>
-<li>访问变量内容有两种方式，第一种是用变量名访问变量内容，第二种则是用指针访问变量内容（指针访问 属于是 一种间接访问）</li>
-<li>指针是一种变量 可以存储地址   在C++里 也可以把指针理解为 一种数据类型（即指针类型，地址类型）</li>
-<li>const修饰指针   注意 const int * p 这种叫常量指针   int * const p 这种叫指针常量<br> 技巧：读法直接从左往右读即可，然后const修饰的是什么就看const紧挨着谁</li>
-<li>指针常用表达：<ul>
-<li>定义了一个a类指针 p（a类指针 &#x3D; 指向a类对象的指针）</li>
-<li>指针p 存储 a类对象的地址</li>
-<li>函数参数，传入一个a类对象地址，用a类指针接收；</li>
-<li>定义一个a类数组指针 p 接收 a类数组首地址（数组指针 &#x3D; 指向数组的指针）</li>
-</ul>
-</li>
-</ol>
-<h3 id="6-struct-结构体"><a href="#6-struct-结构体" class="headerlink" title="6. struct 结构体"></a>6. struct 结构体</h3><ol>
-<li>结构体 就是 自定义数据类型</li>
-<li>结构体常用表达：（其实就是把之前表述的类 改成 结构体就行， 或者直接就把结构体叫做类方便表述）<ul>
-<li>定义一个person结构体对象 a</li>
-<li>定义一个person结构体数组</li>
-<li>person结构体指针 p</li>
-<li>当我们需要传出多个对象，或者传入多个对象但是只能有一个参数时，可以利用结构体传递；把多个对象封装到结构体里；</li>
-</ul>
-</li>
-</ol>
-<link rel="stylesheet" href="/css/spoiler.css" type="text/css"><script src="/js/spoiler.js" type="text/javascript" async></script>
+                <link rel="stylesheet" href="/css/spoiler.css" type="text/css"><script src="/js/spoiler.js" type="text/javascript" async></script>
                 
               </div>
             
@@ -724,15 +474,8 @@
     
       <span class="category-chain">
         
-  <a href="/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/" class="category-chain-item">编程语言</a>
+  <a href="/categories/%E9%A1%B9%E7%9B%AE/" class="category-chain-item">项目</a>
   
-  
-    <span>></span>
-    
-  <a href="/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/C-C/" class="category-chain-item">C-C++</a>
-  
-  
-
   
 
       </span>
@@ -743,15 +486,6 @@
     </div>
   
   
-    <div class="post-meta">
-      <i class="iconfont icon-tags"></i>
-      
-        <a href="/tags/C/" class="print-no-link">#C</a>
-      
-        <a href="/tags/C/" class="print-no-link">#C++</a>
-      
-    </div>
-  
 </div>
 
 
@@ -760,8 +494,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>C++黑马教程阶段1 学习笔记</div>
-      <div>https://vendestine.com/c++-heima-note-level1</div>
+      <div>项目开发文档：TCP服务器实现</div>
+      <div>https://vendestine.com/tcp-server</div>
     </div>
     <div class="license-meta">
       
@@ -773,7 +507,7 @@
       
         <div class="license-meta-item license-meta-date">
           <div>Posted on</div>
-          <div>May 25, 2024</div>
+          <div>July 4, 2024</div>
         </div>
       
       
@@ -805,9 +539,9 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/c++-heima-note-level2" title="C++黑马教程阶段2 学习笔记">
+                      <a href="/heima-telephone-system" title="项目开发文档：通讯录管理系统">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">C++黑马教程阶段2 学习笔记</span>
+                        <span class="hidden-mobile">项目开发文档：通讯录管理系统</span>
                         <span class="visible-mobile">Previous</span>
                       </a>
                     
@@ -815,8 +549,8 @@
                   <article class="post-next col-6">
                     
                     
-                      <a href="/c++-heima-note-level3" title="C++黑马教程阶段3 学习笔记">
-                        <span class="hidden-mobile">C++黑马教程阶段3 学习笔记</span>
+                      <a href="/threadpool" title="项目开发文档：线程池实现">
+                        <span class="hidden-mobile">项目开发文档：线程池实现</span>
                         <span class="visible-mobile">Next</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
