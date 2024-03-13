@@ -16,23 +16,26 @@
   <meta name="author" content="Wenzhe Li">
   <meta name="keywords" content="">
   
-    <meta name="description" content="-----------">
+    <meta name="description" content="包含 单线程&#x2F;进程，多进程并发，多线程并发">
 <meta property="og:type" content="article">
-<meta property="og:title" content="项目开发文档：TCP服务器实现">
-<meta property="og:url" content="https://vendestine.com/tcp-server">
+<meta property="og:title" content="大丙Linux教程 服务器并发 学习笔记">
+<meta property="og:url" content="https://vendestine.com/dabing-linux-4.4">
 <meta property="og:site_name" content="Blog">
-<meta property="og:description" content="-----------">
+<meta property="og:description" content="包含 单线程&#x2F;进程，多进程并发，多线程并发">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://vendestine.com/img/C++.png">
-<meta property="article:published_time" content="2024-07-04T09:58:01.000Z">
-<meta property="article:modified_time" content="2024-03-12T17:16:27.171Z">
+<meta property="article:published_time" content="2024-05-25T03:56:09.000Z">
+<meta property="article:modified_time" content="2024-03-13T17:32:10.883Z">
 <meta property="article:author" content="Wenzhe Li">
+<meta property="article:tag" content="C">
+<meta property="article:tag" content="C++">
+<meta property="article:tag" content="Linux">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image" content="https://vendestine.com/img/C++.png">
   
   
   
-  <title>项目开发文档：TCP服务器实现 - Blog</title>
+  <title>大丙Linux教程 服务器并发 学习笔记 - Blog</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -275,7 +278,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="项目开发文档：TCP服务器实现"></span>
+            <span id="subtitle" data-typed-text="大丙Linux教程 服务器并发 学习笔记"></span>
           
         </div>
 
@@ -286,8 +289,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2024-07-04 17:58" pubdate>
-          July 4, 2024 pm
+        <time datetime="2024-05-25 11:56" pubdate>
+          May 25, 2024 am
         </time>
       </span>
     
@@ -298,7 +301,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          0 words
+          357 words
         
       </span>
     
@@ -309,7 +312,7 @@
         
         
         
-          1 mins
+          3 mins
         
       </span>
     
@@ -362,17 +365,44 @@
     
     <div class="category row nomargin-x">
       <a class="category-item 
-          list-group-item category-item-action col-10 col-md-11 col-xm-11" title="项目"
-        id="heading-31ecc0e65b4cd3e6b12577382bb56d6a" role="tab" data-toggle="collapse" href="#collapse-31ecc0e65b4cd3e6b12577382bb56d6a"
+          list-group-item category-item-action col-10 col-md-11 col-xm-11" title="编程语言"
+        id="heading-3bf8a523aea21a3a0f6c53b0f43429bb" role="tab" data-toggle="collapse" href="#collapse-3bf8a523aea21a3a0f6c53b0f43429bb"
         aria-expanded="true"
       >
-        项目
-        <span class="list-group-count">(6)</span>
+        编程语言
+        <span class="list-group-count">(16)</span>
         <i class="iconfont icon-arrowright"></i>
       </a>
       
-      <div class="category-collapse collapse show" id="collapse-31ecc0e65b4cd3e6b12577382bb56d6a"
-           role="tabpanel" aria-labelledby="heading-31ecc0e65b4cd3e6b12577382bb56d6a">
+      <div class="category-collapse collapse show" id="collapse-3bf8a523aea21a3a0f6c53b0f43429bb"
+           role="tabpanel" aria-labelledby="heading-3bf8a523aea21a3a0f6c53b0f43429bb">
+        
+        
+          
+          
+  <div class="category-post-list">
+    
+    
+  </div>
+
+          
+  
+    
+    
+    
+    <div class="category-sub row nomargin-x">
+      <a class="category-subitem collapsed
+          list-group-item category-item-action col-10 col-md-11 col-xm-11" title="Assembly"
+        id="heading-d75c45e11c8aeb13494dba59a388a164" role="tab" data-toggle="collapse" href="#collapse-d75c45e11c8aeb13494dba59a388a164"
+        aria-expanded="false"
+      >
+        Assembly
+        <span class="list-group-count">(1)</span>
+        <i class="iconfont icon-arrowright"></i>
+      </a>
+      
+      <div class="category-collapse collapse " id="collapse-d75c45e11c8aeb13494dba59a388a164"
+           role="tabpanel" aria-labelledby="heading-d75c45e11c8aeb13494dba59a388a164">
         
         
           
@@ -381,60 +411,238 @@
     
       
       
-        <a href="/blog_tutorial" title="博客建站"
+        <a href="/x86_att_tutorial" title="x86 AT&amp;T语法 汇编语言入门笔记"
            class="list-group-item list-group-item-action
            ">
-          <span class="category-post">博客建站</span>
-        </a>
-      
-    
-      
-      
-        <a href="/tcp-server" title="项目开发文档：TCP服务器实现"
-           class="list-group-item list-group-item-action
-           active">
-          <span class="category-post">项目开发文档：TCP服务器实现</span>
-        </a>
-      
-    
-      
-      
-        <a href="/heima-speech-system" title="项目开发文档：演讲比赛管理系统"
-           class="list-group-item list-group-item-action
-           ">
-          <span class="category-post">项目开发文档：演讲比赛管理系统</span>
-        </a>
-      
-    
-      
-      
-        <a href="/threadpool" title="项目开发文档：线程池实现"
-           class="list-group-item list-group-item-action
-           ">
-          <span class="category-post">项目开发文档：线程池实现</span>
-        </a>
-      
-    
-      
-      
-        <a href="/heima-employee-system" title="项目开发文档：职工管理系统"
-           class="list-group-item list-group-item-action
-           ">
-          <span class="category-post">项目开发文档：职工管理系统</span>
-        </a>
-      
-    
-      
-      
-        <a href="/heima-telephone-system" title="项目开发文档：通讯录管理系统"
-           class="list-group-item list-group-item-action
-           ">
-          <span class="category-post">项目开发文档：通讯录管理系统</span>
+          <span class="category-post">x86 AT&amp;T语法 汇编语言入门笔记</span>
         </a>
       
     
   </div>
 
+        
+      </div>
+    </div>
+  
+    
+    
+    
+    <div class="category-sub row nomargin-x">
+      <a class="category-subitem 
+          list-group-item category-item-action col-10 col-md-11 col-xm-11" title="C-C++"
+        id="heading-ea652620973dedce39320998113820e3" role="tab" data-toggle="collapse" href="#collapse-ea652620973dedce39320998113820e3"
+        aria-expanded="true"
+      >
+        C-C++
+        <span class="list-group-count">(11)</span>
+        <i class="iconfont icon-arrowright"></i>
+      </a>
+      
+      <div class="category-collapse collapse show" id="collapse-ea652620973dedce39320998113820e3"
+           role="tabpanel" aria-labelledby="heading-ea652620973dedce39320998113820e3">
+        
+        
+          
+  <div class="category-post-list">
+    
+    
+      
+      
+        <a href="/c++-primer-p1" title="C++ Primer Part1 - C++基础"
+           class="list-group-item list-group-item-action
+           ">
+          <span class="category-post">C++ Primer Part1 - C++基础</span>
+        </a>
+      
+    
+      
+      
+        <a href="/c++_basic_tutorial" title="C++快速入门笔记"
+           class="list-group-item list-group-item-action
+           ">
+          <span class="category-post">C++快速入门笔记</span>
+        </a>
+      
+    
+      
+      
+        <a href="/c++-heima-note-level1" title="C++黑马教程阶段1 学习笔记"
+           class="list-group-item list-group-item-action
+           ">
+          <span class="category-post">C++黑马教程阶段1 学习笔记</span>
+        </a>
+      
+    
+      
+      
+        <a href="/c++-heima-note-level2" title="C++黑马教程阶段2 学习笔记"
+           class="list-group-item list-group-item-action
+           ">
+          <span class="category-post">C++黑马教程阶段2 学习笔记</span>
+        </a>
+      
+    
+      
+      
+        <a href="/c++-heima-note-level3" title="C++黑马教程阶段3 学习笔记"
+           class="list-group-item list-group-item-action
+           ">
+          <span class="category-post">C++黑马教程阶段3 学习笔记</span>
+        </a>
+      
+    
+      
+      
+        <a href="/c_environment_setting" title="C/C++ 开发环境配置"
+           class="list-group-item list-group-item-action
+           ">
+          <span class="category-post">C/C++ 开发环境配置</span>
+        </a>
+      
+    
+      
+      
+        <a href="/dabing-linux-3.7-3.10" title="大丙Linux教程 3.7 - 3.10 学习笔记"
+           class="list-group-item list-group-item-action
+           ">
+          <span class="category-post">大丙Linux教程 3.7 - 3.10 学习笔记</span>
+        </a>
+      
+    
+      
+      
+        <a href="/dabing-linux-4.4" title="大丙Linux教程 服务器并发 学习笔记"
+           class="list-group-item list-group-item-action
+           active">
+          <span class="category-post">大丙Linux教程 服务器并发 学习笔记</span>
+        </a>
+      
+    
+      
+      
+        <a href="/dabing-linux-4.1" title="大丙Linux教程 网络基础 学习笔记"
+           class="list-group-item list-group-item-action
+           ">
+          <span class="category-post">大丙Linux教程 网络基础 学习笔记</span>
+        </a>
+      
+    
+      
+      
+        <a href="/c++_heima_note" title="转载-C++黑马教程"
+           class="list-group-item list-group-item-action
+           ">
+          <span class="category-post">转载-C++黑马教程</span>
+        </a>
+      
+    
+      
+      
+        <a href="/remote-vscode-config" title="配置远程开发环境"
+           class="list-group-item list-group-item-action
+           ">
+          <span class="category-post">配置远程开发环境</span>
+        </a>
+      
+    
+  </div>
+
+        
+      </div>
+    </div>
+  
+    
+    
+    
+    <div class="category-sub row nomargin-x">
+      <a class="category-subitem collapsed
+          list-group-item category-item-action col-10 col-md-11 col-xm-11" title="Go"
+        id="heading-5f075ae3e1f9d0382bb8c4632991f96f" role="tab" data-toggle="collapse" href="#collapse-5f075ae3e1f9d0382bb8c4632991f96f"
+        aria-expanded="false"
+      >
+        Go
+        <span class="list-group-count">(1)</span>
+        <i class="iconfont icon-arrowright"></i>
+      </a>
+      
+      <div class="category-collapse collapse " id="collapse-5f075ae3e1f9d0382bb8c4632991f96f"
+           role="tabpanel" aria-labelledby="heading-5f075ae3e1f9d0382bb8c4632991f96f">
+        
+        
+          
+  <div class="category-post-list">
+    
+    
+      
+      
+        <a href="/go-basic-tutorial" title="Go入门教程"
+           class="list-group-item list-group-item-action
+           ">
+          <span class="category-post">Go入门教程</span>
+        </a>
+      
+    
+  </div>
+
+        
+      </div>
+    </div>
+  
+    
+    
+    
+    <div class="category-sub row nomargin-x">
+      <a class="category-subitem collapsed
+          list-group-item category-item-action col-10 col-md-11 col-xm-11" title="Python"
+        id="heading-a7f5f35426b927411fc9231b56382173" role="tab" data-toggle="collapse" href="#collapse-a7f5f35426b927411fc9231b56382173"
+        aria-expanded="false"
+      >
+        Python
+        <span class="list-group-count">(3)</span>
+        <i class="iconfont icon-arrowright"></i>
+      </a>
+      
+      <div class="category-collapse collapse " id="collapse-a7f5f35426b927411fc9231b56382173"
+           role="tabpanel" aria-labelledby="heading-a7f5f35426b927411fc9231b56382173">
+        
+        
+          
+  <div class="category-post-list">
+    
+    
+      
+      
+        <a href="/django-note" title="Python-Django开发笔记"
+           class="list-group-item list-group-item-action
+           ">
+          <span class="category-post">Python-Django开发笔记</span>
+        </a>
+      
+    
+      
+      
+        <a href="/flask-note" title="Python-Flask开发笔记"
+           class="list-group-item list-group-item-action
+           ">
+          <span class="category-post">Python-Flask开发笔记</span>
+        </a>
+      
+    
+      
+      
+        <a href="/python-basic" title="Python-基础语法笔记"
+           class="list-group-item list-group-item-action
+           ">
+          <span class="category-post">Python-基础语法笔记</span>
+        </a>
+      
+    
+  </div>
+
+        
+      </div>
+    </div>
+  
         
       </div>
     </div>
@@ -451,12 +659,35 @@
       <div class="container nopadding-x-md" id="board-ctn">
         <div id="board">
           <article class="post-content mx-auto">
-            <h1 id="seo-header">项目开发文档：TCP服务器实现</h1>
+            <h1 id="seo-header">大丙Linux教程 服务器并发 学习笔记</h1>
             
             
               <div class="markdown-body">
                 
-                <link rel="stylesheet" href="/css/spoiler.css" type="text/css"><script src="/js/spoiler.js" type="text/javascript" async></script>
+                <blockquote>
+<p>该文章为阅读 大丙Linux教程-服务器并发 的原创笔记<br><a target="_blank" rel="noopener" href="https://subingwen.cn/linux/socket/">教程跳转</a> <a target="_blank" rel="noopener" href="https://github.com/vendestine/cpp-tool">代码仓库</a></p>
+</blockquote>
+<h3 id="1-单线程-进程"><a href="#1-单线程-进程" class="headerlink" title="1. 单线程&#x2F;进程"></a>1. 单线程&#x2F;进程</h3><ul>
+<li>服务器 三处可能阻塞<ul>
+<li>accept() 没有新的客户端连接，阻塞</li>
+<li>read()&#x2F;recv() 客户端不发数据，读缓冲区为空，阻塞</li>
+<li>wirte()&#x2F;send() 服务器发送数据，写缓冲区满了，阻塞（很少见）</li>
+</ul>
+</li>
+<li>单线程&#x2F;进程 无法解决服务器并发问题，原因：服务器如果是单进程&#x2F;线程，那么就无法同时通信和建立新连接，因为accept()和recv()都是阻塞函数，服务器无法同时进行多个阻塞操作；</li>
+<li>解决方案：<ul>
+<li>使用多线程</li>
+<li>使用多进程</li>
+<li>使用IO多路转接</li>
+<li>使用IO多路转接 + 多线程</li>
+</ul>
+</li>
+</ul>
+<h3 id="2-多线程并发"><a href="#2-多线程并发" class="headerlink" title="2. 多线程并发"></a>2. 多线程并发</h3><ul>
+<li>多线程 栈区不共享，全局区，堆区共享；</li>
+<li>主线程循环调用accept()和新的客户端建立连接，子线程创建出来后用来和新的客户端通信；</li>
+</ul>
+<link rel="stylesheet" href="/css/spoiler.css" type="text/css"><script src="/js/spoiler.js" type="text/javascript" async></script>
                 
               </div>
             
@@ -474,8 +705,15 @@
     
       <span class="category-chain">
         
-  <a href="/categories/%E9%A1%B9%E7%9B%AE/" class="category-chain-item">项目</a>
+  <a href="/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/" class="category-chain-item">编程语言</a>
   
+  
+    <span>></span>
+    
+  <a href="/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/C-C/" class="category-chain-item">C-C++</a>
+  
+  
+
   
 
       </span>
@@ -486,6 +724,17 @@
     </div>
   
   
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/C/" class="print-no-link">#C</a>
+      
+        <a href="/tags/C/" class="print-no-link">#C++</a>
+      
+        <a href="/tags/Linux/" class="print-no-link">#Linux</a>
+      
+    </div>
+  
 </div>
 
 
@@ -494,8 +743,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>项目开发文档：TCP服务器实现</div>
-      <div>https://vendestine.com/tcp-server</div>
+      <div>大丙Linux教程 服务器并发 学习笔记</div>
+      <div>https://vendestine.com/dabing-linux-4.4</div>
     </div>
     <div class="license-meta">
       
@@ -507,7 +756,7 @@
       
         <div class="license-meta-item license-meta-date">
           <div>Posted on</div>
-          <div>July 4, 2024</div>
+          <div>May 25, 2024</div>
         </div>
       
       
@@ -539,9 +788,9 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/heima-telephone-system" title="项目开发文档：通讯录管理系统">
+                      <a href="/dabing-linux-4.1" title="大丙Linux教程 网络基础 学习笔记">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">项目开发文档：通讯录管理系统</span>
+                        <span class="hidden-mobile">大丙Linux教程 网络基础 学习笔记</span>
                         <span class="visible-mobile">Previous</span>
                       </a>
                     
@@ -549,8 +798,8 @@
                   <article class="post-next col-6">
                     
                     
-                      <a href="/threadpool" title="项目开发文档：线程池实现">
-                        <span class="hidden-mobile">项目开发文档：线程池实现</span>
+                      <a href="/docker-basic-tutorial1" title="docker入门教程">
+                        <span class="hidden-mobile">docker入门教程</span>
                         <span class="visible-mobile">Next</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
