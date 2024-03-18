@@ -16,25 +16,26 @@
   <meta name="author" content="Wenzhe Li">
   <meta name="keywords" content="">
   
-    <meta name="description" content="记录python-Flask开发的tutorial，基本流程和遇见的问题">
+    <meta name="description" content="包含 网络IO与IO多路复用 select&#x2F;poll&#x2F;epoll；事件驱动reactor的原理与实现；http服务器实现">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Python-Flask开发笔记">
-<meta property="og:url" content="https://vendestine.com/flask-note">
+<meta property="og:title" content="零声 高性能网络设计专栏 2.1网络编程">
+<meta property="og:url" content="https://vendestine.com/0vocie-linux-2.1">
 <meta property="og:site_name" content="Blog">
-<meta property="og:description" content="记录python-Flask开发的tutorial，基本流程和遇见的问题">
+<meta property="og:description" content="包含 网络IO与IO多路复用 select&#x2F;poll&#x2F;epoll；事件驱动reactor的原理与实现；http服务器实现">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="https://vendestine.com/img/python.png">
-<meta property="article:published_time" content="2022-11-24T09:27:22.000Z">
-<meta property="article:modified_time" content="2023-08-13T09:14:19.827Z">
+<meta property="og:image" content="https://vendestine.com/img/linux.jpg">
+<meta property="article:published_time" content="2024-05-25T03:56:09.000Z">
+<meta property="article:modified_time" content="2024-03-18T17:00:37.069Z">
 <meta property="article:author" content="Wenzhe Li">
-<meta property="article:tag" content="Python">
-<meta property="article:tag" content="Flask">
+<meta property="article:tag" content="C">
+<meta property="article:tag" content="C++">
+<meta property="article:tag" content="Linux">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://vendestine.com/img/python.png">
+<meta name="twitter:image" content="https://vendestine.com/img/linux.jpg">
   
   
   
-  <title>Python-Flask开发笔记 - Blog</title>
+  <title>零声 高性能网络设计专栏 2.1网络编程 - Blog</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -277,7 +278,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="Python-Flask开发笔记"></span>
+            <span id="subtitle" data-typed-text="零声 高性能网络设计专栏 2.1网络编程"></span>
           
         </div>
 
@@ -288,8 +289,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2022-11-24 17:27" pubdate>
-          November 24, 2022 pm
+        <time datetime="2024-05-25 11:56" pubdate>
+          May 25, 2024 am
         </time>
       </span>
     
@@ -300,7 +301,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          1.2k words
+          3.7k words
         
       </span>
     
@@ -311,7 +312,7 @@
         
         
         
-          11 mins
+          31 mins
         
       </span>
     
@@ -427,17 +428,17 @@
     
     
     <div class="category-sub row nomargin-x">
-      <a class="category-subitem collapsed
+      <a class="category-subitem 
           list-group-item category-item-action col-10 col-md-11 col-xm-11" title="C-C++"
         id="heading-ea652620973dedce39320998113820e3" role="tab" data-toggle="collapse" href="#collapse-ea652620973dedce39320998113820e3"
-        aria-expanded="false"
+        aria-expanded="true"
       >
         C-C++
         <span class="list-group-count">(15)</span>
         <i class="iconfont icon-arrowright"></i>
       </a>
       
-      <div class="category-collapse collapse " id="collapse-ea652620973dedce39320998113820e3"
+      <div class="category-collapse collapse show" id="collapse-ea652620973dedce39320998113820e3"
            role="tabpanel" aria-labelledby="heading-ea652620973dedce39320998113820e3">
         
         
@@ -566,7 +567,7 @@
       
         <a href="/0vocie-linux-2.1" title="零声 高性能网络设计专栏 2.1网络编程"
            class="list-group-item list-group-item-action
-           ">
+           active">
           <span class="category-post">零声 高性能网络设计专栏 2.1网络编程</span>
         </a>
       
@@ -627,17 +628,17 @@
     
     
     <div class="category-sub row nomargin-x">
-      <a class="category-subitem 
+      <a class="category-subitem collapsed
           list-group-item category-item-action col-10 col-md-11 col-xm-11" title="Python"
         id="heading-a7f5f35426b927411fc9231b56382173" role="tab" data-toggle="collapse" href="#collapse-a7f5f35426b927411fc9231b56382173"
-        aria-expanded="true"
+        aria-expanded="false"
       >
         Python
         <span class="list-group-count">(3)</span>
         <i class="iconfont icon-arrowright"></i>
       </a>
       
-      <div class="category-collapse collapse show" id="collapse-a7f5f35426b927411fc9231b56382173"
+      <div class="category-collapse collapse " id="collapse-a7f5f35426b927411fc9231b56382173"
            role="tabpanel" aria-labelledby="heading-a7f5f35426b927411fc9231b56382173">
         
         
@@ -658,7 +659,7 @@
       
         <a href="/flask-note" title="Python-Flask开发笔记"
            class="list-group-item list-group-item-action
-           active">
+           ">
           <span class="category-post">Python-Flask开发笔记</span>
         </a>
       
@@ -694,36 +695,172 @@
       <div class="container nopadding-x-md" id="board-ctn">
         <div id="board">
           <article class="post-content mx-auto">
-            <h1 id="seo-header">Python-Flask开发笔记</h1>
+            <h1 id="seo-header">零声 高性能网络设计专栏 2.1网络编程</h1>
             
             
               <div class="markdown-body">
                 
-                <h2 id="Flask介绍"><a href="#Flask介绍" class="headerlink" title="Flask介绍"></a>Flask介绍</h2><p>Flask 是典型的微框架，作为 Web 框架来说，它仅保留了核心功能：<strong>请求响应处理和模板渲染</strong>。这两类功能分别由 Werkzeug（WSGI 工具库）完成和 Jinja（模板渲染库）完成</p>
-<h2 id="demo分析"><a href="#demo分析" class="headerlink" title="demo分析"></a>demo分析</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">from</span> flask <span class="hljs-keyword">import</span> Flask<br><br>app = Flask(__name__)<br><br><span class="hljs-meta">@app.route(<span class="hljs-params"><span class="hljs-string">&#x27;/&#x27;</span></span>)</span><br><span class="hljs-keyword">def</span> <span class="hljs-title function_">hello</span>():<br>    <span class="hljs-keyword">return</span> <span class="hljs-string">&#x27;Welcome to My Watchlist!&#x27;</span><br></code></pre></td></tr></table></figure>
-
-<ol>
-<li>首先我们从 flask 包导入 Flask 类，通过实例化这个类，创建一个程序对象 app：</li>
-<li>然后定义一个视图函数，其实就是<strong>请求处理函数</strong>，它可以处理请求。</li>
-<li>配置路由：我们使用 app.route() 装饰器来为这个函数绑定对应的 URL，当用户在浏览器访问这个 URL 的时候，就会触发这个函数，获取返回值，并把返回值显示到浏览器窗口</li>
+                <h3 id="大纲解析"><a href="#大纲解析" class="headerlink" title="大纲解析"></a>大纲解析</h3><ul>
+<li>精进基石            &#x2F;&#x2F; 死的东西，很多年不会变<ul>
+<li><ol>
+<li>数据结构     &#x2F;&#x2F;重点关注强查找结构，哈希，红黑树，b树;</li>
 </ol>
-<p>整个请求的处理过程如下所示：</p>
-<ol>
-<li>当用户在浏览器地址栏访问这个地址，在这里即 <a target="_blank" rel="noopener" href="http://localhost:5000/">http://localhost:5000/</a></li>
-<li>服务器解析请求，发现请求 URL 匹配的 URL 规则是 &#x2F;，因此调用对应的处理函数 hello()</li>
-<li>获取 hello() 函数的返回值，处理后返回给客户端（浏览器）</li>
-<li>浏览器接受响应，将其显示在窗口上</li>
+</li>
+<li><ol start="2">
+<li>设计模式     &#x2F;&#x2F;代码量不够，不要碰;</li>
 </ol>
-<h2 id="模板"><a href="#模板" class="headerlink" title="模板"></a>模板</h2><p>在一般的 Web 程序里，访问一个地址通常会返回一个包含各类信息的 HTML 页面。因为我们的程序是动态的，页面中的某些信息需要根据不同的情况来进行调整，比如对登录和未登录用户显示不同的信息，所以页面需要在用户访问时根据程序逻辑动态生成。<br>我们把包含变量和运算逻辑的 HTML 或其他格式的文本叫做<strong>模板</strong>，执行这些变量替换和逻辑计算工作的过程被称为<strong>渲染</strong>，这个工作由我们这一章要学习使用的模板渲染引擎——Jinja2 来完成。</p>
-<p>按照默认的设置，Flask 会从程序实例所在模块同级目录的 templates 文件夹中寻找模板</p>
-<h3 id="模板基本语法"><a href="#模板基本语法" class="headerlink" title="模板基本语法"></a>模板基本语法</h3><p>在模板里，你需要添加特定的定界符将 Jinja2 语句和变量标记出来，下面是三种常用的定界符：</p>
-<figure class="highlight dust"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs dust"><span class="hljs-template-variable">&#123;&#123; ... &#125;</span><span class="language-xml">&#125; 用来标记变量。</span><br><span class="language-xml"></span><span class="hljs-template-variable">&#123;% ... %&#125;</span><span class="language-xml"> 用来标记语句，比如 if 语句，for 语句等。</span><br><span class="language-xml"></span><span class="hljs-template-tag">&#123;# <span class="hljs-name">...</span> #&#125;</span><span class="language-xml"> 用来写注释。</span><br><span class="language-xml"></span><br><span class="language-xml">movie.title = movie[&#x27;title&#x27;]</span><br><span class="language-xml">movies|length = len(movies)</span><br></code></pre></td></tr></table></figure>
-
-<h3 id="渲染模板"><a href="#渲染模板" class="headerlink" title="渲染模板"></a>渲染模板</h3><p>返回渲染好的模板作为响应</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">from</span> flask <span class="hljs-keyword">import</span> Flask, render_template<br><br><span class="hljs-comment"># ...</span><br><br><span class="hljs-meta">@app.route(<span class="hljs-params"><span class="hljs-string">&#x27;/&#x27;</span></span>)</span><br><span class="hljs-keyword">def</span> <span class="hljs-title function_">index</span>():<br>    <span class="hljs-keyword">return</span> render_template(<span class="hljs-string">&#x27;index.html&#x27;</span>, name=name, movies=movies)<br></code></pre></td></tr></table></figure>
-
-<p>render_template() 函数可以把模板渲染出来，参数为模板文件名，和模板内部使用的变量作为关键字参数</p>
-<link rel="stylesheet" href="/css/spoiler.css" type="text/css"><script src="/js/spoiler.js" type="text/javascript" async></script>
+</li>
+</ul>
+</li>
+<li>网络               &#x2F;&#x2F;制作一些可复用的库）<ul>
+<li>网络编程</li>
+<li>网络原理</li>
+<li>协程库</li>
+<li>tcp&#x2F;ip协议栈   &#x2F;&#x2F;基于dpdk</li>
+<li>io_uring</li>
+</ul>
+</li>
+<li>基础组件（项目）    &#x2F;&#x2F;不是独立组件, 内嵌在我们的代码里，20个基础组件的实现 <ul>
+<li><ol>
+<li>池式结构    &#x2F;&#x2F;线程池，连接池，内存池</li>
+</ol>
+</li>
+<li><ol start="2">
+<li>高性能组件</li>
+</ol>
+</li>
+<li><ol start="3">
+<li>开源组件</li>
+</ol>
+</li>
+<li><ol start="4">
+<li>自己可以拓展4-5个</li>
+</ol>
+</li>
+</ul>
+</li>
+<li>中间件             &#x2F;&#x2F;独立的组件 和我们的代码是平行的<ul>
+<li>mysql，redis，nginx 面向业务开发</li>
+<li>单独的webserver只包含网络和基础组件部分</li>
+</ul>
+</li>
+<li>开源框架</li>
+</ul>
+<h3 id="学习方法"><a href="#学习方法" class="headerlink" title="学习方法"></a>学习方法</h3><ol>
+<li>做笔记，坚持写文章</li>
+<li>40%学习，40%总结，30%沟通；</li>
+</ol>
+<h3 id="开发环境"><a href="#开发环境" class="headerlink" title="开发环境"></a>开发环境</h3><p>windows + vmware + linux server + samba + Xshell</p>
+<ol>
+<li>安装虚拟机vmware</li>
+<li>安装操作系统 Linux server</li>
+<li>安装共享文件配置samba</li>
+<li>选择编辑器 VScode&#x2F;source insight</li>
+<li>ssh操作终端软件 Xshell&#x2F;putty</li>
+<li>gcc&#x2F;g++</li>
+</ol>
+<h3 id="2-1-1-网络IO"><a href="#2-1-1-网络IO" class="headerlink" title="2.1.1 网络IO"></a>2.1.1 网络IO</h3><ul>
+<li><p>命令1：查看端口的状态 <code>netstat -anop | grep 2048</code></p>
+</li>
+<li><p>命令2：查看stdin，stdout, stderr对应的文件描述符 <code>ls /dev/std* -l</code></p>
+</li>
+<li><p>TCP迁移状态：ESTABLISHED, LISTEN<br>服务器端listen()函数后，客户端发送请求后，就可以：<br>  1. 建立连接：不需要应用层代码显示参与，状态ESTABLISHED；<br>  2. 客户端可以发送数据，服务器端可以接收数据accept()创立一个IO，处理连接请求；</p>
+</li>
+<li><p>Q1：为什么accept阻塞后，客户端连接后，服务端没有阻塞在getchar()<br>Ans: 因为用户可能在阻塞时期 键盘输入回车 stdin里缓存了回车，所以accept后getchar()直接拿到回车，结束；</p>
+</li>
+<li><p>概念等同；io &#x3D; fd &#x3D; socket</p>
+</li>
+<li><p>Q2: fd什么时候回收<br>Ans: fd close后回收，fd对应的网络连接由网络协议栈自己维护<br>shutdown关闭的是业务流，关闭双工流中的一个；</p>
+</li>
+<li><p>1个clientfd对应一个客户端，也就是一路io对用一个客户端；</p>
+</li>
+<li><p>Q3: bind: Address already in use, TIME_WAIT状态原因？<br>Ans: TIME_WAIT是由服务端主动断开所产生的状态；所以我们尽量是客户端先断开连接; <code>如果连接都没有建立，主动断开服务端不会TIME_WAIT</code></p>
+</li>
+<li><p>服务端返回数据，是指定大小；</p>
+</li>
+<li><p>服务端调用一次recv(), 只能接收一次，为了将发送的数据全部接收到，我们一般循环接收；</p>
+</li>
+<li><p>在使用网络调试助手的时候，发过去的数据如果没有换行回车的话，服务端回声返回的数据自然也是没有的；&#x2F;r&#x2F;n占两个字符，加了后发送，返回就有换行回车了；</p>
+</li>
+<li><p>我们在循环接收的时候，没有处理close，所以客户端断开连接后，会死循环；怎么解决呢，判断客户端是否为断开状态，recv返回0代表对端断开；</p>
+</li>
+<li><p>Q4：为什么会出现CLOSE_WAIT状态；<br>Ans: 如果客户端断开连接，服务端因为阻塞还没有close fd，那么就会出现CLOSE_WAIT；</p>
+</li>
+<li><p>多个客户端连接一个server，没有处理并发的情况下，每个客户端肯定还是可以建立连接（可以连接，可以发数据，但是不能收数据）；</p>
+</li>
+<li><p>解决方案：多线程，IO多路复用，线程池；</p>
+</li>
+<li><p>多线程解决并发，就是每来一个连接建立一个线程；1w –&gt; 1w线程；1w同时在线 -&gt; 1w线程</p>
+</li>
+<li><p>Q5: 为什么服务器端多线程的代码在客户端断开连接后，getchar()在输入后仍然阻塞，没有退出呢</p>
+<p>Ans: 因为一个客户端退出后，他只是完成了对应的子线程，主线程还是在while循环里，阻塞在accept()上，没有执行到getchar()的位置；<br>这样做是合理的，因为之前是<strong>只连接一个客户端，客户端退出我们服务端也退出</strong>，<br>但是如果是多个客户端，我们其中一个客户端退出，服务端不应该退出；服务端应该在所有的客户端退出后，退出；<br>但实际上客户端的数量我们并不知道，再加上可能客户端可以反复连接，所以我们<strong>并发的情况下服务端无法确定退出条件</strong>；<br>那么服务器端就应该在<strong>while循环里阻塞在accept()上</strong>，然后由我们自己<strong>手动断开连接</strong>，如果<strong>所有客户端退出，服务器端再自己断开不会time_wait</strong><br>如果还有客户端未退出，服务器端先断开连接，还是会造成time_wait要注意！</p>
+</li>
+<li><p>C&#x2F;C++错误：</p>
+<ol>
+<li>预编译错误   和宏有关，注释</li>
+<li>编译错误     未定义</li>
+<li>链接错误     库没有链接进来</li>
+</ol>
+</li>
+<li><p>有没有办法一个线程处理并发呢，那就是IO多路复用；</p>
+</li>
+</ul>
+<h3 id="2-1-2-IO多路复用和reactor模型"><a href="#2-1-2-IO多路复用和reactor模型" class="headerlink" title="2.1.2 IO多路复用和reactor模型"></a>2.1.2 IO多路复用和reactor模型</h3><h4 id="select"><a href="#select" class="headerlink" title="select"></a>select</h4><ul>
+<li>Linux标准线程 8M一个，1000个线程，那么就要8G；</li>
+<li>select就像一个秘书，管理多个IO，然后把就绪的IO传出；</li>
+<li>rset（检测io是否可读的io集合）, wrest（检测io是否可写的io集合）；</li>
+<li>要判断IO是否可读or可写，可读才能接收，可写才能send；先知道IO的状态，再做具体的动作</li>
+<li>所有IO都加入rset，wset，发生读事件（io可读了） 或者 发生写事件（io可写了）都会返回；只要有事件就会返回，没有事件的话等待timeout返回；</li>
+<li>select使用时，IO数量 &lt; 1024可以用select；</li>
+<li>select的时候 集合是内核一部份，用户一部分，我们需要copy进去；拷贝的做判断 原来的做设置</li>
+<li>select阻塞的时候，当有事件发生的时候（连接来了or接收数据就是发生读事件，准备发数据就是发生写事件），select返回；</li>
+<li>nready是发生事件的IO个数 也是已就绪文件描述符的个数；事件个数 &#x3D; 就绪io个数</li>
+<li>服务端断开，io close，fd_set里也要清除；</li>
+<li>select缺点：<ol>
+<li>参数较多，每个集合需要单独维护，操作麻烦；</li>
+<li>每次调用，都需要把待检测的io集合copy到内核，然后传出到用户区；<br>  会产生很多无效拷贝：假设有十万个IO，set里需要放10万个，活跃度很低（每一次检测，事件很少可能只有几百个），拷贝了很多无效IO，对性能影响很大</li>
+<li>对IO数量有限制；<br>性能缺陷：</li>
+<li>copy</li>
+<li>每次需要遍历IO集合，而返回就绪集合；（类似，找一个秘书管理找人，但是他找每个人挨个问，效率很低）</li>
+</ol>
+</li>
+</ul>
+<h4 id="poll"><a href="#poll" class="headerlink" title="poll"></a>poll</h4><ul>
+<li>原理和poll差不多，写法有一定区别；poll把select的三个参数（检测读事件的io集合，检测写事件的io集合，检测异常事件的io集合）放在了一起，变成了一个参数（检测事件的io集合）；</li>
+<li>pollfd里的参数，fd就是io，events（注册事件，IO监视哪些事件），revents（返回事件，IO实际发生了哪些事件）</li>
+</ul>
+<h4 id="epoll"><a href="#epoll" class="headerlink" title="epoll"></a>epoll</h4><ul>
+<li>大量IO管理首选！epoll的存在让linux从设备端发展到了服务器端；epoll是内核里创建实例；</li>
+<li>三个函数管理，epoll_create(), epoll_ctl(), epoll_wait()</li>
+<li>select和poll就类比快递员，它们挨家挨户去敲门；而epoll就是引入了一个快递箱，快递员和用户都只和快递箱接触；</li>
+<li>epoll_create()：安装了快递箱；epoll_ctl(); 住户的变动；epoll_wait 快递员多少时间去快递箱</li>
+<li>epoll_event 参数 events（注册事件，IO监视什么事件）data（用户的一些参数）</li>
+<li>epoll实例在内核，所以只需要拷贝一次；</li>
+<li>epoll没有mmap</li>
+<li>epoll还有水平触发，和边沿触发；<ul>
+<li>水平触发 LT：有数据就触发（只要有就触发） 应用：分包，利用状态机分多次读</li>
+<li>边沿触发 ET：来数据就触发一次；（从无到有就触发）应用：大文件传输，一次性读完</li>
+</ul>
+</li>
+<li>epoll里两类fd：<ul>
+<li>io角度：listen fd：accpet(); client fd: recv(), send()</li>
+<li>event角度：EPOLLIN &#x2F; EPOLLOUT</li>
+</ul>
+</li>
+<li>Q1：epoll有没有mmap？<br>Q2: epoll是否线程安全？</li>
+</ul>
+<h4 id="reactor"><a href="#reactor" class="headerlink" title="reactor"></a>reactor</h4><ul>
+<li>底层也是epoll，只是将面向io的写法，改为了面向事件的写法；</li>
+<li>reactor里放的是connection (fd， buffer，callback) 三者一一对应；</li>
+<li>reactor在水平触发模式的问题<ol>
+<li>如果buffer小了，我们服务端buffer如果只是回发无所谓，但是如果buffer需要拿到完整数据解析的话，就不是很方便；</li>
+<li>考虑让buffer变大，但它是在栈区，每次会释放；所以我们无法通过一个buffer直接拿到完整的数据；再次考虑定义在全局区</li>
+<li>考虑定义在全局区后，可以通过一个buffer拿到完整数据了，但是多客户端连接后，全局区的数据就会被影响了；</li>
+<li>最终考虑 对每个连接定义一个 buffer；定义一个结构体 struct conn_item, 包含fd，buffer，idx; 这样buffer可以拼接，然后每个连接都有自己的buffer；</li>
+</ol>
+</li>
+</ul>
+<h3 id="2-1-3"><a href="#2-1-3" class="headerlink" title="2.1.3"></a>2.1.3</h3><link rel="stylesheet" href="/css/spoiler.css" type="text/css"><script src="/js/spoiler.js" type="text/javascript" async></script>
                 
               </div>
             
@@ -746,7 +883,7 @@
   
     <span>></span>
     
-  <a href="/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/Python/" class="category-chain-item">Python</a>
+  <a href="/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/C-C/" class="category-chain-item">C-C++</a>
   
   
 
@@ -763,9 +900,11 @@
     <div class="post-meta">
       <i class="iconfont icon-tags"></i>
       
-        <a href="/tags/Python/" class="print-no-link">#Python</a>
+        <a href="/tags/C/" class="print-no-link">#C</a>
       
-        <a href="/tags/Flask/" class="print-no-link">#Flask</a>
+        <a href="/tags/C/" class="print-no-link">#C++</a>
+      
+        <a href="/tags/Linux/" class="print-no-link">#Linux</a>
       
     </div>
   
@@ -777,8 +916,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>Python-Flask开发笔记</div>
-      <div>https://vendestine.com/flask-note</div>
+      <div>零声 高性能网络设计专栏 2.1网络编程</div>
+      <div>https://vendestine.com/0vocie-linux-2.1</div>
     </div>
     <div class="license-meta">
       
@@ -790,7 +929,7 @@
       
         <div class="license-meta-item license-meta-date">
           <div>Posted on</div>
-          <div>November 24, 2022</div>
+          <div>May 25, 2024</div>
         </div>
       
       
@@ -822,9 +961,9 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/leetcode-1-100" title="LeetCode快速刷题">
+                      <a href="/threadpool" title="项目开发文档：线程池实现">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">LeetCode快速刷题</span>
+                        <span class="hidden-mobile">项目开发文档：线程池实现</span>
                         <span class="visible-mobile">Previous</span>
                       </a>
                     
@@ -832,8 +971,8 @@
                   <article class="post-next col-6">
                     
                     
-                      <a href="/django-note" title="Python-Django开发笔记">
-                        <span class="hidden-mobile">Python-Django开发笔记</span>
+                      <a href="/0vocie-linux-2.2" title="零声 高性能网络设计专栏 2.1网络编程">
+                        <span class="hidden-mobile">零声 高性能网络设计专栏 2.1网络编程</span>
                         <span class="visible-mobile">Next</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>

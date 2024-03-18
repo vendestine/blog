@@ -16,25 +16,26 @@
   <meta name="author" content="Wenzhe Li">
   <meta name="keywords" content="">
   
-    <meta name="description" content="记录python-Flask开发的tutorial，基本流程和遇见的问题">
+    <meta name="description" content="包含 网络IO与IO多路复用 select&#x2F;poll&#x2F;epoll；事件驱动reactor的原理与实现；http服务器实现">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Python-Flask开发笔记">
-<meta property="og:url" content="https://vendestine.com/flask-note">
+<meta property="og:title" content="零声 高性能网络设计专栏 2.1网络编程">
+<meta property="og:url" content="https://vendestine.com/0vocie-linux-2.2">
 <meta property="og:site_name" content="Blog">
-<meta property="og:description" content="记录python-Flask开发的tutorial，基本流程和遇见的问题">
+<meta property="og:description" content="包含 网络IO与IO多路复用 select&#x2F;poll&#x2F;epoll；事件驱动reactor的原理与实现；http服务器实现">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="https://vendestine.com/img/python.png">
-<meta property="article:published_time" content="2022-11-24T09:27:22.000Z">
-<meta property="article:modified_time" content="2023-08-13T09:14:19.827Z">
+<meta property="og:image" content="https://vendestine.com/img/linux.jpg">
+<meta property="article:published_time" content="2024-05-25T03:56:09.000Z">
+<meta property="article:modified_time" content="2024-03-18T17:40:49.387Z">
 <meta property="article:author" content="Wenzhe Li">
-<meta property="article:tag" content="Python">
-<meta property="article:tag" content="Flask">
+<meta property="article:tag" content="C">
+<meta property="article:tag" content="C++">
+<meta property="article:tag" content="Linux">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://vendestine.com/img/python.png">
+<meta name="twitter:image" content="https://vendestine.com/img/linux.jpg">
   
   
   
-  <title>Python-Flask开发笔记 - Blog</title>
+  <title>零声 高性能网络设计专栏 2.1网络编程 - Blog</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -277,7 +278,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="Python-Flask开发笔记"></span>
+            <span id="subtitle" data-typed-text="零声 高性能网络设计专栏 2.1网络编程"></span>
           
         </div>
 
@@ -288,8 +289,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2022-11-24 17:27" pubdate>
-          November 24, 2022 pm
+        <time datetime="2024-05-25 11:56" pubdate>
+          May 25, 2024 am
         </time>
       </span>
     
@@ -300,7 +301,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          1.2k words
+          153 words
         
       </span>
     
@@ -311,7 +312,7 @@
         
         
         
-          11 mins
+          2 mins
         
       </span>
     
@@ -427,17 +428,17 @@
     
     
     <div class="category-sub row nomargin-x">
-      <a class="category-subitem collapsed
+      <a class="category-subitem 
           list-group-item category-item-action col-10 col-md-11 col-xm-11" title="C-C++"
         id="heading-ea652620973dedce39320998113820e3" role="tab" data-toggle="collapse" href="#collapse-ea652620973dedce39320998113820e3"
-        aria-expanded="false"
+        aria-expanded="true"
       >
         C-C++
         <span class="list-group-count">(15)</span>
         <i class="iconfont icon-arrowright"></i>
       </a>
       
-      <div class="category-collapse collapse " id="collapse-ea652620973dedce39320998113820e3"
+      <div class="category-collapse collapse show" id="collapse-ea652620973dedce39320998113820e3"
            role="tabpanel" aria-labelledby="heading-ea652620973dedce39320998113820e3">
         
         
@@ -575,7 +576,7 @@
       
         <a href="/0vocie-linux-2.2" title="零声 高性能网络设计专栏 2.1网络编程"
            class="list-group-item list-group-item-action
-           ">
+           active">
           <span class="category-post">零声 高性能网络设计专栏 2.1网络编程</span>
         </a>
       
@@ -627,17 +628,17 @@
     
     
     <div class="category-sub row nomargin-x">
-      <a class="category-subitem 
+      <a class="category-subitem collapsed
           list-group-item category-item-action col-10 col-md-11 col-xm-11" title="Python"
         id="heading-a7f5f35426b927411fc9231b56382173" role="tab" data-toggle="collapse" href="#collapse-a7f5f35426b927411fc9231b56382173"
-        aria-expanded="true"
+        aria-expanded="false"
       >
         Python
         <span class="list-group-count">(3)</span>
         <i class="iconfont icon-arrowright"></i>
       </a>
       
-      <div class="category-collapse collapse show" id="collapse-a7f5f35426b927411fc9231b56382173"
+      <div class="category-collapse collapse " id="collapse-a7f5f35426b927411fc9231b56382173"
            role="tabpanel" aria-labelledby="heading-a7f5f35426b927411fc9231b56382173">
         
         
@@ -658,7 +659,7 @@
       
         <a href="/flask-note" title="Python-Flask开发笔记"
            class="list-group-item list-group-item-action
-           active">
+           ">
           <span class="category-post">Python-Flask开发笔记</span>
         </a>
       
@@ -694,35 +695,17 @@
       <div class="container nopadding-x-md" id="board-ctn">
         <div id="board">
           <article class="post-content mx-auto">
-            <h1 id="seo-header">Python-Flask开发笔记</h1>
+            <h1 id="seo-header">零声 高性能网络设计专栏 2.1网络编程</h1>
             
             
               <div class="markdown-body">
                 
-                <h2 id="Flask介绍"><a href="#Flask介绍" class="headerlink" title="Flask介绍"></a>Flask介绍</h2><p>Flask 是典型的微框架，作为 Web 框架来说，它仅保留了核心功能：<strong>请求响应处理和模板渲染</strong>。这两类功能分别由 Werkzeug（WSGI 工具库）完成和 Jinja（模板渲染库）完成</p>
-<h2 id="demo分析"><a href="#demo分析" class="headerlink" title="demo分析"></a>demo分析</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">from</span> flask <span class="hljs-keyword">import</span> Flask<br><br>app = Flask(__name__)<br><br><span class="hljs-meta">@app.route(<span class="hljs-params"><span class="hljs-string">&#x27;/&#x27;</span></span>)</span><br><span class="hljs-keyword">def</span> <span class="hljs-title function_">hello</span>():<br>    <span class="hljs-keyword">return</span> <span class="hljs-string">&#x27;Welcome to My Watchlist!&#x27;</span><br></code></pre></td></tr></table></figure>
-
-<ol>
-<li>首先我们从 flask 包导入 Flask 类，通过实例化这个类，创建一个程序对象 app：</li>
-<li>然后定义一个视图函数，其实就是<strong>请求处理函数</strong>，它可以处理请求。</li>
-<li>配置路由：我们使用 app.route() 装饰器来为这个函数绑定对应的 URL，当用户在浏览器访问这个 URL 的时候，就会触发这个函数，获取返回值，并把返回值显示到浏览器窗口</li>
-</ol>
-<p>整个请求的处理过程如下所示：</p>
-<ol>
-<li>当用户在浏览器地址栏访问这个地址，在这里即 <a target="_blank" rel="noopener" href="http://localhost:5000/">http://localhost:5000/</a></li>
-<li>服务器解析请求，发现请求 URL 匹配的 URL 规则是 &#x2F;，因此调用对应的处理函数 hello()</li>
-<li>获取 hello() 函数的返回值，处理后返回给客户端（浏览器）</li>
-<li>浏览器接受响应，将其显示在窗口上</li>
-</ol>
-<h2 id="模板"><a href="#模板" class="headerlink" title="模板"></a>模板</h2><p>在一般的 Web 程序里，访问一个地址通常会返回一个包含各类信息的 HTML 页面。因为我们的程序是动态的，页面中的某些信息需要根据不同的情况来进行调整，比如对登录和未登录用户显示不同的信息，所以页面需要在用户访问时根据程序逻辑动态生成。<br>我们把包含变量和运算逻辑的 HTML 或其他格式的文本叫做<strong>模板</strong>，执行这些变量替换和逻辑计算工作的过程被称为<strong>渲染</strong>，这个工作由我们这一章要学习使用的模板渲染引擎——Jinja2 来完成。</p>
-<p>按照默认的设置，Flask 会从程序实例所在模块同级目录的 templates 文件夹中寻找模板</p>
-<h3 id="模板基本语法"><a href="#模板基本语法" class="headerlink" title="模板基本语法"></a>模板基本语法</h3><p>在模板里，你需要添加特定的定界符将 Jinja2 语句和变量标记出来，下面是三种常用的定界符：</p>
-<figure class="highlight dust"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs dust"><span class="hljs-template-variable">&#123;&#123; ... &#125;</span><span class="language-xml">&#125; 用来标记变量。</span><br><span class="language-xml"></span><span class="hljs-template-variable">&#123;% ... %&#125;</span><span class="language-xml"> 用来标记语句，比如 if 语句，for 语句等。</span><br><span class="language-xml"></span><span class="hljs-template-tag">&#123;# <span class="hljs-name">...</span> #&#125;</span><span class="language-xml"> 用来写注释。</span><br><span class="language-xml"></span><br><span class="language-xml">movie.title = movie[&#x27;title&#x27;]</span><br><span class="language-xml">movies|length = len(movies)</span><br></code></pre></td></tr></table></figure>
-
-<h3 id="渲染模板"><a href="#渲染模板" class="headerlink" title="渲染模板"></a>渲染模板</h3><p>返回渲染好的模板作为响应</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">from</span> flask <span class="hljs-keyword">import</span> Flask, render_template<br><br><span class="hljs-comment"># ...</span><br><br><span class="hljs-meta">@app.route(<span class="hljs-params"><span class="hljs-string">&#x27;/&#x27;</span></span>)</span><br><span class="hljs-keyword">def</span> <span class="hljs-title function_">index</span>():<br>    <span class="hljs-keyword">return</span> render_template(<span class="hljs-string">&#x27;index.html&#x27;</span>, name=name, movies=movies)<br></code></pre></td></tr></table></figure>
-
-<p>render_template() 函数可以把模板渲染出来，参数为模板文件名，和模板内部使用的变量作为关键字参数</p>
+                <h3 id="2-2-1"><a href="#2-2-1" class="headerlink" title="2.2.1"></a>2.2.1</h3><ul>
+<li>百万并发概念：能同时承载百万个客户端；只考虑网络层，承载的是连接</li>
+<li>考虑业务层的话，承载的是请求（登录，发送等）</li>
+<li>socket是插槽，实际就是两个元素，fd -&gt; tcb(tcp control block)</li>
+<li><h2 id="error对应原因-cannot-assign-requested-address-原因是tcb五元不足"><a href="#error对应原因-cannot-assign-requested-address-原因是tcb五元不足" class="headerlink" title="error对应原因  - cannot assign requested address 原因是tcb五元不足"></a>error对应原因<br>  - cannot assign requested address 原因是tcb五元不足</h2></li>
+</ul>
 <link rel="stylesheet" href="/css/spoiler.css" type="text/css"><script src="/js/spoiler.js" type="text/javascript" async></script>
                 
               </div>
@@ -746,7 +729,7 @@
   
     <span>></span>
     
-  <a href="/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/Python/" class="category-chain-item">Python</a>
+  <a href="/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/C-C/" class="category-chain-item">C-C++</a>
   
   
 
@@ -763,9 +746,11 @@
     <div class="post-meta">
       <i class="iconfont icon-tags"></i>
       
-        <a href="/tags/Python/" class="print-no-link">#Python</a>
+        <a href="/tags/C/" class="print-no-link">#C</a>
       
-        <a href="/tags/Flask/" class="print-no-link">#Flask</a>
+        <a href="/tags/C/" class="print-no-link">#C++</a>
+      
+        <a href="/tags/Linux/" class="print-no-link">#Linux</a>
       
     </div>
   
@@ -777,8 +762,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>Python-Flask开发笔记</div>
-      <div>https://vendestine.com/flask-note</div>
+      <div>零声 高性能网络设计专栏 2.1网络编程</div>
+      <div>https://vendestine.com/0vocie-linux-2.2</div>
     </div>
     <div class="license-meta">
       
@@ -790,7 +775,7 @@
       
         <div class="license-meta-item license-meta-date">
           <div>Posted on</div>
-          <div>November 24, 2022</div>
+          <div>May 25, 2024</div>
         </div>
       
       
@@ -822,9 +807,9 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/leetcode-1-100" title="LeetCode快速刷题">
+                      <a href="/0vocie-linux-2.1" title="零声 高性能网络设计专栏 2.1网络编程">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">LeetCode快速刷题</span>
+                        <span class="hidden-mobile">零声 高性能网络设计专栏 2.1网络编程</span>
                         <span class="visible-mobile">Previous</span>
                       </a>
                     
@@ -832,8 +817,8 @@
                   <article class="post-next col-6">
                     
                     
-                      <a href="/django-note" title="Python-Django开发笔记">
-                        <span class="hidden-mobile">Python-Django开发笔记</span>
+                      <a href="/c++-heima-note-level3" title="C++黑马教程阶段3 学习笔记">
+                        <span class="hidden-mobile">C++黑马教程阶段3 学习笔记</span>
                         <span class="visible-mobile">Next</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
